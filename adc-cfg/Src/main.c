@@ -123,7 +123,7 @@ int main(void)
   {
 
   /* USER CODE END WHILE */
-	  HAL_Delay(200); //quangnt test git
+	  HAL_Delay(200);
   /* USER CODE BEGIN 3 */
 	  HAL_ADC_Start_IT(&hadc);
 	  counter = __HAL_TIM_GET_COUNTER(&htim1);
