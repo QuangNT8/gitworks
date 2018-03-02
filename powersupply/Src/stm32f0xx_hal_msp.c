@@ -107,6 +107,111 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
 
 }
 
+void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  if(hcomp->Instance==COMP1)
+  {
+  /* USER CODE BEGIN COMP1_MspInit 0 */
+
+  /* USER CODE END COMP1_MspInit 0 */
+  
+    /**COMP1 GPIO Configuration    
+    PA1     ------> COMP1_INP
+    PA6     ------> COMP1_OUT 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_1;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_6;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_COMP1;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN COMP1_MspInit 1 */
+
+  /* USER CODE END COMP1_MspInit 1 */
+  }
+
+}
+
+void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
+{
+
+  if(hcomp->Instance==COMP1)
+  {
+  /* USER CODE BEGIN COMP1_MspDeInit 0 */
+
+  /* USER CODE END COMP1_MspDeInit 0 */
+  
+    /**COMP1 GPIO Configuration    
+    PA1     ------> COMP1_INP
+    PA6     ------> COMP1_OUT 
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_1|GPIO_PIN_6);
+
+  /* USER CODE BEGIN COMP1_MspDeInit 1 */
+
+  /* USER CODE END COMP1_MspDeInit 1 */
+  }
+
+}
+
+void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  if(hdac->Instance==DAC)
+  {
+  /* USER CODE BEGIN DAC_MspInit 0 */
+
+  /* USER CODE END DAC_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_DAC1_CLK_ENABLE();
+  
+    /**DAC1 GPIO Configuration    
+    PA4     ------> DAC1_OUT1 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN DAC_MspInit 1 */
+
+  /* USER CODE END DAC_MspInit 1 */
+  }
+
+}
+
+void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
+{
+
+  if(hdac->Instance==DAC)
+  {
+  /* USER CODE BEGIN DAC_MspDeInit 0 */
+
+  /* USER CODE END DAC_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_DAC1_CLK_DISABLE();
+  
+    /**DAC1 GPIO Configuration    
+    PA4     ------> DAC1_OUT1 
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
+
+  /* USER CODE BEGIN DAC_MspDeInit 1 */
+
+  /* USER CODE END DAC_MspDeInit 1 */
+  }
+
+}
+
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 {
 

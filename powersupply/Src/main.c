@@ -46,6 +46,10 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
 
+COMP_HandleTypeDef hcomp1;
+
+DAC_HandleTypeDef hdac1;
+
 TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart1;
@@ -63,7 +67,9 @@ static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
-                                    
+static void MX_COMP1_Init(void);
+static void MX_DAC1_Init(void);   
+                               
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
 
@@ -110,6 +116,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 int main(void)
 {
 	uint8_t count=0;
+	uint16_t daccount=0;
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -140,7 +147,13 @@ int main(void)
   /* USER CODE END 2 */
 //  HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+  MX_COMP1_Init();
+  MX_DAC1_Init();
+  HAL_COMP_Start(&hcomp1);
+  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,300);
+  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -152,7 +165,9 @@ int main(void)
   /* USER CODE BEGIN 3 */
 	  HAL_ADC_Start_IT(&hadc);
 	  counter = __HAL_TIM_GET_COUNTER(&htim1);//test
-
+	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,daccount);
+	  daccount=daccount+100;
+	  if(daccount>=0xfff)  daccount = 100;
   }
   /* USER CODE END 3 */
 
@@ -255,7 +270,50 @@ static void MX_ADC_Init(void)
   }
 
 }
+/* COMP1 init function */
+static void MX_COMP1_Init(void)
+{
 
+  hcomp1.Instance = COMP1;
+  hcomp1.Init.InvertingInput = COMP_INVERTINGINPUT_1_4VREFINT;
+  hcomp1.Init.NonInvertingInput = COMP_NONINVERTINGINPUT_DAC1SWITCHCLOSED;
+  hcomp1.Init.Output = COMP_OUTPUT_NONE;
+  hcomp1.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
+  hcomp1.Init.Hysteresis = COMP_HYSTERESIS_NONE;
+  hcomp1.Init.Mode = COMP_MODE_HIGHSPEED;
+  hcomp1.Init.WindowMode = COMP_WINDOWMODE_DISABLE;
+  hcomp1.Init.TriggerMode = COMP_TRIGGERMODE_NONE;
+  if (HAL_COMP_Init(&hcomp1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
+
+/* DAC1 init function */
+static void MX_DAC1_Init(void)
+{
+
+  DAC_ChannelConfTypeDef sConfig;
+
+    /**DAC Initialization
+    */
+  hdac1.Instance = DAC;
+  if (HAL_DAC_Init(&hdac1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**DAC channel OUT1 config
+    */
+  sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
 /* TIM1 init function */
 static void MX_TIM1_Init(void)
 {
