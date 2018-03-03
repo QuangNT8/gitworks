@@ -151,7 +151,7 @@ int main(void)
   MX_DAC1_Init();
   HAL_COMP_Start(&hcomp1);
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,300);
+  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,380);
   HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
 
   /* Infinite loop */
@@ -277,8 +277,8 @@ static void MX_COMP1_Init(void)
   hcomp1.Instance = COMP1;
   hcomp1.Init.InvertingInput = COMP_INVERTINGINPUT_1_4VREFINT;
   hcomp1.Init.NonInvertingInput = COMP_NONINVERTINGINPUT_DAC1SWITCHCLOSED;
-  hcomp1.Init.Output = COMP_OUTPUT_NONE;
-  hcomp1.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
+  hcomp1.Init.Output = COMP_OUTPUT_TIM1OCREFCLR;
+  hcomp1.Init.OutputPol = COMP_OUTPUTPOL_INVERTED;
   hcomp1.Init.Hysteresis = COMP_HYSTERESIS_NONE;
   hcomp1.Init.Mode = COMP_MODE_HIGHSPEED;
   hcomp1.Init.WindowMode = COMP_WINDOWMODE_DISABLE;
@@ -319,6 +319,7 @@ static void MX_TIM1_Init(void)
 {
 
   TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_ClearInputConfigTypeDef sClearInputConfig;
   TIM_MasterConfigTypeDef sMasterConfig;
   TIM_OC_InitTypeDef sConfigOC;
   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig;
@@ -346,6 +347,13 @@ static void MX_TIM1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
+  sClearInputConfig.ClearInputState = ENABLE;
+  sClearInputConfig.ClearInputSource = TIM_CLEARINPUTSOURCE_OCREFCLR;
+  if (HAL_TIM_ConfigOCrefClear(&htim1, &sClearInputConfig, TIM_CHANNEL_1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
@@ -369,9 +377,9 @@ static void MX_TIM1_Init(void)
   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
   sBreakDeadTimeConfig.DeadTime = 0;
-  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+  sBreakDeadTimeConfig.BreakState = TIM_BREAK_ENABLE;
   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
-  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_ENABLE;
   if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -416,6 +424,7 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
