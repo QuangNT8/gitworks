@@ -59,6 +59,20 @@ UART_HandleTypeDef huart1;
 uint16_t ADC_raw;
 uint16_t vdd;
 uint32_t counter;
+
+const float Kp = 1;
+const float Ki = 1;
+const float Kd = 0.002;
+
+float Set_Point = 500;
+float iMax = 200;
+float iMin = -200;
+float i_Temp=0;
+float d_Temp=0;
+
+float pidout;
+float PWM_Temp = 0;
+float pre_val=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,7 +83,9 @@ static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_COMP1_Init(void);
 static void MX_DAC1_Init(void);   
-                               
+float mypid(float SetPoint, float input);
+
+
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
 
@@ -117,6 +133,7 @@ int main(void)
 {
 	uint8_t count=0;
 	uint16_t daccount=0;
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -160,17 +177,53 @@ int main(void)
   {
 
   /* USER CODE END WHILE */
-	 printf("%d, adc value = %lu\r\n",count++,counter);
-	  HAL_Delay(200);
+//	  printf("%d, adc value = %lu\r\n",count++,counter);
+	  HAL_Delay(10);
   /* USER CODE BEGIN 3 */
 	  HAL_ADC_Start_IT(&hadc);
-	  counter = __HAL_TIM_GET_COUNTER(&htim1);//test
-	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,daccount);
-	  daccount=daccount+100;
-	  if(daccount>=0xfff)  daccount = 100;
+//	  counter = __HAL_TIM_GET_COUNTER(&htim1);//test
+	  pidout = mypid(1500,(float)ADC_raw);
+//	  if(pidout<0) pidout = pre_val;
+	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,pidout);
+//	  pre_val = pidout;
+//	  daccount=daccount+100;
+//	  if(daccount>=0xfff)  daccount = 100;
   }
   /* USER CODE END 3 */
 
+}
+
+float mypid(float SetPoint, float input)
+{
+	float Err_Value;
+	float P_Term;
+	float I_Term;
+	float D_Term;
+	float result;
+
+//	input = (float)ADC_raw;
+	Err_Value = SetPoint - input;
+	P_Term = Kp * Err_Value;
+	i_Temp = i_Temp + Err_Value;
+	if (i_Temp > iMax)
+	{
+		i_Temp = iMax;
+	}
+	else if (i_Temp < iMin)
+	{
+		i_Temp = iMin;
+	}
+	I_Term = Ki * i_Temp;
+	D_Term = Kd * (d_Temp - Err_Value);
+	d_Temp = Err_Value;
+	result = (P_Term + I_Term + D_Term);
+	// PWM overflow prevention
+	if (result < 0)
+	{
+		result = PWM_Temp;
+	}
+	PWM_Temp = result;
+	return result;
 }
 
 /**
