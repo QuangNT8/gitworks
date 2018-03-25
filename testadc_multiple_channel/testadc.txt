@@ -47,7 +47,7 @@ Set all free pins as analog (to optimize the power consumption) : No
 
 Toolchains Settings : 
 Compiler Optimizations : Balanced Size/Speed
-test gitlab
+test gitlab quangnt
 
 
 
