@@ -1,0 +1,55 @@
+Configuration	testadc
+STM32CubeMX 	4.24.0
+Date	03/25/2018
+MCU	STM32F051R8Tx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC	IN13	ADC_IN13	PC3
+ADC	IN14	ADC_IN14	PC4
+ADC	IN15	ADC_IN15	PC5
+SYS	Serial_Wire	SYS_SWCLK	PA14
+SYS	Serial_Wire	SYS_SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM2	Internal Clock	TIM2_VS_ClockSourceINT	VP_TIM2_VS_ClockSourceINT
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+11	PC3	ADC_IN13	
+14	PA0	GPIO_EXTI0	B1 [Blue PushButton]
+24	PC4	ADC_IN14	
+25	PC5	ADC_IN15	
+39	PC8	GPIO_Output	LD4 [Blue Led]
+40	PC9	GPIO_Output	
+46	PA13	SYS_SWDIO	SWDIO
+49	PA14	SYS_SWCLK	SWCLK
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : testadc
+Project Folder : D:\STM32\workspace\testadc\testadc
+Toolchain / IDE : SW4STM32
+Firmware Package Name and Version : STM32Cube FW_F0 V1.9.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+
