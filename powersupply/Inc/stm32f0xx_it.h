@@ -49,6 +49,7 @@
 
 void SysTick_Handler(void);
 void ADC1_COMP_IRQHandler(void);
+void TIM2_IRQHandler(void);
 
 #ifdef __cplusplus
 }

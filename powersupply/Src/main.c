@@ -40,7 +40,10 @@
 #include "stm32f0xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+#define VIN 	(float)24
+#define VOUT 	(float)48
+#define constan_pwm_duty (float)(1-(VIN/VOUT))*480
+#define adcval_200V 	1485
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -51,20 +54,20 @@ COMP_HandleTypeDef hcomp1;
 DAC_HandleTypeDef hdac1;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint16_t ADC_raw;
 uint16_t vdd;
-uint32_t counter;
+uint32_t counter,sample_counter=0,adc_filter=0,ADC_raw=0;
+uint32_t filter_reg=0;
+const float Kp = 0.01;
+const float Ki = 0.001;
+const float Kd = 0.1;
 
-const float Kp = 1;
-const float Ki = 1;
-const float Kd = 0.002;
-
-float Set_Point = 500;
+float Set_Point = 550; //this value for 48V output
 float iMax = 200;
 float iMin = -200;
 float i_Temp=0;
@@ -73,6 +76,7 @@ float d_Temp=0;
 float pidout;
 float PWM_Temp = 0;
 float pre_val=0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,9 +84,11 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_COMP1_Init(void);
 static void MX_DAC1_Init(void);   
+uint16_t adcfilter(uint16_t filterinput);
 float mypid(float SetPoint, float input);
 
 
@@ -113,13 +119,68 @@ return len;
 
 /* USER CODE END PFP */
 
+
 /* USER CODE BEGIN 0 */
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim->Instance==TIM2)
+	{
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//		 pidout = mypid(Set_Point,(float)ADC_raw);
+//		 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pidout);
+//		HAL_ADC_Start_IT(&hadc);
+//		pidout = mypid(Set_Point,(float)ADC_raw);
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pidout);
+	}
+}
+
+uint32_t adc_filter_reg = 0;
+int32_t isum = 0;
+uint16_t KP_UKI = 2000;
+uint16_t KI_UKI = 0.1;
+int32_t duty_uki;
+int32_t adcVal;
+#define FSHIFT 4
+#define SETPOINT 700
+#define DUTY 10
+#define WINDOW (240*1024)
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOC))
 	{
-		ADC_raw = HAL_ADC_GetValue(hadc);
-		vdd = ADC_raw/2;
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+		adc_filter_reg = adc_filter_reg - (adc_filter_reg>>FSHIFT) + HAL_ADC_GetValue(hadc);
+		adcVal = (adc_filter_reg >> FSHIFT);
+		if(adcVal<100)
+		{
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
+			return;
+		}
+		int32_t e = SETPOINT - adcVal;
+
+		if (e == 0) isum = 0;
+		else
+		{
+			isum += KI_UKI*e;
+			if (isum > WINDOW) isum = WINDOW;
+			if (isum < -WINDOW) isum = -WINDOW;
+		}
+
+		duty_uki = ((KP_UKI * e + isum)>>10)  + DUTY;
+
+		if (duty_uki > 400) duty_uki = 400;
+		if (duty_uki < 0 ) duty_uki = 0;
+
+		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_uki);
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,240);
+
+		//adc_filter = HAL_ADC_GetValue(hadc);
+		//ADC_raw = adcfilter((uint16_t)adc_filter);
+		//pidout = mypid(Set_Point,(float)ADC_raw);
+		//__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pidout);
 	}
 }
 /* USER CODE END 0 */
@@ -158,39 +219,61 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC_Init();
   MX_TIM1_Init();
+  MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start_IT(&hadc);
   /* USER CODE END 2 */
-//  HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
   MX_COMP1_Init();
   MX_DAC1_Init();
   HAL_COMP_Start(&hcomp1);
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,380);
+  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
   HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
 
+  HAL_TIM_Base_Start_IT(&htim2);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+//  while(1);
+//  HAL_TIM_Base_Stop_IT(&htim2);
+//  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
   while (1)
   {
-
+//	  if(adcVal<100)
   /* USER CODE END WHILE */
 //	  printf("%d, adc value = %lu\r\n",count++,counter);
-	  HAL_Delay(10);
+//	  HAL_Delay(10);
   /* USER CODE BEGIN 3 */
-	  HAL_ADC_Start_IT(&hadc);
+	  counter = __HAL_TIM_GET_COUNTER(&htim2);
+//	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//	  HAL_ADC_Start_IT(&hadc);
 //	  counter = __HAL_TIM_GET_COUNTER(&htim1);//test
-	  pidout = mypid(1500,(float)ADC_raw);
+//	  pidout = mypid(1800,(float)ADC_raw);
 //	  if(pidout<0) pidout = pre_val;
-	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,pidout);
+//	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,pidout);
+//	  pidout = mypid(Set_Point,(float)ADC_raw);
+//	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pidout);
+	  HAL_Delay(1);
+//	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pidout);
 //	  pre_val = pidout;
 //	  daccount=daccount+100;
 //	  if(daccount>=0xfff)  daccount = 100;
   }
   /* USER CODE END 3 */
 
+}
+
+uint16_t adcfilter(uint16_t filterinput)
+{
+	uint32_t filterShift=2;
+	uint16_t filter_input;
+	uint16_t filter_output;
+
+	filter_reg = filter_reg-(filter_reg>>filterShift)+filterinput;
+	filter_output = filter_reg>>filterShift;
+
+	return filter_output;
 }
 
 float mypid(float SetPoint, float input)
@@ -204,7 +287,8 @@ float mypid(float SetPoint, float input)
 //	input = (float)ADC_raw;
 	Err_Value = SetPoint - input;
 	P_Term = Kp * Err_Value;
-	i_Temp = i_Temp + Err_Value;
+//	i_Temp = i_Temp + Err_Value;
+	i_Temp = i_Temp + Ki*Err_Value;
 	if (i_Temp > iMax)
 	{
 		i_Temp = iMax;
@@ -213,14 +297,18 @@ float mypid(float SetPoint, float input)
 	{
 		i_Temp = iMin;
 	}
-	I_Term = Ki * i_Temp;
-	D_Term = Kd * (d_Temp - Err_Value);
+	I_Term = i_Temp;
+	D_Term = 0;//Kd * (d_Temp - Err_Value);
 	d_Temp = Err_Value;
-	result = (P_Term + I_Term + D_Term);
+	result = (P_Term + I_Term + D_Term)+constan_pwm_duty;
 	// PWM overflow prevention
-	if (result < 0)
+	if (result<0)
 	{
-		result = PWM_Temp;
+		result=0;
+	}
+	else if (result>300)
+	{
+		result = 300;
 	}
 	PWM_Temp = result;
 	return result;
@@ -303,8 +391,8 @@ static void MX_ADC_Init(void)
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
   hadc.Init.ContinuousConvMode = DISABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
-  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T2_TRGO;
+  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc.Init.DMAContinuousRequests = DISABLE;
   hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   if (HAL_ADC_Init(&hadc) != HAL_OK)
@@ -441,7 +529,38 @@ static void MX_TIM1_Init(void)
   HAL_TIM_MspPostInit(&htim1);
 
 }
+/* TIM2 init function */
+static void MX_TIM2_Init(void)
+{
 
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 480;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
 /* USART1 init function */
 static void MX_USART1_UART_Init(void)
 {
@@ -481,7 +600,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, LD4_Pin|LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, LD4_Pin|GPIO_PIN_9, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -490,11 +609,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LD4_Pin LD3_Pin */
-  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin;
+  GPIO_InitStruct.Pin = LD4_Pin|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
 
 }
 
