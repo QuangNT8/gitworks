@@ -63,8 +63,10 @@ UART_HandleTypeDef huart1;
 uint16_t vdd;
 uint32_t counter,sample_counter=0,adc_filter=0,ADC_raw=0;
 uint32_t voltage_filter_temp=0;
+uint32_t voltage_input_filter_temp=0;
 uint32_t current_filter_temp=0;
 uint32_t voltage_sample;
+uint32_t voltage_input_sample;
 uint32_t current_sample;
 const float Kp = 0.01;
 const float Ki = 0.001;
@@ -80,7 +82,7 @@ float pidout;
 float PWM_Temp = 0;
 float pre_val=0;
 
-uint16_t ADC_RAW[2];
+uint16_t ADC_RAW[3];
 uint8_t adcindex=0;
 uint8_t count_pid=0;
 int32_t iref=0;
@@ -96,6 +98,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_COMP1_Init(void);
 static void MX_DAC1_Init(void);   
 uint16_t voltage_filter(uint32_t filterShift,uint16_t filterinput);
+uint16_t voltage_input_filter(uint32_t filterShift,uint16_t filterinput);
 uint16_t current_filter(uint32_t filterShift,uint16_t filterinput);
 float mypid(float SetPoint, float input);
 int32_t pidcal_current(int32_t setpointin, int32_t signalin);
@@ -206,57 +209,61 @@ int32_t vSum = 0;
 int32_t iSum = 0;
 
 uint16_t iRef = 0;
-uint16_t vRef = 568;
-#define VSHIFT 11
+uint16_t vRef = 450;
+
+uint16_t vKP = 10;
+uint16_t vKI = 70;
+
+uint16_t iKP = 40;
+uint16_t iKI = 10;
+
+//#define VSHIFT 11
 #define ISHIFT 10
 
-#define VWINDOW (4096 << VSHIFT)
+#define VWINDOW (1<<18)
 #define IWINDOW (240 << ISHIFT)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	int32_t duty = 0;
 
-	uint16_t vKP = 800;
-	uint16_t vKI = 40;
 
-	uint16_t iKP = 10;
-	uint16_t iKI = 2;
 
 	if(htim->Instance==TIM2) //10kHz
 	{
-		if (loopCounter++ == 10) // 1kHZ
+		if (loopCounter++ == 20) // 1kHZ
 		{
 			loopCounter = 0;
-			int32_t e = vRef - voltage_sample;
-
-			/*voltage PID here*/
-			//if (e == 0) vSum = 0;
-			vSum += vKI * e;
-
+			int32_t ev = vRef - voltage_sample;
+			vSum += vKI * ev;
 			if (vSum > VWINDOW) vSum = VWINDOW;
 			else if (vSum < - VWINDOW) vSum = -VWINDOW;
-			int32_t out = ((vKP*e + vSum) >> VSHIFT);
+			int32_t out = ((vKP*ev + vSum)*voltage_input_sample) >> 16;
 
-			if (out > 4096) iRef = 4096;
+			if (out > 4096)
+			{
+				iRef = 4096;
+				out = 4096;
+			}
 			else if (out < 0 ) iRef = 0;
 			else iRef = out;
 		}
 
 		/*current PID here*/
 
-		int32_t e = iRef - current_sample;
+		int32_t ei = iRef - current_sample;
 
 		//if (e == 0) iSum = 0;
-		iSum += iKI * e;
+		iSum += iKI * ei;
 
 		if (iSum > IWINDOW ) iSum = IWINDOW;
 		else if (iSum < -IWINDOW) iSum = -IWINDOW;
 
-		duty = ((iKP*e + iSum) >> ISHIFT) + 240;
+		duty = ((iKP*ei + iSum) >> ISHIFT);
 
 		if (duty < 0) duty = 0;
-		if (duty > 430) duty = 430;
+		if (duty > 300) duty = 300;
+//		duty = 300;
 
 		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty); 		//apply duty
 		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,duty/2); 	//trigger source for ADC
@@ -329,7 +336,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 		adcindex++;
 
 		voltage_sample = voltage_filter(5,ADC_RAW[0]);
-		current_sample = current_filter(2,ADC_RAW[1]);
+		current_sample = current_filter(3,ADC_RAW[1]);
+		voltage_input_sample = voltage_input_filter(5,ADC_RAW[2]);
 //		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 	}
 
@@ -422,7 +430,15 @@ uint16_t voltage_filter(uint32_t filterShift,uint16_t filterinput)
 
 	return filter_output;
 }
+uint16_t voltage_input_filter(uint32_t filterShift,uint16_t filterinput)
+{
+	uint16_t filter_output;
 
+	voltage_input_filter_temp = voltage_input_filter_temp-(voltage_input_filter_temp>>filterShift)+filterinput;
+	filter_output = voltage_input_filter_temp>>filterShift;
+
+	return filter_output;
+}
 uint16_t current_filter(uint32_t filterShift,uint16_t filterinput)
 {
 	uint16_t filter_output;
@@ -556,11 +572,19 @@ static void MX_ADC_Init(void)
 	    _Error_Handler(__FILE__, __LINE__);
 	  }
 
+	   /**Configure for the selected ADC regular channel to be converted.
+	    */
+	  sConfig.Channel = ADC_CHANNEL_13;
+	  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+	  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+	  {
+	    _Error_Handler(__FILE__, __LINE__);
+	  }
+
 	    /**Configure for the selected ADC regular channel to be converted.
 	    */
 	  sConfig.Channel = ADC_CHANNEL_14;
-	  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-	  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
 	  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
 	  {
 	    _Error_Handler(__FILE__, __LINE__);
@@ -573,6 +597,7 @@ static void MX_ADC_Init(void)
 	  {
 	    _Error_Handler(__FILE__, __LINE__);
 	  }
+
 
 }
 /* COMP1 init function */
