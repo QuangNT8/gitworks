@@ -40,7 +40,10 @@
 #include "stm32f0xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+#define VIN 	(float)24
+#define VOUT 	(float)48
+#define constan_pwm_duty (float)(1-(VIN/VOUT))*480
+#define adcval_200V 	1485
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -51,20 +54,25 @@ COMP_HandleTypeDef hcomp1;
 DAC_HandleTypeDef hdac1;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint16_t ADC_raw;
 uint16_t vdd;
-uint32_t counter;
+uint32_t counter,sample_counter=0,adc_filter=0,ADC_raw=0;
+uint32_t voltage_filter_temp=0;
+uint32_t voltage_input_filter_temp=0;
+uint32_t current_filter_temp=0;
+uint32_t voltage_sample;
+uint32_t voltage_input_sample;
+uint32_t current_sample;
+const float Kp = 0.01;
+const float Ki = 0.001;
+const float Kd = 0.1;
 
-const float Kp = 1;
-const float Ki = 1;
-const float Kd = 0.002;
-
-float Set_Point = 500;
+float Set_Point = 550; //this value for 48V output
 float iMax = 200;
 float iMin = -200;
 float i_Temp=0;
@@ -73,6 +81,11 @@ float d_Temp=0;
 float pidout;
 float PWM_Temp = 0;
 float pre_val=0;
+
+uint16_t ADC_RAW[3];
+uint8_t adcindex=0;
+uint8_t count_pid=0;
+int32_t iref=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,10 +93,16 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_COMP1_Init(void);
 static void MX_DAC1_Init(void);   
+uint16_t voltage_filter(uint32_t filterShift,uint16_t filterinput);
+uint16_t voltage_input_filter(uint32_t filterShift,uint16_t filterinput);
+uint16_t current_filter(uint32_t filterShift,uint16_t filterinput);
 float mypid(float SetPoint, float input);
+int32_t pidcal_current(int32_t setpointin, int32_t signalin);
+int32_t pidcal_voltage(int32_t setpointin, int32_t signalin);
 
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -112,14 +131,220 @@ return len;
 /* Private function prototypes -----------------------------------------------*/
 
 /* USER CODE END PFP */
+uint32_t adc_filter_reg = 0;
 
-/* USER CODE BEGIN 0 */
+
+int32_t adcVal;
+
+//#define SETPOINTCUR 100
+#define DUTYCONCUR 120
+#define WINDOWCUR 2400000
+
+#define SETPOINTVOL 600
+#define DUTYCONVOL 0
+
+#define WINDOWVOL 16000000
+
+//#define WINDOWVOL 240000
+
+int32_t isum_CUR = 0;
+uint16_t KP_CUR = 700;
+uint16_t KI_CUR = 30;
+
+//int32_t isum_VOL = 0;
+//uint16_t KP_VOL = 1000;
+//uint16_t KI_VOL = 600;
+
+int32_t isum_VOL = 0;
+int32_t KP_VOL = 500000;
+int32_t KI_VOL = 0;
+
+//#define QUANG
+
+#ifdef QUANG
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	int32_t duty_uki;
+	int32_t adctrigger;
+
+	if(htim->Instance==TIM2)
+	{
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,240);
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,100);
+//		duty_uki = 100;
+//		duty_off = (duty_uki)/2;
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_uki);
+//		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,duty_off);
+		if(voltage_sample<100)
+		{
+//			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,100);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,1);
+//			HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+		}
+		else
+		{
+			count_pid++;
+			if(count_pid>=10)
+			{
+				count_pid = 0;
+				iref = pidcal_voltage(SETPOINTVOL,voltage_sample);
+				//HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+			}
+			duty_uki = pidcal_current(iref,current_sample);
+//			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,100);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_uki);
+			adctrigger = (duty_uki)/2;
+//			duty_off = duty_off + duty_uki;
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,adctrigger);
+		}
+	}
+}
+#else
+
+uint16_t loopCounter = 0;
+
+int32_t vSum = 0;
+int32_t iSum = 0;
+
+uint16_t iRef = 0;
+uint16_t vRef = 450;
+
+uint16_t vKP = 10;
+uint16_t vKI = 70;
+
+uint16_t iKP = 40;
+uint16_t iKI = 10;
+
+//#define VSHIFT 11
+#define ISHIFT 10
+
+#define VWINDOW (1<<18)
+#define IWINDOW (240 << ISHIFT)
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	int32_t duty = 0;
+
+
+
+	if(htim->Instance==TIM2) //10kHz
+	{
+		if (loopCounter++ == 20) // 1kHZ
+		{
+			loopCounter = 0;
+			int32_t ev = vRef - voltage_sample;
+			vSum += vKI * ev;
+			if (vSum > VWINDOW) vSum = VWINDOW;
+			else if (vSum < - VWINDOW) vSum = -VWINDOW;
+			int32_t out = ((vKP*ev + vSum)*voltage_input_sample) >> 16;
+
+			if (out > 4096)
+			{
+				iRef = 4096;
+				out = 4096;
+			}
+			else if (out < 0 ) iRef = 0;
+			else iRef = out;
+		}
+
+		/*current PID here*/
+
+		int32_t ei = iRef - current_sample;
+
+		//if (e == 0) iSum = 0;
+		iSum += iKI * ei;
+
+		if (iSum > IWINDOW ) iSum = IWINDOW;
+		else if (iSum < -IWINDOW) iSum = -IWINDOW;
+
+		duty = ((iKP*ei + iSum) >> ISHIFT);
+
+		if (duty < 0) duty = 0;
+		if (duty > 300) duty = 300;
+//		duty = 300;
+
+		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty); 		//apply duty
+		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,duty/2); 	//trigger source for ADC
+	}
+}
+
+#endif
+
+
+
+int32_t pidcal_current(int32_t setpointin, int32_t signalin)
+{
+	int32_t duty_out=0;
+	int32_t duty_uki;
+
+	int32_t e = setpointin - signalin;
+
+	if (e == 0) isum_CUR = 0;
+	else
+	{
+		isum_CUR += KI_CUR*e;
+		if (isum_CUR > WINDOWCUR) isum_CUR = WINDOWCUR;
+		if (isum_CUR < -WINDOWCUR) isum_CUR = -WINDOWCUR;
+	}
+
+	duty_uki = ((KP_CUR * e + isum_CUR)>>12) ;// + DUTYCONCUR;
+
+	if (duty_uki > 430) duty_uki = 430;
+	if (duty_uki < 0 ) duty_uki = 0;
+
+	duty_out = duty_uki;
+
+	return duty_out;
+}
+
+
+
+
+int32_t pidcal_voltage(int32_t setpointin, int32_t signalin)
+{
+	int32_t duty_out=0;
+	int32_t duty_uki;
+
+	int32_t e = setpointin - signalin;
+
+	if (e == 0) isum_VOL = 0;
+	else
+	{
+		isum_VOL += KI_VOL*e;
+		if (isum_VOL > WINDOWVOL) isum_VOL = WINDOWVOL;
+		if (isum_VOL < -WINDOWVOL) isum_VOL = -WINDOWVOL;
+	}
+
+	duty_uki = ((KP_VOL * e + isum_VOL)>>12)  + DUTYCONVOL;
+
+	if (duty_uki > 4096) duty_uki = 4096;
+	if (duty_uki < 0 ) duty_uki = 0;
+
+	duty_out = duty_uki;
+
+	return duty_out;
+}
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOC))
 	{
-		ADC_raw = HAL_ADC_GetValue(hadc);
-		vdd = ADC_raw/2;
+		ADC_RAW[adcindex]=HAL_ADC_GetValue(hadc);
+		adcindex++;
+
+		voltage_sample = voltage_filter(5,ADC_RAW[0]);
+		current_sample = current_filter(3,ADC_RAW[1]);
+		voltage_input_sample = voltage_input_filter(5,ADC_RAW[2]);
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+	}
+
+	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOS))
+	{
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+		adcindex=0;
 	}
 }
 /* USER CODE END 0 */
@@ -133,7 +358,7 @@ int main(void)
 {
 	uint8_t count=0;
 	uint16_t daccount=0;
-
+	uint32_t duty;
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -158,39 +383,70 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC_Init();
   MX_TIM1_Init();
+  MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start_IT(&hadc);
   /* USER CODE END 2 */
-//  HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
   MX_COMP1_Init();
   MX_DAC1_Init();
   HAL_COMP_Start(&hcomp1);
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,380);
+  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
   HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
 
+  HAL_TIM_Base_Start_IT(&htim2);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+//  while(1);
+//  HAL_TIM_Base_Stop_IT(&htim2);
+//  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
   while (1)
   {
 
+//	  if(adcVal<100)
   /* USER CODE END WHILE */
 //	  printf("%d, adc value = %lu\r\n",count++,counter);
-	  HAL_Delay(10);
+//	  HAL_Delay(10);
   /* USER CODE BEGIN 3 */
-	  HAL_ADC_Start_IT(&hadc);
-//	  counter = __HAL_TIM_GET_COUNTER(&htim1);//test
-	  pidout = mypid(1500,(float)ADC_raw);
-//	  if(pidout<0) pidout = pre_val;
-	  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,pidout);
+//	  counter = __HAL_TIM_GET_COUNTER(&htim2);
+//	  HAL_Delay(1);
+//	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_uki);
 //	  pre_val = pidout;
 //	  daccount=daccount+100;
 //	  if(daccount>=0xfff)  daccount = 100;
   }
   /* USER CODE END 3 */
 
+}
+
+uint16_t voltage_filter(uint32_t filterShift,uint16_t filterinput)
+{
+	uint16_t filter_output;
+
+	voltage_filter_temp = voltage_filter_temp-(voltage_filter_temp>>filterShift)+filterinput;
+	filter_output = voltage_filter_temp>>filterShift;
+
+	return filter_output;
+}
+uint16_t voltage_input_filter(uint32_t filterShift,uint16_t filterinput)
+{
+	uint16_t filter_output;
+
+	voltage_input_filter_temp = voltage_input_filter_temp-(voltage_input_filter_temp>>filterShift)+filterinput;
+	filter_output = voltage_input_filter_temp>>filterShift;
+
+	return filter_output;
+}
+uint16_t current_filter(uint32_t filterShift,uint16_t filterinput)
+{
+	uint16_t filter_output;
+
+	current_filter_temp = current_filter_temp-(current_filter_temp>>filterShift)+filterinput;
+	filter_output = current_filter_temp>>filterShift;
+
+	return filter_output;
 }
 
 float mypid(float SetPoint, float input)
@@ -204,7 +460,8 @@ float mypid(float SetPoint, float input)
 //	input = (float)ADC_raw;
 	Err_Value = SetPoint - input;
 	P_Term = Kp * Err_Value;
-	i_Temp = i_Temp + Err_Value;
+//	i_Temp = i_Temp + Err_Value;
+	i_Temp = i_Temp + Ki*Err_Value;
 	if (i_Temp > iMax)
 	{
 		i_Temp = iMax;
@@ -213,14 +470,18 @@ float mypid(float SetPoint, float input)
 	{
 		i_Temp = iMin;
 	}
-	I_Term = Ki * i_Temp;
-	D_Term = Kd * (d_Temp - Err_Value);
+	I_Term = i_Temp;
+	D_Term = 0;//Kd * (d_Temp - Err_Value);
 	d_Temp = Err_Value;
-	result = (P_Term + I_Term + D_Term);
+	result = (P_Term + I_Term + D_Term)+constan_pwm_duty;
 	// PWM overflow prevention
-	if (result < 0)
+	if (result<0)
 	{
-		result = PWM_Temp;
+		result=0;
+	}
+	else if (result>300)
+	{
+		result = 300;
 	}
 	PWM_Temp = result;
 	return result;
@@ -288,39 +549,55 @@ void SystemClock_Config(void)
 /* ADC init function */
 static void MX_ADC_Init(void)
 {
+	 ADC_ChannelConfTypeDef sConfig;
 
-  ADC_ChannelConfTypeDef sConfig;
+	    /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+	    */
+	  hadc.Instance = ADC1;
+	  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+	  hadc.Init.Resolution = ADC_RESOLUTION_12B;
+	  hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+	  hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
+	  hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+	  hadc.Init.LowPowerAutoWait = DISABLE;
+	  hadc.Init.LowPowerAutoPowerOff = DISABLE;
+	  hadc.Init.ContinuousConvMode = DISABLE;
+	  hadc.Init.DiscontinuousConvMode = ENABLE;
+	  hadc.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T1_TRGO;
+	  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+	  hadc.Init.DMAContinuousRequests = DISABLE;
+	  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+	  if (HAL_ADC_Init(&hadc) != HAL_OK)
+	  {
+	    _Error_Handler(__FILE__, __LINE__);
+	  }
 
-    /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
-    */
-  hadc.Instance = ADC1;
-  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
-  hadc.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
-  hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  hadc.Init.LowPowerAutoWait = DISABLE;
-  hadc.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc.Init.ContinuousConvMode = DISABLE;
-  hadc.Init.DiscontinuousConvMode = DISABLE;
-  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc.Init.DMAContinuousRequests = DISABLE;
-  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-  if (HAL_ADC_Init(&hadc) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+	   /**Configure for the selected ADC regular channel to be converted.
+	    */
+	  sConfig.Channel = ADC_CHANNEL_13;
+	  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+	  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+	  {
+	    _Error_Handler(__FILE__, __LINE__);
+	  }
 
-    /**Configure for the selected ADC regular channel to be converted. 
-    */
-  sConfig.Channel = ADC_CHANNEL_15;
-  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+	    /**Configure for the selected ADC regular channel to be converted.
+	    */
+	  sConfig.Channel = ADC_CHANNEL_14;
+	  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+	  {
+	    _Error_Handler(__FILE__, __LINE__);
+	  }
+
+	    /**Configure for the selected ADC regular channel to be converted.
+	    */
+	  sConfig.Channel = ADC_CHANNEL_15;
+	  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+	  {
+	    _Error_Handler(__FILE__, __LINE__);
+	  }
+
 
 }
 /* COMP1 init function */
@@ -372,7 +649,6 @@ static void MX_TIM1_Init(void)
 {
 
   TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_ClearInputConfigTypeDef sClearInputConfig;
   TIM_MasterConfigTypeDef sMasterConfig;
   TIM_OC_InitTypeDef sConfigOC;
   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig;
@@ -383,7 +659,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.Period = 480;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -400,14 +676,12 @@ static void MX_TIM1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sClearInputConfig.ClearInputState = ENABLE;
-  sClearInputConfig.ClearInputSource = TIM_CLEARINPUTSOURCE_OCREFCLR;
-  if (HAL_TIM_ConfigOCrefClear(&htim1, &sClearInputConfig, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_OC_Init(&htim1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_OC4REF;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
   {
@@ -426,13 +700,21 @@ static void MX_TIM1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
+  sConfigOC.OCMode = TIM_OCMODE_TOGGLE;
+  sConfigOC.Pulse = 1000;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
+  if (HAL_TIM_OC_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
   sBreakDeadTimeConfig.DeadTime = 0;
-  sBreakDeadTimeConfig.BreakState = TIM_BREAK_ENABLE;
+  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
-  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_ENABLE;
+  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
   if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -441,7 +723,38 @@ static void MX_TIM1_Init(void)
   HAL_TIM_MspPostInit(&htim1);
 
 }
+/* TIM2 init function */
+static void MX_TIM2_Init(void)
+{
 
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 4;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 480;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
 /* USART1 init function */
 static void MX_USART1_UART_Init(void)
 {
@@ -481,7 +794,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, LD4_Pin|LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, LD4_Pin|GPIO_PIN_9, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -490,11 +803,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LD4_Pin LD3_Pin */
-  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin;
+  GPIO_InitStruct.Pin = LD4_Pin|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
 
 }
 
