@@ -11,6 +11,7 @@ const char* password = "quang102";  //Pass mạng wifi ahihi, anh em rãnh thì 
  
 char host[] = "192.168.1.4";  //Địa chỉ IP dịch vụ, hãy thay đổi nó theo địa chỉ IP Socket server của bạn.
 int port = 3484;                  //Cổng dịch vụ socket server do chúng ta tạo!
+char namespace_esp8266[] = "esp8266";   
  
 //từ khóa extern: dùng để #include các biến toàn cục ở một số thư viện khác. Trong thư viện SocketIOClient có hai biến toàn cục
 // mà chúng ta cần quan tâm đó là
@@ -62,15 +63,7 @@ void setup()
  
 void loop()
 {
-    //tạo một task cứ sau "interval" giây thì chạy lệnh:
-    if (millis() - previousMillis > interval) {
-        //lệnh:
-        previousMillis = millis();
- 
-        //gửi sự kiện "atime" là một JSON chứa tham số message có nội dung là Time please?
-        client.send("atime", "message", "Time please?");
-    }
- 
+
     //Khi bắt được bất kỳ sự kiện nào thì chúng ta có hai tham số:
     //  +RID: Tên sự kiện
     //  +RFull: Danh sách tham số được nén thành chuỗi JSON!
@@ -85,7 +78,7 @@ void loop()
  
     //Kết nối lại!
     if (!client.connected()) {
-      client.reconnect(host, port);
+      client.reconnect(host, port,namespace_esp8266);
     }
 }
 void led_out() 
