@@ -88,26 +88,18 @@ void loop()
       client.reconnect(host, port);
     }
 }
-void led_out() {
-
-        DynamicJsonBuffer jsonBuffer;
-
-         String input =
-        "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
-        JsonObject& root = jsonBuffer.parseObject(Rfull);
-         long time = root["led"][0];
-     
-
- 
-  //kiểm thử giá trị
-  Serial.print(time);
-  Serial.println("ID:");
-  Serial.println(RID);
-  Serial.println("FULL:");
-  Serial.println(Rfull);
-
- 
-  //xuất ra màn hình
-  digitalWrite(led, time);
-//  digitalWrite(blue, blueStatus);
+void led_out() 
+{
+    DynamicJsonBuffer jsonBuffer;
+     String input =
+    "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
+    JsonObject& root = jsonBuffer.parseObject(Rfull);
+     long time = root["led"][0];
+    //kiểm thử giá trị
+    Serial.println(time);
+    Serial.println("ID:");
+    Serial.println(RID);
+    Serial.println("FULL:");
+    Serial.println(Rfull); 
+    digitalWrite(led, time);
 }
