@@ -27,12 +27,13 @@ angular.module('myApp', [
 	//các sự kiện ng-click, nhấn nút
 	$scope.updateSensor  = function() {
 		var json = {
-			"led": led
+			"led": $scope.leds_status
 		}
         
         /*if(led[0]==1) led[0] = 0;
         else led[0] = 1;*/
-        led[0] = !led[0];
+        //led[0] = !led[0];
+        $scope.leds_status[0] = !$scope.leds_status[0]
 		mySocket.emit("led", json)
 	}
 	
