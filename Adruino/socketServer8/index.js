@@ -41,7 +41,7 @@ function ParseJson(jsondata) {
 
 //Bắt các sự kiện khi esp8266 kết nối
 esp8266_nsp.on('connection', function(socket) {
-	console.log('esp8266 connected')
+	console.log('esp8266 connected...')
 	
 	socket.on('disconnect', function() {
 		console.log("Disconnect socket esp8266")
