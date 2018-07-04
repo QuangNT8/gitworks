@@ -2,15 +2,20 @@
 #include <ArduinoJson.h>
 #include <SocketIOClient.h>
 #include <SoftwareSerial.h>
-#include <SerialCommand.h>  // Thêm vào sketch thư viện Serial Command 
+//#include <SerialCommand.h>  // Thêm vào sketch thư viện Serial Command 
 
 SocketIOClient client;
 int led = 16;
-const char* ssid = "quangp610";          //Tên mạng Wifi mà Socket server của bạn đang kết nối
-const char* password = "quang102";  //Pass mạng wifi ahihi, anh em rãnh thì share pass cho mình với.
+const char* ssid = "IDD-T1";          //Tên mạng Wifi mà Socket server của bạn đang kết nối
+const char* password = "1qazxsw@";  //Pass mạng wifi ahihi, anh em rãnh thì share pass cho mình với.
  
-char host[] = "192.168.1.4";  //Địa chỉ IP dịch vụ, hãy thay đổi nó theo địa chỉ IP Socket server của bạn.
-int port = 3484;                  //Cổng dịch vụ socket server do chúng ta tạo!
+// char host[] = "192.168.1.29";  //Địa chỉ IP dịch vụ, hãy thay đổi nó theo địa chỉ IP Socket server của bạn.
+// int port = 3484;                  //Cổng dịch vụ socket server do chúng ta tạo!
+/* https://beautiful-badlands-80233.herokuapp.com/#!/ */
+
+char host[] = "beautiful-badlands-80233.herokuapp.com";  
+int port = 80;                  
+
 char namespace_esp8266[] = "esp8266";   
  
 //từ khóa extern: dùng để #include các biến toàn cục ở một số thư viện khác. Trong thư viện SocketIOClient có hai biến toàn cục
@@ -57,6 +62,7 @@ void setup()
     //Khi đã kết nối thành công
     if (client.connected()) {
         //Thì gửi sự kiện ("connection") đến Socket server ahihi.
+        Serial.println(F("connected to webapp"));
         client.send("connection", "message", "Connected !!!!");
     }
 }
@@ -95,4 +101,15 @@ void led_out()
     Serial.println("FULL:");
     Serial.println(Rfull); 
     digitalWrite(led, time);
+    if(RID=="led")client.send("LED_STATUS", Rfull);//gửi dữ liệu về cho Socket Server
 }
+/*
+void defaultCommand(String command) {
+  char *json = sCmd.next();
+  
+ 
+  //In ra serial monitor để debug
+  Serial.print(command);
+  Serial.print(' ');
+  Serial.println(json);
+}*/
