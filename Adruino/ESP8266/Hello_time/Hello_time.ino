@@ -6,15 +6,15 @@
 
 SocketIOClient client;
 int led = 16;
-const char* ssid = "IDD-T1";          //Tên mạng Wifi mà Socket server của bạn đang kết nối
-const char* password = "1qazxsw@";  //Pass mạng wifi ahihi, anh em rãnh thì share pass cho mình với.
+const char* ssid = "quangp610";          //Tên mạng Wifi mà Socket server của bạn đang kết nối
+const char* password = "quang102";  //Pass mạng wifi ahihi, anh em rãnh thì share pass cho mình với.
  
-// char host[] = "192.168.1.29";  //Địa chỉ IP dịch vụ, hãy thay đổi nó theo địa chỉ IP Socket server của bạn.
-// int port = 3484;                  //Cổng dịch vụ socket server do chúng ta tạo!
+ char host[] = "192.168.1.4";  //Địa chỉ IP dịch vụ, hãy thay đổi nó theo địa chỉ IP Socket server của bạn.
+ int port = 3484;                  //Cổng dịch vụ socket server do chúng ta tạo!
 /* https://beautiful-badlands-80233.herokuapp.com/#!/ */
 
-char host[] = "beautiful-badlands-80233.herokuapp.com";  
-int port = 80;                  
+//char host[] = "beautiful-badlands-80233.herokuapp.com";  
+//int port = 80;                  
 
 char namespace_esp8266[] = "esp8266";   
  
