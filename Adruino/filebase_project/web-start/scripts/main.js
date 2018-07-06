@@ -275,13 +275,30 @@ function checkSetup() {
   }
 }
 
+function writeUserData(userId, name, email) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+  });
+}
+
+var imageButtonElement = document.getElementById('testbt');
+imageButtonElement.addEventListener('click', testing);
 function testing() {
-    var data = {
+	document.getElementById("demo").innerHTML = "Hello World!";
+    /*var data = {
       message: 'click...',
       timeout: 2000
     };
     signInSnackbarElement.MaterialSnackbar.showSnackbar(data);
-    saveMessage("hello, How are you?");
+    saveMessage("hello, How are you?");*/
+	/*
+	var ref = firebase.database().ref('/messages/');
+	ref.push({
+		name: "quang",
+		text: "messageText"
+	});*/
+	writeUserData("quangnt","quang","nguyentrungquang102@gmail.com");
 }
 
 // Checks that Firebase has been imported.
@@ -289,11 +306,11 @@ checkSetup();
 
 // Shortcuts to DOM Elements.
 var messageListElement = document.getElementById('messages');
-var messageFormElement = document.getElementById('message-form');
+var messageFormElement = document.getElementById('BT3');
 var messageInputElement = document.getElementById('message');
 var submitButtonElement = document.getElementById('submit');
-var imageButtonElement = document.getElementById('testbt');
-var imageFormElement = document.getElementById('image-form');
+
+var imageFormElement = document.getElementById('image-form1');
 var mediaCaptureElement = document.getElementById('mediaCapture');
 var userPicElement = document.getElementById('user-pic');
 var userNameElement = document.getElementById('user-name');
@@ -309,14 +326,13 @@ signInButtonElement.addEventListener('click', signIn);
 // Toggle for the button.
 messageInputElement.addEventListener('keyup', toggleButton);
 messageInputElement.addEventListener('change', toggleButton);
-imageButtonElement.addEventListener('click', testing);
-/*
+
 // Events for image upload.
 imageButtonElement.addEventListener('click', function(e) {
   e.preventDefault();
   console.log('click...');
   mediaCaptureElement.click();
-});*/
+});
 mediaCaptureElement.addEventListener('change', onMediaFileSelected);
 
 // initialize Firebase
