@@ -285,7 +285,7 @@ function writeUserData(userId, name, email) {
 var imageButtonElement = document.getElementById('testbt');
 imageButtonElement.addEventListener('click', testing);
 function testing() {
-	document.getElementById("demo").innerHTML = "Hello World!";
+	document.getElementById("demo").innerHTML = document.getElementById("mySelect").item.text;
     /*var data = {
       message: 'click...',
       timeout: 2000
@@ -301,8 +301,11 @@ function testing() {
 	writeUserData("quangnt","quang","nguyentrungquang102@gmail.com");
 }
 
+
+
 // Checks that Firebase has been imported.
 checkSetup();
+
 
 // Shortcuts to DOM Elements.
 var messageListElement = document.getElementById('messages');
@@ -334,6 +337,8 @@ imageButtonElement.addEventListener('click', function(e) {
   mediaCaptureElement.click();
 });
 mediaCaptureElement.addEventListener('change', onMediaFileSelected);
+
+
 
 // initialize Firebase
 initFirebaseAuth();

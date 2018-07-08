@@ -1,102 +1,483 @@
-<!doctype html>
-<!--
-  Copyright 2015 Google Inc. All rights reserved.
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-      https://www.apache.org/licenses/LICENSE-2.0
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Learn how to use the Firebase platform on the Web">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>home controller</title>
-
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-
-  <!-- Web Application Manifest -->
-  <link rel="manifest" href="manifest.json">
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Friendly Chat">
-  <meta name="theme-color" content="#303F9F">
-
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Friendly Chat">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
-
-  <!-- Tile icon for Win8 -->
-  <meta name="msapplication-TileColor" content="#3372DF">
-  <meta name="msapplication-navbutton-color" content="#303F9F">
-
-  <!-- Material Design Lite -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-
-  <!-- App Styling -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-  <link rel="stylesheet" href="styles/main.css">
-  
-  <!-- Add icon library -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+  <!-- Site Properties -->
+  <title>Bootstrap - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+  <link rel="stylesheet" href="styles/main.css">  
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="semantic/dist/semantic.js"></script>
+    
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.selection.dropdown').dropdown();
+      $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
 </head>
 <body>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-  <!-- Header section containing logo -->
-  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <h3><i class="material-icons">chat_bubble_outline</i> home controller</h3>
-      </div>
-     
+<div class="ui grid container">
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Bootstrap Migration</h1>
     </div>
-  </header>
-	
-  <main class="mdl-layout__content mdl-color--grey-100">
-    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
-      <!-- Messages container -->
-      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
-        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-		   <form>
-			<p id="demo"></p>
-          </form>
-          <form id="message-form" action="#">
-			<button id="testbt" class="btn"><i class="fa fa-lightbulb-o"></i>
-				
-			</button>
-            <button id="testbt1" enable type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-              Send
-            </button>
-			<button id="BT3" enable type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-              BT3
-            </button>
-			<button id="submit" enable type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-              Send
-            </button>
-			<button id="BT3" enable type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-              BT3
-            </button>
-          </form>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="ui message">
+        <h1 class="ui header">Hello, world!</h1>
+        <p id="demo"> This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <a class="ui blue button">Learn more &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+        <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+        </div>
+      <h1 class="ui header">Buttons</h1>
+      <a id="testbt" class="ui button" tabindex="0">
+        Default
+      </a>
+      <a class="ui primary button" tabindex="0">
+        Primary
+      </a>
+      <a class="ui basic button" tabindex="0">
+        Basic
+      </a>
+      <a class="ui positive button" tabindex="0">
+        Success
+      </a>
+      <a class="ui negative button" tabindex="0">
+        Error
+      </a>
+    </div>
+  </div>
+   <div class="row">
+    <div class="column">
+      <a id="testbt" class="ui button" tabindex="0">
+        Default
+      </a>
+      <a class="ui primary button" tabindex="0">
+        Primary
+      </a>
+      <a class="ui basic button" tabindex="0">
+        Basic
+      </a>
+      <a class="ui positive button" tabindex="0">
+        Success
+      </a>
+      <a class="ui negative button" tabindex="0">
+        Error
+      </a>
+      <h1 class="ui header">LED</h1>
+      <div class="ui divider"></div>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Thumbnails</h1>
+      <div class="ui divider"></div>
+      <img class="ui small image" src="assets/images/wireframe/image.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Dropdown</h1>
+      <div class="ui divider"></div>
+      <div id="mySelect" class="ui selection dropdown">
+        <input type="hidden" name="selection">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select</div>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+      <div class="ui vertical menu">
+        <a class="active item">
+          Friends
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <div class="ui dropdown item">
+          <i class="dropdown icon"></i>
+          More
+          <div class="menu">
+            <a class="item">Edit Profile</a>
+            <a class="item">Choose Language</a>
+            <a class="item">Account Settings</a>
+          </div>
         </div>
       </div>
 
+      <div class="ui dropdown">
+        <div class="visible menu">
+          <div class="header">Categories</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Clothing</span>
+            <div class="menu">
+              <div class="header">Men's</div>
+              <div class="item">Shirts</div>
+              <div class="item">Pants</div>
+              <div class="item">Jeans</div>
+              <div class="item">Shoes</div>
+              <div class="divider"></div>
+              <div class="header">Women's</div>
+              <div class="item">Dresses</div>
+              <div class="item">Shoes</div>
+              <div class="item">Bags</div>
+            </div>
+          </div>
+          <div class="item">Home Goods</div>
+          <div class="item">Bedroom</div>
+          <div class="divider"></div>
+          <div class="header">Order</div>
+          <div class="item">Status</div>
+          <div class="item">Cancellations</div>
+        </div>
+      </div>
     </div>
-  </main>
-</div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Badges</h1>
+      <div class="ui divider"></div>
+      <div class="ui vertical menu">
+        <div class="item">
+          One <span class="ui label">2</span>
+        </div>
+        <div class="item">
+          Two <span class="ui label">2</span>
+        </div>
+        <div class="item">
+          Three <span class="ui label">2</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Tables</h1>
+      <div class="ui two column grid">
+        <div class="column">
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui basic table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui definition table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui very basic table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sixteen wide column">
+          <table class="ui celled structured table">
+            <thead>
+              <tr>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Type</th>
+                <th rowspan="2">Files</th>
+                <th colspan="3">Languages</th>
+              </tr>
+              <tr>
+                <th>Ruby</th>
+                <th>JavaScript</th>
+                <th>Python</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alpha Team</td>
+                <td>Project 1</td>
+                <td>2</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowspan="3">Beta Team</td>
+                <td>Project 1</td>
+                <td>52</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Project 2</td>
+                <td>12</td>
+                <td></td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Project 3</td>
+                <td>21</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Alerts</h1>
+      <div class="ui divider"></div>
+      <div class="ui positive message">Well done! You successfully read this important alert message.</div>
+      <div class="ui info message">Heads up! This alert needs your attention, but it's not super important.</div>
+      <div class="ui warning message">Warning! Best check yo self, you're not looking too good.</div>
+      <div class="ui error message">Oh snap! Change a few things up and try submitting again.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">List groups</h1>
+      <div class="ui divider"></div>
+      <div class="ui three column grid">
+        <div class="column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <p>Cras justo odio</p>
+            </div>
+            <div class="ui segment">
+              <p>Dapibus ac facilisis in</p>
+            </div>
+            <div class="ui segment">
+              <p>Morbi leo risus</p>
+            </div>
+            <div class="ui segment">
+              <p>Porta ac consectetur ac</p>
+            </div>
+            <div class="ui segment">
+             <p>Vestibulum at eros</p>
+           </div>
+         </div>
+        </div>
+        <div class="column">
+          <div class="ui fluid vertical menu">
+            <a class="item">
+              <p>Cras justo odio</p>
+            </a>
+            <a class="item">
+             <p>Vestibulum at eros</p>
+            </a>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui fluid vertical menu">
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Panels</h1>
+      <div class="ui divider"></div>
+      <div class="ui three column grid">
+        <div class="column">
+          <div class="ui segments">
+            <div class="ui red segment">One</div>
+            <div class="ui blue segment">Two</div>
+            <div class="ui green segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui raised segments">
+            <div class="ui segment">One</div>
+            <div class="ui segment">Two</div>
+            <div class="ui segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui stacked segments">
+            <div class="ui segment">One</div>
+            <div class="ui segment">Two</div>
+            <div class="ui segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui top attached error message">Error</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <div class="ui top attached info message">Info</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <div class="ui top attached success message">Success</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached inverted header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached block header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Wells</h1>
+      <div class="ui divider"></div>
+      <div class="ui segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui secondary segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui tertiary segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui secondary inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui tertiary inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
 <!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
@@ -109,4 +490,5 @@
 
 <script src="scripts/main.js"></script>
 </body>
+
 </html>
