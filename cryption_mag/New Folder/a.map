@@ -1,0 +1,45 @@
+CodeVisionAVR C Compiler V1.25.9 Professional
+(C) Copyright 1998-2008 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: C:\Documents and Settings\trungquang\Desktop\miskey\New Folder\New Folder\a.c
+Global variables memory map:
+
+Variable                          Address   Size
+crypto_key                                                            260h     33
+enkey                                                                 281h      4
+keymap                                                                285h     17
+kbdebug                                                                 R5      1
+kb_scan_slacker                                                      R6,R7      2
+MAGTEK_bits                                                           296h    200
+MAGTEK_bit_cnt                                                        35Eh      2
+MAGTEK_f_bit                                                          360h      2
+MAGTEK_str                                                            362h     41
+MAGTEK_rip                                                            38Bh      2
+MAGTEK_re                                                             38Dh      2
+KB_scan_line                                                          38Fh      1
+KB_key                                                                390h      1
+KB_keypressed                                                         391h      1
+KB_ready                                                              392h      1
+KB_timer                                                              393h      2
+KB_buf                                                                395h     16
+KB_char_cnt                                                           3A5h      1
+KB_in_read                                                            3A6h      1
+heure_actuelle.annee                                                  3A7h      2
+heure_actuelle.mois                                                   3A9h      1
+heure_actuelle.jour                                                   3AAh      1
+heure_actuelle.jour_semaine                                           3ABh      1
+heure_actuelle.heure                                                  3ACh      1
+heure_actuelle.minute                                                 3ADh      1
+heure_actuelle.seconde                                                3AEh      1
+heure_actuelle.batt_low                                               3AFh      1
+delai                                                                 3B0h      2
+EEPVars.E_memtest                                                     3B2h      1
+EEPVars.E_conname                                                     3B3h      9
+EEPVars.E_enkey                                                       3BCh      3
+EEPVars.E_passl1                                                      3BFh     26
+EEPVars.E_passl2                                                      3D9h     26
+EEPVars.E_crypt                                                       3F3h     33
+EEPVars.E_version                                                     414h     33
+EEPVars.E_key                                                         435h     16
+EEPVars.E_end                                                         445h      1
