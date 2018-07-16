@@ -1,0 +1,3 @@
+config_sms
+reading_sms_cmd
+idle
