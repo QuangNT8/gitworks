@@ -1,0 +1,41 @@
+[PROJECT]
+Target=D:\laserprj\firmware\main.hex
+Development_Mode=
+Processor_Text=PIC18F26J11
+ToolSuite=CCS
+Processor=0xD611
+[D:\laserprj\firmware\main]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=D:\laserprj\firmware\main.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Opened Files]
+1=main.c
+2=main.h
+3=C:\Program Files (x86)\PICC\devices\18F26j11.h
+4=C:\Program Files (x86)\PICC\drivers\stdlib.h
+5=C:\Program Files (x86)\PICC\drivers\stddef.h
+6=C:\Program Files (x86)\PICC\drivers\string.h
+7=C:\Program Files (x86)\PICC\drivers\ctype.h
+8=24512.C
+9=eeprom.c
+10=ds1307.C
+11=scan_key.c
+12=uart_tool.c
+13=GSM.c
+14=mcr.c
+15=mode.c
+16=
+17=
+[Target Data]
+OptionString=-p +FH
+FileList=F:\modulgsm\withpic18F24J11\main.c
+[Units]
+Count=1
+1=main (main)
