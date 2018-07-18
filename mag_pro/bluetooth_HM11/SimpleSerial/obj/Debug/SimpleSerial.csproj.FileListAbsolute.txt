@@ -1,0 +1,42 @@
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.exe
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.pdb
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\ResGen.read.1.tlog
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\obj\Debug\ResGen.write.1.tlog
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.exe
+C:\Users\quangnt\Desktop\COMPORT\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.pdb
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.exe
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.pdb
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\ResGen.read.1.tlog
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\ResGen.write.1.tlog
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.exe
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\bin\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.csprojResolveAssemblyReference.cache
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Debug\SimpleSerial.csproj.GenerateResource.Cache
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.csprojResolveAssemblyReference.cache
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.csproj.GenerateResource.Cache
+D:\magnertic_card_prj\for michael perez\SimpleSerial\bin\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for michael perez\SimpleSerial\bin\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for michael perez\SimpleSerial\obj\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\bin\Debug\SimpleSerial.exe
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\bin\Debug\SimpleSerial.pdb
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.csprojResolveAssemblyReference.cache
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
+D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.csproj.GenerateResource.Cache

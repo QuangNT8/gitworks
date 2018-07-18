@@ -1,0 +1,18 @@
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\bin\Release\SimpleSerial.exe
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\bin\Release\SimpleSerial.pdb
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResolveAssemblyReference.cache
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.Form1.resources
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.Properties.Resources.resources
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResGen.read.1.tlog
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResGen.write.1.tlog
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.exe
+E:\projects\magnertic proj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.exe
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\bin\Release\SimpleSerial.exe
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\bin\Release\SimpleSerial.pdb
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResolveAssemblyReference.cache
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.Form1.resources
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\SimpleSerial.Properties.Resources.resources
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResGen.read.1.tlog
+D:\magnertic_card_prj\for chris\SimpleSerialCS\SimpleSerial\obj\Release\ResGen.write.1.tlog

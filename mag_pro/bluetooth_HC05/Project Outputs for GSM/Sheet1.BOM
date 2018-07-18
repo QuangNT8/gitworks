@@ -1,0 +1,35 @@
+Bill of Material for 
+On 10/26/2016 at 6:17:49 PM
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ 24AA1025T-I/SM      SOIJ-SM8_N       1    U3                           1 Mbit, 400kHz, 1.7V, I2C Serial EEPROM, 8-Pin SOIC 208mil, Industrial Temperature, Tape and Reel 
+ 87224-5             CON5             1    J1                           CONN HEADER VERT .100 5POS 15AU 
+ AMS1117             SOT223-4M        1    U4                           Adjustable Precision Shunt Regulator 
+ BT_HC05             bluetooth_HC05    1    U7                                                
+ CL21F104ZBCNNNC     CAPC2013X05N     1    C3                           0.10µF 50V Ceramic Capacitor Y5V (F) 0805 (2012 Metric) 0.079" L x 0.049" W (2.00mm x 1.25mm) 
+ CL21F104ZBCNNNC     RESC2012L        4    C8, C13, C15, C18            0.10µF 50V Ceramic Capacitor Y5V (F) 0805 (2012 Metric) 0.079" L x 0.049" W (2.00mm x 1.25mm) 
+ EEE-FT1A102AP       CAP8x8           1    C1                           CAP ALUM 1000UF 10V 20% SMD 
+ ERJ-6GEYJ102V       RESC2012L        2    R4, R6                       RES 1K OHM 1/8W 5% 0805 SMD 
+ ERJ-6GEYJ103V       RESC2012L        2    R18, R19                     RES SMD 10K OHM 5% 1/8W 0805 
+ ERJ-6GEYJ103V       RESC2013X05N     1    R3                           RES SMD 10K OHM 5% 1/8W 0805 
+ ERJ-6GEYJ331V       JUM1             8    R1, R5, R8, R10, R11, R12    RES 330 OHM 1/8W 5% 0805 SMD 
+                                           R13, R14
+ ERJ-6GEYJ331V       RESC2012L        1    R9                           RES 330 OHM 1/8W 5% 0805 SMD 
+ GRM219R60J106KE19D  CAPC2013X05N     3    C5, C6, C7                   10µF 6.3V Ceramic Capacitor X5R 0805 (2012 Metric) 0.079" L x 0.049" W (2.00mm x 1.25mm) 
+ GRM219R60J106KE19D  RESC2012L        5    C9, C14, C16, C17, C19       10µF 6.3V Ceramic Capacitor X5R 0805 (2012 Metric) 0.079" L x 0.049" W (2.00mm x 1.25mm) 
+ Header 12           HDR1X12          2    P1, P3                       Header, 12-Pin       
+ Header 3            HDR1X3           1    P2                           Header, 3-Pin        
+ Header 4            HDR1X4           1    P7                           Header, 4-Pin        
+ Header 7            HDR1X7           1    P4                           Header, 7-Pin        
+ LMK212F106ZG-T      RESC2012L        4    C2, C4, C10, C11             CAP CER 10UF 10V Y5V 0805 
+ LNJ911W8BRU         CD3216-1206      1    NC                           LED BLUE THRU BOARD 1206 
+ NC                  ABS07            1    Y1                           Crystal Oscillator   
+ NC                  CD3216-1206      1    RC2                          LED BLUE THRU BOARD 1206 
+ NC                  ML-920S/DN       1    BT1                          Multicell Battery    
+ NC                  RESC2012L        2    C12, R2                      CAP CER 10UF 10V Y5V 0805 
+ NC                  SIM800L          1    U6                                                
+ NC                  SMB              2    D1, D2                       DIODE SCHOTTKY 40V 3A SMC 
+ NC                  SOIJ-SM8_N       1    U5                                                
+ NC                  SOP4             1    U1                           RELAY OPTO 60VAC/DC 500MA 4-SOP 
+ PIC18F24J11-I/SO    SOIC-SO28_N      1    U2                           Low Power, High Performance Microcontroller with nanoWatt XLP Technology, 28-pin SOIC, Industrial Temperature 

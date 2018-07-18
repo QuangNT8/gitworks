@@ -1,0 +1,10 @@
++ cfmbn admin 			-> cfmbn is command to configure mobile phone number, admin is password
++ password newpass 		-> password is command to change the password, newpass is new password
++ keypress on (off) 	-> keypress is command to enable/disable keypress mode, keypress on for turn on, keypress off for turn off
++ trantime x 			-> trantime is command to configure time of each chanraction, x from 1 to 99,  you should use x = 3
++ autosending on (off) 	-> autosending is command to configure sending sms of each chanraction automatically, autosending on for turn on, autosending off for turn off
++ format				-> format memory (earse the eeprom)
++ qullf					-> low lever format (it take too long).
++ count tran 			-> device will return count of chanraction 
++ download all 			-> download full data
++ download x			-> download x record , EX download 2 -> device will return 2 record

@@ -61,7 +61,7 @@ int8 key_count_ms=0;
 int8 KP_mode=0,kp_st=0;
 int16 count_kp=0;
 int8 type_KB=0;
-#define key_numbyte  50
+#define key_numbyte  16
 
 int8 key_data[key_numbyte];
 int8 delaycharaction=0;
@@ -324,7 +324,7 @@ int8 kbd_getc_slv(){
    static int1 kbd_down;
    static char last_key;
    BYTE col;
-   BYTE kchar=' ';
+   BYTE kchar;
    BYTE row;
     if((input(ROW0)==0)||(input(ROW1)==0)||(input(ROW2)==0)||(input(ROW3)==0))
     {
@@ -374,20 +374,26 @@ void save_key_new()
       //countcard=get_countcard();
       //countcard=countcard+1;
       //save_coutcard(countcard);
-      if((key_data[0]!=0)||(key_count_ms>0))
+      if((key_data[0]!=0))
       {
          temp=get_countcard();
          ptr_card_key=(int32)(((temp)*key_numbyte)+EEPROM_KEY_ST);
-         for(i=0;i<key_numbyte-5;i++)
+          //fprintf(COM2," ptr_card_key=%lu\n\r",ptr_card_key);
+         for(i=0;i<key_numbyte;i++)
          {
             temp=key_data[i];
-            write_ext_eeprom((long int)ptr_card_key++,temp);
+            write_ext_eeprom((int32)ptr_card_key++,temp);
             //delay_us(100);
             fputc(temp,COM2);
          }
+         /*fprintf(COM2,"read key=\n\r");
+          for(i=0;i<key_numbyte;i++)
+          {
+            fprintf(COM2,"read key=%c\n\r",read_ext_eeprom(ptr_card_key-i));
+          }*/
          write_ext_eeprom((long int)ptr_card_key,0);
          save_ptrcard(ptr_card_key,strobe_ptrcard_key);
-         //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
+         fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
       }
       //key_count=0;
       key_count_ms=0;

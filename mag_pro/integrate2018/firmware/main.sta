@@ -1,0 +1,237 @@
+
+ROM used:   27614 (42%)
+            27614 (42%) including unused fragments
+
+            5 Average locations per line
+            17 Average locations per statement
+
+RAM used:   1959 (52%) at main() level
+            2114 (56%) worst case
+
+Stack used: 10/31 worst case (5 in main + 5 for interrupts)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  235   114   7  main.c
+   41     0   0  main.h
+  524     0   0  C:\Program Files (x86)\PICC\devices\18F26j11.h
+ 1351   359  23  C:\Program Files (x86)\PICC\drivers\stdlib.h
+   32     0   0  C:\Program Files (x86)\PICC\drivers\stddef.h
+  423   125   8  C:\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  C:\Program Files (x86)\PICC\drivers\ctype.h
+  149    35   2  24512.C
+  250    69   4  eeprom.c
+  423     0   0  C:\Program Files (x86)\PICC\drivers\STRING.H
+   40     0   0  aes.h
+   60    26   2  cryption.C
+  137    53   3  ds1307.C
+  427   230  14  scan_key.c
+   92    45   3  uart_tool.c
+  614   306  19  mcr.c
+  383   232  15  mode.c
+----- -----
+ 5209  1594 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40   0   1             @delay_ms1
+0     38   0   1             @delay_us1
+0     82   0   1             @PUTCHAR_1_
+0     92   0   1             @GETCH_1_
+0     34   0   5             @MUL1616
+0    106   0   3             @I2C_READ_1
+0    118   0   1             @I2C_WRITE_1
+0     10   0   0    48  1.1  init_ext_eeprom
+0    254   0  12   424  5.4  write_ext_eeprom
+0    204   0  11   343  4.8  read_ext_eeprom
+0    118   0  12   277  6.7  I2CEEPROM_read
+0     34   0   6   144  5.0  del_buf
+0     88   0   7   220  6.0  EEPROM_write
+0     96   0   8   220  6.0  EEPROM_read
+0    342   1  25   578  5.9  get_ptrcard
+0    142   0  15   685  4.8  save_ptrcard
+0     66   0   7   333  4.7  save_coutcard
+0     88   0  10   290  5.6  get_countcard
+0    358   1   4   417  4.3  format_eepromext
+0    132   0   4   140  2.6  ease_eeprom
+0    108   0   2   333  3.6  init_password
+0     26   0   0   140  2.6  @MEMSET
+0     22   0   0   333  3.6  @const490
+0     54   0  23   166  4.0  reset_password
+0    208   0   2   172  2.4  read_DS1307
+0    174   0   2   190  1.9  write_DS1307
+0    266   0   1   240  2.3  rtc_init
+0     62   0   4   171  5.3  get_bcd
+0     44   0   3   429  2.2  @DIV88
+0     50   0   3   166  4.3  rm_bcd
+0    170   0   7   429  2.2  rtc_set_datetime
+ Inline        5   238  3.1  rtc_get_date
+ Inline        4   170  3.0  rtc_get_time
+0     36   0   0     3  0.0  @const560
+0     40   0   0    82  3.2  @const564
+0    438   1   4  2505  9.8  kbd_getc
+0     36   0   0             @goto11655
+0    232   0   2   762  4.9  read_col
+0     38   0   0             @goto11739
+0   1580   3  23  2916  7.4  check_col
+0    148   0  13             @DIV3232
+0     14   0   0             @const607
+0     42   0   3             @PSTRINGCN_78
+0    192   0  12             @PRINTF_L32U_78
+0     14   0   0             @const612
+0     14   0   0             @const613
+0     14   0   0             @const614
+0     14   0   0  3813  7.4  @const615
+0   2032   4  27  3813  7.4  new_check_col
+0     14   0   0             @const626
+0     14   0   0             @const627
+0     14   0   0             @const628
+0     14   0   0             @const629
+0     14   0   0             @const630
+0     14   0   0  1790  7.6  @const631
+0    400   1   7  1790  7.6  kbd_getc_slv
+0     18   0   0   792  8.1  @const641
+0    196   0   6             @PRINTF_D_78
+0    376   1   7   792  8.1  save_key_new
+0     10   0   0             @const649
+0     32   0   2   259  3.9  @PSTRINGC_78
+0      4   0   0   331  6.3  @const656
+0    312   1  11  1198 14.2  USART_getstring
+0    152   0   9   331  6.3  stringcomp
+0     78   0   6   331  9.4  strtoi
+0    102   0  10   354  4.8  makebyte
+0    432   1  17   820  7.5  check_lrc_T1
+0    320   1  13   643  7.5  check_lrc_T2
+0   3074   6  34  8021 11.6  detect_pos_st
+0   1000   2  30  2391  8.1  con_data_track
+0    148   0   3   325  4.1  debug_reader
+0     22   0   0             @const742
+0     22   0   0  2570  8.6  @const744
+0   1030   2   6  2570  8.6  saving_card
+0     22   0   0             @const749
+0      6   0   0             @const751
+0     16   0   0             @const752
+0     24   0   0  3107  9.2  @const754
+0    778   1  13  3107  9.2  mcr_read
+0     20   0   0             @const765
+0    190   0   9             @PRINTF_LU_78
+0     20   0   0             @const768
+0     22   0   0   418  4.1  @const769
+0     22   0   0             @const770
+0    130   0   1   418  4.1  read_card_T1
+0     18   0   0   815  4.5  @const772
+0     16   0   0             @const773
+0     18   0   0    84  2.3  @const777
+0     18   0   0 13163 12.0  @const778
+0    106   0   0    84  2.3  rstfact
+0   5576  10  56 13163 12.0  adminmode
+0     52   0   2             @PSTRINGR_78
+0     18   0   0             @const794
+0    246   0   9             @PRINTF_LD_78
+0    282   1   6             @PRINTF_D0_78
+0     18   0   0             @const802
+0     18   0   0             @const803
+0     16   0   0             @const804
+0     18   0   0             @const806
+0     14   0   0             @const807
+0      8   0   0             @const808
+0     22   0   0             @const809
+0     14   0   0             @const810
+0      8   0   0             @const811
+0     22   0   0             @const812
+0     22   0   0             @const813
+0      8   0   0             @const814
+0     22   0   0             @const815
+0     20   0   0             @const816
+0     24   0   0             @const817
+0     16   0   0             @const818
+0     18   0   0             @const819
+0      8   0   0             @const820
+0     18   0   0             @const821
+0     18   0   0             @const822
+0      6   0   0             @const823
+0     18   0   0             @const824
+0      4   0   0             @const825
+0      4   0   0             @const826
+0    198   0   2             @PRINTF_U_78
+0     20   0   0             @const833
+0      6   0   0             @const834
+0      8   0   0             @const835
+0      6   0   0             @const836
+0      6   0   0             @const837
+0      6   0   0             @const838
+0     10   0   0             @const839
+0     10   0   0             @const840
+0     20   0   0             @const842
+0     32   0   0             @const843
+0     32   0   0             @const845
+0     20   0   0             @const848
+0     30   0   0             @const849
+0     30   0   0             @const851
+0     26   0   0             @const854
+0     14   0   0             @const855
+0     22   0   0             @const858
+0     38   0   0             @const859
+0     38   0   0             @const861
+0     18   0   0             @const864
+0     12   0   0             @const865
+0     18   0   0             @const866
+0     18   0   0             @const867
+0     32   0   0             @const868
+0     28   0   0             @const869
+0     14   0   0             @const870
+0     12   0   0             @const871
+0     44   0   0             @const872
+0     34   0   0             @const873
+0     36   0   0             @const874
+0     40   0   0             @const875
+0     28   0   0             @const876
+0     38   0   0             @const877
+0     26   0   0             @const878
+0     26   0   0             @const879
+0     14   0   0             @const880
+0      8   0   0             @const881
+0     10   0   0             @const882
+0      8   0   0             @const883
+0      8   0   0             @const884
+0      6   0   0             @const885
+0     22   0   0             @const886
+0     32   0   0             @const887
+0     32   0   0             @const889
+0    528   1   3  1511  6.9  timer0
+0     16   0   0             @const895
+0     16   0   0             @const896
+0     16   0   0  2958  8.6  @const897
+0     28   0   0             @const898
+0   1274   2 190  2958  8.6  MAIN
+0     20   0   0             @const917
+0     20   0   0             @const918
+0     20   0   0             @const919
+0     26   0   0             @const920
+0     24   0   0             @const921
+0     10   0   0             @const922
+0      6   0   0             @const923
+0      6   0   0             @const924
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               62
+    Statements              1594
+    Comments                1523
+    Volume (V)              147147
+    Difficulty (D)          356.2
+    Effort to implement (E) 52413304
+    Time to implement (T)   808 hours, 51 minutes
+    Est Delivered Bugs (B)  47
+    Cyclomatic Complexity   257
+    Maintainability (MI)    126
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000B8   178  0  
+000BA-0FFF6  27432  37910  
+
+
+
