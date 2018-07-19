@@ -6,18 +6,17 @@ unsigned int crcccitt(unsigned int crc_init, char donnee[], unsigned long int si
    char index;
     unsigned long int i;
 
-     for(i = 0; i < size; i++)
-      {
-          crc_init = (unsigned int)(crc_init ^ (donnee[i] << 8));
- 
-           for(index = 0; index <= 7; index++)
-           {
-               if(crc_init & 0x8000)
-                   crc_init = (unsigned int)((crc_init << 1) ^ 0x1021);
-               else
-                   crc_init = (unsigned int)(crc_init << 1);
-             }
-     }
+	for(i = 0; i < size; i++)
+	{
+		crc_init = (unsigned int)(crc_init ^ (donnee[i] << 8));
+		for(index = 0; index <= 7; index++)
+		{
+		   if(crc_init & 0x8000)
+			   crc_init = (unsigned int)((crc_init << 1) ^ 0x1021);
+		   else
+			   crc_init = (unsigned int)(crc_init << 1);
+		}
+	}
     return crc_init;
 }
 //===========================================================
@@ -29,18 +28,15 @@ void write_kb_i2ceeprom(void)
       int8 rec[34];
       int8 retval;
 
-      rec[0]=33;                                    /* Prochaine chaine dans 33 cars. */
-      rec[1]=32;                                    /* Nombre de bytes de la chaine */
+      rec[0]=33;        	/* Prochaine chaine dans 33 cars. */
+      rec[1]=32;           	/* Nombre de bytes de la chaine */
       rec[2]=0;
-      rec[3]=0;                 /* Mois en byte */
-      rec[4]=0;;                        /* Jour en byte */
-      rec[5]=0;                     /* Heure en byte */
-      rec[6]=0;                     /* Minute en byte */
-      rec[7]=0;                     /* Seconde en byte */
-
+      rec[3]=0;          	/* Mois en byte */
+      rec[4]=0;;         	/* Jour en byte */
+      rec[5]=0;          	/* Heure en byte */
+      rec[6]=0;          	/* Minute en byte */
+      rec[7]=0;          	/* Seconde en byte */
       rec[8]=0x01;                                 /* Type Clavier */
-
-     
 
       crc=crcccitt(0, &rec[1], 30);   /* Calcul du CRC 16 (CCITT) de la chaine */
 
