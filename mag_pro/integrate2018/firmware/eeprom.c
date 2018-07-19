@@ -54,7 +54,7 @@ void del_buf(int8 lenght, unsigned int8 *inputdat)
    }
 }
 //===============================================================
-void EEPROM_write(unsigned int adr, unsigned int len, char *buf)
+int8 EEPROM_write(unsigned int adr, unsigned int len, char *buf)
 {
    unsigned int8 i;
    for(i=0;i<len;i++)
@@ -62,6 +62,7 @@ void EEPROM_write(unsigned int adr, unsigned int len, char *buf)
       write_ext_eeprom(adr+i, buf[i]);
       delay_us(10);
    }
+   return 1;
 }
 //===============================================================
 void EEPROM_read(unsigned int adr, unsigned int len, char *buf)

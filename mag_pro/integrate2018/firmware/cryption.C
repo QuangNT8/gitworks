@@ -20,6 +20,8 @@ unsigned int crcccitt(unsigned int crc_init, char donnee[], unsigned long int si
     return crc_init;
 }
 //===========================================================
+
+//===========================================================
 void write_kb_i2ceeprom(void)
 {
       unsigned long adr;

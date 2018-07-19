@@ -4,6 +4,9 @@
 #define MCR_STROBE1        PIN_B2
 #define MCR_DATA2          PIN_B4
 #define MCR_STROBE2        PIN_B5*/
+
+#include "aes.h"
+
 #byte   RPINR1 =   getenv("SFR:RPINR1")
 #byte   RPINR2 =   getenv("SFR:RPINR2")
 

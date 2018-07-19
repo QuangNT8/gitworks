@@ -61,7 +61,7 @@ int8 key_count_ms=0;
 int8 KP_mode=0,kp_st=0;
 int16 count_kp=0;
 int8 type_KB=0;
-#define key_numbyte  16
+#define key_numbyte  12
 
 int8 key_data[key_numbyte];
 int8 delaycharaction=0;
@@ -361,8 +361,104 @@ int8 kbd_getc_slv(){
   return(kchar);
 }//*/
 //============================================
+//===========================================================
+#if 0
+void write_kb_i2ceeprom(void)
+{
+		unsigned long adr;
+		unsigned int i;
+		unsigned int crc;
+		char rec[34];
+		char retval;
 
-//===========================
+		RTC_get_time();											/* Lecture de l'heure actuelle */
+
+		rec[0]=33;												/* Prochaine chaine dans 33 cars. */
+		rec[1]=32;												/* Nombre de bytes de la chaine */
+		rec[2]=(unsigned char)((heure_actuelle.annee)-2000);	/* Année en byte */
+		rec[3]=heure_actuelle.mois;								/* Mois en byte */
+		rec[4]=heure_actuelle.jour;								/* Jour en byte */
+		rec[5]=heure_actuelle.heure;							/* Heure en byte */
+		rec[6]=heure_actuelle.minute;							/* Minute en byte */
+		rec[7]=heure_actuelle.seconde;							/* Seconde en byte */
+
+		rec[8]=0x01;											/* Type Clavier */
+
+		for(i=0;i<KB_char_cnt && i<12;i++)	/* Copie du nombre de byte dans le tampon de clavier */
+			rec[9+i]=KB_buf[i];
+
+		i=i+9;						/* Ajout des 8 bytes pour l'entête + 1 byte pour le pointeur  */
+	
+		while(i<33)					/* Mettre des 0 comme "padding" */
+		{
+			rec[i]=0x00;
+			i++;
+		}
+
+		crc=crcccitt(0, &rec[1], 30);	/* Calcul du CRC 16 (CCITT) de la chaine */
+
+		rec[31]=(unsigned char)(crc & 0x00FF);
+		rec[32]=(unsigned char)((crc & 0xFF00)>>8);
+
+		rec[33]=0xFF;				/* Terminaison de la liste par 0xFF */
+
+		/** Encryption de la chaine */
+		rijndael('c', (unsigned char *)&rec[1], (unsigned char *)&crypto_key[0]);
+		rijndael('c', (unsigned char *)&rec[17], (unsigned char *)&crypto_key[16]);
+
+		read_eeptr(&adr);			/* Lecture de l'adresse de fin de liste */
+
+		retval=I2CEEPROM_write(adr,34,rec);	/* Écriture de la chaine */
+
+		if(retval!=0)
+			write_eeptr(adr+33);			/* Ajuster le pointeur d'ajout de chaine dans la liste  */
+
+}
+#endif
+//============================================
+void save_key_encrypt()
+{
+	int i;
+	int16 temp;
+	int8 retval;
+	int8 rec[16];
+   
+	if(ptr_card_key<EEPROM_SIZE_key)
+	{
+		if((key_data[0]!=0)||(key_count_ms>0))
+		{	
+			for(i=0;i<key_numbyte;i++)
+			{
+				temp=key_data[i];
+				fputc(temp,COM2);
+				rec[i]=key_data[i];
+			}
+			rec[key_numbyte] = 0;
+			rec[key_numbyte+1] = 0;			
+			rec[key_numbyte+2] = 0;			
+			rec[key_numbyte+3] = 0;
+
+			rijndael('c', (unsigned char *)&rec[0], (unsigned char *)&crypto_key[0]);
+			
+			/* get the pointer of keyboard data */
+			temp=get_countcard();
+			ptr_card_key=(int32)(((temp)*key_numbyte)+EEPROM_KEY_ST);
+			
+			retval = EEPROM_write(ptr_card_key,34,rec);   /* Écriture de la chaine */
+			if(retval!=0)
+			{
+				ptr_card_key+=16;
+				save_ptrcard(ptr_card_key,strobe_ptrcard_key);
+			}			
+		}
+		key_count_ms=0;
+		del_buf(key_numbyte,key_data);
+		fprintf(COM2,"\r\n");
+		fprintf(COM2,"Done PIN");
+		fprintf(COM2,"\r\n");
+	}
+}
+//============================================
 void save_key_new()
 {
    int i;
@@ -400,27 +496,6 @@ void save_key_new()
       fprintf(COM2,"\r\n");
       fprintf(COM2,"Done PIN");
       fprintf(COM2,"\r\n");
-   }
-}
-//===========================================
-void key_press()
-{
-   int8 col;
-   int32 KB_count_timeout=0;
-   fprintf(COM2,"\r\n");
-   fprintf(COM2,"Key");
-   //fprintf(COM2,"\r\n");
-   KB_count_timeout=0;
-   while(1)
-   {
-     
-      if(KB_count_timeout<150000)KB_count_timeout++;
-      if(KB_count_timeout==150000)
-      {
-         KB_count_timeout++;
-         
-         break;            
-      }  
    }
 }
 //===========================================
