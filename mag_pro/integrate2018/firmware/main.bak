@@ -227,7 +227,7 @@ void main()
    fprintf(COM2,"\n\r");
    for(i=0;i<10;i++) fprintf(COM2," %c",crypto_key[i]);
    fprintf(COM2,"\n\r");
-   for(i=0;i<16;i++) fprintf(COM2," %c",buftemp2[i]);
+   for(i=0;i<16;i++) fprintf(COM2," %x",buftemp2[i]);
    while(1);
 #endif
    EEPROM_read(strobe_pass_addr,20,password);

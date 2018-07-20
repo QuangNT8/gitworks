@@ -1,12 +1,13 @@
 
 
 #include "STRING.H"
+#include "aes.h"
 
 #define strobe_pass_addr         0
-#define strobe_ptrcard_addr      25// from 21 to 24 use for stobe point
-#define strobe_ptrcard_key       30// from 21 to 24 use for stobe point
+#define strobe_ptrcard_addr      25// from 21 to 24 use for stobe pointer
+#define strobe_ptrcard_key       30// from 21 to 24 use for stobe pointer
 //#define strobe_password          35
-#define strobe_count_card        40
+#define strobe_count_card        40 // counter of transaction
 //#define strobe_ptrcard_addr      69// from 21 to 24 use for stobe point
 #define strobe_mobile_num0        65   //  num1   num2  num3 num4
 #define strobe_mobile_num1       85 // 1->16// ->34//-> 50 -> 66
@@ -53,9 +54,9 @@ void del_buf(int8 lenght, unsigned int8 *inputdat)
    }
 }
 //===============================================================
-int8 EEPROM_write(unsigned int32 adr, unsigned int32 len, int8 *buf)
+int8 EEPROM_write(unsigned int adr, unsigned int len, char *buf)
 {
-   unsigned int32 i;
+   unsigned int8 i;
    for(i=0;i<len;i++)
    {
       write_ext_eeprom(adr+i, buf[i]);
@@ -64,9 +65,9 @@ int8 EEPROM_write(unsigned int32 adr, unsigned int32 len, int8 *buf)
    return 1;
 }
 //===============================================================
-void EEPROM_read(unsigned int32 adr, unsigned int32 len, int8 *buf)
+void EEPROM_read(unsigned int adr, unsigned int len, char *buf)
 {
-   unsigned int32 i;
+   unsigned int8 i;
    for(i=0;i<len;i++)
    {
       buf[i]=read_ext_eeprom(adr+i);

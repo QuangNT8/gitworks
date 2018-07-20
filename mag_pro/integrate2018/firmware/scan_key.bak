@@ -450,7 +450,7 @@ void save_key_encrypt()
          ptr_card_key=(int32)(((temp)*16)+EEPROM_KEY_ST);
          
          for(i=0;i<16;i++) fprintf(COM2," %x",rec[i]);
-         retval = EEPROM_write(ptr_card_key,16,rec);   /* Écriture de la chaine */
+         retval = EEPROM_write(ptr_card_key,34,rec);   /* Écriture de la chaine */
          if(retval!=0)
          {
             ptr_card_key+=16;

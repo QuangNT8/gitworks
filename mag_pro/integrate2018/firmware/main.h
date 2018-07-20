@@ -36,5 +36,5 @@
 #use delay(clock=32000000)
 //#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=COM1)
 //#use rs232(uart1, baud=9600)
-#use rs232(baud=9600,parity=N,xmit=PIN_C0,rcv=PIN_C1,bits=8,stream=COM2)
+#use rs232(baud=115200,parity=N,xmit=PIN_C0,rcv=PIN_C1,bits=8,stream=COM2)
 
