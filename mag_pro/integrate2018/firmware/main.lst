@@ -1,9 +1,9 @@
-CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
+CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 12:10
 
                Filename:   D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\main.lst
 
-               ROM used:   33356 bytes (51%)
-                           Largest free fragment is 32168
+               ROM used:   33358 bytes (51%)
+                           Largest free fragment is 32166
                RAM used:   1987 (53%) at main() level
                            2154 (57%) worst case
                Stack:     10 worst case (5 in main + 5 for interrupts)
@@ -6376,7 +6376,7 @@ CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
 ....................   } // end if (!dir) 
 .................... } // end function 
 5AAA:  MOVLB  0
-5AAC:  GOTO   8078 (RETURN)
+5AAC:  GOTO   807A (RETURN)
 ....................  
 ....................  
 .................... #define  COL0      PIN_A5 
@@ -16328,7 +16328,7 @@ CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
 ....................       }    
 ....................       #endif 
 .................... } 
-79D6:  GOTO   824A (RETURN)
+79D6:  GOTO   824C (RETURN)
 .................... //=============================================== 
 ....................  
 ....................  
@@ -17550,7 +17550,7 @@ CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
 ....................    //strcpy(crypto_key,"@quang102"); 
 ....................    //rijndael('d', (unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0]); 
 ....................    //aes_enc_dec((unsigned int8 *)&buftemp2[0], (unsigned char *)&crypto_key[0],0); 
-....................    aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],0); 
+....................    aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1); 
 8060:  MOVLW  01
 8062:  MOVWF  xC2
 8064:  MOVLW  39
@@ -17559,176 +17559,177 @@ CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
 806A:  MOVWF  xC4
 806C:  MOVLW  29
 806E:  MOVWF  xC3
-8070:  CLRF   xC5
-8072:  MOVLB  0
-8074:  GOTO   4E58
-8078:  CLRF   19
-807A:  BTFSC  FF2.7
-807C:  BSF    19.7
-807E:  BCF    FF2.7
+8070:  MOVLW  01
+8072:  MOVWF  xC5
+8074:  MOVLB  0
+8076:  GOTO   4E58
+807A:  CLRF   19
+807C:  BTFSC  FF2.7
+807E:  BSF    19.7
+8080:  BCF    FF2.7
 ....................    fprintf(COM2,"\n\r"); 
-8080:  MOVLW  0A
-8082:  MOVLB  8
-8084:  MOVWF  x58
-8086:  MOVLB  0
-8088:  CALL   069C
-808C:  BTFSC  19.7
-808E:  BSF    FF2.7
-8090:  CLRF   19
-8092:  BTFSC  FF2.7
-8094:  BSF    19.7
-8096:  BCF    FF2.7
-8098:  MOVLW  0D
-809A:  MOVLB  8
-809C:  MOVWF  x58
-809E:  MOVLB  0
-80A0:  CALL   069C
-80A4:  BTFSC  19.7
-80A6:  BSF    FF2.7
+8082:  MOVLW  0A
+8084:  MOVLB  8
+8086:  MOVWF  x58
+8088:  MOVLB  0
+808A:  CALL   069C
+808E:  BTFSC  19.7
+8090:  BSF    FF2.7
+8092:  CLRF   19
+8094:  BTFSC  FF2.7
+8096:  BSF    19.7
+8098:  BCF    FF2.7
+809A:  MOVLW  0D
+809C:  MOVLB  8
+809E:  MOVWF  x58
+80A0:  MOVLB  0
+80A2:  CALL   069C
+80A6:  BTFSC  19.7
+80A8:  BSF    FF2.7
 ....................     fprintf(COM2,"\n\rdecrypted:\n\r"); 
-80A8:  MOVLW  FA
-80AA:  MOVWF  FF6
-80AC:  MOVLW  45
-80AE:  MOVWF  FF7
-80B0:  CLRF   19
-80B2:  BTFSC  FF2.7
-80B4:  BSF    19.7
-80B6:  BCF    FF2.7
-80B8:  CALL   06E2
-80BC:  BTFSC  19.7
-80BE:  BSF    FF2.7
+80AA:  MOVLW  FA
+80AC:  MOVWF  FF6
+80AE:  MOVLW  45
+80B0:  MOVWF  FF7
+80B2:  CLRF   19
+80B4:  BTFSC  FF2.7
+80B6:  BSF    19.7
+80B8:  BCF    FF2.7
+80BA:  CALL   06E2
+80BE:  BTFSC  19.7
+80C0:  BSF    FF2.7
 ....................    for(i=0;i<16;i++) fprintf(COM2,"%x",test_data[i]); 
-80C0:  MOVLB  7
-80C2:  CLRF   x05
-80C4:  MOVF   x05,W
-80C6:  SUBLW  0F
-80C8:  BNC   80F0
-80CA:  CLRF   03
-80CC:  MOVF   x05,W
-80CE:  ADDLW  39
-80D0:  MOVWF  FE9
-80D2:  MOVLW  01
-80D4:  ADDWFC 03,W
-80D6:  MOVWF  FEA
-80D8:  MOVFF  FEF,7C1
-80DC:  MOVFF  7C1,7D6
-80E0:  MOVLW  57
-80E2:  MOVWF  xD7
-80E4:  MOVLB  0
-80E6:  CALL   4B98
-80EA:  MOVLB  7
-80EC:  INCF   x05,F
-80EE:  BRA    80C4
-80F0:  CLRF   19
-80F2:  BTFSC  FF2.7
-80F4:  BSF    19.7
-80F6:  BCF    FF2.7
+80C2:  MOVLB  7
+80C4:  CLRF   x05
+80C6:  MOVF   x05,W
+80C8:  SUBLW  0F
+80CA:  BNC   80F2
+80CC:  CLRF   03
+80CE:  MOVF   x05,W
+80D0:  ADDLW  39
+80D2:  MOVWF  FE9
+80D4:  MOVLW  01
+80D6:  ADDWFC 03,W
+80D8:  MOVWF  FEA
+80DA:  MOVFF  FEF,7C1
+80DE:  MOVFF  7C1,7D6
+80E2:  MOVLW  57
+80E4:  MOVWF  xD7
+80E6:  MOVLB  0
+80E8:  CALL   4B98
+80EC:  MOVLB  7
+80EE:  INCF   x05,F
+80F0:  BRA    80C6
+80F2:  CLRF   19
+80F4:  BTFSC  FF2.7
+80F6:  BSF    19.7
+80F8:  BCF    FF2.7
 ....................    fprintf(COM2,"\n\r"); 
-80F8:  MOVLW  0A
-80FA:  MOVLB  8
-80FC:  MOVWF  x58
-80FE:  MOVLB  0
-8100:  CALL   069C
-8104:  BTFSC  19.7
-8106:  BSF    FF2.7
-8108:  CLRF   19
-810A:  BTFSC  FF2.7
-810C:  BSF    19.7
-810E:  BCF    FF2.7
-8110:  MOVLW  0D
-8112:  MOVLB  8
-8114:  MOVWF  x58
-8116:  MOVLB  0
-8118:  CALL   069C
-811C:  BTFSC  19.7
-811E:  BSF    FF2.7
+80FA:  MOVLW  0A
+80FC:  MOVLB  8
+80FE:  MOVWF  x58
+8100:  MOVLB  0
+8102:  CALL   069C
+8106:  BTFSC  19.7
+8108:  BSF    FF2.7
+810A:  CLRF   19
+810C:  BTFSC  FF2.7
+810E:  BSF    19.7
+8110:  BCF    FF2.7
+8112:  MOVLW  0D
+8114:  MOVLB  8
+8116:  MOVWF  x58
+8118:  MOVLB  0
+811A:  CALL   069C
+811E:  BTFSC  19.7
+8120:  BSF    FF2.7
 ....................    fprintf(COM2,"\n\rcrypto_key:\n\r"); 
-8120:  MOVLW  0A
-8122:  MOVWF  FF6
-8124:  MOVLW  46
-8126:  MOVWF  FF7
-8128:  CLRF   19
-812A:  BTFSC  FF2.7
-812C:  BSF    19.7
-812E:  BCF    FF2.7
-8130:  CALL   06E2
-8134:  BTFSC  19.7
-8136:  BSF    FF2.7
+8122:  MOVLW  0A
+8124:  MOVWF  FF6
+8126:  MOVLW  46
+8128:  MOVWF  FF7
+812A:  CLRF   19
+812C:  BTFSC  FF2.7
+812E:  BSF    19.7
+8130:  BCF    FF2.7
+8132:  CALL   06E2
+8136:  BTFSC  19.7
+8138:  BSF    FF2.7
 ....................    for(i=0;i<16;i++) fprintf(COM2,"%x",test_key[i]); 
-8138:  MOVLB  7
-813A:  CLRF   x05
-813C:  MOVF   x05,W
-813E:  SUBLW  0F
-8140:  BNC   8168
-8142:  CLRF   03
-8144:  MOVF   x05,W
-8146:  ADDLW  29
-8148:  MOVWF  FE9
-814A:  MOVLW  01
-814C:  ADDWFC 03,W
-814E:  MOVWF  FEA
-8150:  MOVFF  FEF,7C1
-8154:  MOVFF  7C1,7D6
-8158:  MOVLW  57
-815A:  MOVWF  xD7
-815C:  MOVLB  0
-815E:  CALL   4B98
-8162:  MOVLB  7
-8164:  INCF   x05,F
-8166:  BRA    813C
+813A:  MOVLB  7
+813C:  CLRF   x05
+813E:  MOVF   x05,W
+8140:  SUBLW  0F
+8142:  BNC   816A
+8144:  CLRF   03
+8146:  MOVF   x05,W
+8148:  ADDLW  29
+814A:  MOVWF  FE9
+814C:  MOVLW  01
+814E:  ADDWFC 03,W
+8150:  MOVWF  FEA
+8152:  MOVFF  FEF,7C1
+8156:  MOVFF  7C1,7D6
+815A:  MOVLW  57
+815C:  MOVWF  xD7
+815E:  MOVLB  0
+8160:  CALL   4B98
+8164:  MOVLB  7
+8166:  INCF   x05,F
+8168:  BRA    813E
 ....................    while(1); 
-8168:  BRA    8168
+816A:  BRA    816A
 .................... #endif 
 ....................    EEPROM_read(strobe_pass_addr,20,password); 
-816A:  CLRF   xFA
-816C:  CLRF   xF9
-816E:  CLRF   xF8
-8170:  CLRF   xF7
-8172:  CLRF   xFE
-8174:  CLRF   xFD
-8176:  CLRF   xFC
-8178:  MOVLW  14
-817A:  MOVWF  xFB
-817C:  MOVLB  8
-817E:  CLRF   x00
-8180:  MOVLW  55
-8182:  MOVLB  7
-8184:  MOVWF  xFF
-8186:  MOVLB  0
-8188:  CALL   463A
+816C:  CLRF   xFA
+816E:  CLRF   xF9
+8170:  CLRF   xF8
+8172:  CLRF   xF7
+8174:  CLRF   xFE
+8176:  CLRF   xFD
+8178:  CLRF   xFC
+817A:  MOVLW  14
+817C:  MOVWF  xFB
+817E:  MOVLB  8
+8180:  CLRF   x00
+8182:  MOVLW  55
+8184:  MOVLB  7
+8186:  MOVWF  xFF
+8188:  MOVLB  0
+818A:  CALL   463A
 ....................    while(1) 
 ....................    { 
 ....................       if(mode==LOGOFF) 
-818C:  MOVLB  6
-818E:  MOVF   xE0,F
-8190:  BNZ   8240
+818E:  MOVLB  6
+8190:  MOVF   xE0,F
+8192:  BNZ   8242
 ....................       { 
 ....................          fprintf(COM2,"password:"); 
-8192:  MOVLW  1A
-8194:  MOVWF  FF6
-8196:  MOVLW  46
-8198:  MOVWF  FF7
-819A:  CLRF   19
-819C:  BTFSC  FF2.7
-819E:  BSF    19.7
-81A0:  BCF    FF2.7
-81A2:  MOVLB  0
-81A4:  CALL   06E2
-81A8:  BTFSC  19.7
-81AA:  BSF    FF2.7
+8194:  MOVLW  1A
+8196:  MOVWF  FF6
+8198:  MOVLW  46
+819A:  MOVWF  FF7
+819C:  CLRF   19
+819E:  BTFSC  FF2.7
+81A0:  BSF    19.7
+81A2:  BCF    FF2.7
+81A4:  MOVLB  0
+81A6:  CALL   06E2
+81AA:  BTFSC  19.7
+81AC:  BSF    FF2.7
 ....................          //fprintf(COM2,"\n\r charac_timeout=%lu\n\r",charac_timeout); 
 ....................          USART_getstring(STAR_ECHO,20,buffer_uart); 
-81AC:  MOVLW  02
-81AE:  MOVLB  7
-81B0:  MOVWF  xF7
-81B2:  MOVLW  14
-81B4:  MOVWF  xF8
-81B6:  MOVLW  01
-81B8:  MOVWF  xFA
-81BA:  MOVLW  69
-81BC:  MOVWF  xF9
-81BE:  MOVLB  0
-81C0:  CALL   5AFE
+81AE:  MOVLW  02
+81B0:  MOVLB  7
+81B2:  MOVWF  xF7
+81B4:  MOVLW  14
+81B6:  MOVWF  xF8
+81B8:  MOVLW  01
+81BA:  MOVWF  xFA
+81BC:  MOVLW  69
+81BE:  MOVWF  xF9
+81C0:  MOVLB  0
+81C2:  CALL   5AFE
 ....................         // for(i=0;i<5;i++) fprintf(COM2," %c",password[i]); 
 ....................          /*fprintf(COM2,"\n\r"); 
 ....................          for(i=0;i<5;i++) fprintf(COM2," %x",read_ext_eeprom(i)); 
@@ -17737,81 +17738,81 @@ CCS PCH C Compiler, Version 4.140, 33034               21-Jul-18 09:44
 ....................          fprintf(COM2,"\n\r"); 
 ....................          for(i=0;i<20;i++) fprintf(COM2," %x",buffer_uart[i]);//*/ 
 ....................          EEPROM_read(strobe_pass_addr,20,password); 
-81C4:  MOVLB  7
-81C6:  CLRF   xFA
-81C8:  CLRF   xF9
-81CA:  CLRF   xF8
-81CC:  CLRF   xF7
-81CE:  CLRF   xFE
-81D0:  CLRF   xFD
-81D2:  CLRF   xFC
-81D4:  MOVLW  14
-81D6:  MOVWF  xFB
-81D8:  MOVLB  8
-81DA:  CLRF   x00
-81DC:  MOVLW  55
-81DE:  MOVLB  7
-81E0:  MOVWF  xFF
-81E2:  MOVLB  0
-81E4:  CALL   463A
+81C6:  MOVLB  7
+81C8:  CLRF   xFA
+81CA:  CLRF   xF9
+81CC:  CLRF   xF8
+81CE:  CLRF   xF7
+81D0:  CLRF   xFE
+81D2:  CLRF   xFD
+81D4:  CLRF   xFC
+81D6:  MOVLW  14
+81D8:  MOVWF  xFB
+81DA:  MOVLB  8
+81DC:  CLRF   x00
+81DE:  MOVLW  55
+81E0:  MOVLB  7
+81E2:  MOVWF  xFF
+81E4:  MOVLB  0
+81E6:  CALL   463A
 ....................          if(!stringcomp(buffer_uart,password)) 
-81E8:  MOVLW  01
-81EA:  MOVLB  7
-81EC:  MOVWF  xF8
-81EE:  MOVLW  69
-81F0:  MOVWF  xF7
-81F2:  CLRF   xFA
-81F4:  MOVLW  55
-81F6:  MOVWF  xF9
-81F8:  MOVLB  0
-81FA:  CALL   5C36
-81FE:  MOVF   01,F
-8200:  BNZ   8224
+81EA:  MOVLW  01
+81EC:  MOVLB  7
+81EE:  MOVWF  xF8
+81F0:  MOVLW  69
+81F2:  MOVWF  xF7
+81F4:  CLRF   xFA
+81F6:  MOVLW  55
+81F8:  MOVWF  xF9
+81FA:  MOVLB  0
+81FC:  CALL   5C36
+8200:  MOVF   01,F
+8202:  BNZ   8226
 ....................          { 
 ....................             mode=LOGON; 
-8202:  MOVLW  01
-8204:  MOVLB  6
-8206:  MOVWF  xE0
+8204:  MOVLW  01
+8206:  MOVLB  6
+8208:  MOVWF  xE0
 ....................             fprintf(COM2," OK\n\r"); 
-8208:  MOVLW  24
-820A:  MOVWF  FF6
-820C:  MOVLW  46
-820E:  MOVWF  FF7
-8210:  CLRF   19
-8212:  BTFSC  FF2.7
-8214:  BSF    19.7
-8216:  BCF    FF2.7
-8218:  MOVLB  0
-821A:  CALL   06E2
-821E:  BTFSC  19.7
-8220:  BSF    FF2.7
+820A:  MOVLW  24
+820C:  MOVWF  FF6
+820E:  MOVLW  46
+8210:  MOVWF  FF7
+8212:  CLRF   19
+8214:  BTFSC  FF2.7
+8216:  BSF    19.7
+8218:  BCF    FF2.7
+821A:  MOVLB  0
+821C:  CALL   06E2
+8220:  BTFSC  19.7
+8222:  BSF    FF2.7
 ....................          } 
 ....................          else fprintf(COM2," X\n\r"); 
-8222:  BRA    823C
-8224:  MOVLW  2A
-8226:  MOVWF  FF6
-8228:  MOVLW  46
-822A:  MOVWF  FF7
-822C:  CLRF   19
-822E:  BTFSC  FF2.7
-8230:  BSF    19.7
-8232:  BCF    FF2.7
-8234:  CALL   06E2
-8238:  BTFSC  19.7
-823A:  BSF    FF2.7
+8224:  BRA    823E
+8226:  MOVLW  2A
+8228:  MOVWF  FF6
+822A:  MOVLW  46
+822C:  MOVWF  FF7
+822E:  CLRF   19
+8230:  BTFSC  FF2.7
+8232:  BSF    19.7
+8234:  BCF    FF2.7
+8236:  CALL   06E2
+823A:  BTFSC  19.7
+823C:  BSF    FF2.7
 ....................       } 
 ....................          else if(mode==LOGON)adminmode();//*/   
-823C:  BRA    824A
-823E:  MOVLB  6
-8240:  DECFSZ xE0,W
-8242:  BRA    824C
-8244:  MOVLB  0
-8246:  GOTO   63E8
-824A:  MOVLB  6
+823E:  BRA    824C
+8240:  MOVLB  6
+8242:  DECFSZ xE0,W
+8244:  BRA    824E
+8246:  MOVLB  0
+8248:  GOTO   63E8
+824C:  MOVLB  6
 ....................    } 
-824C:  BRA    818E
+824E:  BRA    8190
 .................... } 
-824E:  SLEEP 
+8250:  SLEEP 
 
 Configuration Fuses:
    Word  1: F4A0   NOWDT STVREN NOXINST NODEBUG NOPROTECT

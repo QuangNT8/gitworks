@@ -1,6 +1,6 @@
 
-ROM used:   33356 (51%)
-            33356 (51%) including unused fragments
+ROM used:   33358 (51%)
+            33358 (51%) including unused fragments
 
             6 Average locations per line
             19 Average locations per statement
@@ -66,35 +66,35 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    170   0   7   429  2.2  rtc_set_datetime
  Inline        5   238  3.1  rtc_get_date
  Inline        4   170  3.0  rtc_get_time
-0    272   0   0   173  5.0  @const492
-0    272   0   0  2081 12.1  @const495
-0     26   0   0    35  1.7  @const498
+0    272   0   0             @const492
+0    272   0   0             @const495
+0     26   0   0             @const498
 0     32   0   3   176  4.8  galois_mul2
 0   3160   5  15  8326 10.8  aes_enc_dec
-0     36   0   0    48  2.1  @const514
-0     40   0   0    35  1.7  @const518
+0     36   0   0             @const514
+0     40   0   0             @const518
 0    442   1   4  2505  9.8  kbd_getc
-0     36   0   0    10  0.5  @goto11738
+0     36   0   0             @goto11738
 0    232   0   2   762  4.9  read_col
 0     38   0   0             @goto11822
 0   1580   2  23  2916  7.4  check_col
-0    148   0  13    82  3.2  @DIV3232
+0    148   0  13             @DIV3232
 0     14   0   0             @const561
-0     42   0   3   762  4.9  @PSTRINGCN_78
-0    192   0  12    82  3.2  @PRINTF_L32U_78
-0     14   0   0  2916  7.4  @const566
+0     42   0   3             @PSTRINGCN_78
+0    192   0  12             @PRINTF_L32U_78
+0     14   0   0             @const566
 0     14   0   0             @const567
-0     14   0   0   762  4.9  @const568
+0     14   0   0             @const568
 0     14   0   0             @const569
 0   2032   3  27  3813  7.4  new_check_col
 0     14   0   0             @const580
 0     14   0   0             @const581
 0     14   0   0             @const582
 0     14   0   0             @const583
-0     14   0   0  3813  7.4  @const584
+0     14   0   0             @const584
 0     14   0   0             @const585
 0    404   1   7  1800  7.6  kbd_getc_slv
-0     18   0   0  3813  7.4  @const595
+0     18   0   0             @const595
 0    196   0   6             @PRINTF_D_78
 0    574   1  24  1324  7.9  save_key_encrypt
 0     98   0   2             @PRINTF_X_78
@@ -111,37 +111,37 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0   3074   5  34  8021 11.6  detect_pos_st
 0   1000   1  30  2391  8.1  con_data_track
 0    148   0   3   325  4.1  debug_reader
-0     22   0   0   331  9.4  @const703
-0     22   0   0   820  7.5  @const705
+0     22   0   0             @const703
+0     22   0   0             @const705
 0   1032   2   6  2570  8.6  saving_card
-0     22   0   0  2391  8.1  @const710
-0      6   0   0   643  7.5  @const712
-0     16   0   0  8021 11.6  @const713
-0     24   0   0   325  4.1  @const715
+0     22   0   0             @const710
+0      6   0   0             @const712
+0     16   0   0             @const713
+0     24   0   0             @const715
 0    778   1  13  3107  9.2  mcr_read
-0     20   0   0  2391  8.1  @const726
-0    190   0   9   325  4.1  @PRINTF_LU_78
-0     20   0   0  2570  8.6  @const729
+0     20   0   0             @const726
+0    190   0   9             @PRINTF_LU_78
+0     20   0   0             @const729
 0     22   0   0             @const730
-0     22   0   0  3107  9.2  @const731
+0     22   0   0             @const731
 0    130   0   1   418  4.1  read_card_T1
-0     18   0   0  3107  9.2  @const733
+0     18   0   0             @const733
 0     16   0   0             @const734
 0     18   0   0             @const738
-0     18   0   0   418  4.1  @const739
+0     18   0   0             @const739
 0    106   0   0    84  2.3  rstfact
 0   5618   8  56 13163 12.0  adminmode
-0     50   0   2  3107  9.2  @PSTRINGR_78
-0     18   0   0    84  2.3  @const755
-0    246   0   9    84  2.3  @PRINTF_LD_78
-0    282   0   6 13163 12.0  @PRINTF_D0_78
-0     18   0   0   418  4.1  @const763
+0     50   0   2             @PSTRINGR_78
+0     18   0   0             @const755
+0    246   0   9             @PRINTF_LD_78
+0    282   0   6             @PRINTF_D0_78
+0     18   0   0             @const763
 0     18   0   0             @const764
-0     16   0   0    84  2.3  @const765
+0     16   0   0             @const765
 0     18   0   0             @const767
 0     14   0   0             @const768
-0      8   0   0    84  2.3  @const769
-0     22   0   0 13163 12.0  @const770
+0      8   0   0             @const769
+0     22   0   0             @const770
 0     14   0   0             @const771
 0      8   0   0             @const772
 0     22   0   0             @const773
@@ -209,16 +209,16 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     16   0   0             @const857
 0     16   0   0             @const858
 0     28   0   0             @const859
-0   2166   3 190  4948 10.2  MAIN
-0     10   0   0  1511  6.9  @const879
+0   2168   3 190  4948 10.2  MAIN
+0     10   0   0             @const879
 0     24   0   0             @const880
 0     20   0   0             @const881
-0     20   0   0  4926 10.2  @const882
-0     26   0   0  1511  6.9  @const883
-0     24   0   0  4775 10.2  @const884
+0     20   0   0             @const882
+0     26   0   0             @const883
+0     24   0   0             @const884
 0     24   0   0             @const885
 0     34   0   0             @const886
-0     16   0   0  4659 10.2  @const888
+0     16   0   0             @const888
 0     16   0   0             @const891
 0     16   0   0             @const894
 0     16   0   0             @const897
@@ -228,23 +228,23 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline        0             @cinit1
 
 Program metrics:
-    Functions               86
+    Functions               48
     Statements              1723
     Comments                1612
-    Volume (V)              265806
-    Difficulty (D)          533.1
-    Effort to implement (E) 141705816
-    Time to implement (T)   2186 hours, 49 minutes
-    Est Delivered Bugs (B)  91
-    Cyclomatic Complexity   441
-    Maintainability (MI)    100
+    Volume (V)              111868
+    Difficulty (D)          279.7
+    Effort to implement (E) 31288984
+    Time to implement (T)   482 hours, 51 minutes
+    Est Delivered Bugs (B)  33
+    Cyclomatic Complexity   196
+    Maintainability (MI)    93
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-00006     0  4  
 00008-000B8   178  0  
-000BA-0FFF6  33174  32168  
+000BA-0FFF6  33176  32166  
 
 
 

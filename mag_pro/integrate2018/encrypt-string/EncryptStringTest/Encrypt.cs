@@ -56,6 +56,187 @@ namespace EncryptStringTest
         private const string initVector = "pemgail9uzpgzl88";
         // This constant is used to determine the keysize of the encryption algorithm.
         private const int keysize = 256;
+
+        // multiply by 2 in the galois field
+        public static byte galois_mul2(byte value)
+        {
+            sbyte temp;
+            // cast to signed value
+            temp = (sbyte) value;
+            // if MSB is 1, then this will signed extend and fill the temp variable with 1's
+            temp = (sbyte)(temp >> 7);
+            // AND with the reduction variable
+            temp = (sbyte)(temp & 0x1b);
+            // finally shift and reduce the value
+            return (byte)((value << 1) ^ temp);
+        }
+        // AES encryption and decryption function
+        // The code was optimized for memory (flash and ram)
+        // Combining both encryption and decryption resulted in a slower implementation
+        // but much smaller than the 2 functions separated
+        // This function only implements AES-128 encryption and decryption (AES-192 and 
+        // AES-256 are not supported by this code) 
+        public static void aes_enc_dec(byte[] state, byte[] key, byte dir)
+        {
+            byte buf1;
+            byte buf2;
+            byte buf3;
+            byte buf4;
+            byte round;
+            byte i;
+
+            // In case of decryption
+            if (dir != 0)
+            {
+                // compute the last key of encryption before starting the decryption
+                for (round = 0; round < 10; round++)
+                {
+                    //key schedule
+                    key[0] = (byte)(sbox[key[13]] ^ key[0] ^ Rcon[round]);
+                    key[1] = (byte)(sbox[key[14]] ^ key[1]);
+                    key[2] = (byte)(sbox[key[15]] ^ key[2]);
+                    key[3] = (byte)(sbox[key[12]] ^ key[3]);
+                    for (i = 4; i < 16; i++)
+                    {
+                        key[i] = (byte)(key[i] ^ key[i - 4]);
+                    }
+                }
+
+                //first Addroundkey
+                for (i = 0; i < 16; i++)
+                {
+                    state[i] = (byte)(state[i] ^ key[i]);
+                }
+            }
+
+            // main loop
+            for (round = 0; round < 10; round++)
+            {
+                if (dir != 0)
+                {
+                    //Inverse key schedule
+                    for (i = 15; i > 3; --i)
+                    {
+                        key[i] = (byte)(key[i] ^ key[i - 4]);
+                    }
+                    key[0] = (byte)(sbox[key[13]] ^ key[0] ^ Rcon[9 - round]);
+                    key[1] = (byte)(sbox[key[14]] ^ key[1]);
+                    key[2] = (byte)(sbox[key[15]] ^ key[2]);
+                    key[3] = (byte)(sbox[key[12]] ^ key[3]);
+                }
+                else
+                {
+                    for (i = 0; i < 16; i++)
+                    {
+                        // with shiftrow i+5 mod 16
+                        state[i] = sbox[state[i] ^ key[i]];
+                    }
+                    //shift rows
+                    buf1 = state[1];
+                    state[1] = state[5];
+                    state[5] = state[9];
+                    state[9] = state[13];
+                    state[13] = buf1;
+
+                    buf1 = state[2];
+                    buf2 = state[6];
+                    state[2] = state[10];
+                    state[6] = state[14];
+                    state[10] = buf1;
+                    state[14] = buf2;
+
+                    buf1 = state[15];
+                    state[15] = state[11];
+                    state[11] = state[7];
+                    state[7] = state[3];
+                    state[3] = buf1;
+                }
+                //mixcol - inv mix
+                if ((round > 0 && dir != 0) || (round < 9 && dir == 0))
+                {
+                    for (i = 0; i < 4; i++)
+                    {
+                        buf4 = (byte)(i << 2);
+                        if (dir != 0)
+                        {
+                            // precompute for decryption
+                            buf1 = galois_mul2(galois_mul2((byte)(state[buf4] ^ state[buf4 + 2])));
+                            buf2 = galois_mul2(galois_mul2((byte)(state[buf4 + 1] ^ state[buf4 + 3])));
+                            state[buf4] ^= buf1;
+                            state[buf4 + 1] ^= buf2;
+                            state[buf4 + 2] ^= buf1;
+                            state[buf4 + 3] ^= buf2;
+                        }
+                        // in all cases
+                        buf1 = (byte)(state[buf4] ^ state[buf4 + 1] ^ state[buf4 + 2] ^ state[buf4 + 3]);
+                        buf2 = state[buf4];
+                        buf3 = (byte)(state[buf4] ^ state[buf4 + 1]);
+                        buf3 = galois_mul2(buf3);
+                        state[buf4] = (byte)(state[buf4] ^ buf3 ^ buf1);
+                        buf3 = (byte)(state[buf4 + 1] ^ state[buf4 + 2]);
+                        buf3 = galois_mul2(buf3);
+                        state[buf4 + 1] = (byte)(state[buf4 + 1] ^ buf3 ^ buf1);
+                        buf3 = (byte)(state[buf4 + 2] ^ state[buf4 + 3]);
+                        buf3 = galois_mul2(buf3);
+                        state[buf4 + 2] = (byte)(state[buf4 + 2] ^ buf3 ^ buf1);
+                        buf3 = (byte)(state[buf4 + 3] ^ buf2);
+                        buf3 = galois_mul2(buf3);
+                        state[buf4 + 3] = (byte)(state[buf4 + 3] ^ buf3 ^ buf1);
+                    }
+                }
+
+                if (dir != 0)
+                {
+                    //Inv shift rows
+                    // Row 1
+                    buf1 = state[13];
+                    state[13] = state[9];
+                    state[9] = state[5];
+                    state[5] = state[1];
+                    state[1] = buf1;
+                    //Row 2
+                    buf1 = state[10];
+                    buf2 = state[14];
+                    state[10] = state[2];
+                    state[14] = state[6];
+                    state[2] = buf1;
+                    state[6] = buf2;
+                    //Row 3
+                    buf1 = state[3];
+                    state[3] = state[7];
+                    state[7] = state[11];
+                    state[11] = state[15];
+                    state[15] = buf1;
+
+                    for (i = 0; i < 16; i++)
+                    {
+                        // with shiftrow i+5 mod 16
+                        state[i] = (byte)(rsbox[state[i]] ^ key[i]);
+                    }
+                }
+                else
+                {
+                    //key schedule
+                    key[0] = (byte)(sbox[key[13]] ^ key[0] ^ Rcon[round]);
+                    key[1] = (byte)(sbox[key[14]] ^ key[1]);
+                    key[2] = (byte)(sbox[key[15]] ^ key[2]);
+                    key[3] = (byte)(sbox[key[12]] ^ key[3]);
+                    for (i = 4; i < 16; i++)
+                    {
+                        key[i] = (byte)(key[i] ^ key[i - 4]);
+                    }
+                }
+            }
+            if (dir == 0)
+            {
+                //last Addroundkey
+                for (i = 0; i < 16; i++)
+                {
+                    // with shiftrow i+5 mod 16
+                    state[i] = (byte)(state[i] ^ key[i]);
+                } // enf for
+            } // end if (!dir)
+        } // end function
         //Encrypt
         public static string EncryptString(string plainText, string passPhrase)
         {

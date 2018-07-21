@@ -232,7 +232,7 @@ void main()
    //strcpy(crypto_key,"@quang102");
    //rijndael('d', (unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0]);
    //aes_enc_dec((unsigned int8 *)&buftemp2[0], (unsigned char *)&crypto_key[0],0);
-   aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],0);
+   aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1);
    fprintf(COM2,"\n\r");
     fprintf(COM2,"\n\rdecrypted:\n\r");
    for(i=0;i<16;i++) fprintf(COM2,"%x",test_data[i]);
