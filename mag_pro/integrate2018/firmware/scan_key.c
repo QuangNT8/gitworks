@@ -1,5 +1,7 @@
 
-#include <aes.c>
+//#include <aes.c>
+//#include <aes_enc.c>
+#include <TI_aes_128.c>
 
 #define  COL0      PIN_A5
 #define  COL1      PIN_A3
@@ -437,19 +439,24 @@ void save_key_encrypt()
          rec[key_numbyte+1] = 0;         
          rec[key_numbyte+2] = 0;         
          rec[key_numbyte+3] = 0;
+    #if 0
          fprintf(COM2,"\n\r");
-         for(i=0;i<10;i++) fprintf(COM2," %c",crypto_key[i]);
+         fprintf(COM2,"test_key:\n\r");
+         for(i=0;i<16;i++) fprintf(COM2,"%x",test_key[i]);
          fprintf(COM2,"\n\r");
+         fprintf(COM2,"\n\rdatain:\n\r");
          for(i=0;i<16;i++) fprintf(COM2," %x",rec[i]);
          fprintf(COM2,"\n\r");
-       
-         rijndael('c', (unsigned char *)&rec[0], (unsigned char *)&crypto_key[0]);
+    #endif
+         //rijndael('c', (unsigned char *)&rec[0], (unsigned char *)&crypto_key[0]);
+         //aes_enc_dec((unsigned int8 *)&rec[0], (unsigned int8 *)&crypto_key[0],1);
+         //aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1);
          
          /* get the pointer of keyboard data */
          temp=get_countcard();
          ptr_card_key=(int32)(((temp)*16)+EEPROM_KEY_ST);
          
-         for(i=0;i<16;i++) fprintf(COM2," %x",rec[i]);
+         for(i=0;i<16;i++) fprintf(COM2,"%x",rec[i]);
          retval = EEPROM_write(ptr_card_key,16,rec);   /* Écriture de la chaine */
          if(retval!=0)
          {

@@ -17,7 +17,12 @@ int8 crypto_key[CRYPTO_KEY_SIZE+1];
  ** @file    aes.c
  ** @brief   Module d'encryption AES
  **************************************************************************************************************/                                          
-
+int8 test_key[16]={
+0xE8, 0xE9, 0xEA, 0xEB, 0xED, 0xEE, 0xEF, 0xF0, 0xF2, 0xF3, 0xF4, 0xF5, 0xF7, 0xF8, 0xF9, 0xFA
+}; 
+int8 test_data[16]={
+0x67, 0x43, 0xC3, 0xD1, 0x51, 0x9A, 0xB4, 0xF2, 0xCD, 0x9A, 0x78, 0xAB, 0x09, 0xA5, 0x11, 0xBD
+}; 
 /*************************************************************************************************************
     Fonction :      rcon 
     Description :   Calcule la constante de round, renvoie, pour i valeur d'entree, la valeur 2 ** (i - 1).

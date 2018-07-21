@@ -211,23 +211,34 @@ void main()
    //write_ext_eeprom(0xFFFE,0x0F);
    //fprintf(COM2,"eeprom is testing: %x",read_ext_eeprom(0x10000));
    strcpy(key_data,"123456");
-   strcpy(crypto_key,"@quang1021");
+   strcpy(crypto_key,"0123456789ABCDEF");
   /*  for(i=0;i<8;i++)
    {
        fprintf(COM2,"%c",key_data[i]);  
    } */
    //for(i=0;i<8;i++) fprintf(COM2,"%c",crypto_key[i]);
+   
    save_key_encrypt();
    EEPROM_read(EEPROM_KEY_ST,16,buftemp2);
-   for(i=0;i<16;i++) fprintf(COM2," %x",buftemp2[i]);
-   delay_ms(3000);
    
+   //for(i=0;i<16;i++) fprintf(COM2," %x",buftemp2[i]);
+   delay_ms(3000);
+   fprintf(COM2,"\n\r");
+   fprintf(COM2,"test_data in:\n\r");
+   for(i=0;i<16;i++) fprintf(COM2,"%x",test_data[i]);
+   fprintf(COM2,"\n\r");
+   fprintf(COM2,"test_key in:\n\r");
+   for(i=0;i<16;i++) fprintf(COM2,"%x",test_key[i]);
    //strcpy(crypto_key,"@quang102");
-   rijndael('d', (unsigned int8 *)&buftemp2[0], (unsigned int8 *)&crypto_key[0]);
+   //rijndael('d', (unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0]);
+   //aes_enc_dec((unsigned int8 *)&buftemp2[0], (unsigned char *)&crypto_key[0],0);
+   aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],0);
    fprintf(COM2,"\n\r");
-   for(i=0;i<10;i++) fprintf(COM2," %c",crypto_key[i]);
+    fprintf(COM2,"\n\rdecrypted:\n\r");
+   for(i=0;i<16;i++) fprintf(COM2,"%x",test_data[i]);
    fprintf(COM2,"\n\r");
-   for(i=0;i<16;i++) fprintf(COM2," %c",buftemp2[i]);
+   fprintf(COM2,"\n\rcrypto_key:\n\r");
+   for(i=0;i<16;i++) fprintf(COM2,"%x",test_key[i]);
    while(1);
 #endif
    EEPROM_read(strobe_pass_addr,20,password);
