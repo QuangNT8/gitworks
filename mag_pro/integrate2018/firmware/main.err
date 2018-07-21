@@ -1,4 +1,4 @@
->>> Warning 206 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\24512.C" Line 141(1,1): Variable of this data type is never greater than this constant
+>>> Warning 206 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\24512.C" Line 107(1,1): Variable of this data type is never greater than this constant
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 128(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 145(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 147(1,1): Operator precedance rules may not be as intended, use () to clarify
@@ -28,53 +28,49 @@
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 203 "main.c" Line 246(1,1): Condition always TRUE
->>> Warning 203 "main.c" Line 250(1,1): Condition always TRUE
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_READ_1)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_78)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LD_78)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_78)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
->>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 213(10,11): Variable never used:   i
->>> Warning 202 "main.c" Line 8(6,16): Variable never used:   count_spam
+>>> Warning 203 "main.c" Line 208(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 212(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_78)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LD_78)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_78)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "main.c" Line 237(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 142(10,11): Variable never used:   i
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 43(6,14): Variable never used:   test_key
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 46(6,15): Variable never used:   test_data
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 58(6,14): Variable never used:   delaykey
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 61(6,21): Variable never used:   count_strobe_kb
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 322(6,14): Variable never used:   KB_count
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 325(16,30): Variable never used:   kbd_call_count
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 326(16,24): Variable never used:   kbd_down
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 327(16,24): Variable never used:   last_key
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 54(6,14): Variable never used:   delaykey
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 57(6,21): Variable never used:   count_strobe_kb
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 59(6,11): Variable never used:   kp_st
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 308(6,14): Variable never used:   KB_count
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 311(16,30): Variable never used:   kbd_call_count
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 312(16,24): Variable never used:   kbd_down
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 313(16,24): Variable never used:   last_key
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 9(6,16): Variable never used:   UART_index
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 10(6,21): Variable never used:   sms_unread_flag
->>> Warning 202 "main.c" Line 14(6,20): Variable never used:   receiver_state
->>> Warning 202 "main.c" Line 15(7,16): Variable never used:   over_byte
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 428(10,11): Variable never used:   i
->>> Warning 202 "main.c" Line 102(11,15): Variable never used:   temp
->>> Warning 202 "main.c" Line 102(16,26): Variable never used:   count_char
->>> Warning 202 "main.c" Line 103(17,25): Variable never used:   num_card
->>> Warning 202 "main.c" Line 103(26,31): Variable never used:   cards
->>> Warning 202 "main.c" Line 103(32,38): Variable never used:   countc
->>> Warning 202 "main.c" Line 103(39,49): Variable never used:   count_dwla
->>> Warning 202 "main.c" Line 104(17,24): Variable never used:   lastlen
->>> Warning 202 "main.c" Line 105(10,13): Variable never used:   len
->>> Warning 202 "main.c" Line 105(16,24): Variable never used:   addr_dat
->>> Warning 202 "main.c" Line 106(9,13): Variable never used:   strl
->>> Warning 202 "main.c" Line 106(14,15): Variable never used:   j
->>> Warning 202 "main.c" Line 107(10,16): Variable never used:   string
->>> Warning 202 "main.c" Line 107(20,27): Variable never used:   buftemp
-      Memory usage:   ROM=51%      RAM=53% - 57%
-      0 Errors,  77 Warnings.
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 417(10,11): Variable never used:   i
+>>> Warning 202 "main.c" Line 77(11,15): Variable never used:   temp
+>>> Warning 202 "main.c" Line 77(16,26): Variable never used:   count_char
+>>> Warning 202 "main.c" Line 78(17,25): Variable never used:   num_card
+>>> Warning 202 "main.c" Line 78(26,31): Variable never used:   cards
+>>> Warning 202 "main.c" Line 78(32,38): Variable never used:   countc
+>>> Warning 202 "main.c" Line 78(39,49): Variable never used:   count_dwla
+>>> Warning 202 "main.c" Line 79(17,24): Variable never used:   lastlen
+>>> Warning 202 "main.c" Line 80(10,13): Variable never used:   len
+>>> Warning 202 "main.c" Line 80(16,24): Variable never used:   addr_dat
+>>> Warning 202 "main.c" Line 81(9,13): Variable never used:   strl
+>>> Warning 202 "main.c" Line 81(14,15): Variable never used:   j
+>>> Warning 202 "main.c" Line 82(10,16): Variable never used:   string
+>>> Warning 202 "main.c" Line 82(20,27): Variable never used:   buftemp
+      Memory usage:   ROM=48%      RAM=52% - 57%
+      0 Errors,  73 Warnings.
 Build Successful.

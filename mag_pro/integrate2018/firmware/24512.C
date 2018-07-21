@@ -31,12 +31,12 @@
 
 #use i2c(master, sda=EEPROM_SDA, scl=EEPROM_SCL)
 
-#define EEPROM_ADDRESS long int
-#define EEPROM_SIZE_key    131071
-#define EEPROM_SIZE        115470
-#define EEPROM_KEY_ST      EEPROM_SIZE+1
+#define ptr_start                       150
+#define EEPROM_SIZE_endofkey            131071
+#define EEPROM_SIZE_stofkey             115470
+#define EEPROM_KEY_ST                   EEPROM_SIZE_stofkey+1
 //===============================
-#define ptr_start                150
+
 unsigned int32 ptr_card=ptr_start;
 unsigned int32 ptr_card_key=EEPROM_KEY_ST;
 //===============================
@@ -46,27 +46,6 @@ void init_ext_eeprom()
    output_float(EEPROM_SDA);
    port_b_pullups(0xff);
 }
-/*
-void write_ext_eeprom(long int address, BYTE data)
-{
-   short int status;
-   i2c_start();
-   if(address<0xffff)i2c_write(0xa0);
-      else if(address>=0xffff) i2c_write(0xa2);
-   i2c_write(address>>8);
-   i2c_write(address);
-   i2c_write(data);
-   i2c_stop();
-   i2c_start();
-   status=i2c_write(0xa0);
-   while(status==1)
-   {
-      i2c_start();
-      status=i2c_write(0xa0);
-   }
-   i2c_stop();
-}
-*/
 
 void write_ext_eeprom(int32 address, int8 data)
 {
@@ -96,20 +75,7 @@ void write_ext_eeprom(int32 address, int8 data)
    //delay_us(100);
 }
 
-/*
-BYTE read_ext_eeprom(long int address) {
-   BYTE data;
-   i2c_start();
-   i2c_write(0xa0);
-   i2c_write(address>>8);
-   i2c_write(address);
-   i2c_start();
-   i2c_write(0xa1);
-   data=i2c_read(0);
-   i2c_stop();
-   return(data);
-}
-*/
+
 BYTE read_ext_eeprom(int32 address) {
    BYTE data;
    int   command;
@@ -138,7 +104,7 @@ int8 I2CEEPROM_read(unsigned int16 adr, unsigned int16 len, int8 *buf)
 {
    unsigned int16 i;
 
-   if((adr+len) >= EEPROM_SIZE) return(0);
+   if((adr+len) >= EEPROM_SIZE_stofkey) return(0);
    for(i=0;i<len;i++)
    {
        buf[i]=read_ext_eeprom(adr+i);

@@ -30,6 +30,8 @@
 #define numbyteofbuffer2    300
 //#define numbyteofbuffer    100
 //=====================================
+unsigned int8 day,year=14,mon=1,date=1,h=0,min=0,sec=0;
+//=====================================
 char Track1[numbyteoftrack1];
 char Track2[numbyteoftrack2];
 
@@ -51,8 +53,6 @@ int8 saving_flag=0;
 int8 data_avai=0;
 int8 reading_fg=0;
 int8 count_reading_error=0;
-//=========================
-//#include "mcrtool.c"
 //============================
 int8 makebyte(int8 bit7,int8 bit6,int8 bit5,int8 bit4,int8 bit3,int8 bit2,int8 bit1,int8 bit0)
 {
@@ -325,8 +325,6 @@ void saving_card()
    int16 tempcount;
    //fprintf(COM2,"\r\n");
    saving_flag=1;
-   //rtc_get_date(date,mon,year,day);
-   //rtc_get_time(h,min,sec);
    ptr_card=(int32)((get_countcard()*numdata)+ptr_start);
    if(datinbuf==0) 
    {
@@ -340,7 +338,6 @@ void saving_card()
    }//*/
    //disable_interrupts(INT_EXT1_H2L);
    fprintf(COM2,"\r\nSaving Card Data\r\n");
-   key_timeout=0;
    //key_count=0;
    enable_getpin=1;
    //en_getpin;
@@ -359,7 +356,7 @@ void saving_card()
          fputc(Track2[countbit]+0x30,COM2);
       fprintf(COM2,"\r\n");//*/
       temp=Track1[0]+0x20;
-   if((ptr_card<EEPROM_SIZE)&&(temp=='%'))
+   if((ptr_card<EEPROM_SIZE_stofkey)&&(temp=='%'))
    {
          write_ext_eeprom((long int)ptr_card++,date);
          write_ext_eeprom((long int)ptr_card++,mon);
@@ -386,17 +383,9 @@ void saving_card()
          del_buf(key_numbyte,key_data);*/
       fprintf(COM2,"\r\n");
       fprintf(COM2,"Done");
-      if(KP_mode)
-      {
-         printf("\n\rKey release\n\r");
-         keyprss_off;
-         kp_st=0;
-      }  
-      count_kp=0xffff;
-      //key_press('B');
+        
       fprintf(COM2,"\r\n");
       fprintf(COM2,"Waiting for PIN number");
-      count_checking=0;
       fprintf(COM2,"\r\n");
       charac_timeout=0;
       //===========================
@@ -555,42 +544,14 @@ int8 mcr_read()
 #INT_EXT1
 void read_card_T1()
 {
-      //disable_interrupts(GLOBAL);
       delay_us(500);
-   //if(input(MCR_STROBE1)==0)
-   //{
       if(saving_flag==1) return;     
-      if((KP_mode)&&(enable_getpin==0)&&(booting==1))
-      {
-         if(kp_st==1)
-         {
-            printf("\n\rKey release.\n\r");
-            keyprss_off;
-            kp_st=0;
-         }
-         else
-         {
-            printf("\n\rKey press.\n\r");
-            keyprss_on;
-            kp_st=1; 
-            count_kp=0;
-         }
-      }
       cardread_st=mcr_read();
-      //enable_getpin=0;
       mcr_timeout=0;
-      card_timeout=0;
-      /*if(KP_mode)
-      {
-         printf("\n\rKey release\n\r");
-         keyprss_off;
-      } */     
-      //charac_timeout=0;
-      //fprintf(COM2,"\n\r charac_timeout=%lu\n\r",charac_timeout);
-      //enable_interrupts(GLOBAL);
-  // }
+      card_timeout=0;     
 }
 //====================================
+#if 0
 void debug_card()
 {
    int8 i;
@@ -612,4 +573,5 @@ void debug_card()
       fputc(Track2[i]+0x30,COM2);
    }
 }
+#endif
 //====================================

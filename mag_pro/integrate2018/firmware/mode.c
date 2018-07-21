@@ -18,12 +18,7 @@ void rstfact()
    //write_ext_eeprom(strobe_delaykb,100);
    //write_ext_eeprom(KB_time,2);
    write_ext_eeprom(strobe_Master_SLV,1);   
-   mode_sl=read_ext_eeprom(strobe_Master_SLV);
-   #if defined(SIM900)
-      write_ext_eeprom(strobe_autosending,0);     
-      auto_sending=read_ext_eeprom(strobe_autosending); 
-   #endif
-   
+   mode_sl=read_ext_eeprom(strobe_Master_SLV); 
 }
 //================================
 void adminmode()
@@ -158,32 +153,22 @@ void adminmode()
       if(!stringcomp(buffer_uart,buffer2))   // format mem
       {
          fprintf(COM2,"New console name>");
-         USART_getstring(EN_ECHO,16, console);
-         EEPROM_write(strobe_nameconsole,16,console);
+         USART_getstring(EN_ECHO,wide_strobe_nameconsole, console);
+         EEPROM_write(strobe_nameconsole,wide_strobe_nameconsole,console);
          fprintf(COM2," OK\n\r");
       }
       
       strcpy(buffer2,"c");
       if(!stringcomp(buffer_uart,buffer2))   //show clock
       {
-         rtc_get_date(date,mon,year,day);
-         rtc_get_time(h,min,sec);
          mode_sl=read_ext_eeprom(strobe_Master_SLV);
          if(mode_sl==0) fprintf(COM2,"[M]");
          else fprintf(COM2,"[S]");  
          delaycharaction=read_ext_eeprom(strobe_delaytime); 
          fprintf(COM2,"[%u]",delaycharaction);
-         #if defined(SIM900)
-         auto_sending=read_ext_eeprom(strobe_autosending); 
-         if(auto_sending==0)fprintf(COM2,"[auto sending (off)]");
-            else fprintf(COM2,"[auto sending (on)]");
-         fprintf(COM2,"[");   
-         for(i=0;i<16;i++) fprintf(COM2,"%c",read_ext_eeprom(strobe_mobile_num1+i));  
-         fprintf(COM2,"] ");
-         #endif
+         
          fprintf(COM2,"%02i/%02i %02i:%02i:%02i",date,mon,h,min,sec);
-         /*fprintf(COM2,"\n\rMobile Phone Number:"); 
-         for(i=0;i<20;i++) fprintf(COM2,"%c",read_ext_eeprom(strobe_mobile_num1+i));*/
+         
          fprintf(COM2,"\n\r");
       }
       strcpy(buffer2,"sc");
@@ -211,7 +196,7 @@ void adminmode()
          USART_getstring(EN_ECHO, 3, temp);
          sec = (unsigned int8)strtoi(temp);                  
          fprintf(COM2,"\n\r");
-         rtc_set_datetime(date,mon,year,day,h,min);
+         /* rtc_set_datetime(date,mon,year,day,h,min); */
       }
       strcpy(buffer2,"MS");
       if(!stringcomp(buffer_uart,buffer2))
@@ -226,18 +211,7 @@ void adminmode()
           set_tris_a(0xff);
           fprintf(COM2,"\n\r");
       }
-      strcpy(buffer2,"KP");
-      if(!stringcomp(buffer_uart,buffer2))
-      {
-          fprintf(COM2,"Press '1' to turn on kepress");
-          fprintf(COM2,"\n\r");
-          fprintf(COM2,"Press '0' to turn off kepress");
-          fprintf(COM2,"\n\r");
-          USART_getstring(EN_ECHO, 3, temp);
-          KP_mode = (unsigned int8)strtoi(temp);
-          write_ext_eeprom(strobe_keypressmode,KP_mode);
-          fprintf(COM2,"\n\r");
-      }
+     
       strcpy(buffer2,"tran time");
       if(!stringcomp(buffer_uart,buffer2))
       {
@@ -282,33 +256,6 @@ void adminmode()
           //fprintf(COM2,"delaykey=%u\n\r",delaykey);
           fprintf(COM2,"\n\r");
       }  */
-      #if defined(SIM900)
-      memset(buffer2,0,sizeof(buffer2)); 
-      strcpy(buffer2,"cf mbn");
-      if(!stringcomp(buffer_uart,buffer2))   //setting clock
-      {
-         for(i=0;i<20;i++)buffer1[i]=0;
-         fprintf(COM2,"\n\rInput your mobile phone number:");
-         USART_getstring(EN_ECHO, 20, buffer1);
-         EEPROM_write(strobe_mobile_num1,20,buffer1);
-         fprintf(COM2,"\n\rdone\n\r");  
-         fprintf(COM2,"\n\r");
-         for(i=0;i<20;i++) fprintf(COM2,"%c",read_ext_eeprom(strobe_mobile_num1+i));
-         fprintf(COM2,"\n\r");//*/
-      }
-      strcpy(buffer2,"SIM900auto");
-      if(!stringcomp(buffer_uart,buffer2))
-      {
-          fprintf(COM2,"Press '1' to turn on Auto mode");
-          fprintf(COM2,"\n\r");
-          fprintf(COM2,"Press '0' to turn off Auto mode");
-          fprintf(COM2,"\n\r");
-          USART_getstring(EN_ECHO, 3, temp);
-          auto_sending = (unsigned int8)strtoi(temp);
-          write_ext_eeprom(strobe_autosending,auto_sending);
-          fprintf(COM2,"\n\r");
-      }   
-      #endif
       #if defined(PIC26)
       strcpy(buffer2,"h");
       if(!stringcomp(buffer_uart,buffer2))   //setting clock
@@ -320,10 +267,6 @@ void adminmode()
          printf("n -> change console Name\n\r");
          printf("f-> Format\n\r");
          printf("e-> Exit\n\r");  
-         printf("MS-> Keyboard mode setting (Slave/Master)\n\r");
-         KP_mode=read_ext_eeprom(strobe_keypressmode);
-         if(KP_mode) printf("KP-> Keypress mode setting (On)\n\r");
-            else printf("KP-> Keypress mode setting (Off)\n\r");
          printf("tran time-> time of each transaction\n\r");
          printf("debug-> on/off debug mode\n\r");     
          //printf("delaykb %d -> Keyboard's Timing\n\r",read_ext_eeprom(strobe_delaykb)); 

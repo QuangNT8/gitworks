@@ -4,24 +4,11 @@
 #include "stdlib.h"
 #include "24512.C"
 #include <eeprom.c>
-#include "ds1307.C"
-int8 count_spam=0,booting=0;
-//#include "KBD.c"
-//#include "I2c.h"
-int16 count_checking=10;
+
 #include <scan_key.c>
 #include <uart_tool.c>
-int8 receiver_state=0,booting_done=0;
-int16 over_byte=0;
-//#include <GSM.c> 
-/*#if defined(SIM900)
-   #include <GSM.c>   
-#endif*/
-
-
 #include "mcr.c"
 #include "mode.c"
-//=========================
 
 //==========================
 #INT_TIMER0
@@ -33,18 +20,6 @@ void timer0()
    //========strobe keyboarddata============
    //=======================================  
    //output_toggle(ROW0);
-   //KP_mode=read_ext_eeprom(strobe_keypressmode);
-   if(KP_mode)
-   {
-      if(count_kp<500)count_kp++;
-      if(count_kp==500)
-      {
-            fprintf(COM2,"\n\rKey release\n\r");
-            keyprss_off;
-            kp_st=0;    
-            count_kp++;
-      }
-   }
    if(keydebug_en==1)
    {
       if(mode_sl==0)kbd_getc();
@@ -105,12 +80,9 @@ void main()
    int16 len=0,addr_dat;
    int8 strl,j;
    char  string[5],buftemp[124],buftemp2[50];
-   //RPINR2=6;
-    RPINR1=5;
+   RPINR1=5;
    charac_timeout=0xffffffff;
-   key_timeout=0xffff;
    setup_oscillator(OSC_32MHZ);
-   keyprss_off;
    //=============================
    disable_interrupts(GLOBAL);
    init_ext_eeprom();
@@ -123,15 +95,12 @@ void main()
       for(i=0;i<10;i++) fprintf(COM2,"%c",read_ext_eeprom(strobe_pass_addr+i));
       fprintf(COM2,"\r\nDone\r\n");
       while(1);
-   #endif     
-      delay_ms(1000);
-   init_password();
-   KP_mode=read_ext_eeprom(strobe_keypressmode);
+   #endif  
    //=====================================
-   rtc_init();
-   //RTC_init();
-   //mysettime();
-   //write_ext_eeprom(65535,12);
+   delay_ms(1000);
+   init_password();
+   //=====================================
+   
    ptr_card=get_ptrcard(strobe_ptrcard_addr);
    printf(COM2," save_ptrcard=%lu\n\r",ptr_card);
    
@@ -158,25 +127,18 @@ void main()
       
       enable_interrupts(GLOBAL);
  
-   mcr_timeout=10000;
+    mcr_timeout=10000;
     mode_sl=read_ext_eeprom(strobe_Master_SLV);
     debugmode=read_ext_eeprom(strobe_debugmode);
-    key_timeout=1000;
    //==========================================
    charac_timeout=0xffffffff;
-   //delay_ms(3000);
    
-   booting_done=1;
-   booting=1;
-   charac_timeout=0xffffffff;
-   
-   EEPROM_read(strobe_nameconsole,16,console);
+   EEPROM_read(strobe_nameconsole,wide_strobe_nameconsole,console);
    set_tris_a(0xff); 
    
    setup_adc_ports(sAN0|sAN1|sAN2|sAN3|sAN4|VSS_VDD);
    setup_adc(ADC_CLOCK_INTERNAL);
    
-   KP_mode=read_ext_eeprom(strobe_keypressmode);
    type_KB=read_ext_eeprom(kindofKB);
    if(type_KB!=0) fprintf(COM2,"new keboard mode\n\r");
       else fprintf(COM2,"Old keboard mode\n\r");

@@ -2,33 +2,18 @@
 
 #include "STRING.H"
 
-#define strobe_pass_addr         0
-#define strobe_ptrcard_addr      25// from 21 to 24 use for stobe point
-#define strobe_ptrcard_key       30// from 21 to 24 use for stobe point
-//#define strobe_password          35
-#define strobe_count_card        40
-//#define strobe_ptrcard_addr      69// from 21 to 24 use for stobe point
-#define strobe_mobile_num0        65   //  num1   num2  num3 num4
-#define strobe_mobile_num1       85 // 1->16// ->34//-> 50 -> 66
-#define strobe_nameconsole       102 // 102+16
-//#define strobe_mobile_num2       105 //18-34  
-//#define strobe_mobile_num3       125
+#define strobe_pass_addr            0
+#define strobe_ptrcard_addr         25     // 4 bytes
+#define strobe_ptrcard_key          30     // 4 bytes
+#define strobe_count_card           36     // 2 bytes
+#define strobe_nameconsole          40     // 16 bytes 
+#define strobe_Master_SLV           58     // 1 byte
+#define strobe_debugmode            59     // 1 byte
+#define strobe_delaytime            60     // 1 byte
+#define kindofKB                    61     // 1 byte
 
 
-#define strobe_Master_SLV        145
-#define strobe_debugmode         146
-#define strobe_autosending       147
-#define strobe_delaytime         148
-#define strobe_two_number        149
-#define kindofKB                 126
-#define strobe_keypressmode      127
-
-
-//#define ptr_start                150
-
-//#define EEPROM_KEY_ST      43590+1
-
-//#define install_password         0xfe
+#define wide_strobe_nameconsole     16 
 //==============================================================
 #define numdata                  124 // 5+79+40=124
 #define countcards               930   //43590/124
@@ -73,60 +58,6 @@ void EEPROM_read(unsigned int32 adr, unsigned int32 len, int8 *buf)
       delay_us(10);
    }
 }
-//================================================================
-/*void default_pass()
-{
-   unsigned int8 temp;
-   temp = read_program_eeprom(strobe_password);
-   if(temp==0xff)
-   {
-      EEPROM_write(strobe_password,11,defaul_password);
-   }
-}*/
-//================================================================
-/*int8 check_default_password()
-{
-   int8 st=0;
-   EEPROM_read(strobe_password,11,buf_checkpass);
-   //strcpy (command1,"Den 6 tat");
-   if(!memcmp(buf_checkpass,defaul_password,11))st=1;
-      else st=0;
-   return(st);
-}*/
-//================================================================
-/*void save_mobile_number(int8 count,unsigned int8 *mb_num)
-{
-   //strobe_count_num
-   unsigned int8 i=0,temp;
-   for(i=0;i<16;i++)
-   {
-      temp = mb_num[i];
-      if((temp<48)||(temp>57))
-      {
-         if(temp!='+') mb_num[i]=0;
-      }
-   }
-   switch (count)
-   {
-      case 0:
-         EEPROM_write(strobe_mobile_num1,16,mb_num);
-      break;
-      case 1:
-         EEPROM_write(strobe_mobile_num2,16,mb_num);
-      break;
-      case 2:
-         EEPROM_write(strobe_mobile_num3,16,mb_num);
-      break;      
-      case 3:
-         //EEPROM_write(strobe_mobile_num4,16,mb_num);
-      break;      
-   }
-}*/
-//=====================================================
-/*void save_password(unsigned int8 lenght, unsigned int8 *pass_dat)
-{
-   EEPROM_write(strobe_password,lenght,pass_dat);
-}*/
 //================================================================
 unsigned int32 get_ptrcard(int8 addr)
 {
@@ -183,9 +114,7 @@ unsigned int16 get_countcard()
 void format_eepromext()
 {
    int32 i;
-   //fprintf(COM2," save_ptrcard=%lu\n\r",get_ptrcard(strobe_ptrcard_addr));
-   //fprintf(COM2,"EEPROM_KEY_ST=%lu\n\r",EEPROM_KEY_ST);
-   //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
+
    for(i=EEPROM_KEY_ST;i<ptr_card_key;i++)
    {
      write_ext_eeprom(i,0);
@@ -211,10 +140,6 @@ void format_eepromext()
 void ease_eeprom()
 {
    int32 i;
-   /*for(i=ptr_start;i<EEPROM_SIZE_key;i++)
-   {
-     write_ext_eeprom(i,0);
-   }*/
    ptr_card=ptr_start;
    ptr_card_key=EEPROM_KEY_ST;
    save_ptrcard(ptr_card,strobe_ptrcard_addr);
@@ -241,9 +166,3 @@ void reset_password()
    EEPROM_write(strobe_pass_addr,20,buf);
 }
 //============================================
-void reset_2nd_number()
-{
-   int8 buf[20],i;
-   for(i=0;i<20;i++)buf[i]=0;
-   EEPROM_write(strobe_mobile_num0,20,buf);
-}

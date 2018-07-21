@@ -16,8 +16,6 @@
 
 #define  key       PIN_A7
 
-#define  keyprss_on     output_high(PIN_A7)
-#define  keyprss_off    output_low(PIN_A7)
 
 //#define  en_getpin      enable_interrupts(INT_TIMER1)
 //#define  dis_getpin     disable_interrupts(INT_TIMER1)
@@ -47,25 +45,21 @@ char const newKEYS[4][6] = {{'1','2','3','A','B','C'},
                            */
 
 #define KBD_DEBOUNCE_FACTOR  1    // Set this number to apx n/333 where
-                                  // n is the number of times you expect
-                                  // to call kbd_getc each second
-#define KBD_DEBOUNCE_FACTOR_SL  5
+                                
 
-#define wait_SL  10000
+#define     wideofkeystore      16
+#define     key_numbyte         wideofkeystore-4
 
 //unsigned int32 count_timer0=0;
-unsigned int16 key_timeout=1000;
 int8 delaykey=0;
 int8 keydebug_en=0;
 int8 enable_getpin=0;
 int8 count_strobe_kb=100;
 int8 key_count_ms=0;
-int8 KP_mode=0,kp_st=0;
-int16 count_kp=0;
+int8 kp_st=0;
 int8 type_KB=0;
-#define key_numbyte  12
 
-int8 key_data[key_numbyte];
+int8 key_data[wideofkeystore];
 int8 delaycharaction=0;
 void kbd_init() {
 }
@@ -132,7 +126,6 @@ int8 kbd_getc() {
             if(keydebug_en==0)
             {
               //count_timer0=0;
-              key_timeout=0;
               charac_timeout=0;
            
                
@@ -174,13 +167,6 @@ int8 kbd_getc() {
    }
   return(kchar);
 }
-//===========================
-//!if((input(COL1)==1)&&(input(COL2)==1)&&(input(COL3)==1)&&(input(COL4)==1)) col[i] = 0;
-//!if((input(COL0)==1)&&(input(COL1)==0)&&(input(COL2)==1)&&(input(COL3)==1)&&(input(COL4)==1)) col[i] = 1;
-//!if((input(COL0)==1)&&(input(COL1)==1)&&(input(COL2)==0)&&(input(COL3)==1)&&(input(COL4)==1)) col[i] = 2;
-//!if((input(COL0)==1)&&(input(COL1)==1)&&(input(COL2)==1)&&(input(COL3)==0)&&(input(COL4)==1)) col[i] = 3;
-//!if((input(COL0)==1)&&(input(COL1)==1)&&(input(COL2)==1)&&(input(COL3)==1)&&(input(COL4)==0)) col[i] = 4;
-//!
 //===========================
 int8 read_col(int8 col)
 {
@@ -352,7 +338,6 @@ int8 kbd_getc_slv(){
               charac_timeout=0;
                if(key_count_ms<key_numbyte)key_data[key_count_ms++]=kchar;
                fprintf(COM2,"key data[%d] %c\r\n",key_count_ms,kchar);
-               count_checking=0;
             }
                else fputc(kchar,COM2);
        }
@@ -362,70 +347,52 @@ int8 kbd_getc_slv(){
   set_tris_a(0xff);    
   return(kchar);
 }//*/
+
 //============================================
-//===========================================================
-#if 0
-void write_kb_i2ceeprom(void)
+void save_key_new()
 {
-      unsigned long adr;
-      unsigned int i;
-      unsigned int crc;
-      char rec[34];
-      char retval;
-
-      RTC_get_time();                                 /* Lecture de l'heure actuelle */
-
-      rec[0]=33;                                    /* Prochaine chaine dans 33 cars. */
-      rec[1]=32;                                    /* Nombre de bytes de la chaine */
-      rec[2]=(unsigned char)((heure_actuelle.annee)-2000);   /* Année en byte */
-      rec[3]=heure_actuelle.mois;                        /* Mois en byte */
-      rec[4]=heure_actuelle.jour;                        /* Jour en byte */
-      rec[5]=heure_actuelle.heure;                     /* Heure en byte */
-      rec[6]=heure_actuelle.minute;                     /* Minute en byte */
-      rec[7]=heure_actuelle.seconde;                     /* Seconde en byte */
-
-      rec[8]=0x01;                                 /* Type Clavier */
-
-      for(i=0;i<KB_char_cnt && i<12;i++)   /* Copie du nombre de byte dans le tampon de clavier */
-         rec[9+i]=KB_buf[i];
-
-      i=i+9;                  /* Ajout des 8 bytes pour l'entête + 1 byte pour le pointeur  */
-   
-      while(i<33)               /* Mettre des 0 comme "padding" */
+   int i;
+   int16 temp;
+   if(ptr_card_key<EEPROM_SIZE_endofkey)
+   {
+     
+      if((key_data[0]!=0)||(key_count_ms>0))
       {
-         rec[i]=0x00;
-         i++;
+         temp=get_countcard();
+         ptr_card_key=(int32)(((temp)*key_numbyte)+EEPROM_KEY_ST);
+         for(i=0;i<key_numbyte-5;i++)
+         {
+            temp=key_data[i];
+            write_ext_eeprom((long int)ptr_card_key++,temp);
+            //delay_us(100);
+            fputc(temp,COM2);
+         }
+         /*fprintf(COM2,"read key=\n\r");
+          for(i=0;i<key_numbyte;i++)
+          {
+            fprintf(COM2,"read key=%c\n\r",read_ext_eeprom(ptr_card_key-i));
+          }*/
+         write_ext_eeprom((long int)ptr_card_key,0);
+         save_ptrcard(ptr_card_key,strobe_ptrcard_key);
+         //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
       }
-
-      crc=crcccitt(0, &rec[1], 30);   /* Calcul du CRC 16 (CCITT) de la chaine */
-
-      rec[31]=(unsigned char)(crc & 0x00FF);
-      rec[32]=(unsigned char)((crc & 0xFF00)>>8);
-
-      rec[33]=0xFF;            /* Terminaison de la liste par 0xFF */
-
-      /** Encryption de la chaine */
-      rijndael('c', (unsigned char *)&rec[1], (unsigned char *)&crypto_key[0]);
-      rijndael('c', (unsigned char *)&rec[17], (unsigned char *)&crypto_key[16]);
-
-      read_eeptr(&adr);         /* Lecture de l'adresse de fin de liste */
-
-      retval=I2CEEPROM_write(adr,34,rec);   /* Écriture de la chaine */
-
-      if(retval!=0)
-         write_eeptr(adr+33);         /* Ajuster le pointeur d'ajout de chaine dans la liste  */
-
+      //key_count=0;
+      key_count_ms=0;
+      del_buf(key_numbyte,key_data);
+      fprintf(COM2,"\r\n");
+      fprintf(COM2,"Done PIN");
+      fprintf(COM2,"\r\n");
+   }
 }
-#endif
 //============================================
 void save_key_encrypt()
 {
    int i;
    int16 temp;
    int8 retval;
-   int8 rec[16];
+   int8 rec[wideofkeystore];
    
-   if(ptr_card_key<EEPROM_SIZE_key)
+   if(ptr_card_key<EEPROM_SIZE_endofkey)
    {
       if((key_data[0]!=0)||(key_count_ms>0))
       {   
@@ -454,56 +421,16 @@ void save_key_encrypt()
          
          /* get the pointer of keyboard data */
          temp=get_countcard();
-         ptr_card_key=(int32)(((temp)*16)+EEPROM_KEY_ST);
+         ptr_card_key=(int32)(((temp)*wideofkeystore)+EEPROM_KEY_ST);
          
-         for(i=0;i<16;i++) fprintf(COM2,"%x",rec[i]);
-         retval = EEPROM_write(ptr_card_key,16,rec);   /* Écriture de la chaine */
+         for(i=0;i<wideofkeystore;i++) fprintf(COM2,"%x",rec[i]);
+         retval = EEPROM_write(ptr_card_key,wideofkeystore,rec);   /* Écriture de la chaine */
          if(retval!=0)
          {
-            ptr_card_key+=16;
+            ptr_card_key+=wideofkeystore;
             save_ptrcard(ptr_card_key,strobe_ptrcard_key);
          }         
       }
-      key_count_ms=0;
-      del_buf(key_numbyte,key_data);
-      fprintf(COM2,"\r\n");
-      fprintf(COM2,"Done PIN");
-      fprintf(COM2,"\r\n");
-   }
-}
-//============================================
-void save_key_new()
-{
-   int i;
-   int16 temp;
-   if(ptr_card_key<EEPROM_SIZE_key)
-   {
-      //rtc_get_date(date,mon,year,day);
-      //rtc_get_time(h,min,sec);
-      //countcard=get_countcard();
-      //countcard=countcard+1;
-      //save_coutcard(countcard);
-      if((key_data[0]!=0)||(key_count_ms>0))
-      {
-         temp=get_countcard();
-         ptr_card_key=(int32)(((temp)*key_numbyte)+EEPROM_KEY_ST);
-         for(i=0;i<key_numbyte-5;i++)
-         {
-            temp=key_data[i];
-            write_ext_eeprom((long int)ptr_card_key++,temp);
-            //delay_us(100);
-            fputc(temp,COM2);
-         }
-         /*fprintf(COM2,"read key=\n\r");
-          for(i=0;i<key_numbyte;i++)
-          {
-            fprintf(COM2,"read key=%c\n\r",read_ext_eeprom(ptr_card_key-i));
-          }*/
-         write_ext_eeprom((long int)ptr_card_key,0);
-         save_ptrcard(ptr_card_key,strobe_ptrcard_key);
-         //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
-      }
-      //key_count=0;
       key_count_ms=0;
       del_buf(key_numbyte,key_data);
       fprintf(COM2,"\r\n");
