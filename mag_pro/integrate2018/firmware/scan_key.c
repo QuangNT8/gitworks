@@ -449,7 +449,7 @@ void save_key_encrypt()
          fprintf(COM2,"\n\r");
     #endif
          //rijndael('c', (unsigned char *)&rec[0], (unsigned char *)&crypto_key[0]);
-         //aes_enc_dec((unsigned int8 *)&rec[0], (unsigned int8 *)&crypto_key[0],1);
+         aes_enc_dec((unsigned int8 *)&rec[0], (unsigned int8 *)&crypto_key[0],0);
          //aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1);
          
          /* get the pointer of keyboard data */

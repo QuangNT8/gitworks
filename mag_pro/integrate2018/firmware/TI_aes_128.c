@@ -47,7 +47,7 @@ int8 test_data[16]={
 0x67, 0x43, 0xC3, 0xD1, 0x51, 0x9A, 0xB4, 0xF2, 0xCD, 0x9A, 0x78, 0xAB, 0x09, 0xA5, 0x11, 0xBD
 }; 
 // foreward sbox
-const unsigned int8 sbox[256] =   {
+const unsigned int8 sbox[] =   {
 //0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
 0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, //0
 0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0, //1
@@ -67,7 +67,7 @@ const unsigned int8 sbox[256] =   {
 0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16 }; //F
 
 // inverse sbox
-const unsigned int8 rsbox[256] =
+const unsigned int8 rsbox[] =
 { 0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb
 , 0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87, 0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb
 , 0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d, 0xee, 0x4c, 0x95, 0x0b, 0x42, 0xfa, 0xc3, 0x4e
@@ -86,16 +86,16 @@ const unsigned int8 rsbox[256] =
 , 0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d };
 
 // round constant
-const unsigned int8 Rcon[10] = {
+const unsigned int8 Rcon[] = {
     0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36};
 
 
 // multiply by 2 in the galois field
-unsigned int8 galois_mul2(unsigned int8 value)
+unsigned int16 galois_mul2(unsigned int16 value)
 {
-  signed int8 temp;
+  signed int16 temp;
   // cast to signed value
-  temp = (signed int8) value;
+  temp = (signed char) value;
   // if MSB is 1, then this will signed extend and fill the temp variable with 1's
   temp = temp >> 7;
   // AND with the reduction variable
@@ -112,85 +112,107 @@ unsigned int8 galois_mul2(unsigned int8 value)
 // AES-256 are not supported by this code) 
 void aes_enc_dec(unsigned int8 *state, unsigned int8 *key, unsigned int8 dir)
 {
-  unsigned int8 buf1, buf2, buf3, buf4, round, i;
-   
+    unsigned int8 buf1, buf2, buf3, buf4, round, i;
+
   // In case of decryption
-  if (dir) {
+  if (dir != 0) 
+  {
     // compute the last key of encryption before starting the decryption
     for (round = 0 ; round < 10; round++) {
       //key schedule
-      key[0] = sbox[key[13]]^key[0]^Rcon[round];
-      key[1] = sbox[key[14]]^key[1];
-      key[2] = sbox[key[15]]^key[2];
-      key[3] = sbox[key[12]]^key[3];
+      key[0] = (unsigned int8)(sbox[key[13]]^key[0]^Rcon[round]);
+      key[1] = (unsigned int8)(sbox[key[14]]^key[1]);
+      key[2] = (unsigned int8)(sbox[key[15]]^key[2]);
+      key[3] = (unsigned int8)(sbox[key[12]]^key[3]);
       for (i=4; i<16; i++) {
         key[i] = key[i] ^ key[i-4];
       }
     }
-    
     //first Addroundkey
-    for (i = 0; i <16; i++){
+    for (i = 0; i <16; i++)
+    {
       state[i]=state[i] ^ key[i];
     }
   }
-  
   // main loop
-  for (round = 0; round < 10; round++){
-    if (dir){
-      //Inverse key schedule
-      for (i=15; i>3; --i) {
-	key[i] = key[i] ^ key[i-4];
-      }  
-      key[0] = sbox[key[13]]^key[0]^Rcon[9-round];
-      key[1] = sbox[key[14]]^key[1];
-      key[2] = sbox[key[15]]^key[2];
-      key[3] = sbox[key[12]]^key[3]; 
-    } else {
-      for (i = 0; i <16; i++){
-        // with shiftrow i+5 mod 16
-	state[i]=sbox[state[i] ^ key[i]];
-      }
-      //shift rows
-      buf1 = state[1];
-      state[1] = state[5];
-      state[5] = state[9];
-      state[9] = state[13];
-      state[13] = buf1;
-
-      buf1 = state[2];
-      buf2 = state[6];
-      state[2] = state[10];
-      state[6] = state[14];
-      state[10] = buf1;
-      state[14] = buf2;
-
-      buf1 = state[15];
-      state[15] = state[11];
-      state[11] = state[7];
-      state[7] = state[3];
-      state[3] = buf1;
-    }
-    //mixcol - inv mix
-    if ((round > 0 && dir) || (round < 9 && !dir)) {
-      for (i=0; i <4; i++){
-        buf4 = (i << 2);
-        if (dir){
-          // precompute for decryption
-          buf1 = galois_mul2(galois_mul2(state[buf4]^state[buf4+2]));
-          buf2 = galois_mul2(galois_mul2(state[buf4+1]^state[buf4+3]));
-          state[buf4] ^= buf1; state[buf4+1] ^= buf2; state[buf4+2] ^= buf1; state[buf4+3] ^= buf2; 
+  for (round = 0; round < 10; round++)
+  {
+    if (dir != 0)
+    {
+          //Inverse key schedule
+          for (i=15; i>3; --i) 
+          {
+            key[i] = key[i] ^ key[i-4];
+          }  
+          key[0] = (unsigned int8)(sbox[key[13]]^key[0]^Rcon[9-round]);
+          key[1] = (unsigned int8)(sbox[key[14]]^key[1]);
+          key[2] = (unsigned int8)(sbox[key[15]]^key[2]);
+          key[3] = (unsigned int8)(sbox[key[12]]^key[3]); 
+    } 
+    else 
+    {
+        for (i = 0; i <16; i++)
+        {
+            // with shiftrow i+5 mod 16
+            state[i]=sbox[state[i] ^ key[i]];
         }
-        // in all cases
-        buf1 = state[buf4] ^ state[buf4+1] ^ state[buf4+2] ^ state[buf4+3];
-        buf2 = state[buf4];
-        buf3 = state[buf4]^state[buf4+1]; buf3=galois_mul2(buf3); state[buf4] = state[buf4] ^ buf3 ^ buf1;
-        buf3 = state[buf4+1]^state[buf4+2]; buf3=galois_mul2(buf3); state[buf4+1] = state[buf4+1] ^ buf3 ^ buf1;
-        buf3 = state[buf4+2]^state[buf4+3]; buf3=galois_mul2(buf3); state[buf4+2] = state[buf4+2] ^ buf3 ^ buf1;
-        buf3 = state[buf4+3]^buf2;     buf3=galois_mul2(buf3); state[buf4+3] = state[buf4+3] ^ buf3 ^ buf1;
-      }
+        //shift rows
+        buf1 = state[1];
+        state[1] = state[5];
+        state[5] = state[9];
+        state[9] = state[13];
+        state[13] = buf1;
+    
+        buf1 = state[2];
+        buf2 = state[6];
+        state[2] = state[10];
+        state[6] = state[14];
+        state[10] = buf1;
+        state[14] = buf2;
+    
+        buf1 = state[15];
+        state[15] = state[11];
+        state[11] = state[7];
+        state[7] = state[3];
+        state[3] = buf1;
     }
     
-    if (dir) {
+    //mixcol - inv mix
+    if (((round > 0) && (dir != 0)) || ((round < 9) && (dir == 0))) 
+    {
+          for (i=0; i <4; i++)
+          {
+                buf4 = (unsigned int8)(i << 2);
+                if (dir != 0)
+                {
+                      // precompute for decryption
+                      buf1 = galois_mul2(galois_mul2((unsigned int8)(state[buf4]^state[buf4+2])));
+                      buf2 = galois_mul2(galois_mul2((unsigned int8)(state[buf4+1]^state[buf4+3])));
+                      state[buf4] ^= buf1; 
+                      state[buf4+1] ^= buf2; 
+                      state[buf4+2] ^= buf1; 
+                      state[buf4+3] ^= buf2; 
+                }
+                // in all cases
+                buf1 = state[buf4] ^ state[buf4+1] ^ state[buf4+2] ^ state[buf4+3];
+                buf2 = state[buf4];
+                buf3 = state[buf4]^state[buf4+1]; 
+                buf3=galois_mul2(buf3); 
+                state[buf4] = state[buf4] ^ buf3 ^ buf1;
+                buf3 = state[buf4+1]^state[buf4+2]; 
+                buf3=galois_mul2(buf3); 
+                state[buf4+1] = state[buf4+1] ^ buf3 ^ buf1;
+                buf3 = state[buf4+2]^state[buf4+3]; 
+                buf3=galois_mul2(buf3); 
+                state[buf4+2] = state[buf4+2] ^ buf3 ^ buf1;
+                buf3 = state[buf4+3]^buf2;     
+                buf3=galois_mul2(buf3); 
+                state[buf4+3] = state[buf4+3] ^ buf3 ^ buf1; 
+          }
+    }
+    
+    if (dir != 0) 
+    {
       //Inv shift rows
       // Row 1
       buf1 = state[13];
@@ -216,7 +238,9 @@ void aes_enc_dec(unsigned int8 *state, unsigned int8 *key, unsigned int8 dir)
         // with shiftrow i+5 mod 16
         state[i]=rsbox[state[i]] ^ key[i];
       } 
-    } else {
+    } 
+    else 
+    {
       //key schedule
       key[0] = sbox[key[13]]^key[0]^Rcon[round];
       key[1] = sbox[key[14]]^key[1];
@@ -227,7 +251,8 @@ void aes_enc_dec(unsigned int8 *state, unsigned int8 *key, unsigned int8 dir)
       }
     }
   }
-  if (!dir) {
+  if (dir == 0) 
+  {
   //last Addroundkey
     for (i = 0; i <16; i++){
       // with shiftrow i+5 mod 16

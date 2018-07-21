@@ -68,7 +68,8 @@ namespace EncryptStringTest
             // AND with the reduction variable
             temp = (sbyte)(temp & 0x1b);
             // finally shift and reduce the value
-            return (byte)((value << 1) ^ temp);
+            temp = (sbyte)((value << 1) ^ temp);
+            return (byte)temp;
         }
         // AES encryption and decryption function
         // The code was optimized for memory (flash and ram)

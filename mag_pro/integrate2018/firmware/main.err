@@ -1,16 +1,16 @@
 >>> Warning 206 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\24512.C" Line 141(1,1): Variable of this data type is never greater than this constant
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 127(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 142(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 144(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 179(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 180(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 184(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 184(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 184(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 186(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 187(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 188(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 226(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 128(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 145(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 147(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 189(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 190(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 197(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 197(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 197(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 199(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 202(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 205(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 250(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 201 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 81(1,1): Assignment inside relational expression
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 69(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 69(1,1): Operator precedance rules may not be as intended, use () to clarify
@@ -28,27 +28,29 @@
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
 >>> Warning 214 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 92(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 203 "main.c" Line 242(1,1): Condition always TRUE
 >>> Warning 203 "main.c" Line 246(1,1): Condition always TRUE
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_READ_1)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_78)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LD_78)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_78)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
->>> Warning 216 "main.c" Line 271(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
+>>> Warning 203 "main.c" Line 250(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_READ_1)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_78)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LD_78)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_78)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "main.c" Line 275(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 213(10,11): Variable never used:   i
 >>> Warning 202 "main.c" Line 8(6,16): Variable never used:   count_spam
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 43(6,14): Variable never used:   test_key
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 46(6,15): Variable never used:   test_data
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 58(6,14): Variable never used:   delaykey
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 61(6,21): Variable never used:   count_strobe_kb
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 322(6,14): Variable never used:   KB_count
@@ -74,5 +76,5 @@
 >>> Warning 202 "main.c" Line 107(10,16): Variable never used:   string
 >>> Warning 202 "main.c" Line 107(20,27): Variable never used:   buftemp
       Memory usage:   ROM=51%      RAM=53% - 57%
-      0 Errors,  75 Warnings.
+      0 Errors,  77 Warnings.
 Build Successful.
