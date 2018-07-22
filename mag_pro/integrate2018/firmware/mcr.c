@@ -298,8 +298,7 @@ int8 con_data_track(int8 track,int16 countbit ,int8 *datin,int8 *datout)
                }            
             }
       }
-      if(track==0)del_buf(numbyteofbuffer1,datin);
-         else del_buf(numbyteofbuffer2,datin);
+      memset(datin,0,sizeof(datin));
 }
 //=========================
 void debug_reader()
@@ -369,21 +368,21 @@ void saving_card()
             write_ext_eeprom((long int)ptr_card++,((Track1[countbit]&0b00111111)+0x20)); //(((Track1[countbit]&0b00111111)+0x20))
             
          }
-         del_buf(numbyteoftrack1,Track1);
+         memset(Track1,0,sizeof(Track1));
          for(countbit=0;countbit<numbyteoftrack2;countbit++)
          {
             //fputc(Track2[countbit]+0x30,COM2);
             write_ext_eeprom((long int)ptr_card++,((Track2[countbit]&0b00001111)+0x30));//putc(((Track2[countbit]&0b00001111)+0x30));    
          } 
-         del_buf(numbyteoftrack2,Track2);
-      fprintf(COM2,"\r\n");
-      fprintf(COM2,"Done");
-        
-      fprintf(COM2,"\r\n");
-      fprintf(COM2,"Waiting for PIN number");
-      memset(key_data,0,sizeof(key_data)); 
-      fprintf(COM2,"\r\n");
-      charac_timeout=0;
+         memset(Track2,0,sizeof(Track2));
+        fprintf(COM2,"\r\n");
+        fprintf(COM2,"Done");
+            
+        fprintf(COM2,"\r\n");
+        fprintf(COM2,"Waiting for PIN number");
+        memset(key_data,0,sizeof(key_data)); 
+        fprintf(COM2,"\r\n");
+        charac_timeout=0;
       //===========================
       //enable_interrupts(INT_EXT1_H2L);
       save_ptrcard(ptr_card,strobe_ptrcard_addr);

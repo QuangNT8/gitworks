@@ -45,8 +45,8 @@
 >>> Warning 216 "main.c" Line 279(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
 >>> Warning 216 "main.c" Line 279(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
 >>> Warning 216 "main.c" Line 279(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 118(10,11): Variable never used:   i
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 144(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 120(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 146(10,11): Variable never used:   i
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 47(6,14): Variable never used:   test_key
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 50(6,15): Variable never used:   test_data
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 54(6,14): Variable never used:   delaykey
@@ -58,7 +58,7 @@
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 314(16,24): Variable never used:   last_key
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 9(6,16): Variable never used:   UART_index
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 10(6,21): Variable never used:   sms_unread_flag
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 413(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 412(10,11): Variable never used:   i
 >>> Warning 202 "main.c" Line 84(11,15): Variable never used:   temp
 >>> Warning 202 "main.c" Line 84(16,26): Variable never used:   count_char
 >>> Warning 202 "main.c" Line 85(17,25): Variable never used:   num_card

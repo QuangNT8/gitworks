@@ -30,6 +30,7 @@ unsigned int8 rec[numdata];
 int16 countcard=0;
 int16 charac_timeout=0xffff;
 //int8 twonumber=0;
+#if 0
 //==============================================
 void del_buf(int8 lenght, unsigned int8 *inputdat)
 {
@@ -39,6 +40,7 @@ void del_buf(int8 lenght, unsigned int8 *inputdat)
       inputdat[i]=0;
    }
 }
+#endif
 //===============================================================
 int8 EEPROM_write(unsigned int32 adr, unsigned int32 len, int8 *buf)
 {
