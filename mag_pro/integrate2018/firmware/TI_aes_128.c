@@ -38,8 +38,12 @@
  *  Description: Implementation of the AES-128 as defined by the FIPS PUB 197: 
  *  the official AES standard
  */
+
 #define CRYPTO_KEY_SIZE   32
+
 int8 crypto_key[CRYPTO_KEY_SIZE+1]; 
+int8 cryption_enable=0;
+
 int8 test_key[16]={
 0xE8, 0xE9, 0xEA, 0xEB, 0xED, 0xEE, 0xEF, 0xF0, 0xF2, 0xF3, 0xF4, 0xF5, 0xF7, 0xF8, 0xF9, 0xFA
 }; 

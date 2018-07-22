@@ -376,16 +376,12 @@ void saving_card()
             write_ext_eeprom((long int)ptr_card++,((Track2[countbit]&0b00001111)+0x30));//putc(((Track2[countbit]&0b00001111)+0x30));    
          } 
          del_buf(numbyteoftrack2,Track2);
-         /*for(countbit=0;countbit<key_numbyte;countbit++)
-         {
-            write_ext_eeprom((long int)ptr_card++,key_data[countbit]);
-         }
-         del_buf(key_numbyte,key_data);*/
       fprintf(COM2,"\r\n");
       fprintf(COM2,"Done");
         
       fprintf(COM2,"\r\n");
       fprintf(COM2,"Waiting for PIN number");
+      memset(key_data,0,sizeof(key_data)); 
       fprintf(COM2,"\r\n");
       charac_timeout=0;
       //===========================

@@ -24,13 +24,11 @@ void rstfact()
 void adminmode()
 {
    int8 index,i;
+   int16 countchar;
    int8 temp[50];
       
       //printf("Admin>");
       printf("%s>",console);
-      #if defined(SIM900)
-         SIM_state=config;
-      #endif   
       USART_getstring(EN_ECHO,20,buffer_uart);
       printf("\n\r");
       strcpy(buffer2,"d");
@@ -72,26 +70,33 @@ void adminmode()
             }
             index=0;
             //ee_dat=0;
-   
-            //I2CEEPROM_read((unsigned int16)(addr_key),key_numbyte,temp);
             fprintf(COM2,"\r\nPIN Number:\r\n");
             //fprintf(COM2,"addr_key =%lu \n\r",addr_key); 
-            //fprintf(COM2," ptr_card_key=%lu \n\r",ptr_card_key); 
-            if(ptr_card_key>addr_key)
+            //fprintf(COM2," ptr_card_key=%lu \n\r",ptr_card_key);
+            
+            if((ptr_card_key>addr_key)) //&&
             {
                i=0;
                //fprintf(COM2,"%02i/%02i %02i:%02i:%02i -> ",read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++));
                do
-               //for(i=0;i<key_numbyte;i++)
                {
                   ee_dat=read_ext_eeprom(i+addr_key);
-                  if(((ee_dat>47)&&(ee_dat<58))||((ee_dat=='#')||(ee_dat=='*'))||(ee_dat>64)&&(ee_dat<91))
-                     fputc(ee_dat,COM2);
+                  if(cryption_enable==0)
+                  {
+                      if(((ee_dat>47)&&(ee_dat<58))||((ee_dat=='#')||(ee_dat=='*'))||(ee_dat>64)&&(ee_dat<91))
+                      {
+                         fprintf(COM2,"%c",ee_dat);
+                      }
+                  }
+                  else
+                  {
+                      fprintf(COM2," %x",ee_dat);
+                  }
                   i++;
                }
-               while((i<key_numbyte)&&(ee_dat!=0));
+               while((i<wideofkeystore)&&(ee_dat!=0));
                //fprintf(COM2," addr_key=%lu\n\r",addr_key);
-               addr_key=addr_key+key_numbyte;
+               addr_key=addr_key+wideofkeystore;
                fprintf(COM2,"\n\r");
             }
             count_card++;
@@ -256,7 +261,6 @@ void adminmode()
           //fprintf(COM2,"delaykey=%u\n\r",delaykey);
           fprintf(COM2,"\n\r");
       }  */
-      #if defined(PIC26)
       strcpy(buffer2,"h");
       if(!stringcomp(buffer_uart,buffer2))   //setting clock
       {
@@ -273,12 +277,7 @@ void adminmode()
          printf("kofkb %d -> select kind of keyboard\n\r",read_ext_eeprom(kindofKB));
          printf("rsfact-> reset factory\n\r");     
          //printf("KBlogic %d -> Keyboard's logic\n\r",read_ext_eeprom(KB_logic)); 
-         #if defined(SIM900)
-         printf("cf mbn-> changing target mobile phone number\n\r"); 
-         printf("SIM900auto-> on/off auto sending mode\n\r"); 
-         #endif
       }
-      #endif
       strcpy(buffer2,"password");
       if(!stringcomp(buffer_uart,buffer2)) 
       {
@@ -306,6 +305,32 @@ void adminmode()
                fprintf(COM2," X\n\r");
             }   
       }
+        strcpy(buffer2,"crypto");
+        if(!stringcomp(buffer_uart,buffer2)) 
+        {
+            memset(crypto_key,0,sizeof(crypto_key));
+            fprintf(COM2,"New crypto key>");
+            countchar = (int16)USART_getstring(EN_ECHO, CRYPTO_KEY_SIZE, crypto_key);
+            EEPROM_write(strobe_crypto_key,CRYPTO_KEY_SIZE,crypto_key);
+            
+            if(countchar>2)
+            {
+                cryption_enable = 1;
+                write_ext_eeprom(crypto_en,cryption_enable);                   
+                fprintf(COM2,"\n\rNew crypto key: ");
+                for(i=0;i<CRYPTO_KEY_SIZE;i++)
+                {
+                    fprintf(COM2,"%c",read_ext_eeprom(strobe_crypto_key+i));
+                }
+                fprintf(COM2,"\n\r");
+            }
+            else
+            {
+                cryption_enable = 0;
+                write_ext_eeprom(crypto_en,cryption_enable);
+                fprintf(COM2,"\n\rcrypto is disable\n\r");
+            }
+        }
       #if defined(debug)
       strcpy(buffer2,"debug");
       if(!stringcomp(buffer_uart,buffer2))

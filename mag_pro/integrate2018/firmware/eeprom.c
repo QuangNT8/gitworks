@@ -11,6 +11,8 @@
 #define strobe_debugmode            59     // 1 byte
 #define strobe_delaytime            60     // 1 byte
 #define kindofKB                    61     // 1 byte
+#define crypto_en                   62     // 1 byte
+#define strobe_crypto_key           63     // 32 byte
 
 
 #define wide_strobe_nameconsole     16 
@@ -114,17 +116,17 @@ unsigned int16 get_countcard()
 void format_eepromext()
 {
    int32 i;
-
-   for(i=EEPROM_KEY_ST;i<ptr_card_key;i++)
+   //fprintf(COM2," ptr_card_key=%lu\n\r",ptr_card_key);
+   /*for(i=EEPROM_KEY_ST;i<ptr_card_key;i++)
    {
      write_ext_eeprom(i,0);
      //fprintf(COM2," i=%lu\n\r",i);
-   }
-   //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
-   for(i=ptr_start;i<ptr_card;i++)
+   }*/
+   //fprintf(COM2," ptr_card=%lu\n\r",ptr_card);
+   /*for(i=ptr_start;i<ptr_card;i++)
    {
      write_ext_eeprom(i,0);
-   }
+   }*/
    //fprintf(COM2," countcard=%lu\n\r",countcard);
    ptr_card=ptr_start;
    ptr_card_key=EEPROM_KEY_ST;

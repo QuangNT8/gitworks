@@ -125,12 +125,13 @@ int8 kbd_getc() {
             kchar=last_key;
             if(keydebug_en==0)
             {
-              //count_timer0=0;
-              charac_timeout=0;
-           
-               
-               if(key_count_ms<key_numbyte)key_data[key_count_ms++]=kchar;
-               fputc(kchar,COM2);
+                //count_timer0=0;
+                charac_timeout=0;
+                if(key_count_ms<wideofkeystore)
+                {
+                    key_data[key_count_ms++]=kchar;
+                    fputc(kchar,COM2);
+                }
             }
                else fputc(kchar,COM2);
            kbd_down=FALSE;
@@ -336,8 +337,11 @@ int8 kbd_getc_slv(){
          if(keydebug_en==0)
             {
               charac_timeout=0;
-               if(key_count_ms<key_numbyte)key_data[key_count_ms++]=kchar;
-               fprintf(COM2,"key data[%d] %c\r\n",key_count_ms,kchar);
+               if(key_count_ms<wideofkeystore)
+               {
+                   key_data[key_count_ms++]=kchar;
+                   fprintf(COM2,"key data[%d] %c\r\n",key_count_ms,kchar);
+               }
             }
                else fputc(kchar,COM2);
        }
@@ -351,36 +355,42 @@ int8 kbd_getc_slv(){
 //============================================
 void save_key_new()
 {
-   int i;
+   int8 i,tempdata;
    int16 temp;
    if(ptr_card_key<EEPROM_SIZE_endofkey)
    {
-     
       if((key_data[0]!=0)||(key_count_ms>0))
       {
          temp=get_countcard();
-         ptr_card_key=(int32)(((temp)*key_numbyte)+EEPROM_KEY_ST);
-         for(i=0;i<key_numbyte-5;i++)
+         //fprintf(COM2," get_countcard=%lu\n\r",temp);
+         ptr_card_key=(int32)(((temp)*wideofkeystore)+EEPROM_KEY_ST);
+         //fprintf(COM2," ptr_card_key=%lu\n\r",ptr_card_key);
+         for(i=0;i<wideofkeystore;i++)
          {
-            temp=key_data[i];
-            write_ext_eeprom((long int)ptr_card_key++,temp);
-            //delay_us(100);
-            fputc(temp,COM2);
+            write_ext_eeprom((int32)(ptr_card_key+i),0);
          }
-         /*fprintf(COM2,"read key=\n\r");
-          for(i=0;i<key_numbyte;i++)
+         for(i=0;i<wideofkeystore;i++)
+         {
+            tempdata=key_data[i];
+            write_ext_eeprom((int32)ptr_card_key++,tempdata);
+            //delay_us(100);
+            fprintf(COM2,"%c",tempdata);
+         }
+          //fprintf(COM2," ptr_card_key=%lu\n\r",ptr_card_key);
+          /*fprintf(COM2,"\n\r");
+          fprintf(COM2,"read key=\n\r");
+          for(i=0;i<wideofkeystore;i++)
           {
-            fprintf(COM2,"read key=%c\n\r",read_ext_eeprom(ptr_card_key-i));
+            fprintf(COM2,"%c",read_ext_eeprom(ptr_card_key-i));
           }*/
-         write_ext_eeprom((long int)ptr_card_key,0);
          save_ptrcard(ptr_card_key,strobe_ptrcard_key);
          //fprintf(COM2," save_ptrcard_key=%lu\n\r",get_ptrcard(strobe_ptrcard_key));
       }
       //key_count=0;
       key_count_ms=0;
-      del_buf(key_numbyte,key_data);
+      memset(key_data,0,sizeof(key_data)); 
       fprintf(COM2,"\r\n");
-      fprintf(COM2,"Done PIN");
+      fprintf(COM2,"Done save_key_new");
       fprintf(COM2,"\r\n");
    }
 }
@@ -415,16 +425,20 @@ void save_key_encrypt()
          for(i=0;i<16;i++) fprintf(COM2," %x",rec[i]);
          fprintf(COM2,"\n\r");
     #endif
-         //rijndael('c', (unsigned char *)&rec[0], (unsigned char *)&crypto_key[0]);
          aes_enc_dec((unsigned int8 *)&rec[0], (unsigned int8 *)&crypto_key[0],0);
          //aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1);
          
          /* get the pointer of keyboard data */
          temp=get_countcard();
          ptr_card_key=(int32)(((temp)*wideofkeystore)+EEPROM_KEY_ST);
+         /* delete the old data of key store area  */
+         for(i=0;i<wideofkeystore;i++)
+         {
+            write_ext_eeprom((int32)(ptr_card_key+i),0);
+         }
          
          for(i=0;i<wideofkeystore;i++) fprintf(COM2,"%x",rec[i]);
-         retval = EEPROM_write(ptr_card_key,wideofkeystore,rec);   /* Écriture de la chaine */
+         retval = EEPROM_write(ptr_card_key,wideofkeystore,rec); 
          if(retval!=0)
          {
             ptr_card_key+=wideofkeystore;
@@ -432,9 +446,9 @@ void save_key_encrypt()
          }         
       }
       key_count_ms=0;
-      del_buf(key_numbyte,key_data);
+      memset(key_data,0,sizeof(key_data)); 
       fprintf(COM2,"\r\n");
-      fprintf(COM2,"Done PIN");
+      fprintf(COM2,"Done Encrypted PIN");
       fprintf(COM2,"\r\n");
    }
 }

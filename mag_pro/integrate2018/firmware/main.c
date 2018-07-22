@@ -53,7 +53,14 @@ void timer0()
       buf=get_countcard();
       if(buf<countcards)
       {
-         save_key_new();
+         if(cryption_enable==0) 
+         {
+            save_key_new();
+         }
+         else
+         {
+            save_key_encrypt();
+         }
          buf=buf+1;
          save_coutcard(buf);
       }
@@ -165,7 +172,7 @@ void main()
       password[i] = 0;
    }
 #endif
-#if 1
+#if 0
    disable_interrupts(GLOBAL);
    save_coutcard(0);
    //save_ptrcard(0,strobe_ptrcard_key);
@@ -207,7 +214,42 @@ void main()
    for(i=0;i<16;i++) fprintf(COM2,"%x",crypto_key[i]);
    while(1);
 #endif
+#if 0
+    fprintf(COM2,"\n\reeprom test\n\r");
+    fprintf(COM2,"\n\reeprom is writing\n\r");
+    for(i=0;i<16;i++)
+    {
+        //write_ext_eeprom(115535+i,i);
+    }
+    write_ext_eeprom(EEPROM_KEY_ST,210);
+    write_ext_eeprom(EEPROM_SIZE_endofkey,123);
+    fprintf(COM2,"\n\r");
+    fprintf(COM2,"eeprom is reading: %u",read_ext_eeprom(EEPROM_KEY_ST));
+    for(i=0;i<16;i++)
+    {
+        fprintf(COM2," %u",read_ext_eeprom(115535+i));
+    }
+    while(1);
+#endif
    EEPROM_read(strobe_pass_addr,20,password);
+   cryption_enable = read_ext_eeprom(crypto_en);
+   if(cryption_enable!=0)
+   {
+        fprintf(COM2,"\n\crypto is enable\n\r");
+        EEPROM_read(strobe_crypto_key,CRYPTO_KEY_SIZE,crypto_key); 
+   }
+   else
+   {
+       fprintf(COM2,"\n\crypto is disable\n\r");
+   }
+#if 0   
+   fprintf(COM2,"\n\crypto key:\n\r");
+   for(i=0;i<CRYPTO_KEY_SIZE;i++)
+   {
+        fprintf(COM2,"%c",crypto_key[i]);
+   }
+   fprintf(COM2,"\n\r");
+#endif   
    while(1)
    {
       if(mode==LOGOFF)
