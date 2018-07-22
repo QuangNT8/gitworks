@@ -17,8 +17,10 @@
 
 #define wide_strobe_nameconsole     16 
 //==============================================================
-#define numdata                  124 // 5+79+40=124
-#define countcards               930   //43590/124
+#define numdata                  124    // 5+79+40=124
+#define numdataofonecard         128    // 
+#define countcards               930    //43590/124
+
 //===============================================================
 
 unsigned int8 temp[5];
@@ -26,7 +28,7 @@ unsigned int8 buffer1[20];
 unsigned int8 buffer2[20];
 unsigned int8 password[20];
 unsigned int8 entpassword[20];
-unsigned int8 rec[numdata];
+unsigned int8 rec[numdataofonecard];
 int16 countcard=0;
 int16 charac_timeout=0xffff;
 //int8 twonumber=0;
@@ -53,7 +55,7 @@ int8 EEPROM_write(unsigned int32 adr, unsigned int32 len, int8 *buf)
    return 1;
 }
 //===============================================================
-void EEPROM_read(unsigned int32 adr, unsigned int32 len, int8 *buf)
+void EEPROM_read(unsigned int32 adr, unsigned int32 len,unsigned int8 *buf)
 {
    unsigned int32 i;
    for(i=0;i<len;i++)

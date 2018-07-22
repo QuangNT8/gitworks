@@ -98,17 +98,3 @@ BYTE read_ext_eeprom(int32 address) {
    return(data);
 }
 
-
-
-int8 I2CEEPROM_read(unsigned int16 adr, unsigned int16 len, int8 *buf)
-{
-   unsigned int16 i;
-
-   if((adr+len) >= EEPROM_SIZE_stofkey) return(0);
-   for(i=0;i<len;i++)
-   {
-       buf[i]=read_ext_eeprom(adr+i);
-   }
-   
-}
-

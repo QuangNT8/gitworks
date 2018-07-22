@@ -400,6 +400,110 @@ void saving_card()
    //fprintf(COM2," save_ptrcard=%lu\n\r",ptr_card);
 }
 //=========================
+void saving_card_encrypt()
+{
+   int8 temp,i,j,u;
+   int8 countbyte=0;
+   int16 tempcount;
+   int8 carddata[numdataofonecard];
+   int8 encryptblock[16];
+   int8 tempkey[16];
+   saving_flag=1;
+   ptr_card=(int32)((get_countcard()*numdataofonecard)+ptr_start);
+   if(datinbuf==0) 
+   {
+      countbit_T1=0;
+      countbit_T2=0;
+      bug_countbit_T1=0;
+      bug_countbit_T2=0;
+      if(data_avai==0)charac_timeout=0xffffffff;
+      saving_flag=0;
+      return;
+   }//*/
+   fprintf(COM2,"\r\nSaving Card Data\r\n");
+   //key_count=0;
+   enable_getpin=1;
+   //en_getpin;
+   tempcount=countbit_T1;
+   con_data_track(0,tempcount,buffertrack1,Track1);
+   countbit_T1=0;
+   tempcount=countbit_T2;   
+   con_data_track(1,tempcount,buffertrack2,Track2);
+   countbit_T2=0;
+   saving_flag=0;
+   temp=Track1[0]+0x20;
+   if((ptr_card<EEPROM_SIZE_stofkey))
+   {
+         countbyte = 0;
+         carddata[countbyte++]=date;   
+         carddata[countbyte++]=mon;   
+         carddata[countbyte++]=h;   
+         carddata[countbyte++]=min;   
+         carddata[countbyte++]=sec;   
+         for(countbit=0;countbit<numbyteoftrack1;countbit++)
+         {
+            carddata[countbyte++] = (INT8)((Track1[countbit]&0b00111111)+0x20);      
+         }
+         memset(Track1,0,sizeof(Track1));
+         for(countbit=0;countbit<numbyteoftrack2;countbit++)
+         {
+            carddata[countbyte++] = (INT8)((Track2[countbit]&0b00001111)+0x30);           
+         } 
+         for(i=countbyte;i<numdataofonecard;i++)
+         {
+             carddata[i] = 0;
+         }
+         for(i=0;i<8;i++)
+         {
+             for(j=0;j<16;j++)
+             {
+                encryptblock[j] = carddata[i*16+j];
+             }
+             EEPROM_read(strobe_crypto_key,CRYPTO_KEY_SIZE,crypto_key);
+             aes_enc_dec((unsigned int8 *)&encryptblock[0], (unsigned int8 *)&crypto_key[0],0);
+             /*for(u=0;u<16;u++)
+             {
+                encryptblock[u]; 
+                fprintf(COM2,"%x",encryptblock[u]);
+             }*/
+             EEPROM_write(ptr_card,16,encryptblock);
+             ptr_card=ptr_card+16;
+         }
+         fprintf(COM2,"\r\n");
+         fprintf(COM2,"card data: %lu",ptr_card);
+         fprintf(COM2,"\r\n");
+         EEPROM_read(ptr_card-128,128,&carddata);
+         for(i=0;i<numdataofonecard;i++)
+         {
+             fprintf(COM2,"%x",carddata[i]);
+         }
+         memset(Track2,0,sizeof(Track2));
+        fprintf(COM2,"\r\n");
+        fprintf(COM2,"Done");
+            
+        fprintf(COM2,"\r\n");
+        fprintf(COM2,"Waiting for PIN number");
+        memset(key_data,0,sizeof(key_data)); 
+        fprintf(COM2,"\r\n");
+        charac_timeout=0;
+      //===========================
+      //enable_interrupts(INT_EXT1_H2L);
+      //ptr_card = ptr_card+numdataofonecard;
+      save_ptrcard(ptr_card,strobe_ptrcard_addr);
+      datinbuf=0;
+      saving_flag=0;
+      data_avai=1;
+      enable_getpin=1;
+      charac_timeout=0;
+      key_count_ms=0;
+      //en_getpin;
+//      countcard=countcard+1;
+//      save_coutcard(countcard);
+      //fprintf(COM2,"  countcard=%lu\n\r",get_countcard());
+   }//*/
+   //fprintf(COM2," save_ptrcard=%lu\n\r",ptr_card);
+}
+//=========================
 int8 mcr_read()
 {
    int8  ST1      = 1;

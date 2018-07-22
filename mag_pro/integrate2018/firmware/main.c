@@ -35,7 +35,17 @@ void timer0()
   if(mcr_timeout==5)
   {
       //fprintf(COM2,"\r\nSaving Card Data\r\n");
-      if(reading_fg==1)saving_card();
+      if(reading_fg==1)
+      {
+          if(cryption_enable==0) 
+          {
+                saving_card();
+          }
+          else 
+          {
+                saving_card_encrypt();
+          }
+      }
          //else fprintf(COM2,"\r\nreading error\r\n");
       memset(buffertrack1, 0, sizeof(buffertrack1));   
       memset(buffertrack2, 0, sizeof(buffertrack2));

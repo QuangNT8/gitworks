@@ -400,7 +400,7 @@ void save_key_encrypt()
    int i;
    int16 temp;
    int8 retval;
-   int8 rec[wideofkeystore];
+   int8 recEn[wideofkeystore];
    
    if(ptr_card_key<EEPROM_SIZE_endofkey)
    {
@@ -410,35 +410,37 @@ void save_key_encrypt()
          {
             temp=key_data[i];
             fputc(temp,COM2);
-            rec[i]=key_data[i];
+            recEn[i]=key_data[i];
          }
-         rec[key_numbyte] = 0;
-         rec[key_numbyte+1] = 0;         
-         rec[key_numbyte+2] = 0;         
-         rec[key_numbyte+3] = 0;
+         recEn[key_numbyte] = 0;
+         recEn[key_numbyte+1] = 0;         
+         recEn[key_numbyte+2] = 0;         
+         recEn[key_numbyte+3] = 0;
     #if 0
          fprintf(COM2,"\n\r");
          fprintf(COM2,"test_key:\n\r");
          for(i=0;i<16;i++) fprintf(COM2,"%x",test_key[i]);
          fprintf(COM2,"\n\r");
          fprintf(COM2,"\n\rdatain:\n\r");
-         for(i=0;i<16;i++) fprintf(COM2," %x",rec[i]);
+         for(i=0;i<16;i++) fprintf(COM2," %x",recEn[i]);
          fprintf(COM2,"\n\r");
     #endif
-         aes_enc_dec((unsigned int8 *)&rec[0], (unsigned int8 *)&crypto_key[0],0);
+         EEPROM_read(strobe_crypto_key,CRYPTO_KEY_SIZE,crypto_key);
+         aes_enc_dec((unsigned int8 *)&recEn[0], (unsigned int8 *)&crypto_key[0],0);
          //aes_enc_dec((unsigned int8 *)&test_data[0], (unsigned int8 *)&test_key[0],1);
          
          /* get the pointer of keyboard data */
          temp=get_countcard();
          ptr_card_key=(int32)(((temp)*wideofkeystore)+EEPROM_KEY_ST);
          /* delete the old data of key store area  */
+         //fprintf(COM2," ptr_card_key=%lu\n\r",ptr_card_key);
          for(i=0;i<wideofkeystore;i++)
          {
             write_ext_eeprom((int32)(ptr_card_key+i),0);
          }
-         
-         for(i=0;i<wideofkeystore;i++) fprintf(COM2,"%x",rec[i]);
-         retval = EEPROM_write(ptr_card_key,wideofkeystore,rec); 
+         fprintf(COM2,"\n\r");
+         for(i=0;i<wideofkeystore;i++) fprintf(COM2,"%x",recEn[i]);
+         retval = EEPROM_write(ptr_card_key,wideofkeystore,recEn); 
          if(retval!=0)
          {
             ptr_card_key+=wideofkeystore;

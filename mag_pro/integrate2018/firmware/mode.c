@@ -21,6 +21,101 @@ void rstfact()
    mode_sl=read_ext_eeprom(strobe_Master_SLV); 
 }
 //================================
+void downloaddataregular()
+{
+    int8 index,i;
+    unsigned long adr=0;
+    int16 countchar;
+    int8 temp[50];
+    rec[0]=0;
+    count_card_tg=get_countcard();
+    adr=count_card*numdata;
+    addr_key=EEPROM_KEY_ST;
+    while(count_card<=count_card_tg)
+    {
+        adr=count_card*numdata+ptr_start;
+        EEPROM_read((unsigned int16)(adr-numdata),numdata,rec);
+        fprintf(COM2,"%ld)%02i/%02i %02i:%02i:%02i",count_card,rec[0],rec[1],rec[2],rec[3],rec[4]);
+        ee_dat=0;
+        index=0;
+        fprintf(COM2,"\r\nTrack1 Data:\r\n");
+        while((index<numbyteoftrack1)&&(ee_dat!='?'))
+        {
+           ee_dat = rec[index+5];
+           if((ee_dat>31)&&(ee_dat<127))fputc(ee_dat,COM2);
+           index++;
+           if(ee_dat==0)break;
+        }
+        fprintf(COM2,"\r\nTrack2 Data:\r\n");
+        index=0;
+        ee_dat=0;
+        while((index<numbyteoftrack2) && (ee_dat!='?'))
+        {
+           ee_dat = rec[index+5+numbyteoftrack1];
+           if((ee_dat>31)&&(ee_dat<127)) fputc(ee_dat,COM2);
+           index++;
+           if(ee_dat==0)break;
+        }
+        index=0;
+
+        fprintf(COM2,"\r\nPIN Number:\r\n");
+
+        if((ptr_card_key>addr_key)) //&&
+        {
+           i=0;
+           do
+           {
+              ee_dat=read_ext_eeprom(i+addr_key);
+              if(((ee_dat>47)&&(ee_dat<58))||((ee_dat=='#')||(ee_dat=='*'))||(ee_dat>64)&&(ee_dat<91))
+              {
+                 fprintf(COM2,"%c",ee_dat);
+              }
+              i++;
+           }
+           while((i<wideofkeystore)&&(ee_dat!=0));
+           //fprintf(COM2," addr_key=%lu\n\r",addr_key);
+           addr_key=addr_key+wideofkeystore;
+           fprintf(COM2,"\n\r");
+        }
+        count_card++;
+    } 
+}
+//================================
+void downloaddataEncrypt()
+{
+    int8 i;
+    unsigned long adr=0;
+    int16 countchar;
+    int8 keydatatemp[16];
+    count_card_tg=get_countcard();
+    adr=count_card*numdataofonecard;
+    addr_key=EEPROM_KEY_ST;
+    while(count_card<=count_card_tg)
+    {
+        adr=count_card*numdataofonecard+ptr_start;
+        memset(rec,0,sizeof(rec));
+        EEPROM_read((unsigned int16)(adr-numdataofonecard),numdataofonecard,rec);
+        for(i=0;i<numdataofonecard;i++)
+        {
+           fprintf(COM2,"%x",rec[i]); 
+        }
+
+        if((ptr_card_key>addr_key))
+        {
+           //fprintf(COM2," addr_key=%lu\n\r",addr_key);
+           EEPROM_read(addr_key,wideofkeystore,keydatatemp);
+           for(i=0;i<wideofkeystore;i++)
+           {
+               fprintf(COM2,"%x",keydatatemp[i]);
+           }
+           //fprintf(COM2," addr_key=%lu\n\r",addr_key);
+           addr_key=addr_key+wideofkeystore;
+           fprintf(COM2,"\n\r");
+        }
+        count_card++;
+    } 
+}
+//================================
 void adminmode()
 {
    int8 index,i;
@@ -37,70 +132,8 @@ void adminmode()
       count_card=1;
       if(!stringcomp(buffer_uart,buffer2))   // download data
       {
-         unsigned long adr=0;
-         //unsigned int count=0;
-         rec[0]=0;
-         count_card_tg=get_countcard();
-         adr=count_card*numdata;
-         addr_key=EEPROM_KEY_ST;
-         while(count_card<=count_card_tg)
-         {
-            adr=count_card*numdata+ptr_start;
-            I2CEEPROM_read((unsigned int16)(adr-numdata),numdata,rec);
-            fprintf(COM2,"%ld)%02i/%02i %02i:%02i:%02i",count_card,rec[0],rec[1],rec[2],rec[3],rec[4]);
-            ee_dat=0;
-            index=0;
-            fprintf(COM2,"\r\nTrack1 Data:\r\n");
-            while((index<numbyteoftrack1)&&(ee_dat!='?'))
-            {
-               ee_dat = rec[index+5];
-               if((ee_dat>31)&&(ee_dat<127))fputc(ee_dat,COM2);
-               index++;
-               if(ee_dat==0)break;
-            }
-            fprintf(COM2,"\r\nTrack2 Data:\r\n");
-            index=0;
-            ee_dat=0;
-            while((index<numbyteoftrack2) && (ee_dat!='?'))
-            {
-               ee_dat = rec[index+5+numbyteoftrack1];
-               if((ee_dat>31)&&(ee_dat<127)) fputc(ee_dat,COM2);
-               index++;
-               if(ee_dat==0)break;
-            }
-            index=0;
-            //ee_dat=0;
-            fprintf(COM2,"\r\nPIN Number:\r\n");
-            //fprintf(COM2,"addr_key =%lu \n\r",addr_key); 
-            //fprintf(COM2," ptr_card_key=%lu \n\r",ptr_card_key);
-            
-            if((ptr_card_key>addr_key)) //&&
-            {
-               i=0;
-               //fprintf(COM2,"%02i/%02i %02i:%02i:%02i -> ",read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++),read_ext_eeprom(addr_key+i++));
-               do
-               {
-                  ee_dat=read_ext_eeprom(i+addr_key);
-                  if(cryption_enable==0)
-                  {
-                      if(((ee_dat>47)&&(ee_dat<58))||((ee_dat=='#')||(ee_dat=='*'))||(ee_dat>64)&&(ee_dat<91))
-                      {
-                         fprintf(COM2,"%c",ee_dat);
-                      }
-                  }
-                  else
-                  {
-                      fprintf(COM2," %x",ee_dat);
-                  }
-                  i++;
-               }
-               while((i<wideofkeystore)&&(ee_dat!=0));
-               //fprintf(COM2," addr_key=%lu\n\r",addr_key);
-               addr_key=addr_key+wideofkeystore;
-               fprintf(COM2,"\n\r");
-            }
-            count_card++;
-         }
+         if(cryption_enable==0) downloaddataregular();
+         else downloaddataEncrypt();
       } 
       strcpy(buffer2,"f");
       if(!stringcomp(buffer_uart,buffer2))   // format mem
