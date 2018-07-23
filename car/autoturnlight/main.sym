@@ -1,0 +1,135 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     @INTERRUPT_AREA
+019     main_st
+01A     VR
+01B     SS1
+01C     adc2
+01D-01E led_fre
+01F-020 count1
+021-022 count2
+023-024 count_msec
+025-026 count_s
+027     timing_pro
+028     MAIN.i
+029     MAIN.j
+02A     MAIN.temp
+02B-02C MAIN.count_off
+02D-02E MAIN.count_on
+02F-030 MAIN.count_ill
+031-032 MAIN.count_on100
+033     @PSTRINGCN_9600_31753_31756.P1
+033     get_refer.numsam
+033     get_sample.ch
+033     @PRINTF_U_9600_31753_31756.P1
+033-034 @PRINTF_LU_9600_31753_31756.P2
+034     get_refer.i
+034-037 get_sample.numsam
+034     @PRINTF_U_9600_31753_31756.P1
+034     @PSTRINGCN_9600_31753_31756.@SCRATCH1
+035     @DIV88.P1
+035     get_refer.result
+035     @PSTRINGCN_9600_31753_31756.@SCRATCH2
+035     @PRINTF_LU_9600_31753_31756.@SCRATCH1
+036     @DIV88.P1
+036-039 get_refer.temp
+036     @PRINTF_LU_9600_31753_31756.@SCRATCH2
+037     @DIV88.@SCRATCH1
+037     @PRINTF_LU_9600_31753_31756.@SCRATCH3
+038     get_sample.result
+038     @PRINTF_LU_9600_31753_31756.@SCRATCH4
+039-03C get_sample.i
+039     @PRINTF_LU_9600_31753_31756.@SCRATCH5
+03A     get_refer.@SCRATCH1
+03A     @PRINTF_LU_9600_31753_31756.@SCRATCH6
+03B     @PRINTF_LU_9600_31753_31756.@SCRATCH7
+03D-040 get_sample.temp
+041-044 @DIV3232.P1
+041     get_sample.@SCRATCH1
+045-048 @DIV3232.P1
+049     @DIV3232.@SCRATCH1
+04A     @DIV3232.@SCRATCH2
+04B     @DIV3232.@SCRATCH3
+04C     @DIV3232.@SCRATCH4
+04D     @DIV3232.@SCRATCH5
+04E     TIMER0_isr.temp
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0000AE  TIMER0_isr
+000220  get_sample
+000136  @DIV3232
+0001C4  get_refer
+00040C  MAIN
+0000DE  @const99
+0002B4  @PSTRINGCN_9600_31753_31756
+0002D4  @DIV88
+0002FC  @PRINTF_U_9600_31753_31756
+000368  @PRINTF_LU_9600_31753_31756
+00040C  @cinit1
+000454  @cinit2
+
+Project Directory:
+    E:\projects\car\autoturnlight\
+
+Project Files:
+    main.c                                                  [31-Dec-15 18:46  CRC=BC89415A]
+    main.h                                                  [16-Dec-15 14:59  CRC=D872A938]
+    C:\Program Files (x86)\PICC\devices\18F1220.h           [30-Nov-12 18:59  CRC=DAE32854]
+
+Source signature=4AC23B3A
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC18F1220
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.STA

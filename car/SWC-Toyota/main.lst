@@ -1,0 +1,697 @@
+CCS PCH C Compiler, Version 4.140, 6310               31-Dec-15 18:46
+
+               Filename:   E:\projects\car\autoturnlight\main.lst
+
+               ROM used:   1700 bytes (42%)
+                           Largest free fragment is 2392
+               RAM used:   51 (20%) at main() level
+                           79 (31%) worst case
+               Stack:     3 worst case (2 in main + 1 for interrupts)
+
+*
+0000:  GOTO   040C
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  FF5,15
+003C:  MOVFF  FF6,16
+0040:  MOVFF  FF7,17
+0044:  MOVFF  00,0E
+0048:  MOVFF  01,0F
+004C:  MOVFF  02,10
+0050:  MOVFF  03,11
+0054:  BTFSS  FF2.5
+0056:  GOTO   0060
+005A:  BTFSC  FF2.2
+005C:  GOTO   00AE
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVFF  15,FF5
+009A:  MOVFF  16,FF6
+009E:  MOVFF  17,FF7
+00A2:  MOVF   04,W
+00A4:  MOVFF  06,FE0
+00A8:  MOVFF  05,FD8
+00AC:  RETFIE 0
+.................... #include "main.h" 
+.................... #include <18F1220.h> 
+.................... //////// Standard Header file for the PIC18F1220 device //////////////// 
+.................... #device PIC18F1220 
+.................... #list 
+....................  
+.................... #device adc=8 
+.................... #FUSES NOWDT,INTRC_IO,NOPUT,NOPROTECT,NODEBUG,NOBROWNOUT,NOLVP,NOCPD,NOMCLR//18F1220 
+.................... #use delay(clock=8000000) 
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_B1,rcv=PIN_B4,bits=8,stream=PORT1) 
+....................  
+....................  
+.................... #define timing_pro_store 0 
+....................  
+.................... #define  LED         PIN_B5  
+.................... #define  relay1       PIN_B0 
+.................... #define  relay2       PIN_A1 
+.................... #define  disable_blink  disable_interrupts(INT_TIMER0) 
+.................... #define  enable_blink   enable_interrupts(INT_TIMER0) 
+.................... //=========================== 
+.................... int8 main_st=0,VR=0,SS1=0,adc2; 
+.................... int16 led_fre=100; 
+.................... unsigned int16 count1=0,count2=0; 
+.................... int16 count_msec=0,count_s=0; 
+.................... int8 timing_pro=0; 
+.................... //=========================== 
+.................... #int_TIMER0 
+.................... void  TIMER0_isr(void)  
+.................... { 
+*
+00AE:  CLRF   4E
+....................    char temp=0; 
+....................    count_msec++; 
+00B0:  INCF   23,F
+00B2:  BTFSC  FD8.2
+00B4:  INCF   24,F
+....................    temp=VR-SS1;   
+00B6:  MOVF   1B,W
+00B8:  SUBWF  1A,W
+00BA:  MOVWF  4E
+....................    if(count_msec>=led_fre) // 1second 
+00BC:  MOVF   1E,W
+00BE:  SUBWF  24,W
+00C0:  BNC   00D8
+00C2:  BNZ   00CA
+00C4:  MOVF   1D,W
+00C6:  SUBWF  23,W
+00C8:  BNC   00D8
+....................    { 
+....................       // 
+....................       output_toggle(LED); 
+00CA:  BCF    F93.5
+00CC:  BTG    F8A.5
+....................       count_msec=0; 
+00CE:  CLRF   24
+00D0:  CLRF   23
+....................       count_s++; 
+00D2:  INCF   25,F
+00D4:  BTFSC  FD8.2
+00D6:  INCF   26,F
+....................    } 
+.................... } 
+.................... //=========================== 
+00D8:  BCF    FF2.2
+00DA:  GOTO   0060
+.................... int8 get_sample(int8 ch,int32 numsam) 
+.................... { 
+*
+0220:  CLRF   40
+0222:  CLRF   3F
+0224:  CLRF   3E
+0226:  CLRF   3D
+....................    int8 result; 
+....................    int32 i; 
+....................    int32 temp=0; 
+....................    set_adc_channel(ch); 
+0228:  RLCF   33,W
+022A:  MOVWF  00
+022C:  RLCF   00,F
+022E:  MOVLW  FC
+0230:  ANDWF  00,F
+0232:  MOVF   FC2,W
+0234:  ANDLW  E3
+0236:  IORWF  00,W
+0238:  MOVWF  FC2
+....................    for(i=0;i<numsam;i++) 
+023A:  CLRF   3C
+023C:  CLRF   3B
+023E:  CLRF   3A
+0240:  CLRF   39
+0242:  MOVF   3C,W
+0244:  SUBWF  37,W
+0246:  BNC   0284
+0248:  BNZ   0260
+024A:  MOVF   3B,W
+024C:  SUBWF  36,W
+024E:  BNC   0284
+0250:  BNZ   0260
+0252:  MOVF   3A,W
+0254:  SUBWF  35,W
+0256:  BNC   0284
+0258:  BNZ   0260
+025A:  MOVF   34,W
+025C:  SUBWF  39,W
+025E:  BC    0284
+....................    { 
+....................       temp=read_adc()+temp; 
+0260:  BSF    FC2.1
+0262:  BTFSC  FC2.1
+0264:  BRA    0262
+0266:  MOVF   FC4,W
+0268:  ADDWF  3D,F
+026A:  MOVLW  00
+026C:  ADDWFC 3E,F
+026E:  ADDWFC 3F,F
+0270:  ADDWFC 40,F
+....................    } 
+0272:  MOVLW  01
+0274:  ADDWF  39,F
+0276:  BTFSC  FD8.0
+0278:  INCF   3A,F
+027A:  BTFSC  FD8.2
+027C:  INCF   3B,F
+027E:  BTFSC  FD8.2
+0280:  INCF   3C,F
+0282:  BRA    0242
+....................    result=(int8)(temp/numsam); 
+0284:  BCF    FD8.1
+0286:  MOVFF  40,44
+028A:  MOVFF  3F,43
+028E:  MOVFF  3E,42
+0292:  MOVFF  3D,41
+0296:  MOVFF  37,48
+029A:  MOVFF  36,47
+029E:  MOVFF  35,46
+02A2:  MOVFF  34,45
+02A6:  RCALL  0136
+02A8:  MOVFF  00,38
+....................    return result; 
+02AC:  MOVFF  38,01
+.................... } 
+02B0:  GOTO   04EA (RETURN)
+.................... //========================= 
+.................... int8 get_refer(int8 numsam) 
+.................... { 
+*
+01C4:  CLRF   39
+01C6:  CLRF   38
+01C8:  CLRF   37
+01CA:  CLRF   36
+....................    int8 i,result; 
+....................    int32 temp=0; 
+....................    set_adc_channel(2); 
+01CC:  MOVLW  08
+01CE:  MOVWF  01
+01D0:  MOVF   FC2,W
+01D2:  ANDLW  E3
+01D4:  IORWF  01,W
+01D6:  MOVWF  FC2
+....................    for(i=0;i<numsam;i++) 
+01D8:  CLRF   34
+01DA:  MOVF   33,W
+01DC:  SUBWF  34,W
+01DE:  BC    01F6
+....................    { 
+....................       temp=read_adc()+temp; 
+01E0:  BSF    FC2.1
+01E2:  BTFSC  FC2.1
+01E4:  BRA    01E2
+01E6:  MOVF   FC4,W
+01E8:  ADDWF  36,F
+01EA:  MOVLW  00
+01EC:  ADDWFC 37,F
+01EE:  ADDWFC 38,F
+01F0:  ADDWFC 39,F
+....................    } 
+01F2:  INCF   34,F
+01F4:  BRA    01DA
+....................    result=(int8)(temp/numsam); 
+01F6:  BCF    FD8.1
+01F8:  MOVFF  39,44
+01FC:  MOVFF  38,43
+0200:  MOVFF  37,42
+0204:  MOVFF  36,41
+0208:  CLRF   48
+020A:  CLRF   47
+020C:  CLRF   46
+020E:  MOVFF  33,45
+0212:  RCALL  0136
+0214:  MOVFF  00,35
+....................    return result; 
+0218:  MOVFF  35,01
+.................... } 
+021C:  GOTO   04C0 (RETURN)
+.................... //=========================== 
+.................... void main() 
+.................... { 
+*
+040C:  CLRF   FF8
+040E:  BCF    FD0.7
+0410:  BSF    07.7
+0412:  CLRF   FEA
+0414:  CLRF   FE9
+0416:  MOVLW  72
+0418:  MOVWF  FD3
+041A:  MOVF   FD3,W
+041C:  BCF    FAA.3
+041E:  MOVLW  0C
+0420:  MOVWF  FAF
+0422:  MOVLW  A2
+0424:  MOVWF  FAC
+0426:  MOVLW  90
+0428:  MOVWF  FAB
+042A:  CLRF   19
+042C:  CLRF   1A
+042E:  CLRF   1B
+0430:  CLRF   1E
+0432:  MOVLW  64
+0434:  MOVWF  1D
+0436:  CLRF   20
+0438:  CLRF   1F
+043A:  CLRF   22
+043C:  CLRF   21
+043E:  CLRF   24
+0440:  CLRF   23
+0442:  CLRF   26
+0444:  CLRF   25
+0446:  CLRF   27
+0448:  BCF    FC2.6
+044A:  BCF    FC2.7
+044C:  MOVF   FC1,W
+044E:  ANDLW  80
+0450:  IORLW  7F
+0452:  MOVWF  FC1
+0454:  CLRF   2C
+0456:  CLRF   2B
+0458:  CLRF   2E
+045A:  CLRF   2D
+045C:  CLRF   30
+045E:  CLRF   2F
+0460:  CLRF   32
+0462:  CLRF   31
+....................    unsigned char i,j,temp; 
+....................    int16 count_off=0,count_on=0,count_ill=0,count_on100=0;; 
+....................    output_low(relay1); 
+0464:  BCF    F93.0
+0466:  BCF    F8A.0
+....................    output_high(LED); 
+0468:  BCF    F93.5
+046A:  BSF    F8A.5
+....................    //port_a_pullups (0xff); 
+....................    setup_timer_0(T0_INTERNAL|T0_DIV_8|T0_8_BIT);      //1.0 ms overflow 
+046C:  MOVLW  C2
+046E:  MOVWF  FD5
+....................    disable_interrupts(INT_TIMER0); 
+0470:  BCF    FF2.5
+....................    disable_interrupts(INT_EXT_L2H); 
+0472:  BCF    FF2.4
+....................    disable_interrupts(GLOBAL); 
+0474:  BCF    FF2.6
+0476:  BCF    FF2.7
+0478:  BTFSC  FF2.7
+047A:  BRA    0476
+....................    setup_oscillator(OSC_8MHZ|OSC_INTRC); 
+047C:  MOVLW  72
+047E:  MOVWF  FD3
+0480:  MOVF   FD3,W
+....................     
+....................    setup_adc(ADC_CLOCK_DIV_64|ADC_TAD_MUL_2|VSS_VDD); 
+0482:  MOVF   FC0,W
+0484:  ANDLW  C0
+0486:  IORLW  0E
+0488:  MOVWF  FC0
+048A:  BCF    FC0.7
+048C:  BSF    FC2.0
+....................    setup_adc_ports(sAN0|sAN2); 
+048E:  BCF    FC2.6
+0490:  BCF    FC2.7
+0492:  MOVF   FC1,W
+0494:  ANDLW  80
+0496:  IORLW  7A
+0498:  MOVWF  FC1
+....................    set_adc_channel(0); 
+049A:  MOVLW  00
+049C:  MOVWF  01
+049E:  MOVF   FC2,W
+04A0:  ANDLW  E3
+04A2:  IORWF  01,W
+04A4:  MOVWF  FC2
+....................    //set_pwm1_duty(1); 
+....................    
+....................      //i = input(PIN_B3);  
+....................       //j = input(PIN_A6); 
+....................    enable_interrupts(INT_TIMER0); 
+04A6:  BSF    FF2.5
+....................    enable_interrupts(GLOBAL); 
+04A8:  MOVLW  C0
+04AA:  IORWF  FF2,F
+....................    disable_blink; 
+04AC:  BCF    FF2.5
+....................     
+....................     /*(while(1) 
+....................     { 
+....................       output_toggle(relay1); 
+....................       output_toggle(relay2); 
+....................       delay_ms(500); 
+....................     }*/ 
+....................     while(true) 
+....................     { 
+....................       set_adc_channel(0); 
+04AE:  MOVLW  00
+04B0:  MOVWF  01
+04B2:  MOVF   FC2,W
+04B4:  ANDLW  E3
+04B6:  IORWF  01,W
+04B8:  MOVWF  FC2
+....................       VR=get_refer(100); 
+04BA:  MOVLW  64
+04BC:  MOVWF  33
+04BE:  BRA    01C4
+04C0:  MOVFF  01,1A
+....................       delay_us(100); 
+04C4:  MOVLW  42
+04C6:  MOVWF  00
+04C8:  DECFSZ 00,F
+04CA:  BRA    04C8
+04CC:  NOP   
+....................       set_adc_channel(1); 
+04CE:  MOVLW  04
+04D0:  MOVWF  01
+04D2:  MOVF   FC2,W
+04D4:  ANDLW  E3
+04D6:  IORWF  01,W
+04D8:  MOVWF  FC2
+....................       SS1=get_sample(0,4000);//read_adc(); 
+04DA:  CLRF   33
+04DC:  CLRF   37
+04DE:  CLRF   36
+04E0:  MOVLW  0F
+04E2:  MOVWF  35
+04E4:  MOVLW  A0
+04E6:  MOVWF  34
+04E8:  BRA    0220
+04EA:  MOVFF  01,1B
+....................       delay_us(100); 
+04EE:  MOVLW  42
+04F0:  MOVWF  00
+04F2:  DECFSZ 00,F
+04F4:  BRA    04F2
+04F6:  NOP   
+....................       //output_toggle(PIN_B0);  
+....................       printf("com = %u, ss1 = %u, count on100 = %lu, count on = %lu, count off = %lu, countill= %lu\r\n",VR,SS1,count_on100,count_on,count_off,count_ill); 
+04F8:  MOVLW  DE
+04FA:  MOVWF  FF6
+04FC:  MOVLW  00
+04FE:  MOVWF  FF7
+0500:  MOVLW  06
+0502:  MOVWF  33
+0504:  RCALL  02B4
+0506:  MOVFF  1A,33
+050A:  MOVLW  1B
+050C:  MOVWF  34
+050E:  RCALL  02FC
+0510:  MOVLW  E6
+0512:  MOVWF  FF6
+0514:  MOVLW  00
+0516:  MOVWF  FF7
+0518:  MOVLW  08
+051A:  MOVWF  33
+051C:  RCALL  02B4
+051E:  MOVFF  1B,33
+0522:  MOVLW  1B
+0524:  MOVWF  34
+0526:  RCALL  02FC
+0528:  MOVLW  F0
+052A:  MOVWF  FF6
+052C:  MOVLW  00
+052E:  MOVWF  FF7
+0530:  MOVLW  10
+0532:  MOVWF  33
+0534:  RCALL  02B4
+0536:  MOVLW  10
+0538:  MOVWF  FE9
+053A:  MOVFF  32,34
+053E:  MOVFF  31,33
+0542:  RCALL  0368
+0544:  MOVLW  03
+0546:  MOVWF  FF6
+0548:  MOVLW  01
+054A:  MOVWF  FF7
+054C:  MOVLW  0D
+054E:  MOVWF  33
+0550:  RCALL  02B4
+0552:  MOVLW  10
+0554:  MOVWF  FE9
+0556:  MOVFF  2E,34
+055A:  MOVFF  2D,33
+055E:  RCALL  0368
+0560:  MOVLW  13
+0562:  MOVWF  FF6
+0564:  MOVLW  01
+0566:  MOVWF  FF7
+0568:  MOVLW  0E
+056A:  MOVWF  33
+056C:  RCALL  02B4
+056E:  MOVLW  10
+0570:  MOVWF  FE9
+0572:  MOVFF  2C,34
+0576:  MOVFF  2B,33
+057A:  RCALL  0368
+057C:  MOVLW  24
+057E:  MOVWF  FF6
+0580:  MOVLW  01
+0582:  MOVWF  FF7
+0584:  MOVLW  0C
+0586:  MOVWF  33
+0588:  RCALL  02B4
+058A:  MOVLW  10
+058C:  MOVWF  FE9
+058E:  MOVFF  30,34
+0592:  MOVFF  2F,33
+0596:  RCALL  0368
+0598:  MOVLW  0D
+059A:  BTFSS  F9E.4
+059C:  BRA    059A
+059E:  MOVWF  FAD
+05A0:  MOVLW  0A
+05A2:  BTFSS  F9E.4
+05A4:  BRA    05A2
+05A6:  MOVWF  FAD
+....................       if(VR==0) 
+05A8:  MOVF   1A,F
+05AA:  BNZ   05B8
+....................       { 
+....................          output_low(LED); 
+05AC:  BCF    F93.5
+05AE:  BCF    F8A.5
+....................          output_low(relay1); 
+05B0:  BCF    F93.0
+05B2:  BCF    F8A.0
+....................          disable_blink; 
+05B4:  BCF    FF2.5
+....................       } 
+....................       else if(VR==255) 
+05B6:  BRA    06A4
+05B8:  INCFSZ 1A,W
+05BA:  BRA    05C8
+....................       { 
+....................          output_high(LED); 
+05BC:  BCF    F93.5
+05BE:  BSF    F8A.5
+....................          output_low(relay1); 
+05C0:  BCF    F93.0
+05C2:  BCF    F8A.0
+....................          disable_blink; 
+05C4:  BCF    FF2.5
+....................       } 
+....................        else 
+05C6:  BRA    06A4
+....................        { 
+....................          temp=VR-SS1; 
+05C8:  MOVF   1B,W
+05CA:  SUBWF  1A,W
+05CC:  MOVWF  2A
+....................          if(temp>=100) 
+05CE:  MOVF   2A,W
+05D0:  SUBLW  63
+05D2:  BC    05E2
+....................          { 
+....................             led_fre=500; 
+05D4:  MOVLW  01
+05D6:  MOVWF  1E
+05D8:  MOVLW  F4
+05DA:  MOVWF  1D
+....................             disable_blink; 
+05DC:  BCF    FF2.5
+....................             output_high(led); 
+05DE:  BCF    F93.5
+05E0:  BSF    F8A.5
+....................          } 
+....................          if((temp>=50)&&(temp<100)) 
+05E2:  MOVF   2A,W
+05E4:  SUBLW  31
+05E6:  BC    0604
+05E8:  MOVF   2A,W
+05EA:  SUBLW  63
+05EC:  BNC   0604
+....................          { 
+....................             led_fre=500; 
+05EE:  MOVLW  01
+05F0:  MOVWF  1E
+05F2:  MOVLW  F4
+05F4:  MOVWF  1D
+....................             enable_blink; 
+05F6:  BSF    FF2.5
+....................             count_ill=0; 
+05F8:  CLRF   30
+05FA:  CLRF   2F
+....................             count_on=0; 
+05FC:  CLRF   2E
+05FE:  CLRF   2D
+....................             count_on100=0; 
+0600:  CLRF   32
+0602:  CLRF   31
+....................          } 
+....................          if((temp>0)&&(temp<50)) 
+0604:  MOVF   2A,F
+0606:  BZ    064E
+0608:  MOVF   2A,W
+060A:  SUBLW  31
+060C:  BNC   064E
+....................          { 
+....................             if(count_on100<2)count_on100++; 
+060E:  MOVF   32,F
+0610:  BNZ   0620
+0612:  MOVF   31,W
+0614:  SUBLW  01
+0616:  BNC   0620
+0618:  INCF   31,F
+061A:  BTFSC  FD8.2
+061C:  INCF   32,F
+....................             else 
+061E:  BRA    064E
+....................             { 
+....................                led_fre=10+temp*2; 
+0620:  BCF    FD8.0
+0622:  RLCF   2A,W
+0624:  ADDLW  0A
+0626:  MOVWF  1D
+0628:  CLRF   1E
+....................                enable_blink;             
+062A:  BSF    FF2.5
+....................                output_high(relay1); 
+062C:  BCF    F93.0
+062E:  BSF    F8A.0
+....................                count_off=0; 
+0630:  CLRF   2C
+0632:  CLRF   2B
+....................                count_on=0; 
+0634:  CLRF   2E
+0636:  CLRF   2D
+....................                if(count_ill<60)count_ill++; 
+0638:  MOVF   30,F
+063A:  BNZ   064A
+063C:  MOVF   2F,W
+063E:  SUBLW  3B
+0640:  BNC   064A
+0642:  INCF   2F,F
+0644:  BTFSC  FD8.2
+0646:  INCF   30,F
+....................                   else output_low(relay2); 
+0648:  BRA    064E
+064A:  BCF    F92.1
+064C:  BCF    F89.1
+....................             } 
+....................          }          
+....................          if(SS1>=VR) 
+064E:  MOVF   1A,W
+0650:  SUBWF  1B,W
+0652:  BNC   0682
+....................          { 
+....................             if(count_on<2)count_on++; 
+0654:  MOVF   2E,F
+0656:  BNZ   0666
+0658:  MOVF   2D,W
+065A:  SUBLW  01
+065C:  BNC   0666
+065E:  INCF   2D,F
+0660:  BTFSC  FD8.2
+0662:  INCF   2E,F
+....................             else 
+0664:  BRA    0680
+....................             { 
+....................                output_high(relay1); 
+0666:  BCF    F93.0
+0668:  BSF    F8A.0
+....................                output_high(relay2); 
+066A:  BCF    F92.1
+066C:  BSF    F89.1
+....................                disable_blink; 
+066E:  BCF    FF2.5
+....................                output_low(LED); 
+0670:  BCF    F93.5
+0672:  BCF    F8A.5
+....................                count_off=0; 
+0674:  CLRF   2C
+0676:  CLRF   2B
+....................                count_ill=0; 
+0678:  CLRF   30
+067A:  CLRF   2F
+....................                count_on100=0; 
+067C:  CLRF   32
+067E:  CLRF   31
+....................             } 
+....................          } 
+....................             else 
+0680:  BRA    06A4
+....................             { 
+....................                if(count_off<60)count_off++; 
+0682:  MOVF   2C,F
+0684:  BNZ   0694
+0686:  MOVF   2B,W
+0688:  SUBLW  3B
+068A:  BNC   0694
+068C:  INCF   2B,F
+068E:  BTFSC  FD8.2
+0690:  INCF   2C,F
+....................                   else 
+0692:  BRA    06A4
+....................                   { 
+....................                      output_low(relay1); 
+0694:  BCF    F93.0
+0696:  BCF    F8A.0
+....................                      output_low(relay2); 
+0698:  BCF    F92.1
+069A:  BCF    F89.1
+....................                      count_ill=0; 
+069C:  CLRF   30
+069E:  CLRF   2F
+....................                      count_on=0; 
+06A0:  CLRF   2E
+06A2:  CLRF   2D
+....................                   } 
+....................             } 
+....................        } 
+....................     } 
+06A4:  BRA    04AE
+....................  
+.................... } 
+06A6:  SLEEP 
+
+Configuration Fuses:
+   Word  1: C800   INTRC_IO FCMEN IESO
+   Word  2: 1E0D   NOPUT NOBROWNOUT NOWDT WDT32768
+   Word  3: 0000   NOMCLR
+   Word  4: 0081   STVREN NOLVP NODEBUG
+   Word  5: C003   NOPROTECT NOCPB NOCPD
+   Word  6: E003   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 4003   NOEBTR NOEBTRB
