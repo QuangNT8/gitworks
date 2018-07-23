@@ -1,0 +1,4 @@
+D G "__PCH__" 0 8 ""4.140""
+D G "__DEVICE__" 0 8 ""
+D G "__DATE__" 0 8 ""14-Apr-15""
+D G "__TIME__" 0 8 ""23:04:49"" "#define MCR_CARD_PRESENT   PIN_B0"
