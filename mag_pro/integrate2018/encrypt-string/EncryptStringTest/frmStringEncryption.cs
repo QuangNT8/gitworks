@@ -32,24 +32,68 @@ namespace EncryptStringTest
                 }
             }
         }
+        private void getkey(byte[] keyhex)
+        {
+            byte[] buffer = ASCIIEncoding.ASCII.GetBytes(textBoxPassword.Text);
+            buffer = ASCIIEncoding.ASCII.GetBytes(textBoxPassword.Text);
+            for (int j = 0; j < keyhex.Length; j++)
+            {
+                if (j < buffer.Length) keyhex[j] = buffer[j];
+            }
+        }
+        private void getdatafromtextbox(byte[] hexval)
+        {
+            int len = 0, lenhex = 0;
+            string hexout;
+
+            //string text = textBoxString.Text;
+            // remove all space char in textbox
+            textBoxString.Text = textBoxString.Text.Replace(" ", "");
+            string text = textBoxString.Text;
+            char[] chars = text.ToCharArray();
+            len = text.Length;
+            //var hexval = new byte[len / 2];
+            for (int i = 0; i < text.Length; i++)
+            {
+                hexout = chars[i].ToString() + chars[i + 1].ToString();
+                i++;
+                if (hexout != "\r\n") hexval[lenhex++] = Convert.ToByte(hexout, 16);
+            }
+        }
         private void butDecrypt_Click(object sender, EventArgs e)
         {
             //byte[] datatest= { 0x67, 0x43, 0xC3, 0xD1, 0x51, 0x9A, 0xB4, 0xF2, 0xCD, 0x9A, 0x78, 0xAB, 0x09, 0xA5, 0x11, 0xBD };
             char[] allowedChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
             var keyhex = new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; 
             var datahex= new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            byte[] buffer = ASCIIEncoding.ASCII.GetBytes(textBoxPassword.Text);
-            byte i=0;
-            buffer = ASCIIEncoding.ASCII.GetBytes(textBoxPassword.Text);
-            for (int j =0; j < keyhex.Length; j++)
+            int len = 0, lenhex = 0;
+            string hexout;
+            // remove all space char in textbox
+            textBoxString.Text = textBoxString.Text.Replace(" ", "");
+            string text = textBoxString.Text;
+            char[] chars = text.ToCharArray();
+            len = text.Length;
+            var hexval = new byte[len / 2];
+
+            if (textBoxString.Text == "") return;
+
+            for (int i = 0; i < text.Length; i++)
             {
-                if (j < buffer.Length) keyhex[j] = buffer[j];
+                hexout = chars[i].ToString() + chars[i + 1].ToString();
+                i++;
+                if (hexout != "\r\n") hexval[lenhex++] = Convert.ToByte(hexout, 16);
             }
+
+            getkey(keyhex);
+
+            
+
             //textBoxPassword.Text = string.Join(" ", keytest.Select(x => x.ToString("X2")));
             if (textBoxString.Text!="")
             {
                 string datainput = textBoxString.Text;
                 string[] hexValuesSplit = datainput.Split(' ');
+                int i = 0;
                 foreach (String hex in hexValuesSplit)
                 {
                     foreach (char character in hex.ToUpper().ToArray())
@@ -89,5 +133,25 @@ namespace EncryptStringTest
             // textBoxEncrypted.Text = string.Join(" ", datahex.Select(x => x.ToString("X2")));          
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int len=0,lenhex=0;
+            string hexout;
+           
+            //string text = textBoxString.Text;
+            // remove all space char in textbox
+            textBoxString.Text = textBoxString.Text.Replace(" ", "");
+            string text = textBoxString.Text;
+            char[] chars = text.ToCharArray();
+            len = text.Length;
+            var hexval = new byte[len/2];
+            for (int i = 0; i < text.Length; i++)
+            {
+                hexout = chars[i].ToString() + chars[i + 1].ToString();
+                i++;
+                if(hexout!="\r\n") hexval[lenhex++] = Convert.ToByte(hexout, 16);
+            }
+                      
+        }
     }
 }
