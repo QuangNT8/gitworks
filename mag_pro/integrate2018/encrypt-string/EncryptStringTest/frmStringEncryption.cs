@@ -67,6 +67,7 @@ namespace EncryptStringTest
             var keyhex = new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; 
             var datahex= new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int len = 0, lenhex = 0;
+            byte[] tempkey;
             string hexout;
             // remove all space char in textbox
             textBoxString.Text = textBoxString.Text.Replace(" ", "");
@@ -86,47 +87,28 @@ namespace EncryptStringTest
 
             getkey(keyhex);
 
-            
-
-            //textBoxPassword.Text = string.Join(" ", keytest.Select(x => x.ToString("X2")));
-            if (textBoxString.Text!="")
+            int v,j,u,buflen;
+            buflen = hexval.Length/16;
+            for (v = 0; v < buflen; v++)
             {
-                string datainput = textBoxString.Text;
-                string[] hexValuesSplit = datainput.Split(' ');
-                int i = 0;
-                foreach (String hex in hexValuesSplit)
+                for (j = 0; j < 16; j++)
                 {
-                    foreach (char character in hex.ToUpper().ToArray())
+                    datahex[j] = hexval[j+(v*16)];
+                }
+                tempkey = keyhex;
+                Encrypt.aes_enc_dec(datahex, tempkey, 1);
+                //textBoxEncrypted.Text = string.Join(" ", datahex.Select(x => x.ToString("X2")));
+                for (u = 0; u < 16; u++)
+                {
+                    //if (datahex[j] == 0) return;
+                    if (datahex[u] == '%')
                     {
-                        if (!allowedChars.Contains(character))
-                        {
-                            System.Windows.Forms.MessageBox.Show(string.Format("'{0}' is not a hexadecimal character", character));
-                            textBoxString.Text = "";
-                            return;
-                        }
+                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
                     }
-               
-                    if (hex.Length == 2)
-                    {
-                        // Convert the number expressed in base-16 to an integer.
-                        byte value = Convert.ToByte(hex, 16);
-                        datahex[i++] = value;
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show(string.Format("Wrong format"));
-                    }
-                    
+                    textBoxEncrypted.Text = textBoxEncrypted.Text + (char)datahex[u];
+                    if (datahex[u] == '?') textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
                 }
             }
-            Encrypt.aes_enc_dec(datahex, keyhex, 1);
-            //textBoxEncrypted.Text = string.Join(" ", datahex.Select(x => x.ToString("X2")));
-            for (int j = 0; j < 16; j++)
-            {
-                if (datahex[j] == 0) return;
-                textBoxEncrypted.Text = textBoxEncrypted.Text + (char) datahex[j];     
-            }
-            
             // byte[] datahex = Convert.ToByte(datainput);
             //textBoxString.Text = string.Join(" ", keyhex.Select(x => x.ToString("X2")));
 
