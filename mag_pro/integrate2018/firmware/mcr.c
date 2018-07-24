@@ -439,12 +439,14 @@ void saving_card_encrypt()
          carddata[countbyte++]=mon;   
          carddata[countbyte++]=h;   
          carddata[countbyte++]=min;   
-         carddata[countbyte++]=sec;   
+         carddata[countbyte++]=sec;
+         carddata[countbyte++]=0xff;            
          for(countbit=0;countbit<numbyteoftrack1;countbit++)
          {
             carddata[countbyte++] = (INT8)((Track1[countbit]&0b00111111)+0x20);      
          }
          memset(Track1,0,sizeof(Track1));
+         carddata[countbyte++]=0xfe;
          for(countbit=0;countbit<numbyteoftrack2;countbit++)
          {
             carddata[countbyte++] = (INT8)((Track2[countbit]&0b00001111)+0x30);           
@@ -453,6 +455,7 @@ void saving_card_encrypt()
          {
              carddata[i] = 0;
          }
+         carddata[numdataofonecard-1]=0xfc;
          for(i=0;i<8;i++)
          {
              for(j=0;j<16;j++)

@@ -1508,7 +1508,7 @@
       ³        ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³        ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³        ÀÄ@I2C_WRITE_1  0/118  Ram=1
-      ÃÄsaving_card_encrypt  0/1190  Ram=171
+      ÃÄsaving_card_encrypt  0/1234  Ram=171
       ³  ÃÄget_countcard  0/92  Ram=10
       ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
       ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1

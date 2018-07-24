@@ -101,12 +101,24 @@ namespace EncryptStringTest
                 for (u = 0; u < 16; u++)
                 {
                     //if (datahex[j] == 0) return;
-                    if (datahex[u] == '%')
+                    if (datahex[u] == 255)
                     {
-                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
+                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nTrack1: ";
                     }
-                    textBoxEncrypted.Text = textBoxEncrypted.Text + (char)datahex[u];
-                    if (datahex[u] == '?') textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
+                    else if (datahex[u] == 254)
+                    {
+                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nTrack2: ";
+                    }
+                    else if (datahex[u] == 252)
+                    {
+                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nPin: ";
+                    }
+                    else
+                    {
+                        textBoxEncrypted.Text = textBoxEncrypted.Text + (char)datahex[u];
+                    }
+                    
+                    //if (datahex[u] == '?') textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
                 }
             }
             // byte[] datahex = Convert.ToByte(datainput);
