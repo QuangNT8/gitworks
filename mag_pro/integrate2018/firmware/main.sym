@@ -329,8 +329,8 @@
 8FF     get_countcard.@SCRATCH3
 8FF     @PRINTF_L32U_78.@SCRATCH5
 900-903 EEPROM_write.adr
-900     save_ptrcard.temp1
 900     aes_enc_dec.round
+900     save_ptrcard.temp1
 900     get_countcard.@SCRATCH4
 900     @PRINTF_L32U_78.@SCRATCH6
 901     @PRINTF_X_78.P1
@@ -509,25 +509,25 @@ ROM Allocation:
 0018C6  @delay_ms1
 000686  @delay_us1
 001604  @PUTCHAR_1_
-005F72  @GETCH_1_
+005F64  @GETCH_1_
 003578  @MUL1616
 0033E6  @I2C_READ_1
 003370  @I2C_WRITE_1
-005D24  init_ext_eeprom
+005D16  init_ext_eeprom
 003A6C  write_ext_eeprom
 003450  read_ext_eeprom
 004EF6  EEPROM_write
 004004  EEPROM_read
-005DEA  get_ptrcard
+005DDC  get_ptrcard
 003B6A  save_ptrcard
-0058DC  save_coutcard
+0058CE  save_coutcard
 00351C  get_countcard
-0068C8  format_eepromext
-006964  ease_eeprom
-005D2E  init_password
+0068BA  format_eepromext
+006956  ease_eeprom
+005D20  init_password
 00359A  @MEMSET
 0000BA  @const423
-0069E8  reset_password
+0069DA  reset_password
 0000D0  sbox
 0001E0  rsbox
 0002F0  Rcon
@@ -565,9 +565,9 @@ ROM Allocation:
 005664  save_key_encrypt
 004F86  @PRINTF_X_78
 00057A  @const558
-005FC0  USART_getstring
-0060F8  stringcomp
-006B68  strtoi
+005FB2  USART_getstring
+0060EA  stringcomp
+006B5A  strtoi
 0006AC  makebyte
 000712  check_lrc_T1
 0008C2  check_lrc_T2
@@ -592,16 +592,16 @@ ROM Allocation:
 00065A  @const695
 000670  @const696
 001BEE  read_card_T1
-006A38  rstfact
-0062A6  downloaddataregular
-005924  @PRINTF_LD_78
-006190  @PRINTF_D0_78
+006A2A  rstfact
+006298  downloaddataregular
+005916  @PRINTF_LD_78
+006182  @PRINTF_D0_78
 001C2A  @const718
 001C3C  @const719
 001C4E  @const720
-0066A8  downloaddataEncrypt
-006BB6  adminmode
-005F40  @PSTRINGR_78
+00669A  downloaddataEncrypt
+006BA8  adminmode
+005F32  @PSTRINGR_78
 000356  @const739
 000368  @const740
 001C5E  @const741
@@ -624,7 +624,7 @@ ROM Allocation:
 0003F8  @const758
 001CEC  @const759
 001CF0  @const760
-006AA2  @PRINTF_U_78
+006A94  @PRINTF_U_78
 00040A  @const767
 001CF4  @const768
 001CFA  @const769
@@ -667,24 +667,24 @@ ROM Allocation:
 0004A6  @const817
 001F3C  @const818
 001F5C  @const820
-005A1A  timer0
-005C2C  @const826
-005C3C  @const827
-005C4C  @const828
-007CF6  MAIN
-005C68  @const848
-005C72  @const849
-005C8A  @const850
-005C9E  @const851
-005CB2  @const852
-005CCC  @const853
-005CE4  @const854
-005CF8  @const855
-005D0E  @const856
-005D18  @const857
-005D1E  @const858
-007CF6  @cinit1
-007DB8  @cinit2
+005A0C  timer0
+005C1E  @const826
+005C2E  @const827
+005C3E  @const828
+007CE8  MAIN
+005C5A  @const848
+005C64  @const849
+005C7C  @const850
+005C90  @const851
+005CA4  @const852
+005CBE  @const853
+005CD6  @const854
+005CEA  @const855
+005D00  @const856
+005D0A  @const857
+005D10  @const858
+007CE8  @cinit1
+007DAA  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
@@ -692,7 +692,7 @@ Project Directory:
     D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\
 
 Project Files:
-    main.c                                                  [22-Jul-18 18:30  CRC=0D8ECF03]
+    main.c                                                  [25-Jul-18 21:58  CRC=0D8ECF03]
     main.h                                                  [20-Jul-18 19:36  CRC=A928212D]
     C:\Program Files (x86)\PICC\devices\18F26j11.h          [30-Nov-12 18:59  CRC=317C1A5B]
     C:\Program Files (x86)\PICC\drivers\stdlib.h            [08-Jun-11 14:39  CRC=0B6669CF]
@@ -702,13 +702,13 @@ Project Files:
     24512.C                                                 [22-Jul-18 21:26  CRC=68DF57BB]
     eeprom.c                                                [22-Jul-18 18:52  CRC=DC82D09C]
     C:\Program Files (x86)\PICC\drivers\STRING.H            [14-Jul-11 10:13  CRC=23EDEC8F]
-    scan_key.c                                              [22-Jul-18 21:52  CRC=A597E11C]
+    scan_key.c                                              [25-Jul-18 22:15  CRC=3256BA5D]
     TI_aes_128.c                                            [22-Jul-18 11:20  CRC=5E9AB6FB]
     uart_tool.c                                             [22-Jul-18 11:27  CRC=08B3137A]
     mcr.c                                                   [24-Jul-18 20:31  CRC=0CE23518]
     mode.c                                                  [22-Jul-18 21:29  CRC=06EB6C6B]
 
-Source signature=5F121D59
+Source signature=EBD0F69A
 
 Units:
     main (main)

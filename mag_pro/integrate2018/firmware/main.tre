@@ -1761,7 +1761,7 @@
       ³  ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-      ÃÄsave_key_encrypt  0/632  Ram=24
+      ÃÄsave_key_encrypt  0/618  Ram=24
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÃÄEEPROM_read  0/148  Ram=20
       ³  ³  ÀÄread_ext_eeprom  0/204  Ram=11

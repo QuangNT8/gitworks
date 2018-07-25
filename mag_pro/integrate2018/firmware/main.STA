@@ -1,6 +1,6 @@
 
-ROM used:   33520 (51%)
-            33520 (51%) including unused fragments
+ROM used:   33506 (51%)
+            33506 (51%) including unused fragments
 
             6 Average locations per line
             20 Average locations per statement
@@ -22,13 +22,13 @@ Lines Stmts  %   Files
   101    30   2  24512.C
   175    58   3  eeprom.c
   423     0   0  C:\Program Files (x86)\PICC\drivers\STRING.H
-  458   254  15  scan_key.c
-  267   110   6  TI_aes_128.c
+  455   252  15  scan_key.c
+  267   110   7  TI_aes_128.c
    92    45   3  uart_tool.c
   680   343  20  mcr.c
   384   257  15  mode.c
 ----- -----
- 5267  1694 Total
+ 5264  1692 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -88,7 +88,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    450   1   8   938  7.9  save_key_new
 0     18   0   0             @const544
 0     32   0   2             @PSTRINGC_78
-0    632   1  24  1939  9.3  save_key_encrypt
+0    618   1  24  1820  8.4  save_key_encrypt
 0     74   0   2             @PRINTF_X_78
 0     20   0   0             @const558
 0    312   0  11  1198 14.2  USART_getstring
@@ -213,14 +213,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               41
-    Statements              1694
+    Statements              1692
     Comments                1439
-    Volume (V)              112710
-    Difficulty (D)          268.1
-    Effort to implement (E) 30215585
-    Time to implement (T)   466 hours, 17 minutes
+    Volume (V)              112519
+    Difficulty (D)          267.1
+    Effort to implement (E) 30053358
+    Time to implement (T)   463 hours, 47 minutes
     Est Delivered Bugs (B)  32
-    Cyclomatic Complexity   199
+    Cyclomatic Complexity   198
     Maintainability (MI)    81
 
  Segment     Used  Free
@@ -228,7 +228,7 @@ Program metrics:
 00000-00002     4  0  
 00004-00006     0  4  
 00008-000B8   178  0  
-000BA-0FFF6  33338  32004  
+000BA-0FFF6  33324  32018  
 
 
 
