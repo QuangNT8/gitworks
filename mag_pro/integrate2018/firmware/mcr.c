@@ -432,6 +432,7 @@ void saving_card_encrypt()
    countbit_T2=0;
    saving_flag=0;
    temp=Track1[0]+0x20;
+   memset(carddata,0,sizeof(carddata)); 
    if((ptr_card<EEPROM_SIZE_stofkey))
    {
          countbyte = 0;
@@ -443,14 +444,28 @@ void saving_card_encrypt()
          carddata[countbyte++]=0xff;            
          for(countbit=0;countbit<numbyteoftrack1;countbit++)
          {
-            carddata[countbyte++] = (INT8)((Track1[countbit]&0b00111111)+0x20);      
+            temp = (INT8)((Track1[countbit]&0b00111111)+0x20);
+            carddata[countbyte++] = temp;
+            if(temp=='?')
+            {
+               countbit = numbyteoftrack1;
+            }     
          }
+         countbyte = numbyteoftrack1+6;
+         fprintf(COM2,"countbyte: %u",countbyte);
          memset(Track1,0,sizeof(Track1));
          carddata[countbyte++]=0xfe;
          for(countbit=0;countbit<numbyteoftrack2;countbit++)
          {
-            carddata[countbyte++] = (INT8)((Track2[countbit]&0b00001111)+0x30);           
-         } 
+            temp = (INT8)((Track2[countbit]&0b00001111)+0x30);
+            carddata[countbyte++] = temp;
+            if(temp=='?')
+            {
+               countbit = numbyteoftrack2;
+            }
+         }
+         countbyte = numbyteoftrack1+numbyteoftrack2+7;         
+         fprintf(COM2,"countbyte: %u",countbyte);
          for(i=countbyte;i<numdataofonecard;i++)
          {
              carddata[i] = 0;

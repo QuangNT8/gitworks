@@ -41,6 +41,7 @@
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
+>>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_U_78)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_78)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
@@ -60,7 +61,7 @@
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\uart_tool.c" Line 10(6,21): Variable never used:   sms_unread_flag
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 405(18,19): Variable never used:   u
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 410(9,16): Variable never used:   tempkey
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 519(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mcr.c" Line 534(10,11): Variable never used:   i
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mode.c" Line 28(11,20): Variable never used:   countchar
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mode.c" Line 29(10,14): Variable never used:   temp
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\mode.c" Line 88(11,20): Variable never used:   countchar
@@ -78,6 +79,6 @@
 >>> Warning 202 "main.c" Line 99(10,16): Variable never used:   string
 >>> Warning 202 "main.c" Line 99(20,27): Variable never used:   buftemp
 >>> Warning 202 "main.c" Line 99(33,41): Variable never used:   buftemp2
-      Memory usage:   ROM=52%      RAM=53% - 63%
-      0 Errors,  80 Warnings.
+      Memory usage:   ROM=51%      RAM=53% - 63%
+      0 Errors,  81 Warnings.
 Build Successful.

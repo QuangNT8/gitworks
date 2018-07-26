@@ -1,6 +1,6 @@
 
-ROM used:   33748 (52%)
-            33748 (52%) including unused fragments
+ROM used:   33382 (51%)
+            33382 (51%) including unused fragments
 
             6 Average locations per line
             20 Average locations per statement
@@ -25,10 +25,10 @@ Lines Stmts  %   Files
   455   252  15  scan_key.c
   267   110   6  TI_aes_128.c
    92    45   3  uart_tool.c
-  680   343  20  mcr.c
+  695   356  21  mcr.c
   384   257  15  mode.c
 ----- -----
- 5273  1693 Total
+ 5288  1706 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -42,23 +42,23 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     10   0   0    48  1.1  init_ext_eeprom
 0    254   0  12   422  5.5  write_ext_eeprom
 0    204   0  11   372  3.3  read_ext_eeprom
-0    188   0  19   239  6.5  EEPROM_write
+0    144   0  19   239  6.5  EEPROM_write
 0    148   0  20   225  6.3  EEPROM_read
 0    342   1  25   578  5.9  get_ptrcard
-0    152   0  15   685  4.8  save_ptrcard
+0    142   0  15   685  4.8  save_ptrcard
 0     72   0   7   333  4.7  save_coutcard
-0     92   0  10   290  5.6  get_countcard
+0     88   0  10   290  5.6  get_countcard
 0    154   0   4   167  2.7  format_eepromext
 0    130   0   4   140  2.6  ease_eeprom
-0    192   0   2   333  3.6  init_password
+0    188   0   2   333  3.6  init_password
 0     26   0   0             @MEMSET
 0     22   0   0             @const423
-0     82   0  23   168  3.8  reset_password
+0     80   0  23   168  3.8  reset_password
 0    272   0   0             @const431
 0    272   0   0             @const434
 0     26   0   0             @const437
 0     98   0   6   178  4.5  galois_mul2
-0   3580   5  15  8868 11.9  aes_enc_dec
+0   3188   5  15  8868 11.9  aes_enc_dec
 0     36   0   0             @const453
 0     40   0   0             @const457
 0    440   1   4  2477  9.8  kbd_getc
@@ -69,7 +69,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    148   0  13             @DIV3232
 0     14   0   0             @const497
 0     40   0   3             @PSTRINGCN_78
-0    198   0  12             @PRINTF_L32U_78
+0    190   0  12             @PRINTF_L32U_78
 0     14   0   0             @const502
 0     14   0   0             @const503
 0     14   0   0             @const504
@@ -84,8 +84,8 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    400   1   7  1763  7.6  kbd_getc_slv
 0     18   0   0             @const531
 0     44   0   3             @DIV88
-0    188   0   6             @PRINTF_D_78
-0    414   1   8   938  7.9  save_key_new
+0    192   0   6             @PRINTF_D_78
+0    416   1   8   938  7.9  save_key_new
 0     18   0   0             @const544
 0     32   0   2             @PSTRINGC_78
 0    584   1  24  1820  8.4  save_key_encrypt
@@ -102,135 +102,137 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    144   0   3   325  4.1  debug_reader
 0     22   0   0             @const649
 0     22   0   0             @const651
-0   1012   1   6  2478  9.1  saving_card
+0   1012   2   6  2478  9.1  saving_card
 0     22   0   0             @const656
 0      6   0   0             @const658
 0     24   0   0             @const660
-0   1224   2 171  4163  8.7  saving_card_encrypt
+0   1346   2 171  4804  8.7  saving_card_encrypt
 0     22   0   0             @const672
-0     16   0   0             @const674
-0      6   0   0             @const678
-0     24   0   0             @const680
+0     14   0   0             @const673
+0    134   0   2             @PRINTF_U_78
+0     14   0   0             @const677
+0     16   0   0             @const679
+0      6   0   0             @const683
+0     24   0   0  3107  9.2  @const685
 0    768   1  13  3107  9.2  mcr_read
-0     20   0   0             @const691
+0     20   0   0             @const696
 0    188   0   9             @PRINTF_LU_78
-0     20   0   0             @const694
-0     22   0   0             @const695
-0     22   0   0             @const696
+0     20   0   0   124  2.3  @const699
+0     22   0   0   124  2.3  @const700
+0     22   0   0   124  2.3  @const701
 0     60   0   1   124  2.3  read_card_T1
 0    106   0   0    80  2.0  rstfact
 0   1024   2  60  2400 10.6  downloaddataregular
 0    246   0   9             @PRINTF_LD_78
-0    278   0   6             @PRINTF_D0_78
-0     18   0   0             @const718
-0     18   0   0             @const719
-0     16   0   0             @const720
+0    282   0   6             @PRINTF_D0_78
+0     18   0   0             @const723
+0     18   0   0             @const724
+0     16   0   0   961  8.6  @const725
 0    542   1  23   961  8.6  downloaddataEncrypt
-0   4428   7  56 10006  8.3  adminmode
+0   4430   7  56 10006  8.3  adminmode
 0     52   0   2             @PSTRINGR_78
-0     18   0   0             @const739
-0     18   0   0             @const740
-0     14   0   0             @const741
-0      8   0   0             @const742
-0     22   0   0             @const743
-0     14   0   0             @const744
-0      8   0   0             @const745
-0     22   0   0             @const746
-0     22   0   0             @const747
-0      8   0   0             @const748
-0     22   0   0             @const749
-0     20   0   0             @const750
-0     24   0   0             @const751
-0     16   0   0             @const752
-0     18   0   0             @const753
-0      8   0   0             @const754
-0     18   0   0             @const755
-0     18   0   0             @const756
-0      6   0   0             @const757
+0     18   0   0             @const744
+0     18   0   0             @const745
+0     14   0   0             @const746
+0      8   0   0             @const747
+0     22   0   0             @const748
+0     14   0   0             @const749
+0      8   0   0             @const750
+0     22   0   0             @const751
+0     22   0   0             @const752
+0      8   0   0             @const753
+0     22   0   0             @const754
+0     20   0   0             @const755
+0     24   0   0             @const756
+0     16   0   0             @const757
 0     18   0   0             @const758
-0      4   0   0             @const759
-0      4   0   0             @const760
-0    198   0   2             @PRINTF_U_78
-0     20   0   0             @const767
-0      6   0   0             @const768
-0      8   0   0             @const769
+0      8   0   0             @const759
+0     18   0   0             @const760
+0     18   0   0             @const761
+0      6   0   0             @const762
+0     18   0   0             @const763
+0      4   0   0             @const764
+0      4   0   0             @const765
+0     20   0   0             @const769
 0      6   0   0             @const770
-0      6   0   0             @const771
+0      8   0   0             @const771
 0      6   0   0             @const772
-0     10   0   0             @const773
-0     10   0   0             @const774
-0     20   0   0             @const776
-0     32   0   0             @const777
+0      6   0   0             @const773
+0      6   0   0             @const774
+0     10   0   0             @const775
+0     10   0   0             @const776
+0     20   0   0             @const778
 0     32   0   0             @const779
-0     26   0   0             @const782
-0     14   0   0             @const783
-0     22   0   0             @const786
-0     38   0   0             @const787
+0     32   0   0             @const781
+0     26   0   0             @const784
+0     14   0   0             @const785
+0     22   0   0             @const788
 0     38   0   0             @const789
-0     18   0   0             @const792
-0     12   0   0             @const793
+0     38   0   0             @const791
 0     18   0   0             @const794
-0     18   0   0             @const795
-0     32   0   0             @const796
-0     28   0   0             @const797
-0     14   0   0             @const798
-0     12   0   0             @const799
-0     40   0   0             @const800
-0     28   0   0             @const801
-0     38   0   0             @const802
-0     26   0   0             @const803
-0     26   0   0             @const804
-0     14   0   0             @const805
-0      8   0   0             @const806
-0     10   0   0             @const807
+0     12   0   0             @const795
+0     18   0   0             @const796
+0     18   0   0             @const797
+0     32   0   0             @const798
+0     28   0   0             @const799
+0     14   0   0             @const800
+0     12   0   0             @const801
+0     40   0   0             @const802
+0     28   0   0             @const803
+0     38   0   0             @const804
+0     26   0   0             @const805
+0     26   0   0             @const806
+0     14   0   0             @const807
 0      8   0   0             @const808
-0      8   0   0             @const809
-0      6   0   0             @const810
-0     24   0   0             @const811
-0     16   0   0             @const812
-0     20   0   0             @const813
-0     22   0   0             @const816
-0     22   0   0             @const817
-0     32   0   0             @const818
+0     10   0   0             @const809
+0      8   0   0             @const810
+0      8   0   0             @const811
+0      6   0   0             @const812
+0     24   0   0             @const813
+0     16   0   0             @const814
+0     20   0   0             @const815
+0     22   0   0             @const818
+0     22   0   0             @const819
 0     32   0   0             @const820
+0     32   0   0             @const822
 0    530   1   3  1406  6.9  timer0
-0     16   0   0             @const826
-0     16   0   0             @const827
-0     28   0   0             @const828
+0     16   0   0             @const828
+0     16   0   0  3140  8.6  @const829
+0     28   0   0  3140  8.6  @const830
 0   1770   3 190  3140  8.6  MAIN
-0     12   0   0             @const847
-0     20   0   0             @const848
-0     22   0   0             @const849
-0     24   0   0             @const850
-0     20   0   0             @const851
-0     20   0   0             @const852
-0     26   0   0             @const853
-0     24   0   0             @const854
-0     20   0   0             @const855
-0     22   0   0             @const856
-0     10   0   0             @const857
-0      6   0   0             @const858
-0      6   0   0             @const859
+0     12   0   0             @const849
+0     20   0   0             @const850
+0     22   0   0             @const851
+0     24   0   0             @const852
+0     20   0   0             @const853
+0     20   0   0             @const854
+0     26   0   0             @const855
+0     24   0   0             @const856
+0     20   0   0             @const857
+0     22   0   0             @const858
+0     10   0   0             @const859
+0      6   0   0             @const860
+0      6   0   0             @const861
  Inline        0             @cinit1
 
 Program metrics:
-    Functions               41
-    Statements              1693
+    Functions               48
+    Statements              1706
     Comments                1441
-    Volume (V)              112628
-    Difficulty (D)          267.1
-    Effort to implement (E) 30082960
-    Time to implement (T)   464 hours, 15 minutes
-    Est Delivered Bugs (B)  32
-    Cyclomatic Complexity   198
-    Maintainability (MI)    80
+    Volume (V)              133611
+    Difficulty (D)          311.8
+    Effort to implement (E) 41657716
+    Time to implement (T)   642 hours, 52 minutes
+    Est Delivered Bugs (B)  40
+    Cyclomatic Complexity   232
+    Maintainability (MI)    111
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-00006     0  4  
 00008-000B8   178  0  
-000BA-0FFF6  33566  31776  
+000BA-0FFF6  33200  32142  
 
 
 
