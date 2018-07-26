@@ -117,12 +117,12 @@ void main()
    delay_ms(1000);
    init_password();
    //=====================================
-   
+   fprintf(COM2,"\n\rbooting\n\r");
    ptr_card=get_ptrcard(strobe_ptrcard_addr);
-   printf(COM2," save_ptrcard=%lu\n\r",ptr_card);
+   fprintf(COM2," save_ptrcard=%lu\n\r",ptr_card);
    
    ptr_card_key=get_ptrcard(strobe_ptrcard_key);
-   fprintf(COM2,"booting\n\r");
+   fprintf(COM2,"max address: 0x%lx\n\r", EEPROM_SIZE_endofkey);
    fprintf(COM2," save_ptrcard_key=%lu\n\r",ptr_card_key);
    countcard=get_countcard();
   // fprintf(COM2," countcard=%lu\n\r",countcard);

@@ -294,8 +294,9 @@
 8F7-8FA save_ptrcard.ptr
 8F7     @PSTRINGCN_78.P1
 8F7     con_data_track.track
-8F7-8F8 aes_enc_dec.state
+8F7-8FA EEPROM_write.adr
 8F7-8F8 get_countcard.buffer
+8F7-8F8 aes_enc_dec.state
 8F7-8FA @PRINTF_L32U_78.P1
 8F7     @PSTRINGC_78.@SCRATCH1
 8F7     saving_card_encrypt.@SCRATCH1
@@ -309,12 +310,13 @@
 8F9     saving_card_encrypt.@SCRATCH3
 8FA-8FB con_data_track.datin
 8FA     saving_card_encrypt.@SCRATCH4
+8FB-8FE EEPROM_write.len
 8FB-8FC get_countcard.temp2
 8FB     aes_enc_dec.dir
 8FB     save_ptrcard.addr
 8FB     @PRINTF_L32U_78.@SCRATCH1
-8FC-8FF save_ptrcard.buffer
 8FC     aes_enc_dec.buf1
+8FC-8FF save_ptrcard.buffer
 8FC-8FD con_data_track.datout
 8FC     @PRINTF_L32U_78.@SCRATCH2
 8FD     aes_enc_dec.buf2
@@ -324,17 +326,18 @@
 8FE     con_data_track.i
 8FE     get_countcard.@SCRATCH2
 8FE     @PRINTF_L32U_78.@SCRATCH4
-8FF     aes_enc_dec.buf4
+8FF-900 EEPROM_write.buf
 8FF-900 con_data_track.j
+8FF     aes_enc_dec.buf4
 8FF     get_countcard.@SCRATCH3
 8FF     @PRINTF_L32U_78.@SCRATCH5
-900-903 EEPROM_write.adr
 900     aes_enc_dec.round
 900     save_ptrcard.temp1
 900     get_countcard.@SCRATCH4
 900     @PRINTF_L32U_78.@SCRATCH6
 901     @PRINTF_X_78.P1
 901     aes_enc_dec.i
+901-904 EEPROM_write.i
 901-902 con_data_track.temp
 901     save_ptrcard.temp2
 901     @PRINTF_L32U_78.@SCRATCH7
@@ -345,21 +348,23 @@
 903     save_ptrcard.temp4
 903     aes_enc_dec.@SCRATCH2
 903     con_data_track.@SCRATCH1
-904-907 EEPROM_write.len
 904-907 EEPROM_read.adr
 904     save_ptrcard.@SCRATCH1
 904     aes_enc_dec.@SCRATCH3
 904     con_data_track.@SCRATCH2
+905     EEPROM_write.@SCRATCH1
 905     save_ptrcard.@SCRATCH2
 905     aes_enc_dec.@SCRATCH4
 905     con_data_track.@SCRATCH3
+906     EEPROM_write.@SCRATCH2
 906     con_data_track.@SCRATCH4
+907     EEPROM_write.@SCRATCH3
 907     con_data_track.@SCRATCH5
 908-90B EEPROM_read.len
-908-909 EEPROM_write.buf
+908     EEPROM_write.@SCRATCH4
 908     con_data_track.@SCRATCH6
+909     EEPROM_write.@SCRATCH5
 909     con_data_track.@SCRATCH7
-90A-90D EEPROM_write.i
 90A     con_data_track.@SCRATCH8
 90B     con_data_track.@SCRATCH9
 90C-90D EEPROM_read.buf
@@ -369,18 +374,13 @@
 90D-90E galois_mul2.value
 90D     con_data_track.@SCRATCH11
 90E-911 EEPROM_read.i
-90E     EEPROM_write.@SCRATCH1
 90E     con_data_track.@SCRATCH12
 90F-910 galois_mul2.temp
-90F     EEPROM_write.@SCRATCH2
 90F     con_data_track.@SCRATCH13
 910-913 @DIV3232.P1
-910     EEPROM_write.@SCRATCH3
 910     con_data_track.@SCRATCH14
-911     EEPROM_write.@SCRATCH4
 911     galois_mul2.@SCRATCH1
 911     con_data_track.@SCRATCH15
-912     EEPROM_write.@SCRATCH5
 912     EEPROM_read.@SCRATCH1
 912     galois_mul2.@SCRATCH2
 912     con_data_track.@SCRATCH16
@@ -492,47 +492,47 @@ FA6.1   C2OUT
 FB5     CCP_2
 FB5     CCP_2_LOW
 FB6     CCP_2_HIGH
-FBB     CCP_1
 FBB     CCP_1_LOW
+FBB     CCP_1
 FBC     CCP_1_HIGH
 FE1-FE2 @READ_PACKED_MEMORY.P1
 FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PACKED_MEMORY.P1
-FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
 FE9-FEA @WRITE_PROGRAM_MEMORY.P3
 FE9-FEA @READ_PACKED_MEMORY.P4
 FE9-FEA @MEMSET.P5
-FF6-FF8 @READ_PROGRAM_MEMORY.P1
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
 
 ROM Allocation:
 0018C6  @delay_ms1
 000686  @delay_us1
 001604  @PUTCHAR_1_
-005F64  @GETCH_1_
+005F30  @GETCH_1_
 003578  @MUL1616
 0033E6  @I2C_READ_1
 003370  @I2C_WRITE_1
-005D16  init_ext_eeprom
+005D10  init_ext_eeprom
 003A6C  write_ext_eeprom
 003450  read_ext_eeprom
-004EF6  EEPROM_write
-004004  EEPROM_read
-005DDC  get_ptrcard
+004EE8  EEPROM_write
+003FF6  EEPROM_read
+005DDA  get_ptrcard
 003B6A  save_ptrcard
-0058CE  save_coutcard
+00589C  save_coutcard
 00351C  get_countcard
-0068BA  format_eepromext
-006956  ease_eeprom
-005D20  init_password
+0068B6  format_eepromext
+006950  ease_eeprom
+005D1A  init_password
 00359A  @MEMSET
 0000BA  @const423
-0069DA  reset_password
+0069D2  reset_password
 0000D0  sbox
 0001E0  rsbox
 0002F0  Rcon
-004098  galois_mul2
-0040FA  aes_enc_dec
+00408A  galois_mul2
+0040EC  aes_enc_dec
 00030A  KEYS
 00032E  newKEYS
 001F7C  kbd_getc
@@ -559,15 +559,15 @@ ROM Allocation:
 000556  @const531
 00174E  @DIV88
 00177A  @PRINTF_D_78
-0054A2  save_key_new
+0054B6  save_key_new
 000568  @const544
 00172E  @PSTRINGC_78
-005664  save_key_encrypt
-004F86  @PRINTF_X_78
+005654  save_key_encrypt
+004FA4  @PRINTF_X_78
 00057A  @const558
-005FB2  USART_getstring
-0060EA  stringcomp
-006B5A  strtoi
+005F7E  USART_getstring
+0060B6  stringcomp
+006B54  strtoi
 0006AC  makebyte
 000712  check_lrc_T1
 0008C2  check_lrc_T2
@@ -580,7 +580,7 @@ ROM Allocation:
 0005BA  @const656
 0005D0  @const658
 0005D6  @const660
-004FD0  saving_card_encrypt
+004FEE  saving_card_encrypt
 0005EE  @const672
 000604  @const674
 000614  @const678
@@ -592,16 +592,16 @@ ROM Allocation:
 00065A  @const695
 000670  @const696
 001BEE  read_card_T1
-006A2A  rstfact
+006A24  rstfact
 006298  downloaddataregular
-005916  @PRINTF_LD_78
+0058E4  @PRINTF_LD_78
 006182  @PRINTF_D0_78
 001C2A  @const718
 001C3C  @const719
 001C4E  @const720
-00669A  downloaddataEncrypt
-006BA8  adminmode
-005F32  @PSTRINGR_78
+006698  downloaddataEncrypt
+006BA2  adminmode
+00614E  @PSTRINGR_78
 000356  @const739
 000368  @const740
 001C5E  @const741
@@ -624,7 +624,7 @@ ROM Allocation:
 0003F8  @const758
 001CEC  @const759
 001CF0  @const760
-006A94  @PRINTF_U_78
+006A8E  @PRINTF_U_78
 00040A  @const767
 001CF4  @const768
 001CFA  @const769
@@ -667,24 +667,26 @@ ROM Allocation:
 0004A6  @const817
 001F3C  @const818
 001F5C  @const820
-005A0C  timer0
-005C1E  @const826
-005C2E  @const827
-005C3E  @const828
-007CE8  MAIN
-005C5A  @const848
-005C64  @const849
-005C7C  @const850
-005C90  @const851
-005CA4  @const852
-005CBE  @const853
-005CD6  @const854
-005CEA  @const855
-005D00  @const856
-005D0A  @const857
-005D10  @const858
-007CE8  @cinit1
-007DAA  @cinit2
+0059DA  timer0
+005BEC  @const826
+005BFC  @const827
+005C0C  @const828
+007CEE  MAIN
+005C28  @const847
+005C34  @const848
+005C48  @const849
+005C5E  @const850
+005C76  @const851
+005C8A  @const852
+005C9E  @const853
+005CB8  @const854
+005CD0  @const855
+005CE4  @const856
+005CFA  @const857
+005D04  @const858
+005D0A  @const859
+007CEE  @cinit1
+007DAE  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
@@ -692,14 +694,14 @@ Project Directory:
     D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\
 
 Project Files:
-    main.c                                                  [25-Jul-18 21:58  CRC=0D8ECF03]
-    main.h                                                  [20-Jul-18 19:36  CRC=A928212D]
+    main.c                                                  [26-Jul-18 20:51  CRC=D4F4943F]
+    main.h                                                  [26-Jul-18 20:41  CRC=4958E51C]
     C:\Program Files (x86)\PICC\devices\18F26j11.h          [30-Nov-12 18:59  CRC=317C1A5B]
     C:\Program Files (x86)\PICC\drivers\stdlib.h            [08-Jun-11 14:39  CRC=0B6669CF]
     C:\Program Files (x86)\PICC\drivers\stddef.h            [16-Jul-10 09:27  CRC=897CEC6C]
     C:\Program Files (x86)\PICC\drivers\string.h            [14-Jul-11 10:13  CRC=23EDEC8F]
     C:\Program Files (x86)\PICC\drivers\ctype.h             [03-Jan-08 13:55  CRC=2D1F019F]
-    24512.C                                                 [22-Jul-18 21:26  CRC=68DF57BB]
+    24512.C                                                 [26-Jul-18 20:27  CRC=9C5E0BA2]
     eeprom.c                                                [22-Jul-18 18:52  CRC=DC82D09C]
     C:\Program Files (x86)\PICC\drivers\STRING.H            [14-Jul-11 10:13  CRC=23EDEC8F]
     scan_key.c                                              [25-Jul-18 22:15  CRC=3256BA5D]
@@ -708,7 +710,7 @@ Project Files:
     mcr.c                                                   [24-Jul-18 20:31  CRC=0CE23518]
     mode.c                                                  [22-Jul-18 21:29  CRC=06EB6C6B]
 
-Source signature=EBD0F69A
+Source signature=86E633AC
 
 Units:
     main (main)

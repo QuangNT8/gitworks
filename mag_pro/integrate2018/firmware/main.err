@@ -78,6 +78,6 @@
 >>> Warning 202 "main.c" Line 99(10,16): Variable never used:   string
 >>> Warning 202 "main.c" Line 99(20,27): Variable never used:   buftemp
 >>> Warning 202 "main.c" Line 99(33,41): Variable never used:   buftemp2
-      Memory usage:   ROM=51%      RAM=53% - 63%
+      Memory usage:   ROM=52%      RAM=53% - 63%
       0 Errors,  80 Warnings.
 Build Successful.

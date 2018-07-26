@@ -1,6 +1,6 @@
 
-ROM used:   33506 (51%)
-            33506 (51%) including unused fragments
+ROM used:   33748 (52%)
+            33748 (52%) including unused fragments
 
             6 Average locations per line
             20 Average locations per statement
@@ -12,23 +12,23 @@ Stack used: 10/31 worst case (5 in main + 5 for interrupts)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  288   113   7  main.c
-   41     0   0  main.h
+  288   114   7  main.c
+   44     0   0  main.h
   524     0   0  C:\Program Files (x86)\PICC\devices\18F26j11.h
  1351   359  21  C:\Program Files (x86)\PICC\drivers\stdlib.h
    32     0   0  C:\Program Files (x86)\PICC\drivers\stddef.h
   423   125   7  C:\Program Files (x86)\PICC\drivers\string.h
    28     0   0  C:\Program Files (x86)\PICC\drivers\ctype.h
-  101    30   2  24512.C
+  107    30   2  24512.C
   175    58   3  eeprom.c
   423     0   0  C:\Program Files (x86)\PICC\drivers\STRING.H
   455   252  15  scan_key.c
-  267   110   7  TI_aes_128.c
+  267   110   6  TI_aes_128.c
    92    45   3  uart_tool.c
   680   343  20  mcr.c
   384   257  15  mode.c
 ----- -----
- 5264  1692 Total
+ 5273  1693 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -40,20 +40,20 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    106   0   3             @I2C_READ_1
 0    118   0   1             @I2C_WRITE_1
 0     10   0   0    48  1.1  init_ext_eeprom
-0    254   0  12   424  5.4  write_ext_eeprom
-0    204   0  11   373  3.2  read_ext_eeprom
-0    144   0  19   239  6.5  EEPROM_write
+0    254   0  12   422  5.5  write_ext_eeprom
+0    204   0  11   372  3.3  read_ext_eeprom
+0    188   0  19   239  6.5  EEPROM_write
 0    148   0  20   225  6.3  EEPROM_read
 0    342   1  25   578  5.9  get_ptrcard
 0    152   0  15   685  4.8  save_ptrcard
 0     72   0   7   333  4.7  save_coutcard
 0     92   0  10   290  5.6  get_countcard
-0    156   0   4   167  2.7  format_eepromext
-0    132   0   4   140  2.6  ease_eeprom
-0    188   0   2   333  3.6  init_password
+0    154   0   4   167  2.7  format_eepromext
+0    130   0   4   140  2.6  ease_eeprom
+0    192   0   2   333  3.6  init_password
 0     26   0   0             @MEMSET
 0     22   0   0             @const423
-0     80   0  23   168  3.8  reset_password
+0     82   0  23   168  3.8  reset_password
 0    272   0   0             @const431
 0    272   0   0             @const434
 0     26   0   0             @const437
@@ -85,10 +85,10 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     18   0   0             @const531
 0     44   0   3             @DIV88
 0    188   0   6             @PRINTF_D_78
-0    450   1   8   938  7.9  save_key_new
+0    414   1   8   938  7.9  save_key_new
 0     18   0   0             @const544
 0     32   0   2             @PSTRINGC_78
-0    618   1  24  1820  8.4  save_key_encrypt
+0    584   1  24  1820  8.4  save_key_encrypt
 0     74   0   2             @PRINTF_X_78
 0     20   0   0             @const558
 0    312   0  11  1198 14.2  USART_getstring
@@ -102,11 +102,11 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    144   0   3   325  4.1  debug_reader
 0     22   0   0             @const649
 0     22   0   0             @const651
-0   1026   2   6  2478  9.1  saving_card
+0   1012   1   6  2478  9.1  saving_card
 0     22   0   0             @const656
 0      6   0   0             @const658
 0     24   0   0             @const660
-0   1234   2 171  4163  8.7  saving_card_encrypt
+0   1224   2 171  4163  8.7  saving_card_encrypt
 0     22   0   0             @const672
 0     16   0   0             @const674
 0      6   0   0             @const678
@@ -119,15 +119,15 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     22   0   0             @const696
 0     60   0   1   124  2.3  read_card_T1
 0    106   0   0    80  2.0  rstfact
-0   1026   2  60  2400 10.6  downloaddataregular
+0   1024   2  60  2400 10.6  downloaddataregular
 0    246   0   9             @PRINTF_LD_78
 0    278   0   6             @PRINTF_D0_78
 0     18   0   0             @const718
 0     18   0   0             @const719
 0     16   0   0             @const720
-0    544   1  23   961  8.6  downloaddataEncrypt
-0   4416   7  56 10006  8.3  adminmode
-0     50   0   2             @PSTRINGR_78
+0    542   1  23   961  8.6  downloaddataEncrypt
+0   4428   7  56 10006  8.3  adminmode
+0     52   0   2             @PSTRINGR_78
 0     18   0   0             @const739
 0     18   0   0             @const740
 0     14   0   0             @const741
@@ -197,38 +197,40 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     16   0   0             @const826
 0     16   0   0             @const827
 0     28   0   0             @const828
-0   1534   2 190  3067  8.6  MAIN
-0     10   0   0             @const848
-0     24   0   0             @const849
-0     20   0   0             @const850
+0   1770   3 190  3140  8.6  MAIN
+0     12   0   0             @const847
+0     20   0   0             @const848
+0     22   0   0             @const849
+0     24   0   0             @const850
 0     20   0   0             @const851
-0     26   0   0             @const852
-0     24   0   0             @const853
-0     20   0   0             @const854
-0     22   0   0             @const855
-0     10   0   0             @const856
-0      6   0   0             @const857
+0     20   0   0             @const852
+0     26   0   0             @const853
+0     24   0   0             @const854
+0     20   0   0             @const855
+0     22   0   0             @const856
+0     10   0   0             @const857
 0      6   0   0             @const858
+0      6   0   0             @const859
  Inline        0             @cinit1
 
 Program metrics:
     Functions               41
-    Statements              1692
-    Comments                1439
-    Volume (V)              112519
+    Statements              1693
+    Comments                1441
+    Volume (V)              112628
     Difficulty (D)          267.1
-    Effort to implement (E) 30053358
-    Time to implement (T)   463 hours, 47 minutes
+    Effort to implement (E) 30082960
+    Time to implement (T)   464 hours, 15 minutes
     Est Delivered Bugs (B)  32
     Cyclomatic Complexity   198
-    Maintainability (MI)    81
+    Maintainability (MI)    80
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-00006     0  4  
 00008-000B8   178  0  
-000BA-0FFF6  33324  32018  
+000BA-0FFF6  33566  31776  
 
 
 

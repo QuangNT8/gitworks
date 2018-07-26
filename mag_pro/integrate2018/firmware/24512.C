@@ -32,8 +32,14 @@
 #use i2c(master, sda=EEPROM_SDA, scl=EEPROM_SCL)
 
 #define ptr_start                       150
+#if defined(24AA1025)
 #define EEPROM_SIZE_endofkey            131071
 #define EEPROM_SIZE_stofkey             115470
+#endif
+#if defined(24AA512)
+#define EEPROM_SIZE_endofkey            65535 // 65535 - 57601 = 7934/16= 450
+#define EEPROM_SIZE_stofkey             57600 // 57600/128 = 450
+#endif
 #define EEPROM_KEY_ST                   EEPROM_SIZE_stofkey+1
 //===============================
 

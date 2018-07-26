@@ -3,7 +3,10 @@
 //#include <18F4455.h>
 //#priority INT_EXT1,RDA,INT_TIMER0
 #define dis_rev #ASM BCF    0xF94.7 #ENDASM
-#define 24AA1025
+
+//#define 24AA1025
+#define 24AA512
+
 #define nocheckpass
 #define debug
 #define debugkb
