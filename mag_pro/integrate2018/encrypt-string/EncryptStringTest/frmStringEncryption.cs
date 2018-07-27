@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -129,23 +130,41 @@ namespace EncryptStringTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int len=0,lenhex=0;
-            string hexout;
-           
-            //string text = textBoxString.Text;
-            // remove all space char in textbox
-            textBoxString.Text = textBoxString.Text.Replace(" ", "");
-            string text = textBoxString.Text;
-            char[] chars = text.ToCharArray();
-            len = text.Length;
-            var hexval = new byte[len/2];
-            for (int i = 0; i < text.Length; i++)
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Text|*.txt|All File()|*.*";
+            ofd.Title = "Open File...";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                hexout = chars[i].ToString() + chars[i + 1].ToString();
-                i++;
-                if(hexout!="\r\n") hexval[lenhex++] = Convert.ToByte(hexout, 16);
+                ReadFile(ofd.FileName);
             }
-                      
+        }
+        // String Collection Method.
+        private void ReadFile(string file)
+        {
+            StreamReader reader = new StreamReader(file, Encoding.UTF8);
+            textBoxString.Text = reader.ReadToEnd();
+            reader.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text|*.txt";
+            sfd.Title = "Save file...";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                WriteFile(sfd.FileName);
+            }
+        }
+        void WriteFile(string file)
+        {
+            StreamWriter sw = new StreamWriter(file, false,
+                                  Encoding.Unicode);
+            foreach (string line in textBoxEncrypted.Lines)
+            {
+                sw.WriteLine(line);
+            }
+            sw.Close();
         }
     }
 }
