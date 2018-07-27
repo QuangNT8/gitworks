@@ -1,6 +1,6 @@
 
-ROM used:   33382 (51%)
-            33382 (51%) including unused fragments
+ROM used:   33546 (51%)
+            33546 (51%) including unused fragments
 
             6 Average locations per line
             20 Average locations per statement
@@ -40,16 +40,16 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    106   0   3             @I2C_READ_1
 0    118   0   1             @I2C_WRITE_1
 0     10   0   0    48  1.1  init_ext_eeprom
-0    254   0  12   422  5.5  write_ext_eeprom
-0    204   0  11   385  3.4  read_ext_eeprom
+0    254   0  12   424  5.4  write_ext_eeprom
+0    204   0  11   387  3.3  read_ext_eeprom
 0    144   0  19   239  6.5  EEPROM_write
 0    148   0  20   225  6.3  EEPROM_read
 0    342   1  25   578  5.9  get_ptrcard
 0    142   0  15   685  4.8  save_ptrcard
 0     72   0   7   333  4.7  save_coutcard
 0     88   0  10   290  5.6  get_countcard
-0    154   0   4   167  2.7  format_eepromext
-0    130   0   4   140  2.6  ease_eeprom
+0    156   0   4   167  2.7  format_eepromext
+0    132   0   4   140  2.6  ease_eeprom
 0    188   0   2   333  3.6  init_password
 0     26   0   0             @MEMSET
 0     22   0   0             @const423
@@ -85,10 +85,10 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     18   0   0             @const531
 0     44   0   3             @DIV88
 0    192   0   6             @PRINTF_D_78
-0    416   1   8   938  7.9  save_key_new
+0    452   1   8   938  7.9  save_key_new
 0     18   0   0             @const544
 0     32   0   2             @PSTRINGC_78
-0    584   1  24  1820  8.4  save_key_encrypt
+0    620   1  24  1820  8.4  save_key_encrypt
 0     74   0   2             @PRINTF_X_78
 0     20   0   0             @const558
 0    312   0  11  1198 14.2  USART_getstring
@@ -102,11 +102,11 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    144   0   3   325  4.1  debug_reader
 0     22   0   0             @const649
 0     22   0   0             @const651
-0   1012   2   6  2478  9.1  saving_card
+0   1026   2   6  2478  9.1  saving_card
 0     22   0   0             @const656
 0      6   0   0             @const658
 0     24   0   0             @const660
-0   1346   2 171  4804  8.7  saving_card_encrypt
+0   1360   2 171  4804  8.7  saving_card_encrypt
 0     22   0   0             @const672
 0     14   0   0             @const673
 0    134   0   2             @PRINTF_U_78
@@ -122,13 +122,13 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     22   0   0             @const701
 0     60   0   1   124  2.3  read_card_T1
 0    106   0   0    80  2.0  rstfact
-0   1024   2  60  2400 10.6  downloaddataregular
+0   1026   2  60  2400 10.6  downloaddataregular
 0    246   0   9             @PRINTF_LD_78
 0    282   0   6             @PRINTF_D0_78
 0     18   0   0             @const723
 0     18   0   0             @const724
 0     16   0   0             @const725
-0    542   1  23   961  8.6  downloaddataEncrypt
+0    544   1  23   961  8.6  downloaddataEncrypt
 0   4430   7  56 10006  8.3  adminmode
 0     52   0   2             @PSTRINGR_78
 0     18   0   0             @const744
@@ -199,7 +199,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     16   0   0             @const828
 0     16   0   0             @const829
 0     28   0   0             @const830
-0   1770   3 190  3140  8.6  MAIN
+0   1826   3 190  3140  8.6  MAIN
 0     12   0   0             @const849
 0     20   0   0             @const850
 0     22   0   0             @const851
@@ -219,10 +219,10 @@ Program metrics:
     Functions               41
     Statements              1706
     Comments                1441
-    Volume (V)              113579
-    Difficulty (D)          267.1
-    Effort to implement (E) 30334060
-    Time to implement (T)   468 hours, 7 minutes
+    Volume (V)              113584
+    Difficulty (D)          267.0
+    Effort to implement (E) 30321456
+    Time to implement (T)   467 hours, 55 minutes
     Est Delivered Bugs (B)  32
     Cyclomatic Complexity   200
     Maintainability (MI)    80
@@ -232,7 +232,7 @@ Program metrics:
 00000-00002     4  0  
 00004-00006     0  4  
 00008-000B8   178  0  
-000BA-0FFF6  33200  32142  
+000BA-0FFF6  33364  31978  
 
 
 

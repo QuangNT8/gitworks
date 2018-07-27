@@ -1,5 +1,5 @@
 ÀÄmain
-   ÃÄMAIN  0/1770  Ram=190
+   ÃÄMAIN  0/1826  Ram=190
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄinit_ext_eeprom  0/10  Ram=0
    ³  ÃÄ@delay_ms1  0/40  Ram=1
@@ -89,6 +89,12 @@
    ³  ³     ÃÄ@I2C_WRITE_1  0/118  Ram=1
    ³  ³     ÀÄ@I2C_READ_1  0/106  Ram=3
    ³  ÃÄ@PSTRINGCN_78  0/40  Ram=3
+   ³  ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
+   ³  ÃÄ@PRINTF_X_78  0/74  Ram=2
+   ³  ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
+   ³  ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
+   ³  ÃÄ@PRINTF_X_78  0/74  Ram=2
+   ³  ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
    ³  ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
    ³  ÃÄ@PRINTF_X_78  0/74  Ram=2
    ³  ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
@@ -219,7 +225,7 @@
    ³     ÃÄ@PUTCHAR_1_  0/70  Ram=1
    ³     ÃÄ@const744  0/18  Ram=0
    ³     ÃÄstringcomp  0/152  Ram=9
-   ³     ÃÄdownloaddataregular  0/1024  Ram=60
+   ³     ÃÄdownloaddataregular  0/1026  Ram=60
    ³     ³  ÃÄget_countcard  0/88  Ram=10
    ³     ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
    ³     ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -301,7 +307,7 @@
    ³     ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
    ³     ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
    ³     ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-   ³     ÃÄdownloaddataEncrypt  0/542  Ram=23
+   ³     ÃÄdownloaddataEncrypt  0/544  Ram=23
    ³     ³  ÃÄget_countcard  0/88  Ram=10
    ³     ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
    ³     ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -342,7 +348,7 @@
    ³     ÃÄstringcomp  0/152  Ram=9
    ³     ÃÄ@PSTRINGC_78  0/32  Ram=2
    ³     ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-   ³     ÃÄformat_eepromext  0/154  Ram=4
+   ³     ÃÄformat_eepromext  0/156  Ram=4
    ³     ³  ÃÄsave_ptrcard  0/142  Ram=15
    ³     ³  ³  ÃÄwrite_ext_eeprom  0/254  Ram=12
    ³     ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -435,7 +441,7 @@
    ³     ÃÄstringcomp  0/152  Ram=9
    ³     ÃÄ@PSTRINGC_78  0/32  Ram=2
    ³     ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-   ³     ÃÄease_eeprom  0/130  Ram=4
+   ³     ÃÄease_eeprom  0/132  Ram=4
    ³     ³  ÃÄsave_ptrcard  0/142  Ram=15
    ³     ³  ³  ÃÄwrite_ext_eeprom  0/254  Ram=12
    ³     ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -1370,7 +1376,7 @@
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-      ÃÄsaving_card  0/1012  Ram=6
+      ÃÄsaving_card  0/1026  Ram=6
       ³  ÃÄget_countcard  0/88  Ram=10
       ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
       ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -1524,7 +1530,7 @@
       ³        ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³        ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³        ÀÄ@I2C_WRITE_1  0/118  Ram=1
-      ÃÄsaving_card_encrypt  0/1346  Ram=171
+      ÃÄsaving_card_encrypt  0/1360  Ram=171
       ³  ÃÄget_countcard  0/88  Ram=10
       ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
       ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -1729,7 +1735,7 @@
       ³     ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³     ÃÄ@I2C_WRITE_1  0/118  Ram=1
       ³     ÀÄ@I2C_READ_1  0/106  Ram=3
-      ÃÄsave_key_new  0/416  Ram=8
+      ÃÄsave_key_new  0/452  Ram=8
       ³  ÃÄget_countcard  0/88  Ram=10
       ³  ³  ÃÄread_ext_eeprom  0/204  Ram=11
       ³  ³  ³  ÃÄ@I2C_WRITE_1  0/118  Ram=1
@@ -1794,7 +1800,7 @@
       ³  ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÀÄ@PUTCHAR_1_  0/70  Ram=1
-      ÃÄsave_key_encrypt  0/584  Ram=24
+      ÃÄsave_key_encrypt  0/620  Ram=24
       ³  ÃÄ@PUTCHAR_1_  0/70  Ram=1
       ³  ÃÄEEPROM_read  0/148  Ram=20
       ³  ³  ÀÄread_ext_eeprom  0/204  Ram=11

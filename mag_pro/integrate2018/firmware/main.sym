@@ -509,30 +509,30 @@ ROM Allocation:
 0018E6  @delay_ms1
 0006A2  @delay_us1
 001620  @PUTCHAR_1_
-005E84  @GETCH_1_
+005EE8  @GETCH_1_
 00358C  @MUL1616
 0033FE  @I2C_READ_1
 003388  @I2C_WRITE_1
-005C68  init_ext_eeprom
+005CCC  init_ext_eeprom
 003A80  write_ext_eeprom
 003468  read_ext_eeprom
-004DF0  EEPROM_write
-004086  EEPROM_read
-005D2E  get_ptrcard
+004DFE  EEPROM_write
+004094  EEPROM_read
+005D92  get_ptrcard
 003B7E  save_ptrcard
-0057F4  save_coutcard
+005858  save_coutcard
 003534  get_countcard
-00680E  format_eepromext
-0068A8  ease_eeprom
-005C72  init_password
+006876  format_eepromext
+006912  ease_eeprom
+005CD6  init_password
 0035AE  @MEMSET
 0000BA  @const423
-00692A  reset_password
+006996  reset_password
 0000D0  sbox
 0001E0  rsbox
 0002F0  Rcon
-00411A  galois_mul2
-00417C  aes_enc_dec
+004128  galois_mul2
+00418A  aes_enc_dec
 00030A  KEYS
 00032E  newKEYS
 001F9C  kbd_getc
@@ -559,15 +559,15 @@ ROM Allocation:
 000556  @const531
 00176A  @DIV88
 001796  @PRINTF_D_78
-00540C  save_key_new
+005428  save_key_new
 000568  @const544
 00174A  @PSTRINGC_78
-0055AC  save_key_encrypt
-004E80  @PRINTF_X_78
+0055EC  save_key_encrypt
+004E8E  @PRINTF_X_78
 00057A  @const558
-005ED2  USART_getstring
-00600A  stringcomp
-0069E4  strtoi
+005F36  USART_getstring
+00606E  stringcomp
+006A50  strtoi
 0006C8  makebyte
 00072E  check_lrc_T1
 0008DE  check_lrc_T2
@@ -580,10 +580,10 @@ ROM Allocation:
 0005BA  @const656
 0005D0  @const658
 0005D6  @const660
-004ECA  saving_card_encrypt
+004ED8  saving_card_encrypt
 0005EE  @const672
 000604  @const673
-004000  @PRINTF_U_78
+00400E  @PRINTF_U_78
 000612  @const677
 000620  @const679
 000630  @const683
@@ -595,16 +595,16 @@ ROM Allocation:
 000676  @const700
 00068C  @const701
 001C0E  read_card_T1
-00697A  rstfact
-0061F0  downloaddataregular
-00583C  @PRINTF_LD_78
-0060D6  @PRINTF_D0_78
+0069E6  rstfact
+006254  downloaddataregular
+0058A0  @PRINTF_LD_78
+00613A  @PRINTF_D0_78
 001C4A  @const723
 001C5C  @const724
 001C6E  @const725
-0065F0  downloaddataEncrypt
-006A32  adminmode
-0060A2  @PSTRINGR_78
+006656  downloaddataEncrypt
+006A9E  adminmode
+006106  @PSTRINGR_78
 000356  @const744
 000368  @const745
 001C7E  @const746
@@ -669,26 +669,26 @@ ROM Allocation:
 0004A6  @const819
 001F5C  @const820
 001F7C  @const822
-005932  timer0
-005B44  @const828
-005B54  @const829
-005B64  @const830
-007B80  MAIN
-005B80  @const849
-005B8C  @const850
-005BA0  @const851
-005BB6  @const852
-005BCE  @const853
-005BE2  @const854
-005BF6  @const855
-005C10  @const856
-005C28  @const857
-005C3C  @const858
-005C52  @const859
-005C5C  @const860
-005C62  @const861
-007B80  @cinit1
-007C40  @cinit2
+005996  timer0
+005BA8  @const828
+005BB8  @const829
+005BC8  @const830
+007BEC  MAIN
+005BE4  @const849
+005BF0  @const850
+005C04  @const851
+005C1A  @const852
+005C32  @const853
+005C46  @const854
+005C5A  @const855
+005C74  @const856
+005C8C  @const857
+005CA0  @const858
+005CB6  @const859
+005CC0  @const860
+005CC6  @const861
+007BEC  @cinit1
+007CAE  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
@@ -697,7 +697,7 @@ Project Directory:
 
 Project Files:
     main.c                                                  [27-Jul-18 19:57  CRC=D4F4943F]
-    main.h                                                  [27-Jul-18 19:51  CRC=4958E51C]
+    main.h                                                  [27-Jul-18 20:03  CRC=FEFBF1DF]
     C:\Program Files (x86)\PICC\devices\18F26j11.h          [30-Nov-12 18:59  CRC=317C1A5B]
     C:\Program Files (x86)\PICC\drivers\stdlib.h            [08-Jun-11 14:39  CRC=0B6669CF]
     C:\Program Files (x86)\PICC\drivers\stddef.h            [16-Jul-10 09:27  CRC=897CEC6C]
@@ -712,7 +712,7 @@ Project Files:
     mcr.c                                                   [26-Jul-18 22:55  CRC=5181FDF3]
     mode.c                                                  [22-Jul-18 21:29  CRC=06EB6C6B]
 
-Source signature=33BFD09B
+Source signature=E962DD5E
 
 Units:
     main (main)
