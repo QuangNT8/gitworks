@@ -46,8 +46,8 @@
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_78)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
 >>> Warning 216 "main.c" Line 289(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32U_78)
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 127(10,11): Variable never used:   i
->>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 153(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 129(10,11): Variable never used:   i
+>>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\eeprom.c" Line 155(10,11): Variable never used:   i
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 47(6,14): Variable never used:   test_key
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\TI_aes_128.c" Line 50(6,15): Variable never used:   test_data
 >>> Warning 202 "D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\scan_key.c" Line 54(6,14): Variable never used:   delaykey
