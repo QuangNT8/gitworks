@@ -164,7 +164,7 @@ void main()
    
 
    memset(key_data,0,sizeof(key_data)); 
-   //save_coutcard(898);
+   //save_coutcard(448);
      /* write_ext_eeprom(200,'I');
       write_ext_eeprom(201,'J');
       write_ext_eeprom(202,'K');
