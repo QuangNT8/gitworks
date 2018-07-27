@@ -19,7 +19,14 @@
 //==============================================================
 #define numdata                  124    // 5+79+40=124
 #define numdataofonecard         128    // 
-#define countcards               930    //43590/124
+
+#if defined(24AA1025)
+#define countcards               900    //43590/124
+#endif
+
+#if defined(24AA512)
+#define countcards               450    //43590/124
+#endif
 
 //===============================================================
 

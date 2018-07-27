@@ -1,4 +1,4 @@
-CCS PCH C Compiler, Version 4.140, 33034               26-Jul-18 22:55
+CCS PCH C Compiler, Version 4.140, 33034               27-Jul-18 18:12
 
                Filename:   D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\main.lst
 
@@ -3008,7 +3008,12 @@ CCS PCH C Compiler, Version 4.140, 33034               26-Jul-18 22:55
 .................... //============================================================== 
 .................... #define numdata                  124    // 5+79+40=124 
 .................... #define numdataofonecard         128    //  
-.................... #define countcards               930    //43590/124 
+.................... #if defined(24AA1025) 
+.................... #define countcards               900    //43590/124 
+.................... #endif 
+.................... #if defined(24AA512) 
+.................... #define countcards               450    //43590/124 
+.................... #endif 
 ....................  
 .................... //=============================================================== 
 ....................  
@@ -16658,11 +16663,11 @@ CCS PCH C Compiler, Version 4.140, 33034               26-Jul-18 22:55
 ....................       if(buf<countcards) 
 5AA2:  MOVLB  8
 5AA4:  MOVF   x4E,W
-5AA6:  SUBLW  03
+5AA6:  SUBLW  01
 5AA8:  BNC   5ADE
 5AAA:  BNZ   5AB2
 5AAC:  MOVF   x4D,W
-5AAE:  SUBLW  A1
+5AAE:  SUBLW  C1
 5AB0:  BNC   5ADE
 ....................       { 
 ....................          if(cryption_enable==0)  

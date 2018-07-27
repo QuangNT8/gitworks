@@ -696,7 +696,7 @@ Project Directory:
     D:\STM32\workspace\gitworks\mag_pro\integrate2018\firmware\
 
 Project Files:
-    main.c                                                  [26-Jul-18 22:13  CRC=D4F4943F]
+    main.c                                                  [27-Jul-18 18:12  CRC=D4F4943F]
     main.h                                                  [26-Jul-18 20:41  CRC=4958E51C]
     C:\Program Files (x86)\PICC\devices\18F26j11.h          [30-Nov-12 18:59  CRC=317C1A5B]
     C:\Program Files (x86)\PICC\drivers\stdlib.h            [08-Jun-11 14:39  CRC=0B6669CF]
@@ -704,7 +704,7 @@ Project Files:
     C:\Program Files (x86)\PICC\drivers\string.h            [14-Jul-11 10:13  CRC=23EDEC8F]
     C:\Program Files (x86)\PICC\drivers\ctype.h             [03-Jan-08 13:55  CRC=2D1F019F]
     24512.C                                                 [26-Jul-18 20:27  CRC=9C5E0BA2]
-    eeprom.c                                                [22-Jul-18 18:52  CRC=DC82D09C]
+    eeprom.c                                                [27-Jul-18 18:08  CRC=33084FA7]
     C:\Program Files (x86)\PICC\drivers\STRING.H            [14-Jul-11 10:13  CRC=23EDEC8F]
     scan_key.c                                              [25-Jul-18 22:15  CRC=3256BA5D]
     TI_aes_128.c                                            [22-Jul-18 11:20  CRC=5E9AB6FB]
@@ -712,7 +712,7 @@ Project Files:
     mcr.c                                                   [26-Jul-18 22:55  CRC=5181FDF3]
     mode.c                                                  [22-Jul-18 21:29  CRC=06EB6C6B]
 
-Source signature=CB85FC87
+Source signature=220B7B92
 
 Units:
     main (main)
