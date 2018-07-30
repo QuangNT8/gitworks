@@ -50,6 +50,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include "nrf_delay.h"
 #include "radio_config.h"
 #include "nrf_gpio.h"
 #include "boards.h"
@@ -74,20 +75,24 @@ void clock_initialization()
     NRF_CLOCK->TASKS_HFCLKSTART    = 1;
 
     /* Wait for the external oscillator to start up */
+	nrf_delay_ms(1);
+	#if 0
     while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0)
     {
         // Do nothing.
     }
-
+	#endif
     /* Start low frequency crystal oscillator for app_timer(used by bsp)*/
     NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
     NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_LFCLKSTART    = 1;
-
+	nrf_delay_ms(1);
+	#if 0
     while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
     {
         // Do nothing.
     }
+	#endif
 }
 
 
@@ -162,14 +167,14 @@ int main(void)
 
     while (true)
     {
-        uint32_t received = read_packet();
-
+        //uint32_t received = read_packet();
+		read_packet();
         err_code = bsp_indication_set(BSP_INDICATE_RCV_OK);
-        NRF_LOG_INFO("Packet was received");
-        APP_ERROR_CHECK(err_code);
+        //NRF_LOG_INFO("Packet was received");
+        //APP_ERROR_CHECK(err_code);
 
-        NRF_LOG_INFO("The contents of the package is %u", (unsigned int)received);
-        NRF_LOG_FLUSH();
+        //NRF_LOG_INFO("The contents of the package is %u", (unsigned int)received);
+        //NRF_LOG_FLUSH();
     }
 }
 
