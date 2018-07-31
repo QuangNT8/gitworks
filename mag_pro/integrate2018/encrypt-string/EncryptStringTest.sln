@@ -1,20 +1,42 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptStringTest", "EncryptStringTest\EncryptStringTest.csproj", "{AA2BD465-C71D-486E-84EA-79AC98C767DC}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "setup\WindowsFormsApplication1\Setup1\Setup1.vdproj", "{5495B043-1EDA-4DB5-9009-BF59437D027C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|x64.ActiveCfg = Debug|x64
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|x64.Build.0 = Debug|x64
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|x86.ActiveCfg = Debug|x86
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Debug|x86.Build.0 = Debug|x86
 		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|x64.ActiveCfg = Release|x64
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|x64.Build.0 = Release|x64
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|x86.ActiveCfg = Release|x86
+		{AA2BD465-C71D-486E-84EA-79AC98C767DC}.Release|x86.Build.0 = Release|x86
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Debug|Any CPU.ActiveCfg = Debug
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Debug|x64.ActiveCfg = Debug
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Debug|x86.ActiveCfg = Debug
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Debug|x86.Build.0 = Debug
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Release|Any CPU.ActiveCfg = Release
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Release|x64.ActiveCfg = Release
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Release|x86.ActiveCfg = Release
+		{5495B043-1EDA-4DB5-9009-BF59437D027C}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

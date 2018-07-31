@@ -1,0 +1,8 @@
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\bin\x64\Release\EncryptStringTest.exe.config
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\bin\x64\Release\EncryptStringTest.exe
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\bin\x64\Release\EncryptStringTest.pdb
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\obj\x64\Release\EncryptStringTest.frmStringEncryption.resources
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\obj\x64\Release\EncryptStringTest.Properties.Resources.resources
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\obj\x64\Release\EncryptStringTest.csproj.GenerateResource.Cache
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\obj\x64\Release\EncryptStringTest.exe
+D:\STM32\workspace\gitworks\mag_pro\integrate2018\encrypt-string\EncryptStringTest\obj\x64\Release\EncryptStringTest.pdb
