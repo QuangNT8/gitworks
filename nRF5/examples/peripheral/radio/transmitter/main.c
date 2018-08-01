@@ -142,25 +142,32 @@ void bsp_evt_handler(bsp_event_t evt)
  */
 void clock_initialization()
 {
+	//int i,j=0;
     /* Start 16 MHz crystal oscillator */
     NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_HFCLKSTART    = 1;
-
+	
+	//for(i=0;i<100;i++) j++;
+	nrf_delay_ms(1);
+#if 0
     /* Wait for the external oscillator to start up */
     while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0)
     {
         // Do nothing.
     }
-
+#endif
     /* Start low frequency crystal oscillator for app_timer(used by bsp)*/
     NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
     NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_LFCLKSTART    = 1;
-
+	//1for(i=0;i<100;i++) j++;
+	nrf_delay_ms(1);
+#if 0
     while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
     {
         // Do nothing.
     }
+#endif
 }
 
 
@@ -176,7 +183,7 @@ int main(void)
     bsp_board_leds_init();
 	
     clock_initialization();
-
+#if 1
     err_code = app_timer_init();
     APP_ERROR_CHECK(err_code);
 
@@ -197,7 +204,7 @@ int main(void)
     //err_code = bsp_indication_set(BSP_INDICATE_USER_STATE_OFF);
 //    NRF_LOG_INFO("Press Any Button");
     APP_ERROR_CHECK(err_code);
-
+#endif
     while (true)
     {
 //        if (packet != 0)

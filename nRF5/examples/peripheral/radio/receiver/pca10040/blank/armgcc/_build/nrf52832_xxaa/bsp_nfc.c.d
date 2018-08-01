@@ -1,6 +1,6 @@
 _build/nrf52832_xxaa/bsp_nfc.c.o: \
- ../../../../../../../components/libraries/bsp/bsp_nfc.c \
- ../../../../../../../components/libraries/bsp/bsp_nfc.h \
+ e:\gitworks\nrf5\components\libraries\bsp\bsp_nfc.c \
+ e:\gitworks\nrf5\components\libraries\bsp\bsp_nfc.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdint.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\_default_types.h \
@@ -8,29 +8,28 @@ _build/nrf52832_xxaa/bsp_nfc.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_newlib_version.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\_intsup.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\_stdint.h \
- ../../../../../../../components/libraries/util/sdk_errors.h \
- ../../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../config/sdk_config.h \
- ../../../../../../../components/libraries/bsp/bsp.h \
+ e:\gitworks\nrf5\components\libraries\util\sdk_errors.h \
+ e:\gitworks\nrf5\components\drivers_nrf\nrf_soc_nosd\nrf_error.h \
+ ../config/sdk_config.h e:\gitworks\nrf5\components\libraries\bsp\bsp.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdbool.h \
- ../../../../../../../components/boards/boards.h \
- ../../../../../../../components/drivers_nrf/hal/nrf_gpio.h \
- ../../../../../../../components/device/nrf.h \
- ../../../../../../../components/device/nrf52.h \
- ../../../../../../../components/toolchain/cmsis/include/core_cm4.h \
- ../../../../../../../components/toolchain/cmsis/include/core_cmInstr.h \
- ../../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h \
- ../../../../../../../components/toolchain/cmsis/include/core_cmFunc.h \
- ../../../../../../../components/toolchain/cmsis/include/core_cmSimd.h \
- ../../../../../../../components/toolchain/system_nrf52.h \
- ../../../../../../../components/device/nrf52_bitfields.h \
- ../../../../../../../components/device/nrf51_to_nrf52.h \
- ../../../../../../../components/device/nrf52_name_change.h \
- ../../../../../../../components/device/compiler_abstraction.h \
- ../../../../../../../components/drivers_nrf/hal/nrf_peripherals.h \
- ../../../../../../../components/device/nrf52832_peripherals.h \
- ../../../../../../../components/libraries/util/nrf_assert.h \
- ../../../../../../../components/libraries/util/app_error.h \
+ e:\gitworks\nrf5\components\boards\boards.h \
+ e:\gitworks\nrf5\components\drivers_nrf\hal\nrf_gpio.h \
+ e:\gitworks\nrf5\components\device\nrf.h \
+ e:\gitworks\nrf5\components\device\nrf52.h \
+ e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cm4.h \
+ e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmInstr.h \
+ e:\gitworks\nrf5\components\toolchain\cmsis\include\cmsis_gcc.h \
+ e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmFunc.h \
+ e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmSimd.h \
+ e:\gitworks\nrf5\components\toolchain\system_nrf52.h \
+ e:\gitworks\nrf5\components\device\nrf52_bitfields.h \
+ e:\gitworks\nrf5\components\device\nrf51_to_nrf52.h \
+ e:\gitworks\nrf5\components\device\nrf52_name_change.h \
+ e:\gitworks\nrf5\components\device\compiler_abstraction.h \
+ e:\gitworks\nrf5\components\drivers_nrf\hal\nrf_peripherals.h \
+ e:\gitworks\nrf5\components\device\nrf52832_peripherals.h \
+ e:\gitworks\nrf5\components\libraries\util\nrf_assert.h \
+ e:\gitworks\nrf5\components\libraries\util\app_error.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\newlib.h \
@@ -47,19 +46,19 @@ _build/nrf52832_xxaa/bsp_nfc.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\types.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\types.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h \
- ../../../../../../../components/libraries/util/sdk_errors.h \
- ../../../../../../../components/libraries/util/nordic_common.h \
- ../../../../../../../components/libraries/util/app_error_weak.h \
+ e:\gitworks\nrf5\components\libraries\util\sdk_errors.h \
+ e:\gitworks\nrf5\components\libraries\util\nordic_common.h \
+ e:\gitworks\nrf5\components\libraries\util\app_error_weak.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h \
- ../../../../../../../components/boards/pca10040.h \
- ../../../../../../../components/libraries/button/app_button.h \
- ../../../../../../../components/libraries/util/app_error.h \
- ../../../../../../../components/libraries/util/app_util_platform.h \
- ../../../../../../../components/device/compiler_abstraction.h \
- ../../../../../../../components/libraries/util/nrf_assert.h
+ e:\gitworks\nrf5\components\boards\pca10040.h \
+ e:\gitworks\nrf5\components\libraries\button\app_button.h \
+ e:\gitworks\nrf5\components\libraries\util\app_error.h \
+ e:\gitworks\nrf5\components\libraries\util\app_util_platform.h \
+ e:\gitworks\nrf5\components\device\compiler_abstraction.h \
+ e:\gitworks\nrf5\components\libraries\util\nrf_assert.h
 
-../../../../../../../components/libraries/bsp/bsp_nfc.h:
+e:\gitworks\nrf5\components\libraries\bsp\bsp_nfc.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h:
 
@@ -75,51 +74,51 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\_stdint.h:
 
-../../../../../../../components/libraries/util/sdk_errors.h:
+e:\gitworks\nrf5\components\libraries\util\sdk_errors.h:
 
-../../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
+e:\gitworks\nrf5\components\drivers_nrf\nrf_soc_nosd\nrf_error.h:
 
 ../config/sdk_config.h:
 
-../../../../../../../components/libraries/bsp/bsp.h:
+e:\gitworks\nrf5\components\libraries\bsp\bsp.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdbool.h:
 
-../../../../../../../components/boards/boards.h:
+e:\gitworks\nrf5\components\boards\boards.h:
 
-../../../../../../../components/drivers_nrf/hal/nrf_gpio.h:
+e:\gitworks\nrf5\components\drivers_nrf\hal\nrf_gpio.h:
 
-../../../../../../../components/device/nrf.h:
+e:\gitworks\nrf5\components\device\nrf.h:
 
-../../../../../../../components/device/nrf52.h:
+e:\gitworks\nrf5\components\device\nrf52.h:
 
-../../../../../../../components/toolchain/cmsis/include/core_cm4.h:
+e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cm4.h:
 
-../../../../../../../components/toolchain/cmsis/include/core_cmInstr.h:
+e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmInstr.h:
 
-../../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h:
+e:\gitworks\nrf5\components\toolchain\cmsis\include\cmsis_gcc.h:
 
-../../../../../../../components/toolchain/cmsis/include/core_cmFunc.h:
+e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmFunc.h:
 
-../../../../../../../components/toolchain/cmsis/include/core_cmSimd.h:
+e:\gitworks\nrf5\components\toolchain\cmsis\include\core_cmSimd.h:
 
-../../../../../../../components/toolchain/system_nrf52.h:
+e:\gitworks\nrf5\components\toolchain\system_nrf52.h:
 
-../../../../../../../components/device/nrf52_bitfields.h:
+e:\gitworks\nrf5\components\device\nrf52_bitfields.h:
 
-../../../../../../../components/device/nrf51_to_nrf52.h:
+e:\gitworks\nrf5\components\device\nrf51_to_nrf52.h:
 
-../../../../../../../components/device/nrf52_name_change.h:
+e:\gitworks\nrf5\components\device\nrf52_name_change.h:
 
-../../../../../../../components/device/compiler_abstraction.h:
+e:\gitworks\nrf5\components\device\compiler_abstraction.h:
 
-../../../../../../../components/drivers_nrf/hal/nrf_peripherals.h:
+e:\gitworks\nrf5\components\drivers_nrf\hal\nrf_peripherals.h:
 
-../../../../../../../components/device/nrf52832_peripherals.h:
+e:\gitworks\nrf5\components\device\nrf52832_peripherals.h:
 
-../../../../../../../components/libraries/util/nrf_assert.h:
+e:\gitworks\nrf5\components\libraries\util\nrf_assert.h:
 
-../../../../../../../components/libraries/util/app_error.h:
+e:\gitworks\nrf5\components\libraries\util\app_error.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h:
 
@@ -153,24 +152,24 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h:
 
-../../../../../../../components/libraries/util/sdk_errors.h:
+e:\gitworks\nrf5\components\libraries\util\sdk_errors.h:
 
-../../../../../../../components/libraries/util/nordic_common.h:
+e:\gitworks\nrf5\components\libraries\util\nordic_common.h:
 
-../../../../../../../components/libraries/util/app_error_weak.h:
+e:\gitworks\nrf5\components\libraries\util\app_error_weak.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h:
 
-../../../../../../../components/boards/pca10040.h:
+e:\gitworks\nrf5\components\boards\pca10040.h:
 
-../../../../../../../components/libraries/button/app_button.h:
+e:\gitworks\nrf5\components\libraries\button\app_button.h:
 
-../../../../../../../components/libraries/util/app_error.h:
+e:\gitworks\nrf5\components\libraries\util\app_error.h:
 
-../../../../../../../components/libraries/util/app_util_platform.h:
+e:\gitworks\nrf5\components\libraries\util\app_util_platform.h:
 
-../../../../../../../components/device/compiler_abstraction.h:
+e:\gitworks\nrf5\components\device\compiler_abstraction.h:
 
-../../../../../../../components/libraries/util/nrf_assert.h:
+e:\gitworks\nrf5\components\libraries\util\nrf_assert.h:
