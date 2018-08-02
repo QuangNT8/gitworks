@@ -1,0 +1,1146 @@
+CCS PCH C Compiler, Version 4.140, 8863               02-Aug-18 15:44
+
+               Filename:   C:\Users\Workstation z620\Desktop\SPI_PIC\EX_SPI.lst
+
+               ROM used:   1768 bytes (5%)
+                           Largest free fragment is 31000
+               RAM used:   40 (2%) at main() level
+                           65 (3%) worst case
+               Stack:     3 locations
+
+*
+0000:  GOTO   04CC
+.................... ///////////////////////////////////////////////////////////////////////// 
+.................... ////                          EX_SPI.C                               //// 
+.................... ////                                                                 //// 
+.................... ////  This program uses the 9356SPI external EEPROM driver to read   //// 
+.................... ////  and write to an external serial EEPROM using SPI.              //// 
+.................... ////                                                                 //// 
+.................... ////  Configure the CCS prototype card as follows:                   //// 
+.................... ////               9356 pin    Protoboard                            //// 
+.................... ////                  1            pin B0                            //// 
+.................... ////                  2            pin C3                            //// 
+.................... ////                  3            pin C5                            //// 
+.................... ////                  4            pin C4                            //// 
+.................... ////                  5            gnd                               //// 
+.................... ////                  6            gnd                               //// 
+.................... ////                  7            gnd                               //// 
+.................... ////                  8            +5V                               //// 
+.................... ////                                                                 //// 
+.................... ////  Jumpers:                                                       //// 
+.................... ////     PCB        pin A2 to RS232 RX, pin A3 to RS232 TX           //// 
+.................... ////     PCM,PCH    pin C7 to RS232 RX, pin C6 to RS232 TX           //// 
+.................... ////     PCD        UART1A                                           //// 
+.................... ////                                                                 //// 
+.................... ////  This example will work with the PCB, PCM, PCD, and PCH         //// 
+.................... ////  compilers. The following conditional compilation lines are used//// 
+.................... ////  to include a valid device for each compiler.  Change the       //// 
+.................... ////  device, clock and RS232 pins for your hardware if needed.      //// 
+.................... ///////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services         //// 
+.................... //// This source code may only be used by licensed users of the CCS  //// 
+.................... //// C compiler.  This source code may only be distributed to other  //// 
+.................... //// licensed users of the CCS C compiler.  No other use,            //// 
+.................... //// reproduction or distribution is permitted without written       //// 
+.................... //// permission.  Derivative programs created using this software    //// 
+.................... //// in object code form are not restricted in any way.              //// 
+.................... ///////////////////////////////////////////////////////////////////////// 
+....................  
+....................  
+.................... #include <18F4550.h> 
+.................... //////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... #device PIC18F4550 
+.................... #list 
+....................  
+.................... #fuses NOWDT,INTXT,NOLVP,NOXINST,NOVREGEN  
+.................... #use delay(internal=8000000) 
+*
+016C:  CLRF   FEA
+016E:  MOVLW  27
+0170:  MOVWF  FE9
+0172:  MOVF   FEF,W
+0174:  BZ    0190
+0176:  MOVLW  02
+0178:  MOVWF  01
+017A:  CLRF   00
+017C:  DECFSZ 00,F
+017E:  BRA    017C
+0180:  DECFSZ 01,F
+0182:  BRA    017A
+0184:  MOVLW  97
+0186:  MOVWF  00
+0188:  DECFSZ 00,F
+018A:  BRA    0188
+018C:  DECFSZ FEF,F
+018E:  BRA    0176
+0190:  RETURN 0
+.................... #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7) 
+*
+040E:  BTFSS  F9E.4
+0410:  BRA    040E
+0412:  MOVWF  FAD
+0414:  RETURN 0
+....................  
+....................  
+.................... #include <input.c> 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////                                                                   //// 
+.................... ////                             input.c                               //// 
+.................... ////                                                                   //// 
+.................... //// Routines for reading user input over an RS232 stream.  User input //// 
+.................... //// is in ASCII form and converted to requested binary or float       //// 
+.................... //// format.                                                           //// 
+.................... ////                                                                   //// 
+.................... //// If STREAM_SERIAL_INPUT is defined, these routines will read from  //// 
+.................... //// that serial stream.  If not, uses the last #use rs232().          //// 
+.................... ////                                                                   //// 
+.................... //// Some of these routines are not available unless you #include      //// 
+.................... //// string.h and stdlib.h                                             //// 
+.................... ////                                                                   //// 
+.................... ////  int8 gethex() - read 2 char hex value from serial                //// 
+.................... ////                                                                   //// 
+.................... ////  get_string(s, max) - read max chars from serial and save to s    //// 
+.................... ////                                                                   //// 
+.................... ////  get_stringEdit(s, max) - similar to get_string(), but first it   //// 
+.................... ////     displays current string in s, allowing you to edit it.        //// 
+.................... ////                                                                   //// 
+.................... ////  int8 = get_Int8() -                                              //// 
+.................... ////  int16 = get_Int16() -                                            //// 
+.................... ////  int32 = get_Int32() -                                            //// 
+.................... ////  float = get_float() -                                            //// 
+.................... ////     Read value from serial.                                       //// 
+.................... ////                                                                   //// 
+.................... ////  int8 = get_Int8Edit(old) -                                       //// 
+.................... ////  int16 = get_Int16Edit(old) -                                     //// 
+.................... ////  int32 = get_Int32Edit(old) -                                     //// 
+.................... ////  float = get_floatEdit(old) -                                     //// 
+.................... ////     Similar to get_Int*() routines documented above, but first    //// 
+.................... ////     it displays old value allowing you to edit it.                //// 
+.................... ////                                                                   //// 
+.................... ////  int = get_int() -                                                //// 
+.................... ////  long = get_long() -                                              //// 
+.................... ////     Simlar to get_Int*() documented above, but return 'int' and   //// 
+.................... ////     'long' datatypes.  The size of these datatypes depends on     //// 
+.................... ////     the PIC architecture and compiler configuration.              //// 
+.................... ////                                                                   //// 
+.................... ////  int = get_intEdit(old) -                                         //// 
+.................... ////  long = get_longEdit(old) -                                       //// 
+.................... ////     Similar to get_int() and get_long() documented above,         //// 
+.................... ////     but first it displays old value allowing you to edit it.      //// 
+.................... ////                                                                   //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996,2012 Custom Computer Services           //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... #ifndef __INPUT_C__ 
+.................... #define __INPUT_C__ 
+....................  
+.................... #include <ctype.h> 
+.................... //////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services            //// 
+.................... //// This source code may only be used by licensed users of the CCS C   //// 
+.................... //// compiler.  This source code may only be distributed to other       //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction  //// 
+.................... //// or distribution is permitted without written permission.           //// 
+.................... //// Derivative programs created using this software in object code     //// 
+.................... //// form are not restricted in any way.                                //// 
+.................... //////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... #ifndef _CTYPE 
+.................... #define _CTYPE 
+....................  
+.................... #define islower(x)  isamong(x,"abcdefghijklmnopqrstuvwxyz") 
+.................... #define isupper(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZ") 
+.................... #define isalnum(x)  isamong(x,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") 
+.................... #define isalpha(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") 
+.................... #define isdigit(x)  isamong(x,"0123456789") 
+.................... #define isspace(x)  ((x)==' ') 
+.................... #define isxdigit(x) isamong(x,"0123456789ABCDEFabcdef") 
+.................... #define iscntrl(x)  ((x)<' ') 
+.................... #define isprint(x)  ((x)>=' ') 
+.................... #define isgraph(x)  ((x)>' ') 
+.................... #define ispunct(x)  (((x)>' ')&&!isalnum(x)) 
+....................  
+.................... #endif 
+....................  
+....................  
+....................  
+.................... #if defined(STREAM_SERIAL_INPUT) 
+....................    #define InputKbhit()    kbhit(STREAM_SERIAL_INPUT) 
+....................    #define InputPutc(c)    fputc(c, STREAM_SERIAL_INPUT) 
+....................    #define InputGetc()     fgetc(STREAM_SERIAL_INPUT) 
+.................... #else 
+....................    #define InputKbhit()    kbhit() 
+....................    #define InputPutc(c)    putc(c) 
+....................    #define InputGetc()     getc() 
+.................... #endif 
+....................  
+.................... unsigned int8 gethex1() { 
+....................    char digit; 
+....................  
+....................    digit = InputGetc(); 
+0416:  BTFSS  F9E.5
+0418:  BRA    0416
+041A:  MOVFF  FAE,26
+....................  
+....................    InputPutc(digit); 
+041E:  MOVF   26,W
+0420:  RCALL  040E
+....................  
+....................    if(digit<='9') 
+0422:  MOVF   26,W
+0424:  SUBLW  39
+0426:  BNC   0432
+....................      return(digit-'0'); 
+0428:  MOVLW  30
+042A:  SUBWF  26,W
+042C:  MOVWF  01
+042E:  BRA    044C
+....................    else 
+0430:  BRA    044C
+....................      return((toupper(digit)-'A')+10); 
+0432:  MOVF   26,W
+0434:  SUBLW  60
+0436:  BC    0444
+0438:  MOVF   26,W
+043A:  SUBLW  7A
+043C:  BNC   0444
+043E:  MOVF   26,W
+0440:  ANDLW  DF
+0442:  BRA    0446
+0444:  MOVF   26,W
+0446:  ADDLW  BF
+0448:  ADDLW  0A
+044A:  MOVWF  01
+.................... } 
+044C:  RETURN 0
+....................  
+.................... unsigned int8 gethex() { 
+....................    unsigned int8 lo,hi; 
+....................  
+....................    hi = gethex1(); 
+044E:  RCALL  0416
+0450:  MOVFF  01,25
+....................    lo = gethex1(); 
+0454:  RCALL  0416
+0456:  MOVFF  01,24
+....................    if(lo==0xdd) 
+045A:  MOVF   24,W
+045C:  SUBLW  DD
+045E:  BNZ   0468
+....................      return(hi); 
+0460:  MOVFF  25,01
+0464:  BRA    0472
+....................    else 
+0466:  BRA    0472
+....................      return( hi*16+lo ); 
+0468:  MOVF   25,W
+046A:  MULLW  10
+046C:  MOVF   FF3,W
+046E:  ADDWF  24,W
+0470:  MOVWF  01
+.................... } 
+0472:  RETURN 0
+....................  
+.................... void get_string(char* s, unsigned int8 max) { 
+....................    unsigned int8 len; 
+....................    char c; 
+....................  
+....................    --max; 
+....................    len=0; 
+....................    do { 
+....................      c=InputGetc(); 
+....................      if(c==8) {  // Backspace 
+....................         if(len>0) { 
+....................           len--; 
+....................           InputPutc(c); 
+....................           InputPutc(' '); 
+....................           InputPutc(c); 
+....................         } 
+....................      } else if ((c>=' ')&&(c<='~')) 
+....................        if(len<=max) { 
+....................          s[len++]=c; 
+....................          InputPutc(c); 
+....................        } 
+....................    } while(c!=13); 
+....................    s[len]=0; 
+.................... } 
+....................  
+.................... #ifdef _STRING 
+.................... void get_stringEdit(char* s, unsigned int8 max) { 
+....................    unsigned int8 len; 
+....................    char c; 
+....................  
+....................    len = strlen(s); 
+....................  
+....................    if (len) 
+....................    { 
+....................      #if defined(STREAM_SERIAL_INPUT) 
+....................       fprintf(STREAM_SERIAL_INPUT, "%s", s); 
+....................      #else 
+....................       printf("%s", s); 
+....................      #endif 
+....................    } 
+....................  
+....................    max--; 
+....................  
+....................    do { 
+....................      c=InputGetc(); 
+....................      if(c==8) {  // Backspace 
+....................         if(len>0) { 
+....................           len--; 
+....................           InputPutc(c); 
+....................           InputPutc(' '); 
+....................           InputPutc(c); 
+....................         } 
+....................      } else if ((c>=' ')&&(c<='~')) 
+....................        if(len<=max) { 
+....................          s[len++]=c; 
+....................          InputPutc(c); 
+....................        } 
+....................    } while(c!=13); 
+....................    s[len]=0; 
+.................... } 
+.................... #endif 
+....................  
+.................... // stdlib.h is required for the ato_ conversions 
+.................... // in the following functions 
+.................... #ifdef _STDLIB 
+.................... signed int8 get_Int8(void) 
+.................... { 
+....................   char s[5]; 
+....................   signed int8 i; 
+....................  
+....................   get_string(s, sizeof(s)); 
+....................  
+....................   i=atoi(s); 
+....................   return(i); 
+.................... } 
+....................  
+.................... #ifdef _STRING 
+.................... signed int8 get_Int8Edit(signed int8 old) 
+.................... { 
+....................   char s[5]; 
+....................   signed int8 i; 
+....................  
+....................   sprintf(s, "%d", old); 
+....................   get_stringEdit(s, sizeof(s)); 
+....................  
+....................   i=atoi(s); 
+....................   return(i); 
+.................... } 
+.................... #endif 
+....................  
+.................... signed int16 get_Int16(void)  
+.................... { 
+....................   char s[7]; 
+....................   signed int16 l; 
+....................  
+....................   get_string(s, sizeof(s)); 
+....................   l=atol(s); 
+....................   return(l); 
+.................... } 
+....................  
+.................... #ifdef _STRING 
+.................... signed int16 get_Int16Edit(signed int16 old) 
+.................... { 
+....................   char s[7]; 
+....................   signed int16 l; 
+....................  
+....................   sprintf(s, "%ld", old); 
+....................  
+....................   get_stringEdit(s, sizeof(s)); 
+....................   l=atol(s); 
+....................   return(l); 
+.................... } 
+.................... #endif 
+....................  
+.................... signed int32 get_Int32(void)  
+.................... { 
+....................   char s[12]; 
+....................   signed int32 l; 
+....................  
+....................   get_string(s, sizeof(s)); 
+....................   l=atoi32(s); 
+....................   return(l); 
+.................... } 
+....................  
+.................... #ifdef _STRING 
+.................... signed int32 get_Int32Edit(signed int32 old)  
+.................... { 
+....................   char s[12]; 
+....................   signed int32 l; 
+....................    
+....................   sprintf(s, "%ld", old); 
+....................    
+....................   get_stringEdit(s, sizeof(s)); 
+....................   l=atoi32(s); 
+....................   return(l); 
+.................... } 
+.................... #endif 
+....................  
+.................... float get_float() { 
+....................   char s[20]; 
+....................   float f; 
+....................  
+....................   get_string(s, 20); 
+....................   f = atof(s); 
+....................   return(f); 
+.................... } 
+....................  
+.................... #ifdef _STRING 
+.................... float get_floatEdit(float old) { 
+....................   char s[20]; 
+....................   float f; 
+....................    
+....................   sprintf(s, "%f", old); 
+....................  
+....................   get_string(s, 20); 
+....................   f = atof(s); 
+....................   return(f); 
+.................... } 
+.................... #endif 
+....................  
+.................... #if defined(__PCD__) 
+....................    #define get_int()       get_Int16() 
+....................    #define get_intEdit()   get_Int16Edit() 
+....................    #define get_long()      get_Int32() 
+....................    #define get_longEdit()  get_Int32Edit() 
+.................... #else 
+....................    #define get_int()       get_Int8() 
+....................    #define get_intEdit()   get_Int8Edit() 
+....................    #define get_long()      get_Int16() 
+....................    #define get_longEdit()  get_Int16Edit() 
+.................... #endif 
+....................  
+.................... #endif   //_STDLIB 
+....................  
+.................... #endif   //__INPUT_C__ 
+....................  
+.................... #include <25P16.c> 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////                                                                   //// 
+.................... ////  Library for a MicroChip 93C56 EEPROM configured for a x8 org     //// 
+.................... ////                                                                   //// 
+.................... ////  #use spi() is used to configure the SPI pins on your PIC.  If    //// 
+.................... ////  you use hardware SPI pins, the library will automatically use    //// 
+.................... ////  the SPI peripheral.  If you use pins that are not SPI pins,      //// 
+.................... ////  the library will fall back to bit banging thos GPIO pins.        //// 
+.................... ////                                                                   //// 
+.................... ////                                                                   //// 
+.................... ////  Required configuration:                                          //// 
+.................... ////  ---------------------------------------------------------        //// 
+.................... ////     EEPROM_SELECT - Chip select, active low                       //// 
+.................... ////     EEPROM_CLK - SPI clock                                        //// 
+.................... ////     EEPROM_DI - SPI MOSI                                          //// 
+.................... ////     EEPROM_DO - SPI MISO                                          //// 
+.................... ////                                                                   //// 
+.................... ////                                                                   //// 
+.................... ////  API:                                                             //// 
+.................... ////  ---------------------------------------------------------        //// 
+.................... ////   init_ext_eeprom();    Call before the other functions are used  //// 
+.................... ////                                                                   //// 
+.................... ////   write_ext_eeprom(a, d);  Write the byte d to the address a      //// 
+.................... ////                                                                   //// 
+.................... ////   d = read_ext_eeprom(a);   Read the byte d from the address a    //// 
+.................... ////                                                                   //// 
+.................... ////   The main program may define eeprom_select, eeprom_di, eeprom_do //// 
+.................... ////   and eeprom_clk to override the defaults below.                  //// 
+.................... ////                                                                   //// 
+.................... ////                                                                   //// 
+.................... ////  Example files:                                                   //// 
+.................... ////  ---------------------------------------------------------        //// 
+.................... ////     ex_spi.c - Demo of using this library to read/write.          //// 
+.................... ////                                                                   //// 
+.................... ////                                                                   //// 
+.................... ////                                                                   //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... #define EEPROM_SELECT PIN_C2 
+.................... #define EEPROM_CLK    PIN_D6 
+.................... #define EEPROM_DI     PIN_A5  //mosi 
+.................... #define EEPROM_DO     PIN_C0  //miso 
+....................  
+.................... //opcodes 
+.................... #define WREN  6 
+.................... #define WRDI  4 
+.................... #define RDSR  5 
+.................... #define WRSR  1 
+.................... #define READ  3 
+.................... #define WRITE 2 
+.................... #define CMD_WRITE_ENABLE                    (0x06) 
+.................... #define CMD_WRITE_DISABLE                   (0x04) 
+.................... #define CMD_READ_IDENTIFICATION             (0x9F) 
+.................... #define CMD_READ_STATUS_REGISTER            (0x05) 
+.................... #define CMD_WRITE_STATUS_REGISTER           (0x01) 
+.................... #define CMD_READ_DATA_BYTES                 (0x03) 
+.................... #define CMD_PAGE_PROGRAM                    (0x02) 
+.................... #define CMD_SECTOR_ERASE                    (0xD8) 
+.................... #define CMD_BULK_ERASE                      (0xC7) 
+.................... #define CMD_DEEP_POWER_DOWN                 (0xB9) 
+.................... #define CMD_RELEASE_FROM_DEEP_POWER_DOWN    (0xAB) 
+....................  
+.................... #use spi(master, di=EEPROM_DI, do=EEPROM_DO, clk=EEPROM_CLK, mode=0,BITS=8,MSB_FIRST,BAUD=100000,stream=STREAM_SPI_25P16) 
+*
+007A:  MOVF   38,W
+007C:  SUBLW  08
+007E:  BZ    0088
+0080:  MOVWF  39
+0082:  RLCF   37,F
+0084:  DECFSZ 39,F
+0086:  BRA    0082
+0088:  BSF    F92.5
+008A:  BCF    F94.0
+008C:  BCF    F95.6
+008E:  BCF    F8C.6
+0090:  MOVFF  38,39
+0094:  BTFSS  37.7
+0096:  BCF    F8B.0
+0098:  BTFSC  37.7
+009A:  BSF    F8B.0
+009C:  RLCF   37,F
+009E:  BSF    F8C.6
+00A0:  MOVLW  02
+00A2:  MOVWF  3A
+00A4:  DECFSZ 3A,F
+00A6:  BRA    00A4
+00A8:  RLCF   01,F
+00AA:  BTFSS  F80.5
+00AC:  BCF    01.0
+00AE:  BTFSC  F80.5
+00B0:  BSF    01.0
+00B2:  BCF    F8C.6
+00B4:  BRA    00B6
+00B6:  DECFSZ 39,F
+00B8:  BRA    0094
+00BA:  RETURN 0
+....................  
+.................... #define SPI_XFER_25P16(x)   spi_xfer(STREAM_SPI_25P16, x) 
+....................  
+.................... #define EEPROM_ADDRESS unsigned int8 
+.................... #define EEPROM_SIZE    256 
+....................  
+.................... typedef struct { 
+....................   int8 manufacturer; 
+....................   int8 memory_type; 
+....................   int8 memory_capacity; 
+....................   int8 cfd_length; 
+....................   int8 cfd_content[16]; 
+.................... } m25p16_identification_t; 
+....................  
+....................  
+.................... void init_ext_eeprom(void)  
+.................... { 
+....................    output_high(EEPROM_SELECT); 
+*
+0068:  BCF    F94.2
+006A:  BSF    F8B.2
+....................    output_low(EEPROM_DI); 
+006C:  BCF    F92.5
+006E:  BCF    F89.5
+....................    output_low(EEPROM_CLK); 
+0070:  BCF    F95.6
+0072:  BCF    F8C.6
+....................    output_float(EEPROM_DO); 
+0074:  BSF    F94.0
+.................... } 
+0076:  GOTO   0514 (RETURN)
+....................  
+....................  
+.................... void write_ext_eeprom(EEPROM_ADDRESS address, BYTE data)  
+.................... { 
+....................    output_high(EEPROM_SELECT); 
+*
+049C:  BCF    F94.2
+049E:  BSF    F8B.2
+....................     
+....................    SPI_XFER_25P16(0xa); 
+04A0:  MOVLW  0A
+04A2:  MOVWF  37
+04A4:  MOVLW  08
+04A6:  MOVWF  38
+04A8:  RCALL  007A
+....................    SPI_XFER_25P16(address); 
+04AA:  MOVFF  24,37
+04AE:  MOVLW  08
+04B0:  MOVWF  38
+04B2:  RCALL  007A
+....................    SPI_XFER_25P16(data); 
+04B4:  MOVFF  25,37
+04B8:  MOVLW  08
+04BA:  MOVWF  38
+04BC:  RCALL  007A
+....................     
+....................    output_low(EEPROM_SELECT); 
+04BE:  BCF    F94.2
+04C0:  BCF    F8B.2
+....................     
+....................    delay_ms(11); 
+04C2:  MOVLW  0B
+04C4:  MOVWF  27
+04C6:  RCALL  016C
+.................... } 
+04C8:  GOTO   06E4 (RETURN)
+....................  
+....................  
+.................... int8 read_ext_eeprom(int32 address)  
+.................... { 
+....................    int8 data; 
+....................  
+....................    output_low(EEPROM_SELECT); 
+*
+0474:  BCF    F94.2
+0476:  BCF    F8B.2
+....................     
+....................    SPI_XFER_25P16(5); 
+0478:  MOVLW  05
+047A:  MOVWF  37
+047C:  MOVLW  08
+047E:  MOVWF  38
+0480:  RCALL  007A
+....................    //SPI_XFER_25P16((int8)(address>>16)); 
+....................    //SPI_XFER_25P16((int8)(address>>8)); 
+....................    //SPI_XFER_25P16(0); 
+....................    //SPI_XFER_25P16(0); 
+....................    //SPI_XFER_25P16((int8)(address)); 
+....................    data=SPI_XFER_25P16(0); 
+0482:  CLRF   37
+0484:  MOVLW  08
+0486:  MOVWF  38
+0488:  RCALL  007A
+048A:  MOVF   01,W
+048C:  MOVFF  01,28
+....................     
+....................    output_high(EEPROM_SELECT); 
+0490:  BCF    F94.2
+0492:  BSF    F8B.2
+....................  
+....................    return(data); 
+0494:  MOVFF  28,01
+.................... } 
+0498:  GOTO   0688 (RETURN)
+....................  
+.................... void m25p16_read_data_bytes(int32 addr, int8 *buf, int32 siz) 
+.................... { 
+....................   int32 i; 
+....................   output_low(EEPROM_SELECT); 
+*
+00BC:  BCF    F94.2
+00BE:  BCF    F8B.2
+....................   SPI_XFER_25P16(CMD_READ_DATA_BYTES); 
+00C0:  MOVLW  03
+00C2:  MOVWF  37
+00C4:  MOVLW  08
+00C6:  MOVWF  38
+00C8:  RCALL  007A
+....................   SPI_XFER_25P16(addr >> 16); 
+00CA:  MOVFF  26,33
+00CE:  MOVFF  27,34
+00D2:  CLRF   35
+00D4:  CLRF   36
+00D6:  MOVFF  26,37
+00DA:  MOVLW  08
+00DC:  MOVWF  38
+00DE:  RCALL  007A
+....................   SPI_XFER_25P16(addr >>  8); 
+00E0:  MOVFF  25,33
+00E4:  MOVFF  26,34
+00E8:  MOVFF  27,35
+00EC:  CLRF   36
+00EE:  MOVFF  25,37
+00F2:  MOVLW  08
+00F4:  MOVWF  38
+00F6:  RCALL  007A
+....................   SPI_XFER_25P16(addr >>  0); 
+00F8:  MOVFF  27,36
+00FC:  MOVFF  26,35
+0100:  MOVFF  25,34
+0104:  MOVFF  24,33
+0108:  MOVFF  24,37
+010C:  MOVLW  08
+010E:  MOVWF  38
+0110:  RCALL  007A
+....................   for (i = 0; i < siz; i++) { 
+0112:  CLRF   31
+0114:  CLRF   30
+0116:  CLRF   2F
+0118:  CLRF   2E
+011A:  MOVF   31,W
+011C:  SUBWF  2D,W
+011E:  BNC   0164
+0120:  BNZ   0138
+0122:  MOVF   30,W
+0124:  SUBWF  2C,W
+0126:  BNC   0164
+0128:  BNZ   0138
+012A:  MOVF   2F,W
+012C:  SUBWF  2B,W
+012E:  BNC   0164
+0130:  BNZ   0138
+0132:  MOVF   2A,W
+0134:  SUBWF  2E,W
+0136:  BC    0164
+....................     buf[i] = SPI_XFER_25P16(0); 
+0138:  MOVF   28,W
+013A:  ADDWF  2E,W
+013C:  MOVWF  FE9
+013E:  MOVF   29,W
+0140:  ADDWFC 2F,W
+0142:  MOVWF  FEA
+0144:  CLRF   37
+0146:  MOVLW  08
+0148:  MOVWF  38
+014A:  RCALL  007A
+014C:  MOVF   01,W
+014E:  MOVFF  01,FEF
+....................   } 
+0152:  MOVLW  01
+0154:  ADDWF  2E,F
+0156:  BTFSC  FD8.0
+0158:  INCF   2F,F
+015A:  BTFSC  FD8.2
+015C:  INCF   30,F
+015E:  BTFSC  FD8.2
+0160:  INCF   31,F
+0162:  BRA    011A
+....................   output_high(EEPROM_SELECT); 
+0164:  BCF    F94.2
+0166:  BSF    F8B.2
+.................... } 
+0168:  GOTO   052E (RETURN)
+....................  
+.................... void m25p16_read_status_register(int8 *sreg) 
+.................... { 
+....................    output_low(EEPROM_SELECT); 
+....................    SPI_XFER_25P16(CMD_READ_STATUS_REGISTER); 
+....................    *sreg = SPI_XFER_25P16(0); 
+....................    output_high(EEPROM_SELECT); 
+.................... } 
+....................  
+.................... void m25p16_read_identification(m25p16_identification_t *p) 
+.................... { 
+....................   int i; 
+....................   output_low(EEPROM_SELECT); 
+*
+0192:  BCF    F94.2
+0194:  BCF    F8B.2
+....................   delay_ms(10); 
+0196:  MOVLW  0A
+0198:  MOVWF  27
+019A:  RCALL  016C
+....................   SPI_XFER_25P16(CMD_READ_IDENTIFICATION); 
+019C:  MOVLW  9F
+019E:  MOVWF  37
+01A0:  MOVLW  08
+01A2:  MOVWF  38
+01A4:  RCALL  007A
+....................   p->manufacturer = SPI_XFER_25P16(0); 
+01A6:  MOVFF  24,FE9
+01AA:  MOVFF  25,FEA
+01AE:  CLRF   37
+01B0:  MOVLW  08
+01B2:  MOVWF  38
+01B4:  RCALL  007A
+01B6:  MOVF   01,W
+01B8:  MOVFF  01,FEF
+....................   p->memory_type = SPI_XFER_25P16(0); 
+01BC:  MOVLW  01
+01BE:  ADDWF  24,W
+01C0:  MOVWF  FE9
+01C2:  MOVLW  00
+01C4:  ADDWFC 25,W
+01C6:  MOVWF  FEA
+01C8:  CLRF   37
+01CA:  MOVLW  08
+01CC:  MOVWF  38
+01CE:  RCALL  007A
+01D0:  MOVF   01,W
+01D2:  MOVFF  01,FEF
+....................   p->memory_capacity = SPI_XFER_25P16(0); 
+01D6:  MOVLW  02
+01D8:  ADDWF  24,W
+01DA:  MOVWF  FE9
+01DC:  MOVLW  00
+01DE:  ADDWFC 25,W
+01E0:  MOVWF  FEA
+01E2:  CLRF   37
+01E4:  MOVLW  08
+01E6:  MOVWF  38
+01E8:  RCALL  007A
+01EA:  MOVF   01,W
+01EC:  MOVFF  01,FEF
+....................   p->cfd_length = SPI_XFER_25P16(0); 
+01F0:  MOVLW  03
+01F2:  ADDWF  24,W
+01F4:  MOVWF  FE9
+01F6:  MOVLW  00
+01F8:  ADDWFC 25,W
+01FA:  MOVWF  FEA
+01FC:  CLRF   37
+01FE:  MOVLW  08
+0200:  MOVWF  38
+0202:  RCALL  007A
+0204:  MOVF   01,W
+0206:  MOVFF  01,FEF
+....................   for (i = 0; i < p->cfd_length; i++) { 
+020A:  CLRF   26
+020C:  MOVLW  03
+020E:  ADDWF  24,W
+0210:  MOVWF  FE9
+0212:  MOVLW  00
+0214:  ADDWFC 25,W
+0216:  MOVWF  FEA
+0218:  MOVF   FEF,W
+021A:  SUBWF  26,W
+021C:  BC    0248
+....................     p->cfd_content[i] = SPI_XFER_25P16(0); 
+021E:  CLRF   03
+0220:  MOVF   26,W
+0222:  ADDLW  04
+0224:  MOVWF  01
+0226:  MOVLW  00
+0228:  ADDWFC 03,F
+022A:  MOVF   01,W
+022C:  ADDWF  24,W
+022E:  MOVWF  FE9
+0230:  MOVF   25,W
+0232:  ADDWFC 03,W
+0234:  MOVWF  FEA
+0236:  CLRF   37
+0238:  MOVLW  08
+023A:  MOVWF  38
+023C:  RCALL  007A
+023E:  MOVF   01,W
+0240:  MOVFF  01,FEF
+....................   } 
+0244:  INCF   26,F
+0246:  BRA    020C
+....................   delay_ms(10); 
+0248:  MOVLW  0A
+024A:  MOVWF  27
+024C:  RCALL  016C
+....................   output_high(EEPROM_SELECT); 
+024E:  BCF    F94.2
+0250:  BSF    F8B.2
+.................... } 
+0252:  RETURN 0
+....................  
+....................  
+.................... void main() { 
+*
+04CC:  CLRF   FF8
+04CE:  BCF    FD0.7
+04D0:  CLRF   FEA
+04D2:  CLRF   FE9
+04D4:  MOVLW  70
+04D6:  MOVWF  FD3
+04D8:  MOVF   FD3,W
+04DA:  BCF    FB8.3
+04DC:  MOVLW  0C
+04DE:  MOVWF  FAF
+04E0:  MOVLW  A2
+04E2:  MOVWF  FAC
+04E4:  MOVLW  90
+04E6:  MOVWF  FAB
+04E8:  BSF    F92.5
+04EA:  BCF    F94.0
+04EC:  BCF    F95.6
+04EE:  BCF    F8C.6
+04F0:  MOVF   FC1,W
+04F2:  ANDLW  C0
+04F4:  IORLW  0F
+04F6:  MOVWF  FC1
+04F8:  MOVLW  07
+04FA:  MOVWF  FB4
+04FC:  CLRF   0A
+04FE:  CLRF   09
+0500:  CLRF   08
+0502:  CLRF   07
+0504:  CLRF   0E
+0506:  CLRF   0D
+0508:  CLRF   0C
+050A:  CLRF   0B
+....................     
+....................    byte value,cmd; 
+....................    int32 i=0,j=0; 
+....................    int8 temp[20]; 
+....................    EEPROM_ADDRESS address; 
+....................    setup_oscillator( OSC_8MHZ|OSC_INTRC,OSC_STATE_STABLE );  
+050C:  MOVLW  72
+050E:  MOVWF  FD3
+0510:  MOVF   FD3,W
+....................    init_ext_eeprom(); 
+0512:  BRA    0068
+....................     
+....................    m25p16_read_data_bytes(0xffff,temp,20); 
+0514:  CLRF   27
+0516:  CLRF   26
+0518:  SETF   25
+051A:  SETF   24
+051C:  CLRF   29
+051E:  MOVLW  0F
+0520:  MOVWF  28
+0522:  CLRF   2D
+0524:  CLRF   2C
+0526:  CLRF   2B
+0528:  MOVLW  14
+052A:  MOVWF  2A
+052C:  BRA    00BC
+....................    i=0; 
+052E:  CLRF   0A
+0530:  CLRF   09
+0532:  CLRF   08
+0534:  CLRF   07
+....................    m25p16_read_identification(temp); 
+0536:  CLRF   25
+0538:  MOVLW  0F
+053A:  MOVWF  24
+053C:  RCALL  0192
+....................    while(1) 
+....................    { 
+....................       SPI_XFER_25P16(5); 
+053E:  MOVLW  05
+0540:  MOVWF  37
+0542:  MOVLW  08
+0544:  MOVWF  38
+0546:  RCALL  007A
+....................       value=SPI_XFER_25P16(0); 
+0548:  CLRF   37
+054A:  MOVLW  08
+054C:  MOVWF  38
+054E:  RCALL  007A
+0550:  MOVF   01,W
+0552:  MOVFF  01,05
+....................       delay_ms(500); 
+0556:  MOVLW  02
+0558:  MOVWF  24
+055A:  MOVLW  FA
+055C:  MOVWF  27
+055E:  RCALL  016C
+0560:  DECFSZ 24,F
+0562:  BRA    055A
+....................       printf("\r\neeprom read: %x",value); 
+0564:  MOVLW  04
+0566:  MOVWF  FF6
+0568:  MOVLW  00
+056A:  MOVWF  FF7
+056C:  MOVLW  0F
+056E:  MOVWF  29
+0570:  RCALL  0254
+0572:  MOVFF  05,29
+0576:  MOVLW  57
+0578:  MOVWF  2A
+057A:  RCALL  0274
+....................    } 
+057C:  BRA    053E
+....................    while(1) 
+....................    {  
+....................       //m25p16_read_status_register(value); 
+....................       printf("\r\neeprom read:%lu %x",j,temp[i++]); 
+057E:  MOVFF  0A,03
+0582:  MOVFF  09,02
+0586:  MOVFF  08,01
+058A:  MOVFF  07,00
+058E:  MOVLW  01
+0590:  ADDWF  07,F
+0592:  BTFSC  FD8.0
+0594:  INCF   08,F
+0596:  BTFSC  FD8.2
+0598:  INCF   09,F
+059A:  BTFSC  FD8.2
+059C:  INCF   0A,F
+059E:  MOVFF  03,27
+05A2:  MOVFF  02,26
+05A6:  MOVFF  01,25
+05AA:  MOVFF  00,24
+05AE:  MOVLW  0F
+05B0:  ADDWF  00,W
+05B2:  MOVWF  FE9
+05B4:  MOVLW  00
+05B6:  ADDWFC 01,W
+05B8:  MOVWF  FEA
+05BA:  MOVFF  FEF,28
+05BE:  MOVLW  16
+05C0:  MOVWF  FF6
+05C2:  MOVLW  00
+05C4:  MOVWF  FF7
+05C6:  MOVLW  0E
+05C8:  MOVWF  29
+05CA:  RCALL  0254
+05CC:  MOVLW  41
+05CE:  MOVWF  FE9
+05D0:  MOVFF  0E,2C
+05D4:  MOVFF  0D,2B
+05D8:  MOVFF  0C,2A
+05DC:  MOVFF  0B,29
+05E0:  BRA    0344
+05E2:  MOVLW  20
+05E4:  BTFSS  F9E.4
+05E6:  BRA    05E4
+05E8:  MOVWF  FAD
+05EA:  MOVFF  28,29
+05EE:  MOVLW  57
+05F0:  MOVWF  2A
+05F2:  RCALL  0274
+....................       if(i==20) 
+05F4:  MOVF   07,W
+05F6:  SUBLW  14
+05F8:  BNZ   0626
+05FA:  MOVF   08,F
+05FC:  BNZ   0626
+05FE:  MOVF   09,F
+0600:  BNZ   0626
+0602:  MOVF   0A,F
+0604:  BNZ   0626
+....................       { 
+....................          i=0; 
+0606:  CLRF   0A
+0608:  CLRF   09
+060A:  CLRF   08
+060C:  CLRF   07
+....................          m25p16_read_identification(temp); 
+060E:  CLRF   25
+0610:  MOVLW  0F
+0612:  MOVWF  24
+0614:  RCALL  0192
+....................          //m25p16_read_data_bytes((j*20),temp,20); 
+....................          j++; 
+0616:  MOVLW  01
+0618:  ADDWF  0B,F
+061A:  BTFSC  FD8.0
+061C:  INCF   0C,F
+061E:  BTFSC  FD8.2
+0620:  INCF   0D,F
+0622:  BTFSC  FD8.2
+0624:  INCF   0E,F
+....................       } 
+....................       delay_ms(100); 
+0626:  MOVLW  64
+0628:  MOVWF  27
+062A:  RCALL  016C
+....................    } 
+062C:  BRA    057E
+....................    do { 
+....................       do { 
+....................          printf("\r\nRead or Write: "); 
+062E:  MOVLW  2C
+0630:  MOVWF  FF6
+0632:  MOVLW  00
+0634:  MOVWF  FF7
+0636:  RCALL  03EC
+....................          cmd=getc(); 
+0638:  BTFSS  F9E.5
+063A:  BRA    0638
+063C:  MOVFF  FAE,06
+....................          cmd=toupper(cmd); 
+0640:  MOVF   06,W
+0642:  SUBLW  60
+0644:  BC    0652
+0646:  MOVF   06,W
+0648:  SUBLW  7A
+064A:  BNC   0652
+064C:  MOVF   06,W
+064E:  ANDLW  DF
+0650:  BRA    0654
+0652:  MOVF   06,W
+0654:  MOVWF  06
+....................          putc(cmd); 
+0656:  MOVF   06,W
+0658:  RCALL  040E
+....................       } while ( (cmd!='R') && (cmd!='W') ); 
+065A:  MOVF   06,W
+065C:  SUBLW  52
+065E:  BZ    0666
+0660:  MOVF   06,W
+0662:  SUBLW  57
+0664:  BNZ   062E
+....................  
+....................       printf("\n\rLocation: "); 
+0666:  MOVLW  3E
+0668:  MOVWF  FF6
+066A:  MOVLW  00
+066C:  MOVWF  FF7
+066E:  RCALL  03EC
+....................  
+....................       address = gethex(); 
+0670:  RCALL  044E
+0672:  MOVFF  01,23
+....................  
+....................       if(cmd=='R') 
+0676:  MOVF   06,W
+0678:  SUBLW  52
+067A:  BNZ   06B4
+....................          printf("\r\nValue: %X\r\n",READ_EXT_EEPROM( address ) ); 
+067C:  CLRF   27
+067E:  CLRF   26
+0680:  CLRF   25
+0682:  MOVFF  23,24
+0686:  BRA    0474
+0688:  MOVFF  01,24
+068C:  MOVLW  4C
+068E:  MOVWF  FF6
+0690:  MOVLW  00
+0692:  MOVWF  FF7
+0694:  MOVLW  09
+0696:  MOVWF  29
+0698:  RCALL  0254
+069A:  MOVFF  24,29
+069E:  MOVLW  37
+06A0:  MOVWF  2A
+06A2:  RCALL  0274
+06A4:  MOVLW  0D
+06A6:  BTFSS  F9E.4
+06A8:  BRA    06A6
+06AA:  MOVWF  FAD
+06AC:  MOVLW  0A
+06AE:  BTFSS  F9E.4
+06B0:  BRA    06AE
+06B2:  MOVWF  FAD
+....................  
+....................       if(cmd=='W') { 
+06B4:  MOVF   06,W
+06B6:  SUBLW  57
+06B8:  BNZ   06E4
+....................          printf("\r\nNew value: "); 
+06BA:  MOVLW  5A
+06BC:  MOVWF  FF6
+06BE:  MOVLW  00
+06C0:  MOVWF  FF7
+06C2:  RCALL  03EC
+....................          value = gethex(); 
+06C4:  RCALL  044E
+06C6:  MOVFF  01,05
+....................          printf("\n\r"); 
+06CA:  MOVLW  0A
+06CC:  BTFSS  F9E.4
+06CE:  BRA    06CC
+06D0:  MOVWF  FAD
+06D2:  MOVLW  0D
+06D4:  BTFSS  F9E.4
+06D6:  BRA    06D4
+06D8:  MOVWF  FAD
+....................          WRITE_EXT_EEPROM( address, value ); 
+06DA:  MOVFF  23,24
+06DE:  MOVFF  05,25
+06E2:  BRA    049C
+....................       } 
+....................    } while (TRUE); 
+....................  
+.................... } 
+06E4:  BRA    062E
+06E6:  SLEEP 
+
+Configuration Fuses:
+   Word  1: C83F   PLL12 CPUDIV4 USBDIV INTRC_IO FCMEN IESO
+   Word  2: 1E1E   PUT BROWNOUT BORV21 NOVREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

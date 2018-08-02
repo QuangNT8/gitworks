@@ -1,0 +1,102 @@
+/////////////////////////////////////////////////////////////////////////
+////                          EX_SPI.C                               ////
+////                                                                 ////
+////  This program uses the 9356SPI external EEPROM driver to read   ////
+////  and write to an external serial EEPROM using SPI.              ////
+////                                                                 ////
+////  Configure the CCS prototype card as follows:                   ////
+////               9356 pin    Protoboard                            ////
+////                  1            pin B0                            ////
+////                  2            pin C3                            ////
+////                  3            pin C5                            ////
+////                  4            pin C4                            ////
+////                  5            gnd                               ////
+////                  6            gnd                               ////
+////                  7            gnd                               ////
+////                  8            +5V                               ////
+////                                                                 ////
+////  Jumpers:                                                       ////
+////     PCB        pin A2 to RS232 RX, pin A3 to RS232 TX           ////
+////     PCM,PCH    pin C7 to RS232 RX, pin C6 to RS232 TX           ////
+////     PCD        UART1A                                           ////
+////                                                                 ////
+////  This example will work with the PCB, PCM, PCD, and PCH         ////
+////  compilers. The following conditional compilation lines are used////
+////  to include a valid device for each compiler.  Change the       ////
+////  device, clock and RS232 pins for your hardware if needed.      ////
+/////////////////////////////////////////////////////////////////////////
+////        (C) Copyright 1996,2003 Custom Computer Services         ////
+//// This source code may only be used by licensed users of the CCS  ////
+//// C compiler.  This source code may only be distributed to other  ////
+//// licensed users of the CCS C compiler.  No other use,            ////
+//// reproduction or distribution is permitted without written       ////
+//// permission.  Derivative programs created using this software    ////
+//// in object code form are not restricted in any way.              ////
+/////////////////////////////////////////////////////////////////////////
+
+
+#include <18F4550.h>
+#fuses NOWDT,INTXT,NOLVP,NOXINST,NOVREGEN 
+#use delay(internal=8000000)
+#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
+
+
+#include <input.c>
+#include <25P16.c>
+
+void main() {
+   
+   byte value,cmd;
+   int32 i=0,j=0;
+   int8 temp[20];
+   EEPROM_ADDRESS address;
+   setup_oscillator( OSC_8MHZ|OSC_INTRC,OSC_STATE_STABLE ); 
+   init_ext_eeprom();
+   
+   m25p16_read_data_bytes(0xffff,temp,20);
+   i=0;
+   m25p16_read_identification(temp);
+   while(1)
+   {
+      SPI_XFER_25P16(5);
+      value=SPI_XFER_25P16(0);
+      delay_ms(500);
+      printf("\r\neeprom read: %x",value);
+   }
+   while(1)
+   { 
+      //m25p16_read_status_register(value);
+      printf("\r\neeprom read:%lu %x",j,temp[i++]);
+      if(i==20)
+      {
+         i=0;
+         m25p16_read_identification(temp);
+         //m25p16_read_data_bytes((j*20),temp,20);
+         j++;
+      }
+      delay_ms(100);
+   }
+   do {
+      do {
+         printf("\r\nRead or Write: ");
+         cmd=getc();
+         cmd=toupper(cmd);
+         putc(cmd);
+      } while ( (cmd!='R') && (cmd!='W') );
+
+      printf("\n\rLocation: ");
+
+      address = gethex();
+
+      if(cmd=='R')
+         printf("\r\nValue: %X\r\n",READ_EXT_EEPROM( address ) );
+
+      if(cmd=='W') {
+         printf("\r\nNew value: ");
+         value = gethex();
+         printf("\n\r");
+         WRITE_EXT_EEPROM( address, value );
+      }
+   } while (TRUE);
+
+}

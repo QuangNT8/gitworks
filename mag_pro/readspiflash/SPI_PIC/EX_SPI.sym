@@ -1,0 +1,143 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     MAIN.value
+006     MAIN.cmd
+007-00A MAIN.i
+00B-00E MAIN.j
+00F-022 MAIN.temp
+023     MAIN.address
+024-025 m25p16_read_identification.p
+024-027 read_ext_eeprom.address
+024     write_ext_eeprom.address
+024-027 m25p16_read_data_bytes.addr
+024     gethex.lo
+024     MAIN.@SCRATCH1
+024     @PSTRINGC_9600_31766_31767.@SCRATCH1
+025     gethex.hi
+025     write_ext_eeprom.data
+025     MAIN.@SCRATCH2
+025     @PSTRINGC_9600_31766_31767.@SCRATCH2
+026     m25p16_read_identification.i
+026     gethex1.digit
+026     gethex.@SCRATCH1
+026     MAIN.@SCRATCH3
+027     @delay_ms1.P1
+027     gethex1.@SCRATCH1
+027     m25p16_read_identification.@SCRATCH1
+027     MAIN.@SCRATCH4
+028     read_ext_eeprom.data
+028-029 m25p16_read_data_bytes.buf
+028     m25p16_read_identification.@SCRATCH2
+028     MAIN.@SCRATCH5
+029-02C @PRINTF_L32U_9600_31766_31767.P1
+029     @PRINTF_X_9600_31766_31767.P2
+029     @PSTRINGCN_9600_31766_31767.P3
+02A     @PRINTF_X_9600_31766_31767.P1
+02A-02D m25p16_read_data_bytes.siz
+02A     @PSTRINGCN_9600_31766_31767.@SCRATCH1
+02B     @PSTRINGCN_9600_31766_31767.@SCRATCH2
+02D     @PRINTF_L32U_9600_31766_31767.@SCRATCH1
+02E-031 m25p16_read_data_bytes.i
+02E     @PRINTF_L32U_9600_31766_31767.@SCRATCH2
+02F     @PRINTF_L32U_9600_31766_31767.@SCRATCH3
+030     @PRINTF_L32U_9600_31766_31767.@SCRATCH4
+031     @PRINTF_L32U_9600_31766_31767.@SCRATCH5
+032     m25p16_read_data_bytes.@SCRATCH1
+032     @PRINTF_L32U_9600_31766_31767.@SCRATCH6
+033     m25p16_read_data_bytes.@SCRATCH2
+033     @PRINTF_L32U_9600_31766_31767.@SCRATCH7
+034     m25p16_read_data_bytes.@SCRATCH3
+034     @PRINTF_L32U_9600_31766_31767.@SCRATCH8
+035-038 @DIV3232.P1
+035     m25p16_read_data_bytes.@SCRATCH4
+036     m25p16_read_data_bytes.@SCRATCH5
+037     @SPI_XFER_1.P1
+038     @SPI_XFER_1.P1
+039-03C @DIV3232.P1
+039     @SPI_XFER_1.@SCRATCH1
+03A     @SPI_XFER_1.@SCRATCH2
+03D     @DIV3232.@SCRATCH1
+03E     @DIV3232.@SCRATCH2
+03F     @DIV3232.@SCRATCH3
+040     @DIV3232.@SCRATCH4
+041     @DIV3232.@SCRATCH5
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+00016C  @delay_ms1
+00040E  @PUTCHARI_BIU_1
+000416  gethex1
+00044E  gethex
+00007A  @SPI_XFER_1
+000068  init_ext_eeprom
+00049C  write_ext_eeprom
+000474  read_ext_eeprom
+0000BC  m25p16_read_data_bytes
+000192  m25p16_read_identification
+0004CC  MAIN
+000004  @const117
+000254  @PSTRINGCN_9600_31766_31767
+000274  @PRINTF_X_9600_31766_31767
+000016  @const123
+0002B6  @DIV3232
+000344  @PRINTF_L32U_9600_31766_31767
+00002C  @const129
+0003EC  @PSTRINGC_9600_31766_31767
+00003E  @const131
+00004C  @const132
+00005A  @const133
+0004CC  @cinit1
+0004FC  @cinit2
+
+Project Directory:
+    C:\Users\Workstation z620\Desktop\SPI_PIC\
+
+Project Files:
+    EX_SPI.c                                                [02-Aug-18 15:31  CRC=4F72D000]
+    ..\..\..\..\Program Files (x86)\PICC\devices\18F4550.h  [30-Nov-12 18:59  CRC=DCD1BB11]
+    ..\..\..\..\Program Files (x86)\PICC\drivers\input.c    [23-Aug-12 16:54  CRC=D02E748F]
+    ..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h    [03-Jan-08 13:55  CRC=2D1F019F]
+    25P16.c                                                 [02-Aug-18 15:44  CRC=13394EF9]
+
+Source signature=50049F31
+
+Units:
+    EX_SPI (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      EX_SPI.err
+    Ext Symbols: EX_SPI.esym
+    INHX32:      EX_SPI.hex
+    Symbols:     EX_SPI.sym
+    List:        EX_SPI.lst
+    Debug/COFF:  EX_SPI.cof
+    Project:     EX_SPI.PJT
+    Call Tree:   EX_SPI.tre
+    Statistics:  EX_SPI.STA

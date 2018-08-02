@@ -1,0 +1,5 @@
+>>> Warning 203 "EX_SPI.c" Line 60(1,1): Condition always TRUE
+>>> Warning 203 "EX_SPI.c" Line 67(1,1): Condition always TRUE
+      Memory usage:   ROM=5%      RAM=2% - 3%
+      0 Errors,  2 Warnings.
+Build Successful.

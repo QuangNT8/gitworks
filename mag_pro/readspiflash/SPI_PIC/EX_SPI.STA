@@ -1,0 +1,67 @@
+
+ROM used:   1768 (5%)
+            1768 (5%) including unused fragments
+
+            2 Average locations per line
+            17 Average locations per statement
+
+RAM used:   40 (2%) at main() level
+            65 (3%) worst case
+
+Stack used: 3/31 worst case (3 in main + 0 for interrupts)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  103    38  36  EX_SPI.c
+  464     0   0  ..\..\..\..\Program Files (x86)\PICC\devices\18F4550.h
+  269    29  27  ..\..\..\..\Program Files (x86)\PICC\drivers\input.c
+   28     0   0  ..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+  159    40  37  25P16.c
+----- -----
+ 1023   107 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   1   1             @delay_ms1
+0      8   0   0             @PUTCHARI_BIU_1
+0     56   2   2   174  4.4  gethex1
+0     38   1   3   171  4.8  gethex
+0     66   2   5    72  1.2  @SPI_XFER_1
+0     18   1   0    72  1.2  init_ext_eeprom
+0     48   1   2   176  1.9  write_ext_eeprom
+0     40   1   5   151  2.7  read_ext_eeprom
+0    176   5  19   424  5.5  m25p16_read_data_bytes
+0    194   5   5   579  5.3  m25p16_read_identification
+0    540  15  36  1356  6.9  MAIN
+0     18   1   0             @const117
+0     32   1   3             @PSTRINGCN_9600_31766_31767
+0     66   2   2             @PRINTF_X_9600_31766_31767
+0     22   1   0             @const123
+0    142   4  13             @DIV3232
+0    168   5  12             @PRINTF_L32U_9600_31766_31767
+0     18   1   0             @const129
+0     34   1   2             @PSTRINGC_9600_31766_31767
+0     14   0   0             @const131
+0     14   0   0             @const132
+0     14   0   0             @const133
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              107
+    Comments                448
+    Volume (V)              4732
+    Difficulty (D)          32.9
+    Effort to implement (E) 155680
+    Time to implement (T)   2 hours, 24 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   9
+    Maintainability (MI)    48
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1764  31000  
+
+
+
