@@ -37,13 +37,13 @@ SRC_FILES += \
   $(SDK_ROOT)/components/drivers_nrf/radio_config/radio_config.c \
   $(SDK_ROOT)/components/libraries/bsp/bsp.c \
   $(SDK_ROOT)/components/libraries/bsp/bsp_nfc.c \
+  $ main.c \
   $(SDK_ROOT)/external/segger_rtt/SEGGER_RTT.c \
   $(SDK_ROOT)/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c \
   $(SDK_ROOT)/external/segger_rtt/SEGGER_RTT_printf.c \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf52.S \
   $(SDK_ROOT)/components/toolchain/system_nrf52.c \
-  $(PROJ_DIR)/ main.c \
-  
+
 # Include folders common to all targets
 INC_FOLDERS += \
   $(SDK_ROOT)/components/drivers_nrf/common \
@@ -56,7 +56,7 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/fifo \
   $(SDK_ROOT)/components/device \
   $(SDK_ROOT)/components/libraries/uart \
-  $(SDK_ROOT)/config \
+  $ config \
   $(SDK_ROOT)/components/toolchain/cmsis/include \
   $(SDK_ROOT)/components/libraries/balloc \
   $(SDK_ROOT)/components/drivers_nrf/hal \

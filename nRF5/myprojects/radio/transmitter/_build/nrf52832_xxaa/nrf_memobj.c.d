@@ -23,8 +23,7 @@ _build/nrf52832_xxaa/nrf_memobj.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h \
  ../../../components/libraries/util/sdk_errors.h \
  ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../../../config/sdk_config.h \
- ../../../components/libraries/balloc/nrf_balloc.h \
+ config/sdk_config.h ../../../components/libraries/balloc/nrf_balloc.h \
  ../../../components/libraries/util/app_util_platform.h \
  ../../../components/device/compiler_abstraction.h \
  ../../../components/device/nrf.h ../../../components/device/nrf52.h \
@@ -106,7 +105,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
 
-../../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../../components/libraries/balloc/nrf_balloc.h:
 

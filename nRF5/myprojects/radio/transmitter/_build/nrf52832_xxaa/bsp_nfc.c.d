@@ -10,7 +10,7 @@ _build/nrf52832_xxaa/bsp_nfc.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\_stdint.h \
  ../../../components/libraries/util/sdk_errors.h \
  ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../../../config/sdk_config.h ../../../components/libraries/bsp/bsp.h \
+ config/sdk_config.h ../../../components/libraries/bsp/bsp.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdbool.h \
  ../../../components/boards/boards.h \
  ../../../components/drivers_nrf/hal/nrf_gpio.h \
@@ -77,7 +77,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
 
-../../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../../components/libraries/bsp/bsp.h:
 

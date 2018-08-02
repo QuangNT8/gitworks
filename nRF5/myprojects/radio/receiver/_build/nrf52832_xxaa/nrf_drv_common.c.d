@@ -23,8 +23,7 @@ _build/nrf52832_xxaa/nrf_drv_common.c.o: \
  ../../../components/device/compiler_abstraction.h \
  ../../../components/libraries/util/sdk_errors.h \
  ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../../../config/sdk_config.h \
- ../../../components/libraries/util/sdk_common.h \
+ config/sdk_config.h ../../../components/libraries/util/sdk_common.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\newlib.h \
@@ -104,7 +103,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-
 
 ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
 
-../../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../../components/libraries/util/sdk_common.h:
 

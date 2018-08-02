@@ -22,8 +22,7 @@ _build/nrf52832_xxaa/nrf_log_frontend.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\cdefs.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\string.h \
- ../../config/sdk_config.h \
- ../../components/libraries/util/nordic_common.h \
+ config/sdk_config.h ../../components/libraries/util/nordic_common.h \
  ../../components/device/compiler_abstraction.h \
  ../../components/libraries/util/sdk_os.h \
  ../../components/libraries/util/sdk_errors.h \
@@ -86,7 +85,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\string.h:
 
-../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../components/libraries/util/nordic_common.h:
 

@@ -38,8 +38,7 @@ _build/nrf52832_xxaa/app_error_weak.c.o: \
  ../../components/device/compiler_abstraction.h \
  ../../components/libraries/util/sdk_errors.h \
  ../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../../config/sdk_config.h \
- ../../components/libraries/util/nordic_common.h \
+ config/sdk_config.h ../../components/libraries/util/nordic_common.h \
  ../../components/libraries/util/app_error_weak.h \
  ../../components/libraries/experimental_log/nrf_log.h \
  ../../components/libraries/util/sdk_common.h \
@@ -143,7 +142,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-
 
 ../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
 
-../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../components/libraries/util/nordic_common.h:
 

@@ -120,7 +120,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
  .debug_line    0x00000000      0x4bd _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
- .debug_str     0x00000000    0x6839a _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
+ .debug_str     0x00000000    0x683aa _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_backend_rtt.c.o
@@ -207,7 +207,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
  .debug_line    0x00000000      0x4c0 _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
- .debug_str     0x00000000    0x6839d _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
+ .debug_str     0x00000000    0x683ad _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_backend_serial.c.o
@@ -294,7 +294,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
  .debug_line    0x00000000      0x4be _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
- .debug_str     0x00000000    0x6839b _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
+ .debug_str     0x00000000    0x683ab _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_backend_uart.c.o
@@ -381,7 +381,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_default_backends.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_default_backends.c.o
  .debug_line    0x00000000      0x4c2 _build/nrf52832_xxaa/nrf_log_default_backends.c.o
- .debug_str     0x00000000    0x6839f _build/nrf52832_xxaa/nrf_log_default_backends.c.o
+ .debug_str     0x00000000    0x683af _build/nrf52832_xxaa/nrf_log_default_backends.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_default_backends.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_default_backends.c.o
@@ -468,7 +468,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_frontend.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_frontend.c.o
  .debug_line    0x00000000      0x4ba _build/nrf52832_xxaa/nrf_log_frontend.c.o
- .debug_str     0x00000000    0x68397 _build/nrf52832_xxaa/nrf_log_frontend.c.o
+ .debug_str     0x00000000    0x683a7 _build/nrf52832_xxaa/nrf_log_frontend.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_frontend.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_frontend.c.o
@@ -555,7 +555,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
  .debug_line    0x00000000      0x4bf _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
- .debug_str     0x00000000    0x6839c _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
+ .debug_str     0x00000000    0x683ac _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_log_str_formatter.c.o
@@ -735,7 +735,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/app_button.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/app_button.c.o
  .debug_line    0x00000000      0x4a6 _build/nrf52832_xxaa/app_button.c.o
- .debug_str     0x00000000    0x68383 _build/nrf52832_xxaa/app_button.c.o
+ .debug_str     0x00000000    0x68393 _build/nrf52832_xxaa/app_button.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_button.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/app_button.c.o
@@ -838,7 +838,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x16d _build/nrf52832_xxaa/app_error.c.o
  .debug_macro   0x00000000       0x2b _build/nrf52832_xxaa/app_error.c.o
  .debug_line    0x00000000      0x4f6 _build/nrf52832_xxaa/app_error.c.o
- .debug_str     0x00000000    0x648a6 _build/nrf52832_xxaa/app_error.c.o
+ .debug_str     0x00000000    0x648b6 _build/nrf52832_xxaa/app_error.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_error.c.o
  .debug_frame   0x00000000       0x70 _build/nrf52832_xxaa/app_error.c.o
  .ARM.attributes
@@ -970,7 +970,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 _build/nrf52832_xxaa/app_error_weak.c.o
  .debug_macro   0x00000000       0x1c _build/nrf52832_xxaa/app_error_weak.c.o
  .debug_line    0x00000000      0x70b _build/nrf52832_xxaa/app_error_weak.c.o
- .debug_str     0x00000000    0x6bb83 _build/nrf52832_xxaa/app_error_weak.c.o
+ .debug_str     0x00000000    0x6bb93 _build/nrf52832_xxaa/app_error_weak.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_error_weak.c.o
  .debug_frame   0x00000000       0x20 _build/nrf52832_xxaa/app_error_weak.c.o
  .ARM.attributes
@@ -1058,7 +1058,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/app_fifo.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/app_fifo.c.o
  .debug_line    0x00000000      0x4a2 _build/nrf52832_xxaa/app_fifo.c.o
- .debug_str     0x00000000    0x6837f _build/nrf52832_xxaa/app_fifo.c.o
+ .debug_str     0x00000000    0x6838f _build/nrf52832_xxaa/app_fifo.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_fifo.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/app_fifo.c.o
@@ -1145,7 +1145,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/app_scheduler.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/app_scheduler.c.o
  .debug_line    0x00000000      0x4ac _build/nrf52832_xxaa/app_scheduler.c.o
- .debug_str     0x00000000    0x68389 _build/nrf52832_xxaa/app_scheduler.c.o
+ .debug_str     0x00000000    0x68399 _build/nrf52832_xxaa/app_scheduler.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_scheduler.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/app_scheduler.c.o
@@ -1232,7 +1232,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/app_timer.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/app_timer.c.o
  .debug_line    0x00000000      0x4a4 _build/nrf52832_xxaa/app_timer.c.o
- .debug_str     0x00000000    0x68381 _build/nrf52832_xxaa/app_timer.c.o
+ .debug_str     0x00000000    0x68391 _build/nrf52832_xxaa/app_timer.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_timer.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/app_timer.c.o
@@ -1319,7 +1319,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/app_uart_fifo.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/app_uart_fifo.c.o
  .debug_line    0x00000000      0x4a7 _build/nrf52832_xxaa/app_uart_fifo.c.o
- .debug_str     0x00000000    0x68384 _build/nrf52832_xxaa/app_uart_fifo.c.o
+ .debug_str     0x00000000    0x68394 _build/nrf52832_xxaa/app_uart_fifo.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_uart_fifo.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/app_uart_fifo.c.o
@@ -1432,7 +1432,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 _build/nrf52832_xxaa/app_util_platform.c.o
  .debug_macro   0x00000000       0x7e _build/nrf52832_xxaa/app_util_platform.c.o
  .debug_line    0x00000000      0x56f _build/nrf52832_xxaa/app_util_platform.c.o
- .debug_str     0x00000000    0x64fb8 _build/nrf52832_xxaa/app_util_platform.c.o
+ .debug_str     0x00000000    0x64fc8 _build/nrf52832_xxaa/app_util_platform.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/app_util_platform.c.o
  .debug_frame   0x00000000       0x70 _build/nrf52832_xxaa/app_util_platform.c.o
  .ARM.attributes
@@ -1532,7 +1532,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x2b _build/nrf52832_xxaa/nrf_assert.c.o
  .debug_macro   0x00000000       0x10 _build/nrf52832_xxaa/nrf_assert.c.o
  .debug_line    0x00000000      0x4b0 _build/nrf52832_xxaa/nrf_assert.c.o
- .debug_str     0x00000000    0x6489f _build/nrf52832_xxaa/nrf_assert.c.o
+ .debug_str     0x00000000    0x648af _build/nrf52832_xxaa/nrf_assert.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_assert.c.o
  .debug_frame   0x00000000       0x2c _build/nrf52832_xxaa/nrf_assert.c.o
  .ARM.attributes
@@ -1620,7 +1620,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_balloc.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_balloc.c.o
  .debug_line    0x00000000      0x4a6 _build/nrf52832_xxaa/nrf_balloc.c.o
- .debug_str     0x00000000    0x68383 _build/nrf52832_xxaa/nrf_balloc.c.o
+ .debug_str     0x00000000    0x68393 _build/nrf52832_xxaa/nrf_balloc.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_balloc.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_balloc.c.o
@@ -1707,7 +1707,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_fprintf.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_fprintf.c.o
  .debug_line    0x00000000      0x49c _build/nrf52832_xxaa/nrf_fprintf.c.o
- .debug_str     0x00000000    0x68379 _build/nrf52832_xxaa/nrf_fprintf.c.o
+ .debug_str     0x00000000    0x68389 _build/nrf52832_xxaa/nrf_fprintf.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_fprintf.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_fprintf.c.o
@@ -1794,7 +1794,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_fprintf_format.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_fprintf_format.c.o
  .debug_line    0x00000000      0x4a3 _build/nrf52832_xxaa/nrf_fprintf_format.c.o
- .debug_str     0x00000000    0x68380 _build/nrf52832_xxaa/nrf_fprintf_format.c.o
+ .debug_str     0x00000000    0x68390 _build/nrf52832_xxaa/nrf_fprintf_format.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_fprintf_format.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_fprintf_format.c.o
@@ -1929,7 +1929,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 _build/nrf52832_xxaa/nrf_memobj.c.o
  .debug_macro   0x00000000       0x3b _build/nrf52832_xxaa/nrf_memobj.c.o
  .debug_line    0x00000000      0x72c _build/nrf52832_xxaa/nrf_memobj.c.o
- .debug_str     0x00000000    0x6a481 _build/nrf52832_xxaa/nrf_memobj.c.o
+ .debug_str     0x00000000    0x6a491 _build/nrf52832_xxaa/nrf_memobj.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_memobj.c.o
  .debug_frame   0x00000000       0xe4 _build/nrf52832_xxaa/nrf_memobj.c.o
  .ARM.attributes
@@ -2017,7 +2017,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_strerror.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_strerror.c.o
  .debug_line    0x00000000      0x4aa _build/nrf52832_xxaa/nrf_strerror.c.o
- .debug_str     0x00000000    0x68387 _build/nrf52832_xxaa/nrf_strerror.c.o
+ .debug_str     0x00000000    0x68397 _build/nrf52832_xxaa/nrf_strerror.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_strerror.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_strerror.c.o
@@ -2130,7 +2130,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x7e _build/nrf52832_xxaa/nrf_drv_common.c.o
  .debug_macro   0x00000000      0x372 _build/nrf52832_xxaa/nrf_drv_common.c.o
  .debug_line    0x00000000      0x5c7 _build/nrf52832_xxaa/nrf_drv_common.c.o
- .debug_str     0x00000000    0x69e97 _build/nrf52832_xxaa/nrf_drv_common.c.o
+ .debug_str     0x00000000    0x69ea7 _build/nrf52832_xxaa/nrf_drv_common.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_drv_common.c.o
  .debug_frame   0x00000000       0x2c _build/nrf52832_xxaa/nrf_drv_common.c.o
  .ARM.attributes
@@ -2218,7 +2218,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
  .debug_line    0x00000000      0x4ac _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
- .debug_str     0x00000000    0x68389 _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
+ .debug_str     0x00000000    0x68399 _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_drv_gpiote.c.o
@@ -2305,7 +2305,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x49d _build/nrf52832_xxaa/nrf_drv_uart.c.o
  .debug_macro   0x00000000       0x4b _build/nrf52832_xxaa/nrf_drv_uart.c.o
  .debug_line    0x00000000      0x4a8 _build/nrf52832_xxaa/nrf_drv_uart.c.o
- .debug_str     0x00000000    0x68385 _build/nrf52832_xxaa/nrf_drv_uart.c.o
+ .debug_str     0x00000000    0x68395 _build/nrf52832_xxaa/nrf_drv_uart.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/nrf_drv_uart.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/nrf_drv_uart.c.o
@@ -2359,7 +2359,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 _build/nrf52832_xxaa/radio_config.c.o
  .debug_macro   0x00000000       0x10 _build/nrf52832_xxaa/radio_config.c.o
  .debug_line    0x00000000      0x3ca _build/nrf52832_xxaa/radio_config.c.o
- .debug_str     0x00000000    0x5b955 _build/nrf52832_xxaa/radio_config.c.o
+ .debug_str     0x00000000    0x5b965 _build/nrf52832_xxaa/radio_config.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/radio_config.c.o
  .debug_frame   0x00000000       0x48 _build/nrf52832_xxaa/radio_config.c.o
  .ARM.attributes
@@ -2605,7 +2605,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c _build/nrf52832_xxaa/bsp_nfc.c.o
  .debug_macro   0x00000000       0x7e _build/nrf52832_xxaa/bsp_nfc.c.o
  .debug_line    0x00000000      0x5f5 _build/nrf52832_xxaa/bsp_nfc.c.o
- .debug_str     0x00000000    0x66d04 _build/nrf52832_xxaa/bsp_nfc.c.o
+ .debug_str     0x00000000    0x66d14 _build/nrf52832_xxaa/bsp_nfc.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/bsp_nfc.c.o
  .debug_frame   0x00000000       0x48 _build/nrf52832_xxaa/bsp_nfc.c.o
  .ARM.attributes
@@ -2883,7 +2883,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 _build/nrf52832_xxaa/SEGGER_RTT.c.o
  .debug_macro   0x00000000       0x35 _build/nrf52832_xxaa/SEGGER_RTT.c.o
  .debug_line    0x00000000     0x1120 _build/nrf52832_xxaa/SEGGER_RTT.c.o
- .debug_str     0x00000000    0x65793 _build/nrf52832_xxaa/SEGGER_RTT.c.o
+ .debug_str     0x00000000    0x657a3 _build/nrf52832_xxaa/SEGGER_RTT.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/SEGGER_RTT.c.o
  .debug_frame   0x00000000      0x3d0 _build/nrf52832_xxaa/SEGGER_RTT.c.o
  .ARM.attributes
@@ -2902,7 +2902,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x8a4 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
  .debug_macro   0x00000000     0x1434 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
  .debug_line    0x00000000       0x71 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
- .debug_str     0x00000000     0x7484 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
+ .debug_str     0x00000000     0x7494 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
  .ARM.attributes
                 0x00000000       0x39 _build/nrf52832_xxaa/SEGGER_RTT_Syscalls_GCC.c.o
@@ -3021,7 +3021,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
  .debug_macro   0x00000000       0x52 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
  .debug_line    0x00000000      0x759 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
- .debug_str     0x00000000    0x654f7 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
+ .debug_str     0x00000000    0x65507 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
  .comment       0x00000000       0x6f _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
  .debug_frame   0x00000000       0xa0 _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o
  .ARM.attributes
@@ -3520,12 +3520,12 @@ OUTPUT(_build/nrf52832_xxaa.out elf32-littlearm)
  .comment       0x0000006e       0x6f _build/nrf52832_xxaa/main.c.o
  .comment       0x0000006e       0x6f _build/nrf52832_xxaa/system_nrf52.c.o
 
-.debug_info     0x00000000     0x434b
+.debug_info     0x00000000     0x435b
  .debug_info    0x00000000      0xbf8 _build/nrf52832_xxaa/boards.c.o
  .debug_info    0x00000bf8     0x178f _build/nrf52832_xxaa/bsp.c.o
  .debug_info    0x00002387      0xe04 _build/nrf52832_xxaa/main.c.o
- .debug_info    0x0000318b       0x7c _build/nrf52832_xxaa/gcc_startup_nrf52.S.o
- .debug_info    0x00003207     0x1144 _build/nrf52832_xxaa/system_nrf52.c.o
+ .debug_info    0x0000318b       0x8c _build/nrf52832_xxaa/gcc_startup_nrf52.S.o
+ .debug_info    0x00003217     0x1144 _build/nrf52832_xxaa/system_nrf52.c.o
 
 .debug_abbrev   0x00000000      0xacc
  .debug_abbrev  0x00000000      0x269 _build/nrf52832_xxaa/boards.c.o
@@ -3594,15 +3594,15 @@ OUTPUT(_build/nrf52832_xxaa.out elf32-littlearm)
  .debug_line    0x0000170f       0x82 _build/nrf52832_xxaa/gcc_startup_nrf52.S.o
  .debug_line    0x00001791      0x472 _build/nrf52832_xxaa/system_nrf52.c.o
 
-.debug_str      0x00000000    0x6b712
- .debug_str     0x00000000    0x65928 _build/nrf52832_xxaa/boards.c.o
-                              0x6665c (size before relaxing)
- .debug_str     0x00065928     0x558d _build/nrf52832_xxaa/bsp.c.o
-                              0x6b926 (size before relaxing)
- .debug_str     0x0006aeb5      0x4ac _build/nrf52832_xxaa/main.c.o
-                              0x66cc2 (size before relaxing)
- .debug_str     0x0006b361      0x3b1 _build/nrf52832_xxaa/system_nrf52.c.o
-                              0x5bb34 (size before relaxing)
+.debug_str      0x00000000    0x6b722
+ .debug_str     0x00000000    0x65938 _build/nrf52832_xxaa/boards.c.o
+                              0x6666c (size before relaxing)
+ .debug_str     0x00065938     0x558d _build/nrf52832_xxaa/bsp.c.o
+                              0x6b936 (size before relaxing)
+ .debug_str     0x0006aec5      0x4ac _build/nrf52832_xxaa/main.c.o
+                              0x66cd2 (size before relaxing)
+ .debug_str     0x0006b371      0x3b1 _build/nrf52832_xxaa/system_nrf52.c.o
+                              0x5bb44 (size before relaxing)
 
 .debug_frame    0x00000000      0x474
  .debug_frame   0x00000000      0x104 _build/nrf52832_xxaa/boards.c.o

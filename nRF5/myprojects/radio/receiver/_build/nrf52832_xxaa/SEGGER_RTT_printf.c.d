@@ -44,8 +44,7 @@ _build/nrf52832_xxaa/SEGGER_RTT_printf.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdbool.h \
  ../../../components/libraries/util/sdk_errors.h \
  ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h \
- ../../../config/sdk_config.h \
- ../../../components/libraries/util/nordic_common.h \
+ config/sdk_config.h ../../../components/libraries/util/nordic_common.h \
  ../../../components/libraries/util/app_error_weak.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h
@@ -140,7 +139,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-
 
 ../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
 
-../../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../../components/libraries/util/nordic_common.h:
 

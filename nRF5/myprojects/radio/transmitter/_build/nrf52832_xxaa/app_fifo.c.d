@@ -22,8 +22,7 @@ _build/nrf52832_xxaa/app_fifo.c.o: \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\cdefs.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\string.h \
- ../../../config/sdk_config.h \
- ../../../components/libraries/util/nordic_common.h \
+ config/sdk_config.h ../../../components/libraries/util/nordic_common.h \
  ../../../components/device/compiler_abstraction.h \
  ../../../components/libraries/util/sdk_os.h \
  ../../../components/libraries/util/sdk_errors.h \
@@ -40,7 +39,10 @@ _build/nrf52832_xxaa/app_fifo.c.o: \
  ../../../components/device/nrf51_to_nrf52.h \
  ../../../components/device/nrf52_name_change.h \
  ../../../components/device/compiler_abstraction.h \
- ../../../components/libraries/util/sdk_macros.h
+ ../../../components/libraries/util/sdk_macros.h \
+ ../../../components/libraries/fifo/app_fifo.h \
+ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
+ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h
 
 ../../../components/libraries/util/sdk_common.h:
 
@@ -86,7 +88,7 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\string.h:
 
-../../../config/sdk_config.h:
+config/sdk_config.h:
 
 ../../../components/libraries/util/nordic_common.h:
 
@@ -125,3 +127,9 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 ../../../components/device/compiler_abstraction.h:
 
 ../../../components/libraries/util/sdk_macros.h:
+
+../../../components/libraries/fifo/app_fifo.h:
+
+c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h:
+
+c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h:

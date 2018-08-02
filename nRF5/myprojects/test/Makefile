@@ -57,7 +57,7 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/fifo \
   $(SDK_ROOT)/components/device \
   $(SDK_ROOT)/components/libraries/uart \
-  $(SDK_ROOT)/config \
+  $ config \
   $(SDK_ROOT)/components/toolchain/cmsis/include \
   $(SDK_ROOT)/components/libraries/balloc \
   $(SDK_ROOT)/components/drivers_nrf/hal \
@@ -166,7 +166,7 @@ flash: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
 erase:
 	nrfjprog -f nrf52 --eraseall
 
-SDK_CONFIG_FILE := ../config/sdk_config.h
+SDK_CONFIG_FILE := config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 sdk_config:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)
