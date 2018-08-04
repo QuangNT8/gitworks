@@ -64,6 +64,29 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
+#define LED1_ON          	nrf_gpio_pin_clear(17)
+#define LED1_OFF          	nrf_gpio_pin_set(17)
+#define LED1_toggle         nrf_gpio_pin_toggle(17)
+
+#define LED2_ON          	nrf_gpio_pin_clear(18)
+#define LED2_OFF          	nrf_gpio_pin_set(18)
+#define LED2_toggle         nrf_gpio_pin_toggle(18)
+
+#define RELAY1_OFF         	nrf_gpio_pin_clear(12)
+#define RELAY1_ON        	nrf_gpio_pin_set(12)
+#define RELAY1_toggle      	nrf_gpio_pin_toggle(12)
+
+#define RELAY2_OFF         	nrf_gpio_pin_clear(16)
+#define RELAY2_ON        	nrf_gpio_pin_set(16)
+#define RELAY2_toggle      	nrf_gpio_pin_toggle(16)
+
+#define SW1_init			nrf_gpio_cfg_input(14, BUTTON_PULL)	 
+#define SW2_init			nrf_gpio_cfg_input(12, BUTTON_PULL)	 
+#define SW1_read        	nrf_gpio_pin_read(14)
+#define SW2_read         	nrf_gpio_pin_read(13)
+
+
+
 static uint32_t                   packet;              /**< Packet to transmit. */
 
 /**@brief Function for initialization oscillators.
@@ -142,39 +165,42 @@ uint32_t read_packet()
  */
 int main(void)
 {
-    uint32_t err_code = NRF_SUCCESS;
-
+    
     clock_initialization();
 
-    err_code = app_timer_init();
-    APP_ERROR_CHECK(err_code);
+    app_timer_init();
+    //APP_ERROR_CHECK(err_code);
 
-    err_code = NRF_LOG_INIT(NULL);
-    APP_ERROR_CHECK(err_code);
+    NRF_LOG_INIT(NULL);
+    //APP_ERROR_CHECK(err_code);
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 
-    err_code = bsp_init(BSP_INIT_LED, NULL);
-    APP_ERROR_CHECK(err_code);
+    bsp_init(BSP_INIT_LED, NULL);
+	
+	SW1_init;
+	SW2_init;
+	nrf_gpio_cfg_output(17);
+	nrf_gpio_cfg_output(18);
+	
+    //APP_ERROR_CHECK(err_code);
 
     // Set radio configuration parameters
     radio_configure();
     NRF_RADIO->PACKETPTR = (uint32_t)&packet;
 
-    err_code = bsp_indication_set(BSP_INDICATE_USER_STATE_OFF);
-    NRF_LOG_INFO("Wait for first packet");
-    APP_ERROR_CHECK(err_code);
-    NRF_LOG_FLUSH();
-
+    bsp_indication_set(BSP_INDICATE_USER_STATE_OFF);
     while (true)
     {
+		if(SW1_read==0)
+		{
+			while(SW1_read==0);
+			LED2_toggle;
+		}
+		//nrf_gpio_pin_toggle(18);
         //uint32_t received = read_packet();
-		read_packet();
-        err_code = bsp_indication_set(BSP_INDICATE_RCV_OK);
-        //NRF_LOG_INFO("Packet was received");
-        //APP_ERROR_CHECK(err_code);
-
-        //NRF_LOG_INFO("The contents of the package is %u", (unsigned int)received);
-        //NRF_LOG_FLUSH();
+		//read_packet();
+		//nrf_gpio_pin_toggle(18);
+        //bsp_indication_set(BSP_INDICATE_RCV_OK);       
     }
 }
 
