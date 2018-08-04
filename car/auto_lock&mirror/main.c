@@ -12,6 +12,7 @@
 #define  Speed_Sig      PIN_B0
 #define  UnLock_SIG     PIN_B1
 #define  Lock_SIG       PIN_B2
+#define  Keep_PWR       PIN_B4
 #define  BT_IO          PIN_B5
 #define  Mirro_open     PIN_A6
 #define  Mirro_close    PIN_A7
@@ -29,6 +30,7 @@ unsigned int16 count1=0,count2=0;
 int16 count_msec=0,count_s=timer_ex;
 int1 mirror_st=0;
 int8 count_pulse=0;
+volatile int8 count_keepPWR=0,timekeeping=10,enable_sleeping_flag=0;
 int8 speed=0;
 volatile int8 timer_bt=0;
 volatile int8 second_refer=0;
@@ -53,7 +55,7 @@ int8 calculate_speed()
 #INT_EXT
 void ext0_isr()
 {
-   fprintf(DEBUG,"ext0_isr %u\r\n, ",count_pulse);
+   //fprintf(DEBUG,"ext0_isr %u\r\n, ",count_pulse);
    //delay_us(100);
    if(input(Speed_Sig)==1) count_pulse++; 
 }
@@ -87,8 +89,35 @@ void  TIMER0_isr(void)
          //fprintf(DEBUG,"Timer overflow %lu\r\n, ",count_s);
          //output_high(Mirro_close);
       }
+	  if(enable_sleeping_flag==1)
+	  {
+		  if(count_keepPWR<timekeeping)
+		  {
+			  count_keepPWR++;
+			  fprintf(DEBUG,".");
+		  }
+		  else
+		  {
+			  fprintf(DEBUG,"\r\nPower off\r\n");
+			  output_low(Keep_PWR);
+		  }
+	  }
    }
    enable_interrupts(INT_EXT);
+}
+//===========================
+void sleeping(int8 insec)
+{
+	fprintf(DEBUG,"\r\nPower will to turn off in %ds\r\n",insec);
+	timekeeping = insec;
+	count_keepPWR = 0;
+	enable_sleeping_flag = 1;
+}
+//===========================
+void sleeping_disable()
+{
+	enable_sleeping_flag = 0;
+	count_keepPWR = 0;
 }
 //===========================
 void door_lock()
@@ -117,13 +146,15 @@ int8 open_mirror_remote()
 {
    int8 result = 0;
    count_s = 0;
+   sleeping_disable();
    fprintf(DEBUG,"open_mirror_remote\r\n, ");
    while(count_s<timer_ex)
    {
-      if(input(Lock_SIG)==0)
+      if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0))
       {
          result = 1;
-         output_low(Mirro_open);
+         output_low(Mirro_open);		
+		 sleeping(10);
          return result;
       }
       output_high(Mirro_open);
@@ -140,7 +171,7 @@ int8 close_mirror_remote()
    fprintf(DEBUG,"close_mirror_remote\r\n, ");
    while(count_s<timer_ex)
    {
-      if(input(UnLock_SIG)==0)
+      if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0))
       {
          result = 1;
          output_low(Mirro_close);
@@ -223,12 +254,16 @@ void main()
    //setup_adc_ports(sAN0|sAN2);
    //set_adc_channel(0);
    //set_pwm1_duty(1);
-   delay_ms(1000);
+  
+   //delay_ms(1000);
    ext_int_edge( L_TO_H );
    enable_interrupts(INT_EXT);
    enable_interrupts(INT_TIMER0);
    enable_interrupts(GLOBAL);
-     
+   
+   output_high(Keep_PWR);
+   open_mirror_remote();  
+   
    fprintf(DEBUG,"Start...\r\n");
    delay_ms(1000);
     while(1)
@@ -238,15 +273,16 @@ void main()
          if((second_refer>2)&&(input(ACC_CHECK)==0))
          {
             //door_unlock();
-            if(input(Lock_SIG)==0)
+            if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0))
             {
                //fprintf(DEBUG,"lock is low %lu\r\n, ", count_s);
+			   sleeping(10);
                if(close_mirror_remote()==1)
                {
                    open_mirror_remote();
                }
             }
-            if(input(UnLock_SIG)==0)
+            if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0))
             {
                //fprintf(DEBUG,"unlock is low %lu\r\n, ", count_s);
                if(open_mirror_remote()==1)
@@ -271,17 +307,17 @@ void main()
             {
                //door_unlock();
             }
-            if(input(UnLock_SIG)==0)
+            if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0))
             {
                door_lock_flag = 0;
             }
-            else if(input(Lock_SIG)==0)
+            else if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0))
             {
                door_lock_flag = 1;
             }
          }
-      }
-      fprintf(DEBUG,"speed = %u, pulse = %u\r\n, ", speed,count_pulse);
+		 fprintf(DEBUG,"speed = %u, pulse = %u\r\n, ", speed,count_pulse);
+      }     
       delay_ms(50);
     }
 }
