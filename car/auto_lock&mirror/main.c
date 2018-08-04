@@ -24,9 +24,6 @@
 #define  enable_blink   enable_interrupts(INT_TIMER0)
 
 //===========================
-int8 main_st=0,VR=0,SS1=0,adc2;
-int16 led_fre=100;
-unsigned int16 count1=0,count2=0;
 int16 count_msec=0,count_s=timer_ex;
 int1 mirror_st=0;
 int8 count_pulse=0;
@@ -63,7 +60,6 @@ void ext0_isr()
 #int_TIMER0
 void  TIMER0_isr(void) 
 {
-   char temp=0;
    count_msec++;
    disable_interrupts(INT_EXT);
    timer_bt++;
@@ -89,35 +85,35 @@ void  TIMER0_isr(void)
          //fprintf(DEBUG,"Timer overflow %lu\r\n, ",count_s);
          //output_high(Mirro_close);
       }
-	  if(enable_sleeping_flag==1)
-	  {
-		  if(count_keepPWR<timekeeping)
-		  {
-			  count_keepPWR++;
-			  fprintf(DEBUG,".");
-		  }
-		  else
-		  {
-			  fprintf(DEBUG,"\r\nPower off\r\n");
-			  output_low(Keep_PWR);
-		  }
-	  }
+     if(enable_sleeping_flag==1)
+     {
+        if(count_keepPWR<timekeeping)
+        {
+           count_keepPWR++;
+           fprintf(DEBUG,".");
+        }
+        else
+        {
+           fprintf(DEBUG,"\r\nPower off\r\n");
+           output_low(Keep_PWR);
+        }
+     }
    }
    enable_interrupts(INT_EXT);
 }
 //===========================
 void sleeping(int8 insec)
 {
-	fprintf(DEBUG,"\r\nPower will to turn off in %ds\r\n",insec);
-	timekeeping = insec;
-	count_keepPWR = 0;
-	enable_sleeping_flag = 1;
+   fprintf(DEBUG,"\r\nPower will to turn off in %ds\r\n",insec);
+   timekeeping = insec;
+   count_keepPWR = 0;
+   enable_sleeping_flag = 1;
 }
 //===========================
 void sleeping_disable()
 {
-	enable_sleeping_flag = 0;
-	count_keepPWR = 0;
+   enable_sleeping_flag = 0;
+   count_keepPWR = 0;
 }
 //===========================
 void door_lock()
@@ -153,8 +149,8 @@ int8 open_mirror_remote()
       if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0))
       {
          result = 1;
-         output_low(Mirro_open);		
-		 sleeping(10);
+         output_low(Mirro_open);      
+       sleeping(10);
          return result;
       }
       output_high(Mirro_open);
@@ -182,6 +178,21 @@ int8 close_mirror_remote()
    }
    output_low(Mirro_close);
    return result;
+}
+//===========================
+void open_mirror_speedover()
+{
+    count_s = 0;
+    fprintf(DEBUG,"open_mirror_BT\r\n, ");
+    if(mirror_st==0)
+    {
+      while(count_s<timer_ex)
+      {
+         output_high(Mirro_open);
+      }
+      mirror_st = 1;
+      output_low(Mirro_open);
+    }
 }
 //===========================
 void open_mirror_BT()
@@ -243,7 +254,6 @@ void button_touching()
 //===========================
 void main()
 {
-   int16 timeout=0;
    setup_timer_0(T0_INTERNAL|T0_DIV_8|T0_8_BIT);      //1.0 ms overflow
    disable_interrupts(INT_TIMER0);
    disable_interrupts(INT_EXT_L2H);
@@ -276,7 +286,7 @@ void main()
             if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0))
             {
                //fprintf(DEBUG,"lock is low %lu\r\n, ", count_s);
-			   sleeping(10);
+            sleeping(10);
                if(close_mirror_remote()==1)
                {
                    open_mirror_remote();
@@ -301,13 +311,14 @@ void main()
             button_touching();
             if(speed>20)
             {
-                if(repeat_check_speed<20)
+                if(repeat_check_speed<10)
                 {
                     repeat_check_speed++;
                 }
                 else
                 {
                     door_lock();
+                    open_mirror_speedover();
                 }
             }
             else
@@ -324,7 +335,7 @@ void main()
                door_lock_flag = 1;
             }
          }
-		 fprintf(DEBUG,"speed = %u, pulse = %u\r\n, ", speed,count_pulse);
+       fprintf(DEBUG,"speed = %u, pulse = %u\r\n, ", speed,count_pulse);
       }     
       delay_ms(50);
     }

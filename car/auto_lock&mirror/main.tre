@@ -1,5 +1,5 @@
 ÀÄmain
-   ÃÄMAIN  0/370  Ram=4
+   ÃÄMAIN  0/348  Ram=2
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄopen_mirror_remote  0/90  Ram=3
    ³  ³  ÃÄsleeping_disable  0/8  Ram=0
@@ -81,6 +81,9 @@
    ³  ³        ÀÄ@PUTCHAR_1_  0/64  Ram=1
    ³  ÃÄdoor_lock  0/32  Ram=1
    ³  ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ³  ÃÄopen_mirror_speedover  0/56  Ram=1
+   ³  ³  ÀÄ@PSTRINGC_60  0/32  Ram=2
+   ³  ³     ÀÄ@PUTCHAR_1_  0/64  Ram=1
    ³  ÃÄ@PSTRINGCN_60  0/42  Ram=3
    ³  ³  ÀÄ@PUTCHAR_1_  0/64  Ram=1
    ³  ÃÄ@PRINTF_U_60  0/138  Ram=2
@@ -101,7 +104,7 @@
    ³  ³  ÀÄ@PUTCHAR_1_  0/64  Ram=1
    ³  ÀÄ@delay_ms1  0/38  Ram=1
    ÃÄext0_isr  0/12  Ram=1
-   ÀÄTIMER0_isr  0/112  Ram=1
+   ÀÄTIMER0_isr  0/110  Ram=0
       ÃÄcalculate_speed  0/166  Ram=5
       ³  ÃÄ@ITOF  0/56  Ram=2
       ³  ÃÄ@MULFF  0/242  Ram=11

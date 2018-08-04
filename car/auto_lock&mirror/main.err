@@ -1,15 +1,6 @@
->>> Warning 203 "main.c" Line 270(1,1): Condition always TRUE
->>> Warning 216 "main.c" Line 333(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
->>> Warning 216 "main.c" Line 333(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_60)
->>> Warning 202 "main.c" Line 27(6,13): Variable never used:   main_st
->>> Warning 202 "main.c" Line 27(16,18): Variable never used:   VR
->>> Warning 202 "main.c" Line 27(21,24): Variable never used:   SS1
->>> Warning 202 "main.c" Line 27(27,31): Variable never used:   adc2
->>> Warning 202 "main.c" Line 28(7,14): Variable never used:   led_fre
->>> Warning 202 "main.c" Line 29(16,22): Variable never used:   count1
->>> Warning 202 "main.c" Line 29(25,31): Variable never used:   count2
->>> Warning 202 "main.c" Line 66(9,13): Variable never used:   temp
->>> Warning 202 "main.c" Line 246(10,17): Variable never used:   timeout
-      Memory usage:   ROM=67%      RAM=21% - 32%
-      0 Errors,  12 Warnings.
+>>> Warning 203 "main.c" Line 280(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 344(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_1_)
+>>> Warning 216 "main.c" Line 344(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_60)
+      Memory usage:   ROM=69%      RAM=16% - 27%
+      0 Errors,  3 Warnings.
 Build Successful.
