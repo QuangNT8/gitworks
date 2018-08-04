@@ -1,11 +1,11 @@
-CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
+CCS PCH C Compiler, Version 4.140, 33034               04-Aug-18 21:59
 
-               Filename:   E:\gitworks\car\auto_lock&mirror\main.lst
+               Filename:   D:\STM32\workspace\gitworks\car\auto_lock&mirror\main.lst
 
-               ROM used:   2744 bytes (67%)
-                           Largest free fragment is 1348
-               RAM used:   52 (20%) at main() level
-                           81 (32%) worst case
+               ROM used:   2760 bytes (67%)
+                           Largest free fragment is 1332
+               RAM used:   53 (21%) at main() level
+                           82 (32%) worst case
                Stack:     7 worst case (4 in main + 3 for interrupts)
 
 *
@@ -72,7 +72,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 .................... #use delay(clock=8000000) 
 *
 076E:  CLRF   FEA
-0770:  MOVLW  33
+0770:  MOVLW  34
 0772:  MOVWF  FE9
 0774:  MOVF   FEF,W
 0776:  BZ    0792
@@ -101,7 +101,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 0438:  BSF    01.7
 043A:  BRA    0458
 043C:  BCF    01.7
-043E:  RRCF   40,F
+043E:  RRCF   41,F
 0440:  BTFSC  FD8.0
 0442:  BSF    F89.1
 0444:  BTFSS  FD8.0
@@ -157,7 +157,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 .................... int1 mirror_st=0; 
 .................... int8 count_pulse=0; 
 .................... volatile int8 count_keepPWR=0,timekeeping=10,enable_sleeping_flag=0; 
-.................... int8 speed=0; 
+.................... int8 speed=0,repeat_check_speed=0; 
 .................... volatile int8 timer_bt=0; 
 .................... volatile int8 second_refer=0; 
 .................... int1 disable_mirror_button=0; 
@@ -174,63 +174,63 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 .................... int8 calculate_speed() 
 .................... { 
 *
-0386:  CLRF   3E
+0386:  CLRF   3F
 ....................    int8 result=0; 
 ....................    result = ((count_pulse*Tire_perimeter)/Pulse_per_around)*3.6; 
-0388:  CLRF   40
-038A:  MOVFF  29,3F
+0388:  CLRF   41
+038A:  MOVFF  29,40
 038E:  BRA    00C6
-0390:  MOVFF  03,46
-0394:  MOVFF  02,45
-0398:  MOVFF  01,44
-039C:  MOVFF  00,43
+0390:  MOVFF  03,47
+0394:  MOVFF  02,46
+0398:  MOVFF  01,45
+039C:  MOVFF  00,44
 03A0:  MOVLW  25
-03A2:  MOVWF  4A
+03A2:  MOVWF  4B
 03A4:  MOVLW  06
-03A6:  MOVWF  49
+03A6:  MOVWF  4A
 03A8:  MOVLW  61
-03AA:  MOVWF  48
+03AA:  MOVWF  49
 03AC:  MOVLW  7F
-03AE:  MOVWF  47
+03AE:  MOVWF  48
 03B0:  RCALL  00FE
-03B2:  MOVFF  00,3F
-03B6:  MOVFF  01,40
-03BA:  MOVFF  02,41
-03BE:  MOVFF  03,42
-03C2:  MOVFF  03,46
-03C6:  MOVFF  02,45
-03CA:  MOVFF  01,44
-03CE:  MOVFF  00,43
-03D2:  CLRF   4A
-03D4:  CLRF   49
+03B2:  MOVFF  00,40
+03B6:  MOVFF  01,41
+03BA:  MOVFF  02,42
+03BE:  MOVFF  03,43
+03C2:  MOVFF  03,47
+03C6:  MOVFF  02,46
+03CA:  MOVFF  01,45
+03CE:  MOVFF  00,44
+03D2:  CLRF   4B
+03D4:  CLRF   4A
 03D6:  MOVLW  40
-03D8:  MOVWF  48
+03D8:  MOVWF  49
 03DA:  MOVLW  80
-03DC:  MOVWF  47
+03DC:  MOVWF  48
 03DE:  BRA    01F0
-03E0:  MOVFF  00,3F
-03E4:  MOVFF  01,40
-03E8:  MOVFF  02,41
-03EC:  MOVFF  03,42
-03F0:  MOVFF  03,46
-03F4:  MOVFF  02,45
-03F8:  MOVFF  01,44
-03FC:  MOVFF  00,43
+03E0:  MOVFF  00,40
+03E4:  MOVFF  01,41
+03E8:  MOVFF  02,42
+03EC:  MOVFF  03,43
+03F0:  MOVFF  03,47
+03F4:  MOVFF  02,46
+03F8:  MOVFF  01,45
+03FC:  MOVFF  00,44
 0400:  MOVLW  66
-0402:  MOVWF  4A
-0404:  MOVWF  49
-0406:  MOVWF  48
+0402:  MOVWF  4B
+0404:  MOVWF  4A
+0406:  MOVWF  49
 0408:  MOVLW  80
-040A:  MOVWF  47
+040A:  MOVWF  48
 040C:  RCALL  00FE
-040E:  MOVFF  03,42
-0412:  MOVFF  02,41
-0416:  MOVFF  01,40
-041A:  MOVFF  00,3F
+040E:  MOVFF  03,43
+0412:  MOVFF  02,42
+0416:  MOVFF  01,41
+041A:  MOVFF  00,40
 041E:  BRA    034C
-0420:  MOVFF  01,3E
+0420:  MOVFF  01,3F
 ....................    return result; 
-0424:  MOVFF  3E,01
+0424:  MOVFF  3F,01
 .................... } 
 0428:  GOTO   04AE (RETURN)
 .................... //=========================== 
@@ -252,7 +252,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 .................... void  TIMER0_isr(void)  
 .................... { 
 *
-048C:  CLRF   3D
+048C:  CLRF   3E
 ....................    char temp=0; 
 ....................    count_msec++; 
 048E:  INCF   24,F
@@ -261,7 +261,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 ....................    disable_interrupts(INT_EXT); 
 0494:  BCF    FF2.4
 ....................    timer_bt++; 
-0496:  INCF   2E,F
+0496:  INCF   2F,F
 ....................    if(count_msec>=935) // 1second 
 0498:  MOVF   25,W
 049A:  SUBLW  02
@@ -297,7 +297,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 04BE:  BCF    28.1
 ....................       } 
 ....................       second_refer++; 
-04C0:  INCF   2F,F
+04C0:  INCF   30,F
 ....................       if(count_s<timer_ex)  
 04C2:  MOVF   27,F
 04C4:  BNZ   04D2
@@ -325,7 +325,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 04DC:  INCF   2A,F
 .................... 			  fprintf(DEBUG,"."); 
 04DE:  MOVLW  2E
-04E0:  MOVWF  40
+04E0:  MOVWF  41
 04E2:  RCALL  042C
 .................... 		  } 
 .................... 		  else 
@@ -358,21 +358,21 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 06E6:  MOVLW  05
 06E8:  MOVWF  FF7
 06EA:  MOVLW  1C
-06EC:  MOVWF  34
+06EC:  MOVWF  35
 06EE:  RCALL  05B4
-06F0:  MOVFF  33,34
+06F0:  MOVFF  34,35
 06F4:  MOVLW  18
-06F6:  MOVWF  35
+06F6:  MOVWF  36
 06F8:  BRA    0606
 06FA:  MOVLW  28
 06FC:  MOVWF  FF6
 06FE:  MOVLW  05
 0700:  MOVWF  FF7
 0702:  MOVLW  03
-0704:  MOVWF  34
+0704:  MOVWF  35
 0706:  RCALL  05B4
 .................... 	timekeeping = insec; 
-0708:  MOVFF  33,2B
+0708:  MOVFF  34,2B
 .................... 	count_keepPWR = 0; 
 070C:  CLRF   2A
 .................... 	enable_sleeping_flag = 1; 
@@ -403,11 +403,11 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 08B6:  BSF    F89.2
 ....................       delay_ms(500); 
 08B8:  MOVLW  02
-08BA:  MOVWF  32
+08BA:  MOVWF  33
 08BC:  MOVLW  FA
-08BE:  MOVWF  33
+08BE:  MOVWF  34
 08C0:  RCALL  076E
-08C2:  DECFSZ 32,F
+08C2:  DECFSZ 33,F
 08C4:  BRA    08BC
 ....................       output_low(door_Lock_C); 
 08C6:  BCF    F92.2
@@ -416,7 +416,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 08CA:  BSF    28.2
 ....................    } 
 .................... } 
-08CC:  GOTO   0A56 (RETURN)
+08CC:  GOTO   0A62 (RETURN)
 .................... //=========================== 
 .................... void door_unlock() 
 .................... { 
@@ -430,11 +430,11 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 07EC:  BSF    F89.3
 ....................       delay_ms(500); 
 07EE:  MOVLW  02
-07F0:  MOVWF  32
+07F0:  MOVWF  33
 07F2:  MOVLW  FA
-07F4:  MOVWF  33
+07F4:  MOVWF  34
 07F6:  RCALL  076E
-07F8:  DECFSZ 32,F
+07F8:  DECFSZ 33,F
 07FA:  BRA    07F2
 ....................       output_low(door_UnLock_C); 
 07FC:  BCF    F92.3
@@ -443,12 +443,12 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 0800:  BCF    28.2
 ....................    } 
 .................... } 
-0802:  GOTO   0A42 (RETURN)
+0802:  GOTO   0A44 (RETURN)
 .................... //=========================== 
 .................... int8 open_mirror_remote() 
 .................... { 
 *
-0714:  CLRF   32
+0714:  CLRF   33
 ....................    int8 result = 0; 
 ....................    count_s = 0; 
 0716:  CLRF   27
@@ -484,16 +484,16 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 ....................       { 
 ....................          result = 1; 
 0748:  MOVLW  01
-074A:  MOVWF  32
+074A:  MOVWF  33
 ....................          output_low(Mirro_open);		 
 074C:  BCF    F92.6
 074E:  BCF    F89.6
 .................... 		 sleeping(10); 
 0750:  MOVLW  0A
-0752:  MOVWF  33
+0752:  MOVWF  34
 0754:  RCALL  06E2
 ....................          return result; 
-0756:  MOVFF  32,01
+0756:  MOVFF  33,01
 075A:  BRA    076C
 ....................       } 
 ....................       output_high(Mirro_open); 
@@ -507,14 +507,14 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 0764:  BCF    F92.6
 0766:  BCF    F89.6
 ....................    return result; 
-0768:  MOVFF  32,01
+0768:  MOVFF  33,01
 .................... } 
 076C:  RETURN 0
 .................... //========================== 
 .................... int8 close_mirror_remote() 
 .................... { 
 *
-0794:  CLRF   32
+0794:  CLRF   33
 ....................    int8 result = 0; 
 ....................    count_s = 0; 
 0796:  CLRF   27
@@ -548,12 +548,12 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 ....................       { 
 ....................          result = 1; 
 07C6:  MOVLW  01
-07C8:  MOVWF  32
+07C8:  MOVWF  33
 ....................          output_low(Mirro_close); 
 07CA:  BCF    F92.7
 07CC:  BCF    F89.7
 ....................          return result; 
-07CE:  MOVFF  32,01
+07CE:  MOVFF  33,01
 07D2:  BRA    07E4
 ....................       } 
 ....................       output_high(Mirro_close); 
@@ -567,7 +567,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 07DC:  BCF    F92.7
 07DE:  BCF    F89.7
 ....................    return result; 
-07E0:  MOVFF  32,01
+07E0:  MOVFF  33,01
 .................... } 
 07E4:  RETURN 0
 .................... //=========================== 
@@ -664,27 +664,27 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 0876:  BSF    F93.5
 0878:  BTFSS  F81.5
 087A:  BRA    0886
-087C:  MOVF   2E,W
+087C:  MOVF   2F,W
 087E:  SUBLW  64
 0880:  BC    0886
 ....................    { 
 ....................       bt_flag_h = 1; 
 0882:  BSF    28.3
 ....................       timer_bt=0; 
-0884:  CLRF   2E
+0884:  CLRF   2F
 ....................    } 
 ....................    if((input(BT_IO)==0)&&(timer_bt>100)) 
 0886:  BSF    F93.5
 0888:  BTFSC  F81.5
 088A:  BRA    0896
-088C:  MOVF   2E,W
+088C:  MOVF   2F,W
 088E:  SUBLW  64
 0890:  BC    0896
 ....................    { 
 ....................       bt_flag_l = 1; 
 0892:  BSF    28.4
 ....................       timer_bt=0; 
-0894:  CLRF   2E
+0894:  CLRF   2F
 ....................    } 
 ....................    if((bt_flag_l==1) && (bt_flag_h==1)) 
 0896:  BTFSS  28.4
@@ -711,7 +711,7 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 08AA:  BCF    28.3
 ....................    }   
 .................... } 
-08AC:  GOTO   0A4E (RETURN)
+08AC:  GOTO   0A50 (RETURN)
 .................... //=========================== 
 .................... void main() 
 .................... { 
@@ -750,35 +750,36 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 0998:  CLRF   2D
 099A:  CLRF   2E
 099C:  CLRF   2F
-099E:  BCF    28.1
-09A0:  BCF    28.2
-09A2:  BCF    28.3
-09A4:  BCF    28.4
-09A6:  BCF    FC2.6
-09A8:  BCF    FC2.7
-09AA:  MOVF   FC1,W
-09AC:  ANDLW  80
-09AE:  IORLW  7F
-09B0:  MOVWF  FC1
-09B2:  CLRF   31
-09B4:  CLRF   30
+099E:  CLRF   30
+09A0:  BCF    28.1
+09A2:  BCF    28.2
+09A4:  BCF    28.3
+09A6:  BCF    28.4
+09A8:  BCF    FC2.6
+09AA:  BCF    FC2.7
+09AC:  MOVF   FC1,W
+09AE:  ANDLW  80
+09B0:  IORLW  7F
+09B2:  MOVWF  FC1
+09B4:  CLRF   32
+09B6:  CLRF   31
 ....................    int16 timeout=0; 
 ....................    setup_timer_0(T0_INTERNAL|T0_DIV_8|T0_8_BIT);      //1.0 ms overflow 
-09B6:  MOVLW  C2
-09B8:  MOVWF  FD5
+09B8:  MOVLW  C2
+09BA:  MOVWF  FD5
 ....................    disable_interrupts(INT_TIMER0); 
-09BA:  BCF    FF2.5
+09BC:  BCF    FF2.5
 ....................    disable_interrupts(INT_EXT_L2H); 
-09BC:  BCF    FF2.4
+09BE:  BCF    FF2.4
 ....................    disable_interrupts(GLOBAL); 
-09BE:  BCF    FF2.6
-09C0:  BCF    FF2.7
-09C2:  BTFSC  FF2.7
-09C4:  BRA    09C0
+09C0:  BCF    FF2.6
+09C2:  BCF    FF2.7
+09C4:  BTFSC  FF2.7
+09C6:  BRA    09C2
 ....................    setup_oscillator(OSC_8MHZ|OSC_INTRC); 
-09C6:  MOVLW  72
-09C8:  MOVWF  FD3
-09CA:  MOVF   FD3,W
+09C8:  MOVLW  72
+09CA:  MOVWF  FD3
+09CC:  MOVF   FD3,W
 ....................     
 ....................    //setup_adc(ADC_CLOCK_DIV_64|ADC_TAD_MUL_2|VSS_VDD); 
 ....................    //setup_adc_ports(sAN0|sAN2); 
@@ -787,188 +788,203 @@ CCS PCH C Compiler, Version 4.140, 8863               04-Aug-18 12:54
 ....................    
 ....................    //delay_ms(1000); 
 ....................    ext_int_edge( L_TO_H ); 
-09CC:  BSF    FF1.6
+09CE:  BSF    FF1.6
 ....................    enable_interrupts(INT_EXT); 
-09CE:  BSF    FF2.4
+09D0:  BSF    FF2.4
 ....................    enable_interrupts(INT_TIMER0); 
-09D0:  BSF    FF2.5
+09D2:  BSF    FF2.5
 ....................    enable_interrupts(GLOBAL); 
-09D2:  MOVLW  C0
-09D4:  IORWF  FF2,F
+09D4:  MOVLW  C0
+09D6:  IORWF  FF2,F
 ....................     
 ....................    output_high(Keep_PWR); 
-09D6:  BCF    F93.4
-09D8:  BSF    F8A.4
+09D8:  BCF    F93.4
+09DA:  BSF    F8A.4
 ....................    open_mirror_remote();   
-09DA:  RCALL  0714
+09DC:  RCALL  0714
 ....................     
 ....................    fprintf(DEBUG,"Start...\r\n"); 
-09DC:  MOVLW  84
-09DE:  MOVWF  FF6
-09E0:  MOVLW  05
-09E2:  MOVWF  FF7
-09E4:  CLRF   19
-09E6:  BTFSC  FF2.7
-09E8:  BSF    19.7
-09EA:  BCF    FF2.7
-09EC:  RCALL  046C
-09EE:  BTFSC  19.7
-09F0:  BSF    FF2.7
+09DE:  MOVLW  84
+09E0:  MOVWF  FF6
+09E2:  MOVLW  05
+09E4:  MOVWF  FF7
+09E6:  CLRF   19
+09E8:  BTFSC  FF2.7
+09EA:  BSF    19.7
+09EC:  BCF    FF2.7
+09EE:  RCALL  046C
+09F0:  BTFSC  19.7
+09F2:  BSF    FF2.7
 ....................    delay_ms(1000); 
-09F2:  MOVLW  04
-09F4:  MOVWF  32
-09F6:  MOVLW  FA
-09F8:  MOVWF  33
-09FA:  RCALL  076E
-09FC:  DECFSZ 32,F
-09FE:  BRA    09F6
+09F4:  MOVLW  04
+09F6:  MOVWF  33
+09F8:  MOVLW  FA
+09FA:  MOVWF  34
+09FC:  RCALL  076E
+09FE:  DECFSZ 33,F
+0A00:  BRA    09F8
 ....................     while(1) 
 ....................     { 
 ....................       if(input(ACC_CHECK)==0) 
-0A00:  BSF    F93.3
-0A02:  BTFSC  F81.3
-0A04:  BRA    0A44
+0A02:  BSF    F93.3
+0A04:  BTFSC  F81.3
+0A06:  BRA    0A46
 ....................       { 
 ....................          if((second_refer>2)&&(input(ACC_CHECK)==0)) 
-0A06:  MOVF   2F,W
-0A08:  SUBLW  02
-0A0A:  BC    0A42
-0A0C:  BSF    F93.3
-0A0E:  BTFSC  F81.3
-0A10:  BRA    0A42
+0A08:  MOVF   30,W
+0A0A:  SUBLW  02
+0A0C:  BC    0A44
+0A0E:  BSF    F93.3
+0A10:  BTFSC  F81.3
+0A12:  BRA    0A44
 ....................          { 
 ....................             //door_unlock(); 
 ....................             if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0)) 
-0A12:  BSF    F93.2
-0A14:  BTFSS  F81.2
-0A16:  BRA    0A2C
-0A18:  BSF    F93.1
-0A1A:  BTFSC  F81.1
-0A1C:  BRA    0A2C
+0A14:  BSF    F93.2
+0A16:  BTFSS  F81.2
+0A18:  BRA    0A2E
+0A1A:  BSF    F93.1
+0A1C:  BTFSC  F81.1
+0A1E:  BRA    0A2E
 ....................             { 
 ....................                //fprintf(DEBUG,"lock is low %lu\r\n, ", count_s); 
 .................... 			   sleeping(10); 
-0A1E:  MOVLW  0A
-0A20:  MOVWF  33
-0A22:  RCALL  06E2
+0A20:  MOVLW  0A
+0A22:  MOVWF  34
+0A24:  RCALL  06E2
 ....................                if(close_mirror_remote()==1) 
-0A24:  RCALL  0794
-0A26:  DECFSZ 01,W
-0A28:  BRA    0A2C
+0A26:  RCALL  0794
+0A28:  DECFSZ 01,W
+0A2A:  BRA    0A2E
 ....................                { 
 ....................                    open_mirror_remote(); 
-0A2A:  RCALL  0714
+0A2C:  RCALL  0714
 ....................                } 
 ....................             } 
 ....................             if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0)) 
-0A2C:  BSF    F93.1
-0A2E:  BTFSS  F81.1
-0A30:  BRA    0A40
-0A32:  BSF    F93.2
-0A34:  BTFSC  F81.2
-0A36:  BRA    0A40
+0A2E:  BSF    F93.1
+0A30:  BTFSS  F81.1
+0A32:  BRA    0A42
+0A34:  BSF    F93.2
+0A36:  BTFSC  F81.2
+0A38:  BRA    0A42
 ....................             { 
 ....................                //fprintf(DEBUG,"unlock is low %lu\r\n, ", count_s); 
 ....................                if(open_mirror_remote()==1) 
-0A38:  RCALL  0714
-0A3A:  DECFSZ 01,W
-0A3C:  BRA    0A40
+0A3A:  RCALL  0714
+0A3C:  DECFSZ 01,W
+0A3E:  BRA    0A42
 ....................                { 
 ....................                   close_mirror_remote(); 
-0A3E:  RCALL  0794
+0A40:  RCALL  0794
 ....................                } 
 ....................             } 
 ....................             door_unlock(); 
-0A40:  BRA    07E6
+0A42:  BRA    07E6
 ....................          } 
 ....................       } 
 ....................       else 
-0A42:  BRA    0AB2
+0A44:  BRA    0AC2
 ....................       { 
 ....................          if(input(ACC_CHECK)==1) 
-0A44:  BSF    F93.3
-0A46:  BTFSS  F81.3
-0A48:  BRA    0A74
+0A46:  BSF    F93.3
+0A48:  BTFSS  F81.3
+0A4A:  BRA    0A84
 ....................          { 
 ....................             second_refer=0; 
-0A4A:  CLRF   2F
+0A4C:  CLRF   30
 ....................             button_touching(); 
-0A4C:  BRA    0876
+0A4E:  BRA    0876
 ....................             if(speed>20) 
-0A4E:  MOVF   2D,W
-0A50:  SUBLW  14
-0A52:  BC    0A56
+0A50:  MOVF   2D,W
+0A52:  SUBLW  14
+0A54:  BC    0A64
 ....................             { 
-....................                door_lock(); 
-0A54:  BRA    08B0
+....................                 if(repeat_check_speed<20) 
+0A56:  MOVF   2E,W
+0A58:  SUBLW  13
+0A5A:  BNC   0A60
+....................                 { 
+....................                     repeat_check_speed++; 
+0A5C:  INCF   2E,F
+....................                 } 
+....................                 else 
+0A5E:  BRA    0A62
+....................                 { 
+....................                     door_lock(); 
+0A60:  BRA    08B0
+....................                 } 
 ....................             } 
 ....................             else 
+0A62:  BRA    0A66
 ....................             { 
 ....................                //door_unlock(); 
+....................                repeat_check_speed=0; 
+0A64:  CLRF   2E
 ....................             } 
 ....................             if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0)) 
-0A56:  BSF    F93.1
-0A58:  BTFSS  F81.1
-0A5A:  BRA    0A66
-0A5C:  BSF    F93.2
-0A5E:  BTFSC  F81.2
-0A60:  BRA    0A66
+0A66:  BSF    F93.1
+0A68:  BTFSS  F81.1
+0A6A:  BRA    0A76
+0A6C:  BSF    F93.2
+0A6E:  BTFSC  F81.2
+0A70:  BRA    0A76
 ....................             { 
 ....................                door_lock_flag = 0; 
-0A62:  BCF    28.2
+0A72:  BCF    28.2
 ....................             } 
 ....................             else if((input(Lock_SIG)==1)&&(input(UnLock_SIG)==0)) 
-0A64:  BRA    0A74
-0A66:  BSF    F93.2
-0A68:  BTFSS  F81.2
-0A6A:  BRA    0A74
-0A6C:  BSF    F93.1
-0A6E:  BTFSC  F81.1
-0A70:  BRA    0A74
+0A74:  BRA    0A84
+0A76:  BSF    F93.2
+0A78:  BTFSS  F81.2
+0A7A:  BRA    0A84
+0A7C:  BSF    F93.1
+0A7E:  BTFSC  F81.1
+0A80:  BRA    0A84
 ....................             { 
 ....................                door_lock_flag = 1; 
-0A72:  BSF    28.2
+0A82:  BSF    28.2
 ....................             } 
 ....................          } 
 .................... 		 fprintf(DEBUG,"speed = %u, pulse = %u\r\n, ", speed,count_pulse); 
-0A74:  MOVLW  90
-0A76:  MOVWF  FF6
-0A78:  MOVLW  05
-0A7A:  MOVWF  FF7
-0A7C:  MOVLW  08
-0A7E:  MOVWF  34
-0A80:  RCALL  05B4
-0A82:  MOVFF  2D,32
-0A86:  MOVLW  1B
-0A88:  MOVWF  33
-0A8A:  RCALL  08D0
-0A8C:  MOVLW  9A
-0A8E:  MOVWF  FF6
-0A90:  MOVLW  05
-0A92:  MOVWF  FF7
-0A94:  MOVLW  0A
-0A96:  MOVWF  34
-0A98:  RCALL  05B4
-0A9A:  MOVFF  29,32
-0A9E:  MOVLW  1B
-0AA0:  MOVWF  33
-0AA2:  RCALL  08D0
-0AA4:  MOVLW  A6
-0AA6:  MOVWF  FF6
-0AA8:  MOVLW  05
-0AAA:  MOVWF  FF7
-0AAC:  MOVLW  04
-0AAE:  MOVWF  34
-0AB0:  RCALL  05B4
+0A84:  MOVLW  90
+0A86:  MOVWF  FF6
+0A88:  MOVLW  05
+0A8A:  MOVWF  FF7
+0A8C:  MOVLW  08
+0A8E:  MOVWF  35
+0A90:  RCALL  05B4
+0A92:  MOVFF  2D,33
+0A96:  MOVLW  1B
+0A98:  MOVWF  34
+0A9A:  RCALL  08D0
+0A9C:  MOVLW  9A
+0A9E:  MOVWF  FF6
+0AA0:  MOVLW  05
+0AA2:  MOVWF  FF7
+0AA4:  MOVLW  0A
+0AA6:  MOVWF  35
+0AA8:  RCALL  05B4
+0AAA:  MOVFF  29,33
+0AAE:  MOVLW  1B
+0AB0:  MOVWF  34
+0AB2:  RCALL  08D0
+0AB4:  MOVLW  A6
+0AB6:  MOVWF  FF6
+0AB8:  MOVLW  05
+0ABA:  MOVWF  FF7
+0ABC:  MOVLW  04
+0ABE:  MOVWF  35
+0AC0:  RCALL  05B4
 ....................       }      
 ....................       delay_ms(50); 
-0AB2:  MOVLW  32
-0AB4:  MOVWF  33
-0AB6:  RCALL  076E
+0AC2:  MOVLW  32
+0AC4:  MOVWF  34
+0AC6:  RCALL  076E
 ....................     } 
-0AB8:  BRA    0A00
+0AC8:  BRA    0A02
 .................... } 
-0ABA:  SLEEP 
+0ACA:  SLEEP 
 
 Configuration Fuses:
    Word  1: C800   INTRC_IO FCMEN IESO

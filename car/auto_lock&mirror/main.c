@@ -31,7 +31,7 @@ int16 count_msec=0,count_s=timer_ex;
 int1 mirror_st=0;
 int8 count_pulse=0;
 volatile int8 count_keepPWR=0,timekeeping=10,enable_sleeping_flag=0;
-int8 speed=0;
+int8 speed=0,repeat_check_speed=0;
 volatile int8 timer_bt=0;
 volatile int8 second_refer=0;
 int1 disable_mirror_button=0;
@@ -301,11 +301,19 @@ void main()
             button_touching();
             if(speed>20)
             {
-               door_lock();
+                if(repeat_check_speed<20)
+                {
+                    repeat_check_speed++;
+                }
+                else
+                {
+                    door_lock();
+                }
             }
             else
             {
                //door_unlock();
+               repeat_check_speed=0;
             }
             if((input(UnLock_SIG)==1)&&(input(Lock_SIG)==0))
             {
