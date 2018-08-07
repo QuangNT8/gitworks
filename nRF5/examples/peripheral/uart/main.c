@@ -53,14 +53,10 @@
 #include "app_uart.h"
 #include "app_error.h"
 #include "nrf_delay.h"
-#include "nrf.h"
+//#include "nrf.h"
 #include "bsp.h"
-#if defined (UART_PRESENT)
 #include "nrf_uart.h"
-#endif
-#if defined (UARTE_PRESENT)
-#include "nrf_uarte.h"
-#endif
+
 
 
 //#define ENABLE_LOOPBACK_TEST  /**< if defined, then this example will be a loopback test, which means that TX should be connected to RX to get data loopback. */
@@ -82,53 +78,35 @@ void uart_error_handle(app_uart_evt_t * p_event)
 }
 
 
-#ifdef ENABLE_LOOPBACK_TEST
-/* Use flow control in loopback test. */
-#define UART_HWFC APP_UART_FLOW_CONTROL_ENABLED
+/* When UART is used for communication with the host do not use flow control.*/
+#define UART_HWFC APP_UART_FLOW_CONTROL_DISABLED
 
-/** @brief Function for setting the @ref ERROR_PIN high, and then enter an infinite loop.
- */
-static void show_error(void)
+void clock_initialization()
 {
+    /* Start 16 MHz crystal oscillator */
+    NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
+    NRF_CLOCK->TASKS_HFCLKSTART    = 1;
 
-    bsp_board_leds_on();
-    while (true)
+    /* Wait for the external oscillator to start up */
+	nrf_delay_ms(1);
+	#if 0
+    while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0)
     {
         // Do nothing.
     }
-}
-
-
-/** @brief Function for testing UART loop back.
- *  @details Transmitts one character at a time to check if the data received from the loopback is same as the transmitted data.
- *  @note  @ref TX_PIN_NUMBER must be connected to @ref RX_PIN_NUMBER)
- */
-static void uart_loopback_test()
-{
-    uint8_t * tx_data = (uint8_t *)("\r\nLOOPBACK_TEST\r\n");
-    uint8_t   rx_data;
-
-    // Start sending one byte and see if you get the same
-    for (uint32_t i = 0; i < MAX_TEST_DATA_BYTES; i++)
+	#endif
+    /* Start low frequency crystal oscillator for app_timer(used by bsp)*/
+    NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
+    NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
+    NRF_CLOCK->TASKS_LFCLKSTART    = 1;
+	nrf_delay_ms(1);
+	#if 0
+    while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
     {
-        uint32_t err_code;
-        while (app_uart_put(tx_data[i]) != NRF_SUCCESS);
-
-        nrf_delay_ms(10);
-        err_code = app_uart_get(&rx_data);
-
-        if ((rx_data != tx_data[i]) || (err_code != NRF_SUCCESS))
-        {
-            show_error();
-        }
+        // Do nothing.
     }
-    return;
+	#endif
 }
-#else
-/* When UART is used for communication with the host do not use flow control.*/
-#define UART_HWFC APP_UART_FLOW_CONTROL_DISABLED
-#endif
-
 
 /**
  * @brief Function for main application entry.
@@ -137,8 +115,8 @@ int main(void)
 {
     uint32_t err_code;
 
-    bsp_board_leds_init();
-
+    //bsp_board_leds_init();
+	clock_initialization();
     const app_uart_comm_params_t comm_params =
       {
           RX_PIN_NUMBER,
@@ -158,9 +136,11 @@ int main(void)
                          err_code);
 
     APP_ERROR_CHECK(err_code);
-
-#ifndef ENABLE_LOOPBACK_TEST
-    printf("\r\nStart: \r\n");
+	printf("\r\nStart: \r\n");
+	while(1)
+	{
+		//printf(".");
+	}
 
     while (true)
     {
@@ -178,14 +158,6 @@ int main(void)
             }
         }
     }
-#else
-
-    // This part of the example is just for testing the loopback .
-    while (true)
-    {
-        uart_loopback_test();
-    }
-#endif
 }
 
 

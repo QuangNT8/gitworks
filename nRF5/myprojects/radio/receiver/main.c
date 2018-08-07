@@ -38,31 +38,26 @@
  * 
  */
 /** @file
-*
-* @defgroup nrf_dev_radio_rx_example_main main.c
-* @{
-* @ingroup nrf_dev_radio_rx_example
-* @brief Radio Receiver example Application main file.
-*
-* This file contains the source code for a sample application using the NRF_RADIO peripheral.
-*
-*/
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include "nrf_delay.h"
-#include "radio_config.h"
-#include "nrf_gpio.h"
-#include "boards.h"
-#include "bsp.h"
-#include "app_timer.h"
-#include "nordic_common.h"
-#include "nrf_error.h"
-#include "app_error.h"
+ * @defgroup uart_example_main main.c
+ * @{
+ * @ingroup uart_example
+ * @brief UART Example Application main file.
+ *
+ * This file contains the source code for a sample application using UART.
+ *
+ */
 
-#include "nrf_log.h"
-#include "nrf_log_ctrl.h"
-#include "nrf_log_default_backends.h"
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+
+#include "app_error.h"
+#include "nrf_delay.h"
+//#include "nrf.h"
+#include "bsp.h"
+
+#include "radio_config.h"
+
 
 #define LED1_ON          	nrf_gpio_pin_clear(17)
 #define LED1_OFF          	nrf_gpio_pin_set(17)
@@ -81,16 +76,140 @@
 #define RELAY2_toggle      	nrf_gpio_pin_toggle(16)
 
 #define SW1_init			nrf_gpio_cfg_input(14, BUTTON_PULL)	 
-#define SW2_init			nrf_gpio_cfg_input(12, BUTTON_PULL)	 
+#define SW2_init			nrf_gpio_cfg_input(13, BUTTON_PULL)	 
 #define SW1_read        	nrf_gpio_pin_read(14)
 #define SW2_read         	nrf_gpio_pin_read(13)
 
+#define debug_enable 
 
+#if defined(debug_enable)
 
+#include "app_uart.h"
+#include "nrf_uart.h"
+
+/* When UART is used for communication with the host do not use flow control.*/
+#define UART_HWFC APP_UART_FLOW_CONTROL_DISABLED
+#define MAX_TEST_DATA_BYTES     (15U)                /**< max number of test bytes to be used for tx and rx. */
+#define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE 256                         /**< UART RX buffer size. */
+
+#endif
 static uint32_t                   packet;              /**< Packet to transmit. */
 
-/**@brief Function for initialization oscillators.
+uint8_t sw1_flag=0;
+uint8_t sw2_flag=0;
+
+void button_scan()
+{
+	if(SW1_read==0)
+	{
+		nrf_delay_ms(50);
+		if((SW1_read==0)&&(sw1_flag==0))
+		{
+			LED2_toggle;
+			//LED1_toggle;
+			RELAY1_toggle;
+			sw1_flag = 1;
+		}
+	}
+	else
+	{
+		sw1_flag = 0;
+	}
+#if 1	
+	if(SW2_read==0)
+	{
+		nrf_delay_ms(50);
+		if((SW2_read==0)&&(sw2_flag==0))
+		{
+			LED2_toggle;
+			RELAY2_toggle;
+			sw2_flag = 1;
+		}
+	}
+	else
+	{
+		sw2_flag = 0;
+	}
+#endif
+}
+
+void button_scan_wallsocket()
+{
+	if(SW1_read==0)
+	{
+		nrf_delay_ms(50);
+		if((SW1_read==0)&&(sw1_flag==0))
+		{
+			LED2_toggle;
+			RELAY1_toggle;
+			sw1_flag = 1;
+		}
+	}
+	else
+	{
+		sw1_flag = 0;
+	}
+	
+	if(SW2_read==0)
+	{
+		nrf_delay_ms(50);
+		if((SW2_read==0)&&(sw2_flag==0))
+		{
+			LED1_toggle;
+			RELAY2_toggle;
+			sw2_flag = 1;
+		}
+		sw2_flag = 1;
+	}
+	else
+	{
+		sw2_flag = 0;
+	}
+}
+
+
+
+/**@brief Function for reading packet.
  */
+uint32_t read_packet()
+{
+    uint32_t result = 0;
+
+    NRF_RADIO->EVENTS_READY = 0U;
+    // Enable radio and wait for ready
+    NRF_RADIO->TASKS_RXEN = 1U;
+
+    while (NRF_RADIO->EVENTS_READY == 0U)
+    {
+        // wait
+    }
+    NRF_RADIO->EVENTS_END = 0U;
+    // Start listening and wait for address received event
+    NRF_RADIO->TASKS_START = 1U;
+
+    // Wait for end of packet or buttons state changed
+    while (NRF_RADIO->EVENTS_END == 0U)
+    {
+        //printf("\r\n Wait for end of packet \r\n");
+		button_scan_wallsocket();
+	}
+
+    if (NRF_RADIO->CRCSTATUS == 1U)
+    {
+        result = packet;
+    }
+    NRF_RADIO->EVENTS_DISABLED = 0U;
+    // Disable radio
+    NRF_RADIO->TASKS_DISABLE = 1U;
+
+    while (NRF_RADIO->EVENTS_DISABLED == 0U)
+    {
+        // wait
+    }
+    return result;
+}
+
 void clock_initialization()
 {
     /* Start 16 MHz crystal oscillator */
@@ -118,92 +237,102 @@ void clock_initialization()
 	#endif
 }
 
+#if defined(debug_enable)
 
-/**@brief Function for reading packet.
- */
-uint32_t read_packet()
+void uart_error_handle(app_uart_evt_t * p_event)
 {
-    uint32_t result = 0;
-
-    NRF_RADIO->EVENTS_READY = 0U;
-    // Enable radio and wait for ready
-    NRF_RADIO->TASKS_RXEN = 1U;
-
-    while (NRF_RADIO->EVENTS_READY == 0U)
+    if (p_event->evt_type == APP_UART_COMMUNICATION_ERROR)
     {
-        // wait
+        APP_ERROR_HANDLER(p_event->data.error_communication);
     }
-    NRF_RADIO->EVENTS_END = 0U;
-    // Start listening and wait for address received event
-    NRF_RADIO->TASKS_START = 1U;
-
-    // Wait for end of packet or buttons state changed
-    while (NRF_RADIO->EVENTS_END == 0U)
+    else if (p_event->evt_type == APP_UART_FIFO_ERROR)
     {
-        // wait
+        APP_ERROR_HANDLER(p_event->data.error_code);
     }
-
-    if (NRF_RADIO->CRCSTATUS == 1U)
-    {
-        result = packet;
-    }
-    NRF_RADIO->EVENTS_DISABLED = 0U;
-    // Disable radio
-    NRF_RADIO->TASKS_DISABLE = 1U;
-
-    while (NRF_RADIO->EVENTS_DISABLED == 0U)
-    {
-        // wait
-    }
-    return result;
 }
 
+void uart_init()
+{
+	uint32_t err_code;
+	
+	
+	const app_uart_comm_params_t comm_params =
+      {
+          RX_PIN_NUMBER,
+          TX_PIN_NUMBER,
+          RTS_PIN_NUMBER,
+          CTS_PIN_NUMBER,
+          APP_UART_FLOW_CONTROL_DISABLED,
+          false,
+          NRF_UART_BAUDRATE_115200
+      };
+
+    APP_UART_FIFO_INIT(&comm_params,
+                         UART_RX_BUF_SIZE,
+                         UART_TX_BUF_SIZE,
+                         uart_error_handle,
+                         APP_IRQ_PRIORITY_LOWEST,
+                         err_code);
+	 APP_ERROR_CHECK(err_code);
+}
+#endif
+
+void button_remote_wallsocket()
+{
+	if(packet!=0) 
+	{
+		if(packet==0x01)
+		{
+			LED1_toggle;
+			RELAY2_toggle;
+		}
+		if(packet==0x02)
+		{
+			LED2_toggle;
+			RELAY1_toggle;
+		}
+		packet=0;
+	}
+}
 
 /**
- * @brief Function for application main entry.
- * @return 0. int return type required by ANSI/ISO standard.
+ * @brief Function for main application entry.
  */
 int main(void)
 {
-    
-    clock_initialization();
+    //bsp_board_leds_init();
 
-    app_timer_init();
-    //APP_ERROR_CHECK(err_code);
-
-    NRF_LOG_INIT(NULL);
-    //APP_ERROR_CHECK(err_code);
-    NRF_LOG_DEFAULT_BACKENDS_INIT();
-
-    bsp_init(BSP_INIT_LED, NULL);
 	
+	clock_initialization();
+    
 	SW1_init;
 	SW2_init;
 	nrf_gpio_cfg_output(17);
+	nrf_gpio_cfg_output(16);
+	nrf_gpio_cfg_output(12);
 	nrf_gpio_cfg_output(18);
 	
-    //APP_ERROR_CHECK(err_code);
-
-    // Set radio configuration parameters
-    radio_configure();
+	
+	radio_configure();
     NRF_RADIO->PACKETPTR = (uint32_t)&packet;
+	
+	// Set radio configuration parameters
+  
+#if defined(debug_enable)
+	uart_init();
+	printf("\r\n Debug Enable \r\n");
+#endif
 
-    bsp_indication_set(BSP_INDICATE_USER_STATE_OFF);
-    while (true)
+	packet=0;
+	while (true)
     {
-		if(SW1_read==0)
-		{
-			while(SW1_read==0);
-			LED2_toggle;
-		}
-		//nrf_gpio_pin_toggle(18);
-        //uint32_t received = read_packet();
-		//read_packet();
-		//nrf_gpio_pin_toggle(18);
-        //bsp_indication_set(BSP_INDICATE_RCV_OK);       
+		#if defined(debug_enable)
+			printf("\r\n RF packet: 0x%lx \r\n",packet);
+		#endif
+		button_remote_wallsocket();
+		read_packet();	
     }
 }
 
-/**
- *@}
- **/
+
+/** @} */

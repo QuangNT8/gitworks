@@ -39,23 +39,7 @@ _build/nrf52832_xxaa/app_scheduler.c.o: \
  ../../../components/device/nrf51_to_nrf52.h \
  ../../../components/device/nrf52_name_change.h \
  ../../../components/device/compiler_abstraction.h \
- ../../../components/libraries/util/sdk_macros.h \
- ../../../components/libraries/scheduler/app_scheduler.h \
- ../../../components/libraries/util/app_error.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdarg.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\types.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\types.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h \
- ../../../components/libraries/util/app_error_weak.h \
- ../../../components/libraries/util/app_util.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h \
- ../../../components/drivers_nrf/nrf_soc_nosd/nrf_soc.h \
- ../../../components/libraries/util/nrf_assert.h \
- ../../../components/libraries/util/app_error.h \
- ../../../components/libraries/util/app_util_platform.h \
- ../../../components/libraries/util/nrf_assert.h
+ ../../../components/libraries/util/sdk_macros.h
 
 ../../../components/libraries/util/sdk_common.h:
 
@@ -140,35 +124,3 @@ config/sdk_config.h:
 ../../../components/device/compiler_abstraction.h:
 
 ../../../components/libraries/util/sdk_macros.h:
-
-../../../components/libraries/scheduler/app_scheduler.h:
-
-../../../components/libraries/util/app_error.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdarg.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\types.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\types.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h:
-
-../../../components/libraries/util/app_error_weak.h:
-
-../../../components/libraries/util/app_util.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h:
-
-../../../components/drivers_nrf/nrf_soc_nosd/nrf_soc.h:
-
-../../../components/libraries/util/nrf_assert.h:
-
-../../../components/libraries/util/app_error.h:
-
-../../../components/libraries/util/app_util_platform.h:
-
-../../../components/libraries/util/nrf_assert.h:

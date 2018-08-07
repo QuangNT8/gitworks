@@ -55,7 +55,6 @@ _build/nrf52832_xxaa/nrf_balloc.c.o: \
  ../../../components/libraries/experimental_log/nrf_log.h \
  ../../../components/libraries/experimental_section_vars/nrf_section.h \
  ../../../components/libraries/util/nordic_common.h \
- ../../../components/libraries/strerror/nrf_strerror.h \
  ../../../components/libraries/experimental_log/src/nrf_log_internal.h
 
 ../../../components/libraries/util/sdk_common.h:
@@ -171,7 +170,5 @@ c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\inc
 ../../../components/libraries/experimental_section_vars/nrf_section.h:
 
 ../../../components/libraries/util/nordic_common.h:
-
-../../../components/libraries/strerror/nrf_strerror.h:
 
 ../../../components/libraries/experimental_log/src/nrf_log_internal.h:

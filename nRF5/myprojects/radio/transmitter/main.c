@@ -66,6 +66,27 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
+#define LED1_ON          	nrf_gpio_pin_clear(17)
+#define LED1_OFF          	nrf_gpio_pin_set(17)
+#define LED1_toggle         nrf_gpio_pin_toggle(17)
+
+#define LED2_ON          	nrf_gpio_pin_clear(18)
+#define LED2_OFF          	nrf_gpio_pin_set(18)
+#define LED2_toggle         nrf_gpio_pin_toggle(18)
+
+#define RELAY1_OFF         	nrf_gpio_pin_clear(12)
+#define RELAY1_ON        	nrf_gpio_pin_set(12)
+#define RELAY1_toggle      	nrf_gpio_pin_toggle(12)
+
+#define RELAY2_OFF         	nrf_gpio_pin_clear(16)
+#define RELAY2_ON        	nrf_gpio_pin_set(16)
+#define RELAY2_toggle      	nrf_gpio_pin_toggle(16)
+
+#define SW1_init			nrf_gpio_cfg_input(14, BUTTON_PULL)	 
+#define SW2_init			nrf_gpio_cfg_input(13, BUTTON_PULL)	 
+#define SW1_read        	nrf_gpio_pin_read(14)
+#define SW2_read         	nrf_gpio_pin_read(13)
+
 static uint32_t                   packet;                    /**< Packet to transmit. */
 
 /**@brief Function for sending packet.
@@ -178,7 +199,8 @@ void clock_initialization()
 int main(void)
 {
     uint32_t err_code = NRF_SUCCESS;
-
+	uint8_t sw1_flag=0;
+	uint8_t sw2_flag=0;
 	 /* Configure board. */
     bsp_board_leds_init();
 	
@@ -195,6 +217,8 @@ int main(void)
     err_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS, bsp_evt_handler);
     APP_ERROR_CHECK(err_code);
 
+	SW1_init;
+	SW2_init;
     // Set radio configuration parameters
     radio_configure();
 
@@ -205,6 +229,7 @@ int main(void)
 //    NRF_LOG_INFO("Press Any Button");
     APP_ERROR_CHECK(err_code);
 #endif
+	packet = 0;
     while (true)
     {
 //        if (packet != 0)
@@ -213,11 +238,46 @@ int main(void)
 //            NRF_LOG_INFO("The contents of the package was %u", (unsigned int)packet);
 //            packet = 0;
 //        }
-		send_packet();
+		if(SW1_read==0)
+		{
+			nrf_delay_ms(50);
+			if((SW1_read==0)&&(sw1_flag==0))
+			{
+				packet=1;
+				send_packet();
+				//LED1_toggle;
+				//RELAY1_toggle;
+				sw1_flag = 1;
+			}
+		}
+		else
+		{
+			sw1_flag = 0;
+		}
+		if(SW2_read==0)
+		{
+			nrf_delay_ms(50);
+			if((SW2_read==0)&&(sw2_flag==0))
+			{
+				//LED2_toggle;
+				//RELAY2_toggle;
+				packet=2;
+				send_packet();
+				sw2_flag = 1;
+			}
+		}
+		else
+		{
+			sw2_flag = 0;
+		}
+		
+		//packet++;
+		//if(packet>=0xffffffff)packet = 0;
+		//send_packet();
         //NRF_LOG_INFO("The contents of the package was %u", (unsigned int)packet);
         //NRF_LOG_FLUSH();
-		bsp_board_led_invert(1);
-		nrf_delay_ms(500);
+		//bsp_board_led_invert(1);
+		//nrf_delay_ms(500);
         //__WFE();
     }
 }

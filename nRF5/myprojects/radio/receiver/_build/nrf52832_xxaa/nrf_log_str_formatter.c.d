@@ -39,30 +39,7 @@ _build/nrf52832_xxaa/nrf_log_str_formatter.c.o: \
  ../../../components/device/nrf51_to_nrf52.h \
  ../../../components/device/nrf52_name_change.h \
  ../../../components/device/compiler_abstraction.h \
- ../../../components/libraries/util/sdk_macros.h \
- ../../../components/libraries/experimental_log/nrf_log_str_formatter.h \
- ../../../external/fprintf/nrf_fprintf.h \
- ../../../components/libraries/experimental_log/nrf_log_ctrl.h \
- ../../../components/libraries/util/sdk_errors.h \
- ../../../components/libraries/experimental_log/src/nrf_log_ctrl_internal.h \
- ../../../components/libraries/experimental_log/nrf_log_backend_interface.h \
- ../../../components/libraries/experimental_memobj/nrf_memobj.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h \
- ../../../components/libraries/balloc/nrf_balloc.h \
- ../../../components/libraries/util/app_util_platform.h \
- ../../../components/libraries/util/nrf_assert.h \
- ../../../components/libraries/util/app_error.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdarg.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\types.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\types.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h \
- ../../../components/libraries/util/app_error_weak.h \
- ../../../components/libraries/util/app_util.h \
- ../../../components/libraries/experimental_log/src/nrf_log_internal.h \
- ../../../components/libraries/experimental_log/nrf_log_ctrl.h \
- c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\ctype.h
+ ../../../components/libraries/util/sdk_macros.h
 
 ../../../components/libraries/util/sdk_common.h:
 
@@ -147,49 +124,3 @@ config/sdk_config.h:
 ../../../components/device/compiler_abstraction.h:
 
 ../../../components/libraries/util/sdk_macros.h:
-
-../../../components/libraries/experimental_log/nrf_log_str_formatter.h:
-
-../../../external/fprintf/nrf_fprintf.h:
-
-../../../components/libraries/experimental_log/nrf_log_ctrl.h:
-
-../../../components/libraries/util/sdk_errors.h:
-
-../../../components/libraries/experimental_log/src/nrf_log_ctrl_internal.h:
-
-../../../components/libraries/experimental_log/nrf_log_backend_interface.h:
-
-../../../components/libraries/experimental_memobj/nrf_memobj.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\stdlib.h:
-
-../../../components/libraries/balloc/nrf_balloc.h:
-
-../../../components/libraries/util/app_util_platform.h:
-
-../../../components/libraries/util/nrf_assert.h:
-
-../../../components/libraries/util/app_error.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdio.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdarg.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\types.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\types.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\stdio.h:
-
-../../../components/libraries/util/app_error_weak.h:
-
-../../../components/libraries/util/app_util.h:
-
-../../../components/libraries/experimental_log/src/nrf_log_internal.h:
-
-../../../components/libraries/experimental_log/nrf_log_ctrl.h:
-
-c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\ctype.h:
