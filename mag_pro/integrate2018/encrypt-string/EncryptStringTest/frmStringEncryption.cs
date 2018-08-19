@@ -13,26 +13,15 @@ namespace EncryptStringTest
 {
     public partial class frmStringEncryption : Form
     {
+        string textinput;
+        string textoutput;
+
         public frmStringEncryption()
         {
             InitializeComponent();
         }
 
-        private void butEncrypt_Click(object sender, EventArgs e)
-        {
-            if ((!string.IsNullOrWhiteSpace(textBoxString.Text) && !string.IsNullOrWhiteSpace(textBoxString.Text))==true)
-            {
-                try
-                {
-                    textBoxEncrypted.Text = Encrypt.EncryptString(textBoxString.Text, textBoxPassword.Text);
-                    textBoxString.Text = "";
-                }
-                catch( Exception ex )
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
+        
         private void getkey(byte[] keyhex)
         {
             byte[] buffer = ASCIIEncoding.ASCII.GetBytes(textBoxPassword.Text);
@@ -42,25 +31,7 @@ namespace EncryptStringTest
                 if (j < buffer.Length) keyhex[j] = buffer[j];
             }
         }
-        private void getdatafromtextbox(byte[] hexval)
-        {
-            int len = 0, lenhex = 0;
-            string hexout;
 
-            //string text = textBoxString.Text;
-            // remove all space char in textbox
-            textBoxString.Text = textBoxString.Text.Replace(" ", "");
-            string text = textBoxString.Text;
-            char[] chars = text.ToCharArray();
-            len = text.Length;
-            //var hexval = new byte[len / 2];
-            for (int i = 0; i < text.Length; i++)
-            {
-                hexout = chars[i].ToString() + chars[i + 1].ToString();
-                i++;
-                if (hexout != "\r\n") hexval[lenhex++] = Convert.ToByte(hexout, 16);
-            }
-        }
         private void butDecrypt_Click(object sender, EventArgs e)
         {
             butDecrypt.Enabled = false;
@@ -73,14 +44,15 @@ namespace EncryptStringTest
             string hexout;
             // remove all space char in textbox
             editdata();
-            textBoxEncrypted.Text = "";
+            //textBoxEncrypted.Text = "";
+            textoutput = "";
 
-            string text = textBoxString.Text;
+            string text = textinput;
             char[] chars = text.ToCharArray();
             len = text.Length;
             var hexval = new byte[len / 2];
 
-            if (textBoxString.Text == "")
+            if (textinput == "")
             {
                 butDecrypt.Enabled = true;
                 return;
@@ -111,24 +83,30 @@ namespace EncryptStringTest
                     //if (datahex[j] == 0) return;
                     if (datahex[u] == 255)
                     {
-                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nTrack1: ";
+                        //textoutput = textBoxEncrypted.Text + "\r\nTrack1: ";
+                        textoutput = textoutput + "\r\nTrack1: ";
                     }
                     else if (datahex[u] == 254)
                     {
-                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nTrack2: ";
+                        //textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nTrack2: ";
+                        textoutput = textoutput + "\r\nTrack2: ";
                     }
                     else if (datahex[u] == 252)
                     {
-                        textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nPin: ";
+                        //textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\nPin: ";
+                        textoutput = textoutput + "\r\nPin: ";
                     }
                     else
                     {
-                        textBoxEncrypted.Text = textBoxEncrypted.Text + (char)datahex[u];
+                        //textBoxEncrypted.Text = textBoxEncrypted.Text + (char)datahex[u];
+                        textoutput= textoutput + (char)datahex[u];
                     }
                     
                     //if (datahex[u] == '?') textBoxEncrypted.Text = textBoxEncrypted.Text + "\r\n";
                 }
             }
+
+            savefiles();
             // byte[] datahex = Convert.ToByte(datainput);
             //textBoxString.Text = string.Join(" ", keyhex.Select(x => x.ToString("X2")));
             butDecrypt.Enabled = true;
@@ -142,14 +120,17 @@ namespace EncryptStringTest
             ofd.Title = "Open File...";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                ReadFile(ofd.FileName);
+                //ReadFile(ofd.FileName);
+                textinput = File.ReadAllText(ofd.FileName);
+                label1.Text = ofd.FileName;
             }
         }
         // String Collection Method.
         private void ReadFile(string file)
         {
             StreamReader reader = new StreamReader(file, Encoding.UTF8);
-            textBoxString.Text = reader.ReadToEnd();
+            //textBoxString.Text = reader.ReadToEnd();
+            textinput = reader.ReadToEnd();
             reader.Close();
         }
 
@@ -163,20 +144,33 @@ namespace EncryptStringTest
                 WriteFile(sfd.FileName);
             }
         }
+        private void savefiles()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text|*.txt";
+            sfd.Title = "Save file...";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(sfd.FileName,textoutput);
+                label2.Text = sfd.FileName;
+                //WriteFile(sfd.FileName);
+            }
+        }
         void WriteFile(string file)
         {
+            /*
             StreamWriter sw = new StreamWriter(file, false,
                                   Encoding.Unicode);
             foreach (string line in textBoxEncrypted.Lines)
             {
                 sw.WriteLine(line);
             }
-            sw.Close();
+            sw.Close();*/
         }
 
         private void editdata()
         {
-            textBoxString.Text = textBoxString.Text.Replace("password:", "");
+            /*textBoxString.Text = textBoxString.Text.Replace("password:", "");
             textBoxString.Text = textBoxString.Text.Replace("OK", "");
             textBoxString.Text = textBoxString.Text.Replace(">d", "");
             textBoxString.Text = textBoxString.Text.Replace(">e\n\r exit", "");
@@ -188,7 +182,20 @@ namespace EncryptStringTest
             textBoxString.Text = textBoxString.Text.Replace(">", "");
             textBoxString.Text = textBoxString.Text.Replace("<", "");
             textBoxString.Text = textBoxString.Text.Replace("\n", "");
-            textBoxString.Text = textBoxString.Text.Replace("\r", "");
+            textBoxString.Text = textBoxString.Text.Replace("\r", "");*/
+            textinput = textinput.Replace("password:", "");
+            textinput = textinput.Replace("OK", "");
+            textinput = textinput.Replace(">d", "");
+            textinput = textinput.Replace(">e\n\r exit", "");
+            textinput = textinput.Replace(">c\n\r[M][3]01/01 00:00:00", "");
+            textinput = textinput.Replace("exit", "");
+            textinput = textinput.Replace(" ", "");
+            textinput = textinput.Replace("X", "");
+            textinput = textinput.Replace("*", "");
+            textinput = textinput.Replace(">", "");
+            textinput = textinput.Replace("<", "");
+            textinput = textinput.Replace("\n", "");
+            textinput = textinput.Replace("\r", "");
         }
     }
 }

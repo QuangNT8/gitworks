@@ -30,19 +30,16 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxString = new System.Windows.Forms.TextBox();
-            this.textBoxEncrypted = new System.Windows.Forms.TextBox();
             this.butDecrypt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 77);
+            this.label1.Location = new System.Drawing.Point(23, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -51,41 +48,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 308);
+            this.label2.Location = new System.Drawing.Point(23, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Encrypted Data";
             // 
-            // textBoxString
-            // 
-            this.textBoxString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxString.Location = new System.Drawing.Point(100, 51);
-            this.textBoxString.MaxLength = 999999999;
-            this.textBoxString.Multiline = true;
-            this.textBoxString.Name = "textBoxString";
-            this.textBoxString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxString.Size = new System.Drawing.Size(830, 240);
-            this.textBoxString.TabIndex = 1;
-            // 
-            // textBoxEncrypted
-            // 
-            this.textBoxEncrypted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxEncrypted.Location = new System.Drawing.Point(100, 305);
-            this.textBoxEncrypted.MaxLength = 999999999;
-            this.textBoxEncrypted.Multiline = true;
-            this.textBoxEncrypted.Name = "textBoxEncrypted";
-            this.textBoxEncrypted.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxEncrypted.Size = new System.Drawing.Size(830, 258);
-            this.textBoxEncrypted.TabIndex = 7;
-            // 
             // butDecrypt
             // 
-            this.butDecrypt.Location = new System.Drawing.Point(12, 333);
+            this.butDecrypt.Location = new System.Drawing.Point(17, 143);
             this.butDecrypt.Name = "butDecrypt";
-            this.butDecrypt.Size = new System.Drawing.Size(82, 115);
+            this.butDecrypt.Size = new System.Drawing.Size(82, 33);
             this.butDecrypt.TabIndex = 5;
             this.butDecrypt.Text = "Decrypt";
             this.butDecrypt.UseVisualStyleBackColor = true;
@@ -104,14 +77,14 @@
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPassword.Location = new System.Drawing.Point(100, 20);
+            this.textBoxPassword.Location = new System.Drawing.Point(109, 25);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(301, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(162, 20);
             this.textBoxPassword.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 93);
+            this.button1.Location = new System.Drawing.Point(17, 77);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 34);
             this.button1.TabIndex = 8;
@@ -119,28 +92,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 477);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 34);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // frmStringEncryption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 583);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(380, 188);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.butDecrypt);
-            this.Controls.Add(this.textBoxEncrypted);
-            this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmStringEncryption";
@@ -154,13 +114,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxString;
-        private System.Windows.Forms.TextBox textBoxEncrypted;
         private System.Windows.Forms.Button butDecrypt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
 
