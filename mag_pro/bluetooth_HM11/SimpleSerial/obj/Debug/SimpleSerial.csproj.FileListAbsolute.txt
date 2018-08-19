@@ -40,3 +40,5 @@ D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\Si
 D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.Form1.resources
 D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.Properties.Resources.resources
 D:\magnertic_card_prj\for michael perez\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.csproj.GenerateResource.Cache
+D:\STM32\workspace\gitworks\mag_pro\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.exe
+D:\STM32\workspace\gitworks\mag_pro\bluetooth_HM11\SimpleSerial\obj\Debug\SimpleSerial.pdb

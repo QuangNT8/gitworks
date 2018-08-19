@@ -63,10 +63,11 @@ namespace EncryptStringTest
         }
         private void butDecrypt_Click(object sender, EventArgs e)
         {
+            butDecrypt.Enabled = false;
             //byte[] datatest= { 0x67, 0x43, 0xC3, 0xD1, 0x51, 0x9A, 0xB4, 0xF2, 0xCD, 0x9A, 0x78, 0xAB, 0x09, 0xA5, 0x11, 0xBD };
             char[] allowedChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-            var keyhex = new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; 
-            var datahex= new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            var keyhex = new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            var datahex = new byte[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int len = 0, lenhex = 0;
             byte[] tempkey;
             string hexout;
@@ -79,9 +80,13 @@ namespace EncryptStringTest
             len = text.Length;
             var hexval = new byte[len / 2];
 
-            if (textBoxString.Text == "") return;
+            if (textBoxString.Text == "")
+            {
+                butDecrypt.Enabled = true;
+                return;
+            }
 
-            for (int i = 0; i < text.Length; i++)
+            for (long i = 0; i < text.Length; i++)
             {
                 hexout = chars[i].ToString() + chars[i + 1].ToString();
                 i++;
@@ -90,7 +95,7 @@ namespace EncryptStringTest
 
             getkey(keyhex);
 
-            int v,j,u,buflen;
+            long v,j,u,buflen;
             buflen = hexval.Length/16;
             for (v = 0; v < buflen; v++)
             {
@@ -126,7 +131,7 @@ namespace EncryptStringTest
             }
             // byte[] datahex = Convert.ToByte(datainput);
             //textBoxString.Text = string.Join(" ", keyhex.Select(x => x.ToString("X2")));
-
+            butDecrypt.Enabled = true;
             // textBoxEncrypted.Text = string.Join(" ", datahex.Select(x => x.ToString("X2")));          
         }
 

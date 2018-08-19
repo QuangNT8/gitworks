@@ -62,8 +62,10 @@
             this.textBoxString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxString.Location = new System.Drawing.Point(100, 51);
+            this.textBoxString.MaxLength = 999999999;
             this.textBoxString.Multiline = true;
             this.textBoxString.Name = "textBoxString";
+            this.textBoxString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxString.Size = new System.Drawing.Size(830, 240);
             this.textBoxString.TabIndex = 1;
             // 
@@ -72,8 +74,10 @@
             this.textBoxEncrypted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEncrypted.Location = new System.Drawing.Point(100, 305);
+            this.textBoxEncrypted.MaxLength = 999999999;
             this.textBoxEncrypted.Multiline = true;
             this.textBoxEncrypted.Name = "textBoxEncrypted";
+            this.textBoxEncrypted.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxEncrypted.Size = new System.Drawing.Size(830, 258);
             this.textBoxEncrypted.TabIndex = 7;
             // 
