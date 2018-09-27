@@ -322,7 +322,12 @@ int main(void)
 	uart_init();
 	printf("\r\n Debug Enable \r\n");
 #endif
-
+	while(1)
+    {
+       printf("\r\n Debug Enable \r\n");
+       LED1_toggle;
+       nrf_delay_ms(100);
+    }
 	packet=0;
 	while (true)
     {

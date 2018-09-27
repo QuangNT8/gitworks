@@ -56,7 +56,7 @@
 #define BSP_BTN_BLE_H__
 
 #include <stdint.h>
-#include "ble.h"
+//#include "ble.h"
 #include "bsp.h"
 
 #ifdef __cplusplus

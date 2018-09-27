@@ -1,6 +1,6 @@
-16:00:26 **** Incremental Build of configuration Debug for project testadc ****
+15:01:14 **** Incremental Build of configuration Debug for project testadc ****
 make all 
 make: Nothing to be done for 'all'.
 
-16:00:26 Build Finished (took 221ms)
+15:01:15 Build Finished (took 617ms)
 

@@ -1,6 +1,6 @@
-09:55:11 **** Incremental Build of configuration Debug for project power ****
+15:01:13 **** Incremental Build of configuration Debug for project power ****
 make all 
 make: Nothing to be done for 'all'.
 
-09:55:12 Build Finished (took 223ms)
+15:01:14 Build Finished (took 403ms)
 
