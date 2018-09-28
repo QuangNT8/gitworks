@@ -49,6 +49,16 @@
 // <h> nRF_Drivers 
 
 //==========================================================
+// <e> GPIOTE_ENABLED - nrf_drv_gpiote - GPIOTE peripheral driver
+//==========================================================
+#ifndef GPIOTE_ENABLED
+#define GPIOTE_ENABLED 1
+#endif
+
+#ifndef GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS
+#define GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS 1
+#endif
+//==========================================================
 // <q> PERIPHERAL_RESOURCE_SHARING_ENABLED  - nrf_drv_common - Peripheral drivers common module
  
 
@@ -73,6 +83,10 @@
 // <5=> 5 
 // <6=> 6 
 // <7=> 7 
+
+#ifndef GPIOTE_CONFIG_IRQ_PRIORITY
+#define GPIOTE_CONFIG_IRQ_PRIORITY 7
+#endif
 
 #ifndef POWER_CONFIG_IRQ_PRIORITY
 #define POWER_CONFIG_IRQ_PRIORITY 7
@@ -348,6 +362,13 @@
 #define UART0_CONFIG_USE_EASY_DMA 1
 #endif
 
+
+// <q> APP_PWM_ENABLED  - app_pwm - PWM functionality
+ 
+
+#ifndef APP_PWM_ENABLED
+#define APP_PWM_ENABLED 1
+#endif
 // </e>
 
 // </e>

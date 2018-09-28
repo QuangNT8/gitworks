@@ -43,6 +43,7 @@ Product
             project.sdkPath + 'components/libraries/experimental_log',
             project.sdkPath + 'components/libraries/pwr_mgmt',
             project.sdkPath + 'components/libraries/strerror',
+            project.sdkPath + 'components/libraries/pwm',
             project.sdkPath + 'components/drivers_nrf/delay',
             project.sdkPath + 'components/toolchain/cmsis/include',
             project.sdkPath + 'components/drivers_nrf/timer',
@@ -55,6 +56,7 @@ Product
             project.sdkPath + 'components/libraries/experimental_section_vars',
             project.sdkPath + 'components/libraries/mutex',
             project.sdkPath + 'components/libraries/experimental_log/src',
+            project.sdkPath + 'components/drivers_nrf/gpiote',
             project.sdkPath + 'components/drivers_nrf/saadc',
             project.sdkPath + 'components/drivers_nrf/power',
             project.sdkPath + 'components/drivers_nrf/nrf_soc_nosd',
@@ -65,7 +67,7 @@ Product
             project.sdkPath + 'components/toolchain',
             project.sdkPath + 'components/drivers_nrf/ppi',
             project.sdkPath + 'external/fprintf',
-
+            '../mylib/adc',
         ]
 
     files:
@@ -82,6 +84,7 @@ Product
             project.sdkPath + 'components/libraries/util/app_util_platform.c',
             project.sdkPath + 'components/libraries/util/nrf_assert.c',
             project.sdkPath + 'components/libraries/balloc/nrf_balloc.c',
+            project.sdkPath + 'components/libraries/pwm/app_pwm.c',
             project.sdkPath + 'external/fprintf/nrf_fprintf.c',
             project.sdkPath + 'external/fprintf/nrf_fprintf_format.c',
             project.sdkPath + 'components/libraries/experimental_memobj/nrf_memobj.c',
@@ -89,6 +92,7 @@ Product
             project.sdkPath + 'components/libraries/experimental_section_vars/nrf_section_iter.c',
             project.sdkPath + 'components/libraries/strerror/nrf_strerror.c',
             project.sdkPath + 'components/drivers_nrf/common/nrf_drv_common.c',
+            project.sdkPath + 'components/drivers_nrf/gpiote/nrf_drv_gpiote.c',
             project.sdkPath + 'components/drivers_nrf/power/nrf_drv_power.c',
             project.sdkPath + 'components/drivers_nrf/ppi/nrf_drv_ppi.c',
             project.sdkPath + 'components/drivers_nrf/saadc/nrf_drv_saadc.c',
@@ -100,6 +104,8 @@ Product
             project.sdkPath + 'external/segger_rtt/SEGGER_RTT_printf.c',
             project.sdkPath + 'components/toolchain/gcc/gcc_startup_nrf52.S',
             project.sdkPath + 'components/toolchain/system_nrf52.c',
+            '../mylib/adc/nrf_drv_saadc.c',
+            '../mylib/adc/nrf_drv_saadc.h',
             'main.c',
             'config/sdk_config.h',
             "saadc_gcc_nrf52.ld",

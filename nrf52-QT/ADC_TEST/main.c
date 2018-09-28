@@ -54,6 +54,7 @@
 #include <string.h>
 #include "nrf.h"
 #include "nrf_drv_saadc.h"
+#include "../adc/nrf_drv_saadc.h"
 #include "nrf_drv_ppi.h"
 #include "nrf_drv_timer.h"
 #include "boards.h"
@@ -62,11 +63,12 @@
 #include "app_util_platform.h"
 #include "nrf_pwr_mgmt.h"
 #include "nrf_drv_power.h"
-
+#include "app_pwm.h"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
+
 
 #define SAADC_SAMPLE_RATE		        250     /**< SAADC sample rate in ms. */
 
@@ -78,6 +80,14 @@ static nrf_saadc_value_t     m_buffer_pool[2][SAADC_SAMPLES_IN_BUFFER];
 static nrf_ppi_channel_t     m_ppi_channel;
 static uint32_t              m_adc_evt_counter;
 
+APP_PWM_INSTANCE(PWM1,1);                   // Create the instance "PWM1" using TIMER1.
+
+static volatile bool ready_flag;            // A flag indicating PWM status.
+
+void pwm_ready_callback(uint32_t pwm_id)    // PWM callback function
+{
+    ready_flag = true;
+}
 
 void timer_handler(nrf_timer_event_t event_type, void * p_context)
 {
@@ -215,20 +225,38 @@ int main(void)
 
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 
-    //err_code = nrf_drv_power_init(NULL);
-    //APP_ERROR_CHECK(err_code);
 
-    //ret_code_t ret_code = nrf_pwr_mgmt_init();
-    //APP_ERROR_CHECK(ret_code);
-
-    NRF_LOG_INFO("SAADC HAL simple example.");
     saadc_init();
     saadc_sampling_event_init();
     saadc_sampling_event_enable();
 
+#if 0
+    /* 2-channel PWM, 200Hz, output on DK LED pins. */
+    app_pwm_config_t pwm1_cfg = APP_PWM_DEFAULT_CONFIG_2CH(10L, BSP_LED_0, BSP_LED_1);
+    /* Switch the polarity of the second channel. */
+    pwm1_cfg.pin_polarity[1] = APP_PWM_POLARITY_ACTIVE_HIGH;
+    /* Initialize and enable PWM. */
+    err_code = app_pwm_init(&PWM1,&pwm1_cfg,pwm_ready_callback);
+    APP_ERROR_CHECK(err_code);
+    app_pwm_enable(&PWM1);
+    //err_code = nrf_drv_power_init(NULL);
+    //APP_ERROR_CHECK(err_code);
+#endif
+    //ret_code_t ret_code = nrf_pwr_mgmt_init();
+    //APP_ERROR_CHECK(ret_code);
+
+    NRF_LOG_INFO("SAADC HAL simple example.");
+    uint32_t value;
+//    mysaadc_init();
     while (1)
     {
-        //nrf_pwr_mgmt_run();
+//        value = 10;
+//        app_pwm_channel_duty_set(&PWM1, 0, value);
+//        value = 50;
+//        app_pwm_channel_duty_set(&PWM1, 1, value);
+//        //nrf_pwr_mgmt_run();
+//        NRF_LOG_INFO("NRF_SAADC_RESISTOR_VDD1_2 : %d",NRF_SAADC_RESISTOR_VDD1_2);
+        nrf_delay_ms(100);
         NRF_LOG_FLUSH();
     }
 }

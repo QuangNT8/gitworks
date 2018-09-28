@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.4.1, 2018-09-26T16:31:37. -->
+<!-- Written by QtCreator 4.4.1, 2018-09-28T17:26:15. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -205,11 +205,11 @@
      <value type="int">14</value>
     </valuelist>
     <value type="QString" key="BareMetal.RunConfig.WorkingDirectory"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">RadioRX (via GDB server or hardware debugger)</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">ADC_TEST (via GDB server or hardware debugger)</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">BareMetalE:/Nrf52/nrf52-base/radio/RX/radioRX.qbs/RadioRX</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">BareMetalE:/gitworks/nrf52-QT/ADC_TEST/ADC_TEST.qbs/ADC_TEST</value>
     <value type="QString" key="Qt4ProjectManager.MaemoRunConfiguration.Arguments"></value>
-    <value type="QString" key="Qt4ProjectManager.MaemoRunConfiguration.ProFile">radio/RX/radioRX.qbs/RadioRX</value>
+    <value type="QString" key="Qt4ProjectManager.MaemoRunConfiguration.ProFile">ADC_TEST/ADC_TEST.qbs/ADC_TEST</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>

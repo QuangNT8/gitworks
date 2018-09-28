@@ -57055,3 +57055,6 @@ make: Nothing to be done for 'all'.
 15:01:14 **** Incremental Build of configuration Debug for project testadc ****
 make all 
 make: Nothing to be done for 'all'.
+14:28:28 **** Build of configuration Debug for project power ****
+make all 
+make: Nothing to be done for 'all'.
