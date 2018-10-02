@@ -2,7 +2,8 @@ import qbs
 
 Product
 {
-    property string boardId: "682284098"
+    property string boardId: "682249636"
+    //property string boardId: "682284098"
     name: "ADC_TEST"
     type: ["application", "hex", "flash"]
 
@@ -31,7 +32,7 @@ Product
         "-mcpu=cortex-m4",
         "-mfloat-abi=hard", "-mfpu=fpv4-sp-d16",
         "-Wl,--gc-sections",
-        "--specs=nano.specs","-lc","-lnosys","-lm"
+        "--specs=nano.specs","-lc","-lnosys","-lm",
     ]
 
     cpp.includePaths:
@@ -106,6 +107,7 @@ Product
             project.sdkPath + 'components/toolchain/system_nrf52.c',
             '../mylib/adc/nrf_drv_saadc.c',
             '../mylib/adc/nrf_drv_saadc.h',
+            project.sdkPath + 'components/drivers_nrf/saadc/nrf_drv_saadc.h',
             'main.c',
             'config/sdk_config.h',
             "saadc_gcc_nrf52.ld",

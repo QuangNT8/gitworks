@@ -19,7 +19,7 @@ Module
             "-mcpu=cortex-m4", "-mthumb", "-mabi=aapcs", "-mfloat-abi=hard" , //'-mfpu=fpv4-sp-d16',
             "-fno-builtin",
             "-fdata-sections","-ffunction-sections","-fno-strict-aliasing",
-            "-Wall"
+            "-Wno-inconsistent-missing-destructor-override",
         ]
         cpp.debugInformation: true
         cpp.optimization: "none" // "none" or "fast"
@@ -33,7 +33,7 @@ Module
             "-mcpu=cortex-m4", "-mthumb", "-mabi=aapcs", "-mfloat-abi=hard", //'-mfpu=fpv4-sp-d16',
             "-fno-builtin",
             "-fdata-sections","-ffunction-sections","-fno-strict-aliasing",
-            "-Wall"
+            "-Wno-inconsistent-missing-destructor-override",
         ]
         cpp.debugInformation: false
         cpp.optimization: "small"

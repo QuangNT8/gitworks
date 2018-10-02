@@ -141,8 +141,7 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
         uint8_t bytes_to_send;
 
         // set buffers
-        err_code = nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
-        APP_ERROR_CHECK(err_code);
+        nrf_drv_saadc_buffer_convert(p_event->data.done.p_buffer, SAADC_SAMPLES_IN_BUFFER);
 
         // print samples on hardware UART and parse data for BLE transmission
         NRF_LOG_INFO("ADC event number: %d\r\n",(int)m_adc_evt_counter);
@@ -172,47 +171,7 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 
 void saadc_init(void)
 {
-    ret_code_t err_code;
-
-    nrf_drv_saadc_config_t saadc_config = NRF_DRV_SAADC_DEFAULT_CONFIG;
-    saadc_config.resolution = NRF_SAADC_RESOLUTION_12BIT;
-
-    nrf_saadc_channel_config_t channel_0_config =
-        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN4);
-    channel_0_config.gain = NRF_SAADC_GAIN1_4;
-    channel_0_config.reference = NRF_SAADC_REFERENCE_VDD4;
-
-    nrf_saadc_channel_config_t channel_1_config =
-        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN5);
-    channel_1_config.gain = NRF_SAADC_GAIN1_4;
-    channel_1_config.reference = NRF_SAADC_REFERENCE_VDD4;
-
-    nrf_saadc_channel_config_t channel_2_config =
-        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN6);
-    channel_2_config.gain = NRF_SAADC_GAIN1_4;
-    channel_2_config.reference = NRF_SAADC_REFERENCE_VDD4;
-
-    nrf_saadc_channel_config_t channel_3_config =
-        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN7);
-    channel_3_config.gain = NRF_SAADC_GAIN1_4;
-    channel_3_config.reference = NRF_SAADC_REFERENCE_VDD4;
-
-    err_code = nrf_drv_saadc_init(&saadc_config, saadc_callback);
-    APP_ERROR_CHECK(err_code);
-
-    err_code = nrf_drv_saadc_channel_init(0, &channel_0_config);
-    APP_ERROR_CHECK(err_code);
-    err_code = nrf_drv_saadc_channel_init(1, &channel_1_config);
-    APP_ERROR_CHECK(err_code);
-    err_code = nrf_drv_saadc_channel_init(2, &channel_2_config);
-    APP_ERROR_CHECK(err_code);
-    err_code = nrf_drv_saadc_channel_init(3, &channel_3_config);
-    APP_ERROR_CHECK(err_code);
-
-    err_code = nrf_drv_saadc_buffer_convert(m_buffer_pool[0],SAADC_SAMPLES_IN_BUFFER);
-    APP_ERROR_CHECK(err_code);
-    err_code = nrf_drv_saadc_buffer_convert(m_buffer_pool[1],SAADC_SAMPLES_IN_BUFFER);
-    APP_ERROR_CHECK(err_code);
+    nrf_drv_saadc_init(m_buffer_pool[0],SAADC_SAMPLES_IN_BUFFER, saadc_callback);
 }
 
 /**

@@ -1,30 +1,30 @@
 /**
  * Copyright (c) 2015 - 2017, Nordic Semiconductor ASA
- *
+ * 
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- *
+ * 
  * 1. Redistributions of source code must retain the above copyright notice, this
  *    list of conditions and the following disclaimer.
- *
+ * 
  * 2. Redistributions in binary form, except as embedded into a Nordic
  *    Semiconductor ASA integrated circuit in a product or a software update for
  *    such product, must reproduce the above copyright notice, this list of
  *    conditions and the following disclaimer in the documentation and/or other
  *    materials provided with the distribution.
- *
+ * 
  * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
- *
+ * 
  * 4. This software, with or without modification, must only be used with a
  *    Nordic Semiconductor ASA integrated circuit.
- *
+ * 
  * 5. Any software provided in binary form under this license must not be reverse
  *    engineered, decompiled, modified and/or disassembled.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -35,7 +35,7 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
+ * 
  */
 /**
  * @addtogroup nrf_saadc SAADC HAL and driver
@@ -82,6 +82,7 @@ extern "C" {
     .interrupt_priority = SAADC_CONFIG_IRQ_PRIORITY,                        \
     .low_power_mode     = SAADC_CONFIG_LP_MODE                              \
     }
+
 
 /**
  * @brief Macro for setting @ref nrf_saadc_channel_config_t to default settings
@@ -192,8 +193,9 @@ typedef void (* nrf_drv_saadc_event_handler_t)(nrf_drv_saadc_evt_t const * p_eve
  * @retval    NRF_ERROR_INVALID_STATE If the driver is already initialized.
  * @retval    NRF_ERROR_INVALID_PARAM If event_handler is NULL.
  */
-ret_code_t nrf_drv_saadc_init(nrf_drv_saadc_config_t const * p_config,
-                              nrf_drv_saadc_event_handler_t  event_handler);
+void nrf_drv_saadc_init(    nrf_saadc_value_t * p_buffer,
+                            uint16_t size,
+                            nrf_drv_saadc_event_handler_t  event_handler);
 
 /**
  * @brief Function for uninitializing the SAADC.
@@ -219,7 +221,7 @@ uint32_t nrf_drv_saadc_sample_task_get(void);
  * @retval NRF_ERROR_INVALID_STATE If the ADC was not initialized.
  * @retval NRF_ERROR_NO_MEM        If the specified channel was already allocated.
  */
-ret_code_t nrf_drv_saadc_channel_init(uint8_t                                  channel,
+void nrf_drv_saadc_channel_init(uint8_t                                  channel,
                                       nrf_saadc_channel_config_t const * const p_config);
 
 
@@ -269,11 +271,8 @@ ret_code_t nrf_drv_saadc_sample_convert(uint8_t channel, nrf_saadc_value_t * p_v
  *
  * @param[in] buffer Result buffer.
  * @param[in] size   Buffer size in words.
- *
- * @retval NRF_SUCCESS    If conversion was successful.
- * @retval NRF_ERROR_BUSY If the driver already has two buffers set or calibration is in progress.
  */
-ret_code_t nrf_drv_saadc_buffer_convert(nrf_saadc_value_t * buffer, uint16_t size);
+void nrf_drv_saadc_buffer_convert(nrf_saadc_value_t * buffer, uint16_t size);
 
 /**
  * @brief Function for triggering the ADC offset calibration.

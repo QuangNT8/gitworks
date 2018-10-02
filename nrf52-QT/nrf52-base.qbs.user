@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.4.1, 2018-09-28T17:26:15. -->
+<!-- Written by QtCreator 4.7.1, 2018-10-02T09:28:49. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -54,7 +54,12 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.PluginSettings</variable>
-  <valuemap type="QVariantMap"/>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey">
+    <value type="QString">-fno-delayed-template-parsing</value>
+   </valuelist>
+   <value type="bool" key="ClangCodeModel.UseGlobalConfig">true</value>
+  </valuemap>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Target.0</variable>
@@ -76,6 +81,7 @@
       <value type="bool" key="Qbs.CleanInstallRoot">false</value>
       <valuemap type="QVariantMap" key="Qbs.Configuration">
        <value type="QString" key="qbs.buildVariant">debug</value>
+       <value type="QString" key="qbs.defaultBuildVariant">debug</value>
        <value type="QString" key="qbs.profile">qtc_nrf51822_f3805dcd</value>
        <value type="bool" key="qbspm.forceProbes">false</value>
       </valuemap>
@@ -84,6 +90,7 @@
       <value type="bool" key="Qbs.Install">true</value>
       <value type="int" key="Qbs.MaxJobs">12</value>
       <value type="bool" key="Qbs.ShowCommandLines">false</value>
+      <value type="bool" key="Qbs.enableQmlDebuggingKey">false</value>
       <value type="bool" key="Qbs.forceProbesKey">false</value>
      </valuemap>
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
@@ -124,6 +131,7 @@
       <value type="bool" key="Qbs.CleanInstallRoot">false</value>
       <valuemap type="QVariantMap" key="Qbs.Configuration">
        <value type="QString" key="qbs.buildVariant">release</value>
+       <value type="QString" key="qbs.defaultBuildVariant">debug</value>
        <value type="QString" key="qbs.profile">qtc_nrf51822_f3805dcd</value>
        <value type="bool" key="qbspm.forceProbes">false</value>
       </valuemap>
@@ -132,6 +140,7 @@
       <value type="bool" key="Qbs.Install">true</value>
       <value type="int" key="Qbs.MaxJobs">12</value>
       <value type="bool" key="Qbs.ShowCommandLines">false</value>
+      <value type="bool" key="Qbs.enableQmlDebuggingKey">false</value>
       <value type="bool" key="Qbs.forceProbesKey">false</value>
      </valuemap>
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
@@ -205,11 +214,11 @@
      <value type="int">14</value>
     </valuelist>
     <value type="QString" key="BareMetal.RunConfig.WorkingDirectory"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">ADC_TEST (via GDB server or hardware debugger)</value>
+    <value type="QString" key="BareMetal.RunConfig.WorkingDirectory.default"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">ADC_TEST (on NRF51822)</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">BareMetalE:/gitworks/nrf52-QT/ADC_TEST/ADC_TEST.qbs/ADC_TEST</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">BareMetalCustomADC_TEST.</value>
     <value type="QString" key="Qt4ProjectManager.MaemoRunConfiguration.Arguments"></value>
-    <value type="QString" key="Qt4ProjectManager.MaemoRunConfiguration.ProFile">ADC_TEST/ADC_TEST.qbs/ADC_TEST</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
