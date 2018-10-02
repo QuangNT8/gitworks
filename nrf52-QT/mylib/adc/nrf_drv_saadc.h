@@ -1,76 +1,9 @@
-/**
- * Copyright (c) 2015 - 2017, Nordic Semiconductor ASA
- * 
- * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- * 
- * 1. Redistributions of source code must retain the above copyright notice, this
- *    list of conditions and the following disclaimer.
- * 
- * 2. Redistributions in binary form, except as embedded into a Nordic
- *    Semiconductor ASA integrated circuit in a product or a software update for
- *    such product, must reproduce the above copyright notice, this list of
- *    conditions and the following disclaimer in the documentation and/or other
- *    materials provided with the distribution.
- * 
- * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
- *    contributors may be used to endorse or promote products derived from this
- *    software without specific prior written permission.
- * 
- * 4. This software, with or without modification, must only be used with a
- *    Nordic Semiconductor ASA integrated circuit.
- * 
- * 5. Any software provided in binary form under this license must not be reverse
- *    engineered, decompiled, modified and/or disassembled.
- * 
- * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
- * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
- * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
- */
-/**
- * @addtogroup nrf_saadc SAADC HAL and driver
- * @ingroup    nrf_drivers
- * @brief      @tagAPI52 Successive Approximation Analog-to-Digital Converter (SAADC) APIs.
- * @details The SAADC HAL provides basic APIs for accessing the registers of the SAADC peripheral.
- * The SAADC driver provides APIs on a higher level.
- *
- * @defgroup nrf_drv_saadc SAADC driver
- * @{
- * @ingroup  nrf_saadc
- *
- * @brief    @tagAPI52 Successive Approximation Analog-to-Digital Converter (SAADC) driver.
- */
-
-#ifndef NRF_DRV_SAADC_H__
-#define NRF_DRV_SAADC_H__
-
-#include "sdk_config.h"
+/*QuangNT*/
 #include "nrf_saadc.h"
-#include "sdk_errors.h"
-#include "nrf_drv_common.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- * @brief Value that should be set as high limit to disable limit detection.
- */
-#define NRF_DRV_SAADC_LIMITH_DISABLED (2047)
-/**
- * @brief Value that should be set as low limit to disable limit detection.
- */
-#define NRF_DRV_SAADC_LIMITL_DISABLED (-2048)
 
 /**
  * @brief Macro for setting @ref nrf_drv_saadc_config_t to default settings.
@@ -197,13 +130,6 @@ void nrf_drv_saadc_init(    nrf_saadc_value_t * p_buffer,
                             uint16_t size,
                             nrf_drv_saadc_event_handler_t  event_handler);
 
-/**
- * @brief Function for uninitializing the SAADC.
- *
- * This function stops all ongoing conversions and disables all channels.
- */
-void nrf_drv_saadc_uninit(void);
-
 
 /**
  * @brief Function for getting the address of a SAMPLE SAADC task.
@@ -224,39 +150,6 @@ uint32_t nrf_drv_saadc_sample_task_get(void);
 void nrf_drv_saadc_channel_init(uint8_t                                  channel,
                                       nrf_saadc_channel_config_t const * const p_config);
 
-
-/**
- * @brief Function for uninitializing an SAADC channel.
- *
- * @retval NRF_SUCCESS    If uninitialization was successful.
- * @retval NRF_ERROR_BUSY If the ADC is busy.
- */
-ret_code_t nrf_drv_saadc_channel_uninit(uint8_t channel);
-
-/**
- * @brief Function for starting SAADC sampling.
- *
- * @retval NRF_SUCCESS             If ADC sampling was triggered.
- * @retval NRF_ERROR_INVALID_STATE If ADC is in idle state.
- */
-ret_code_t nrf_drv_saadc_sample(void);
-
-/**
- * @brief Blocking function for executing a single ADC conversion.
- *
- * This function selects the desired input, starts a single conversion,
- * waits for it to finish, and returns the result.
- *
- * The function will fail if ADC is busy.
- *
- * @param[in]  channel Channel.
- * @param[out] p_value Pointer to the location where the result should be placed.
- *
- * @retval NRF_SUCCESS    If conversion was successful.
- * @retval NRF_ERROR_BUSY If the ADC driver is busy.
- */
-ret_code_t nrf_drv_saadc_sample_convert(uint8_t channel, nrf_saadc_value_t * p_value);
-
 /**
  * @brief Function for issuing conversion of data to the buffer.
  *
@@ -274,52 +167,11 @@ ret_code_t nrf_drv_saadc_sample_convert(uint8_t channel, nrf_saadc_value_t * p_v
  */
 void nrf_drv_saadc_buffer_convert(nrf_saadc_value_t * buffer, uint16_t size);
 
-/**
- * @brief Function for triggering the ADC offset calibration.
- *
- * This function is non-blocking. The application is notified about completion by the event handler.
- * Calibration will also trigger DONE and RESULTDONE events.
- *
- * The function will fail if ADC is busy or calibration is already in progress.
- *
- * @retval NRF_SUCCESS    If calibration was started successfully.
- * @retval NRF_ERROR_BUSY If the ADC driver is busy.
- */
-ret_code_t nrf_drv_saadc_calibrate_offset(void);
 
-/**
- * @brief Function for retrieving the SAADC state.
- *
- * @retval true  If the ADC is busy.
- * @retval false If the ADC is ready.
- */
-bool nrf_drv_saadc_is_busy(void);
-
-/**
- * @brief Function for aborting ongoing and buffered conversions.
- * @note @ref NRF_DRV_SAADC_EVT_DONE event will be generated if there is a conversion in progress.
- *       Event will contain number of words in the sample buffer.
- */
-void nrf_drv_saadc_abort(void);
-
-/**
- * @brief Function for setting the SAADC channel limits.
- *        When limits are enabled and the result exceeds the defined bounds, the limit handler function is called.
- *
- * @param[in] channel SAADC channel number.
- * @param[in] limit_low Lower limit (valid values from @ref NRF_DRV_SAADC_LIMITL_DISABLED to
- *            @ref NRF_DRV_SAADC_LIMITH_DISABLED). Conversion results below this value will trigger
- *            the handler function. Set to @ref NRF_DRV_SAADC_LIMITL_DISABLED to disable this limit.
- * @param[in] limit_high Upper limit (valid values from @ref NRF_DRV_SAADC_LIMITL_DISABLED to
- *            @ref NRF_DRV_SAADC_LIMITH_DISABLED). Conversion results above this value will trigger
- *            the handler function. Set to @ref NRF_DRV_SAADC_LIMITH_DISABLED to disable this limit.
- */
-void nrf_drv_saadc_limits_set(uint8_t channel, int16_t limit_low, int16_t limit_high);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // NRF_DRV_SAADC_H__
 
 /** @} */

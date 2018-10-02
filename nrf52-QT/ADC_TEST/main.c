@@ -53,7 +53,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "nrf.h"
-#include "nrf_drv_saadc.h"
+//#include "nrf_drv_saadc.h"
 #include "../adc/nrf_drv_saadc.h"
 #include "nrf_drv_ppi.h"
 #include "nrf_drv_timer.h"
@@ -172,6 +172,8 @@ void saadc_callback(nrf_drv_saadc_evt_t const * p_event)
 void saadc_init(void)
 {
     nrf_drv_saadc_init(m_buffer_pool[0],SAADC_SAMPLES_IN_BUFFER, saadc_callback);
+    saadc_sampling_event_init();
+    saadc_sampling_event_enable();
 }
 
 /**
@@ -186,8 +188,6 @@ int main(void)
 
 
     saadc_init();
-    saadc_sampling_event_init();
-    saadc_sampling_event_enable();
 
 #if 0
     /* 2-channel PWM, 200Hz, output on DK LED pins. */
