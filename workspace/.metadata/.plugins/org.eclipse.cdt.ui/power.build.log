@@ -1,6 +1,7 @@
-14:28:28 **** Build of configuration Debug for project power ****
-make all 
-make: Nothing to be done for 'all'.
+15:26:48 **** Clean-only build of configuration Debug for project power ****
+make clean 
+rm -rf *
+ 
 
-14:28:29 Build Finished (took 785ms)
+15:26:48 Build Finished (took 184ms)
 

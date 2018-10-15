@@ -107,18 +107,20 @@ void saadc_sampling_event_init(void)
 
     /* setup m_timer for compare event */
     uint32_t ticks = nrf_drv_timer_ms_to_ticks(&m_timer,SAADC_SAMPLE_RATE);
-    nrf_drv_timer_extended_compare(&m_timer, NRF_TIMER_CC_CHANNEL0, ticks, NRF_TIMER_SHORT_COMPARE0_CLEAR_MASK, false);
+    nrf_drv_timer_extended_compare(&m_timer, NRF_TIMER_CC_CHANNEL0, ticks, NRF_TIMER_SHORT_COMPARE0_CLEAR_MASK, true);
     nrf_drv_timer_enable(&m_timer);
 
     uint32_t timer_compare_event_addr = nrf_drv_timer_compare_event_address_get(&m_timer, NRF_TIMER_CC_CHANNEL0);
     uint32_t saadc_sample_event_addr = nrf_drv_saadc_sample_task_get();
 
+//    NRF_LOG_INFO("timer_compare_event_addr: %d\r\n",timer_compare_event_addr);
+//    NRF_LOG_INFO("saadc_sample_event_addr: %d\r\n",saadc_sample_event_addr);
+
     /* setup ppi channel so that timer compare event is triggering sample task in SAADC */
     err_code = nrf_drv_ppi_channel_alloc(&m_ppi_channel);
     APP_ERROR_CHECK(err_code);
 
-    err_code = nrf_drv_ppi_channel_assign(m_ppi_channel, timer_compare_event_addr, saadc_sample_event_addr);
-    APP_ERROR_CHECK(err_code);
+    nrf_ppi_channel_endpoint_setup(m_ppi_channel, timer_compare_event_addr, saadc_sample_event_addr);
 }
 
 

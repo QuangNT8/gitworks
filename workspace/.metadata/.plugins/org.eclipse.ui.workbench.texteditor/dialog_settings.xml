@@ -2,12 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="HAL_ADC_MspInit" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="IS_TIM_COUNTER_MODE_SELECT_INSTANCE"/>
+			<item value="RCC_PeriphCLKInitTypeDef"/>
+			<item value="HAL_GPIO_Init"/>
+			<item value="TIM_DMADelayPulseCplt"/>
+			<item value="hdma"/>
+			<item value="RCC_CFGR_PLLMUL"/>
 			<item value="HAL_ADC_MspInit"/>
 			<item value="HAL_ADC_MspDeInit"/>
 		</list>

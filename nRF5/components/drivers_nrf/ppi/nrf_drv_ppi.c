@@ -245,8 +245,7 @@ uint32_t nrf_drv_ppi_uninit(void)
     NRF_LOG_INFO("Function: %s, error code: %s.", (uint32_t)__func__, (uint32_t)NRF_LOG_ERROR_STRING_GET(err_code));
     return err_code;
 }
-
-
+/*
 uint32_t nrf_drv_ppi_channel_alloc(nrf_ppi_channel_t * p_channel)
 {
     uint32_t err_code = NRF_SUCCESS;
@@ -269,6 +268,36 @@ uint32_t nrf_drv_ppi_channel_alloc(nrf_ppi_channel_t * p_channel)
         if (err_code == NRF_SUCCESS)
         {
             NRF_LOG_INFO("Allocated channel: %d.", channel);
+            break;
+        }
+    }
+
+    NRF_LOG_INFO("Function: %s, error code: %s.", (uint32_t)__func__, (uint32_t)NRF_LOG_ERROR_STRING_GET(err_code));
+    return err_code;
+}
+*/
+uint32_t nrf_drv_ppi_channel_alloc(nrf_ppi_channel_t * p_channel)
+{
+    uint32_t err_code = NRF_SUCCESS;
+    uint32_t channel;
+    uint32_t mask = 0;
+
+    err_code = NRF_ERROR_NO_MEM;
+
+    mask = NRF_PPI_PROG_APP_CHANNELS_MASK;
+    for (channel = NRF_PPI_CHANNEL0; mask != 0; mask &= ~nrf_drv_ppi_channel_to_mask((nrf_ppi_channel_t)channel), channel++)
+    {
+        CRITICAL_REGION_ENTER();
+        if ((mask & nrf_drv_ppi_channel_to_mask((nrf_ppi_channel_t)channel)) && (!is_allocated_channel((nrf_ppi_channel_t)channel)))
+        {
+            channel_allocated_set((nrf_ppi_channel_t)channel);
+            *p_channel = (nrf_ppi_channel_t)channel;
+            err_code   = NRF_SUCCESS;
+        }
+        CRITICAL_REGION_EXIT();
+        if (err_code == NRF_SUCCESS)
+        {
+            NRF_LOG_INFO("Allocated channel: %d.", (nrf_ppi_channel_t)channel);
             break;
         }
     }
