@@ -1,0 +1,31 @@
+Project{name:'QMotor Controler'}
+Section{name:'speed'}
+Field{name:'speed',min:0,max:10000,value:3000,readonly:0,command:16}
+Field{name:'dkp',min:0,max:4096,value:1000,readonly:0,command:13}
+Field{name:'dki',min:0,max:4096,value:50,readonly:0,command:12}
+Field{name:'qkp',min:0,max:4096,value:1000,readonly:0,command:11}
+Field{name:'qki',min:0,max:4096,value:50,readonly:0,command:10}
+Field{name:'skp',min:0,max:4096,value:0,readonly:0,command:9}
+Field{name:'ski',min:0,max:4096,value:384,readonly:0,command:8}
+Section{name:'actions'}
+Button{name:'Start motor',command:18}
+Button{name:'Align motor',command:19}
+Button{name:'Run motor',command:28}
+Button{name:'Stop motor',command:17}
+Section{name:'encoder'}
+Field{name:'TIM2 CNT',min:0,max:4096,value:0,readonly:1,command:27}
+Section{name:'drv8323'}
+Field{name:'adr00',min:0,max:4096,value:0,readonly:1,command:26}
+Field{name:'adr01',min:0,max:4096,value:0,readonly:1,command:25}
+Field{name:'adr02',min:0,max:4096,value:384,readonly:1,command:24}
+Field{name:'adr03',min:0,max:4096,value:959,readonly:1,command:23}
+Field{name:'adr04',min:0,max:4096,value:1791,readonly:1,command:22}
+Field{name:'adr05',min:0,max:4096,value:352,readonly:1,command:21}
+Field{name:'adr06',min:0,max:4096,value:643,readonly:1,command:20}
+Chart{ name:'Chart 1',min:-3000,max:3000,visible:1}
+Plot{name:'PC0 IA',color:'#0000ff',highSpeed:0}
+Plot{name:'PC1 IB',color:'#ff0000',highSpeed:0}
+Plot{name:'PC2 IC',color:'#005500',highSpeed:0}
+Chart{ name:'Chart 2',min:-4096,max:4096,visible:1}
+Plot{name:'ia_',color:'#0055ff',highSpeed:0}
+Plot{name:'ib_',color:'#ff0000',highSpeed:0}
