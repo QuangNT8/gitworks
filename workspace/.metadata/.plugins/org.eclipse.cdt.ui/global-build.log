@@ -1350,3 +1350,1409 @@ arm-none-eabi-size "smartcard.elf"
    text	   data	    bss	    dec	    hex	filename
    9076	     12	   1852	  10940	   2abc	smartcard.elf
  
+15:55:03 **** Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:115:4: error: too few arguments to function 'HAL_SMARTCARD_Transmit'
+    HAL_SMARTCARD_Transmit();
+    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/stm32f0xx_hal_conf.h:265:0,
+                 from E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:46,
+                 from ../Src/main.c:40:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_smartcard.h:1019:19: note: declared here
+ HAL_StatusTypeDef HAL_SMARTCARD_Transmit(SMARTCARD_HandleTypeDef *hsmartcard, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/main.o] Error 1
+Src/subdir.mk:30: recipe for target 'Src/main.o' failed
+15:56:00 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:23: fatal error: stm32f4xx.h: No such file or directory
+ #include "stm32f4xx.h"
+                       ^
+compilation terminated.
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+15:56:31 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:33:27: fatal error: stm32f4xx_hal.h: No such file or directory
+ #include "stm32f4xx_hal.h"
+                           ^
+compilation terminated.
+make: *** [Src/smartcard.o] Error 1
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+15:57:18 **** Clean-only build of configuration Debug for project smartcard ****
+make clean 
+rm -rf *
+ 
+15:57:23 **** Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../startup/startup_stm32f051x8.s
+Invoking: MCU GCC Assembler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-as -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -g -o "startup/startup_stm32f051x8.o" "../startup/startup_stm32f051x8.s"
+Finished building: ../startup/startup_stm32f051x8.s
+ 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:33:27: fatal error: stm32f4xx_hal.h: No such file or directory
+ #include "stm32f4xx_hal.h"
+                           ^
+compilation terminated.
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+15:57:57 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_PowerCmd':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:65:44: error: 'GPIOG' undeclared (first use in this function)
+ #define SC_CMDVCC_GPIO_PORT                GPIOG
+                                            ^
+../Src/smartcard.c:177:23: note: in expansion of macro 'SC_CMDVCC_GPIO_PORT'
+     HAL_GPIO_WritePin(SC_CMDVCC_GPIO_PORT, SC_CMDVCC_PIN, GPIO_PIN_RESET);
+                       ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:65:44: note: each undeclared identifier is reported only once for each function it appears in
+ #define SC_CMDVCC_GPIO_PORT                GPIOG
+                                            ^
+../Src/smartcard.c:177:23: note: in expansion of macro 'SC_CMDVCC_GPIO_PORT'
+     HAL_GPIO_WritePin(SC_CMDVCC_GPIO_PORT, SC_CMDVCC_PIN, GPIO_PIN_RESET);
+                       ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+../Src/smartcard.c:226:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:252:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:22: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                      ^
+../Src/smartcard.c:281:35: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_Init':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:562:23: note: in expansion of macro 'SC_USART'
+   SCHandle.Instance = SC_USART;
+                       ^~~~~~~~
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_VoltageConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:57:44: error: 'GPIOH' undeclared (first use in this function)
+ #define SC_3_5V_GPIO_PORT                  GPIOH
+                                            ^
+../Src/smartcard.c:607:23: note: in expansion of macro 'SC_3_5V_GPIO_PORT'
+     HAL_GPIO_WritePin(SC_3_5V_GPIO_PORT, SC_3_5V_PIN, GPIO_PIN_SET);
+                       ^~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:65:44: error: 'GPIOG' undeclared (first use in this function)
+ #define SC_CMDVCC_GPIO_PORT                GPIOG
+                                            ^
+../Src/smartcard.c:636:17: note: in expansion of macro 'SC_CMDVCC_GPIO_PORT'
+   HAL_GPIO_Init(SC_CMDVCC_GPIO_PORT, &GPIO_InitStruct);
+                 ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:57:44: error: 'GPIOH' undeclared (first use in this function)
+ #define SC_3_5V_GPIO_PORT                  GPIOH
+                                            ^
+../Src/smartcard.c:644:17: note: in expansion of macro 'SC_3_5V_GPIO_PORT'
+   HAL_GPIO_Init(SC_3_5V_GPIO_PORT, &GPIO_InitStruct);
+                 ^~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:72:44: error: 'EXTI9_5_IRQn' undeclared (first use in this function)
+ #define SC_OFF_EXTI_IRQn                   EXTI9_5_IRQn
+                                            ^
+../Src/smartcard.c:662:24: note: in expansion of macro 'SC_OFF_EXTI_IRQn'
+   HAL_NVIC_SetPriority(SC_OFF_EXTI_IRQn, 0, 0);
+                        ^~~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+15:58:25 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: note: each undeclared identifier is reported only once for each function it appears in
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+../Src/smartcard.c:226:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:252:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:22: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                      ^
+../Src/smartcard.c:281:35: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_Init':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:562:23: note: in expansion of macro 'SC_USART'
+   SCHandle.Instance = SC_USART;
+                       ^~~~~~~~
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:72:44: error: 'EXTI9_5_IRQn' undeclared (first use in this function)
+ #define SC_OFF_EXTI_IRQn                   EXTI9_5_IRQn
+                                            ^
+../Src/smartcard.c:662:24: note: in expansion of macro 'SC_OFF_EXTI_IRQn'
+   HAL_NVIC_SetPriority(SC_OFF_EXTI_IRQn, 0, 0);
+                        ^~~~~~~~~~~~~~~~
+make: *** [Src/smartcard.o] Error 1
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+15:59:07 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: note: each undeclared identifier is reported only once for each function it appears in
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+../Src/smartcard.c:226:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:252:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:22: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                      ^
+../Src/smartcard.c:281:35: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_Init':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:562:23: note: in expansion of macro 'SC_USART'
+   SCHandle.Instance = SC_USART;
+                       ^~~~~~~~
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:72:44: error: 'EXTI0_5_IRQn' undeclared (first use in this function)
+ #define SC_OFF_EXTI_IRQn                   EXTI0_5_IRQn
+                                            ^
+../Src/smartcard.c:662:24: note: in expansion of macro 'SC_OFF_EXTI_IRQn'
+   HAL_NVIC_SetPriority(SC_OFF_EXTI_IRQn, 0, 0);
+                        ^~~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:13:54 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: note: each undeclared identifier is reported only once for each function it appears in
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:222:17: note: in expansion of macro 'SC_USART'
+   apbclock /= ((SC_USART->GTPR & (uint16_t)0x00FF) * 2);
+                 ^~~~~~~~
+../Src/smartcard.c:226:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:252:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:22: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                      ^
+../Src/smartcard.c:281:35: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_Init':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:36:44: error: 'USART6' undeclared (first use in this function)
+ #define SC_USART                           USART6
+                                            ^
+../Src/smartcard.c:562:23: note: in expansion of macro 'SC_USART'
+   SCHandle.Instance = SC_USART;
+                       ^~~~~~~~
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:14:52 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:226:45: note: each undeclared identifier is reported only once for each function it appears in
+../Src/smartcard.c:252:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:22: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                      ^
+../Src/smartcard.c:281:35: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:38:45 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:36: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKEnable = SMARTCARD_NACK_ENABLED;
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:36: note: each undeclared identifier is reported only once for each function it appears in
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:382:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:40:03 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:36: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+         SCHandle.Init.NACKEnable = SMARTCARD_NACK_ENABLED;
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:36: note: each undeclared identifier is reported only once for each function it appears in
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:382:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+make: *** [Src/smartcard.o] Error 1
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+16:42:14 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:281:36: error: 'true' undeclared (first use in this function)
+         SCHandle.Init.NACKEnable = true;
+                                    ^~~~
+../Src/smartcard.c:281:36: note: each undeclared identifier is reported only once for each function it appears in
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:382:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+make: *** [Src/smartcard.o] Error 1
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+16:43:16 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_SendData':
+../Src/smartcard.c:317:3: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_ENABLE' [-Wimplicit-function-declaration]
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:317:45: error: 'SMARTCARD_DMAREQ_RX' undeclared (first use in this function)
+   __SMARTCARD_DMA_REQUEST_ENABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+                                             ^~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:317:45: note: each undeclared identifier is reported only once for each function it appears in
+../Src/smartcard.c:382:7: warning: implicit declaration of function '__SMARTCARD_DMA_REQUEST_DISABLE' [-Wimplicit-function-declaration]
+       __SMARTCARD_DMA_REQUEST_DISABLE(&SCHandle, SMARTCARD_DMAREQ_RX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                ^
+../Src/smartcard.c:573:29: error: 'SMARTCARD_NACK_ENABLED' undeclared (first use in this function)
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLED;
+                             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:43:41 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c: In function 'SC_Init':
+../Src/smartcard.c:573:16: error: 'SMARTCARD_InitTypeDef {aka struct <anonymous>}' has no member named 'NACKState'; did you mean 'NACKEnable'?
+   SCHandle.Init.NACKState = SMARTCARD_NACK_ENABLE;
+                ^
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: note: each undeclared identifier is reported only once for each function it appears in
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:43:48 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: error: 'GPIO_SPEED_HIGH' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+                           ^~~~~~~~~~~~~~~
+../Src/smartcard.c:635:27: note: each undeclared identifier is reported only once for each function it appears in
+Src/subdir.mk:30: recipe for target 'Src/smartcard.o' failed
+make: *** [Src/smartcard.o] Error 1
+16:44:48 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/smartcard.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building file: ../Src/system_stm32f0xx.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f0xx.d" -MT"Src/system_stm32f0xx.o" -o "Src/system_stm32f0xx.o" "../Src/system_stm32f0xx.c"
+Finished building: ../Src/system_stm32f0xx.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_hal_msp.o: In function `HAL_SMARTCARD_MspInit':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_rx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_tx'
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+make: *** [smartcard.elf] Error 1
+makefile:35: recipe for target 'smartcard.elf' failed
+16:45:22 **** Clean-only build of configuration Debug for project smartcard ****
+make clean 
+rm -rf *
+ 
+16:45:29 **** Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../startup/startup_stm32f051x8.s
+Invoking: MCU GCC Assembler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-as -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -g -o "startup/startup_stm32f051x8.o" "../startup/startup_stm32f051x8.s"
+Finished building: ../startup/startup_stm32f051x8.s
+ 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/smartcard.d" -MT"Src/smartcard.o" -o "Src/smartcard.o" "../Src/smartcard.c"
+In file included from ../Src/smartcard.c:47:0:
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:25: warning: extra tokens at end of #include directive
+ #include "stm32f051x8.h".h"
+                         ^
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:34:27: warning: missing terminating " character
+ #include "stm32f051x8.h".h"
+                           ^
+../Src/smartcard.c: In function 'SC_PTSConfig':
+../Src/smartcard.c:221:14: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   apbclock = HAL_RCC_GetPCLK2Freq();
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/smartcard.h:35:0,
+                 from ../Src/smartcard.c:47:
+../Src/smartcard.c: In function 'SC_IOConfig':
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:58:44: warning: implicit declaration of function '__GPIOH_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_3_5V_CLK_ENABLE()               __GPIOH_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:626:3: note: in expansion of macro 'SC_3_5V_CLK_ENABLE'
+   SC_3_5V_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:62:44: warning: implicit declaration of function '__GPIOF_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_RESET_CLK_ENABLE()              __GPIOF_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:627:3: note: in expansion of macro 'SC_RESET_CLK_ENABLE'
+   SC_RESET_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~
+E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc/platform_config.h:66:44: warning: implicit declaration of function '__GPIOG_CLK_ENABLE' [-Wimplicit-function-declaration]
+ #define SC_CMDVCC_CLK_ENABLE()             __GPIOG_CLK_ENABLE()
+                                            ^
+../Src/smartcard.c:628:3: note: in expansion of macro 'SC_CMDVCC_CLK_ENABLE'
+   SC_CMDVCC_CLK_ENABLE();
+   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/smartcard.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building file: ../Src/system_stm32f0xx.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f0xx.d" -MT"Src/system_stm32f0xx.o" -o "Src/system_stm32f0xx.o" "../Src/system_stm32f0xx.c"
+Finished building: ../Src/system_stm32f0xx.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_smartcard_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_hal_msp.o: In function `HAL_SMARTCARD_MspInit':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_rx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_tx'
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+make: *** [smartcard.elf] Error 1
+makefile:35: recipe for target 'smartcard.elf' failed
+16:46:21 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_hal_msp.o: In function `HAL_SMARTCARD_MspInit':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_rx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:172: undefined reference to `hdma_usart1_tx'
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+make: *** [smartcard.elf] Error 1
+makefile:35: recipe for target 'smartcard.elf' failed
+16:46:33 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_hal_msp.o: In function `HAL_SMARTCARD_MspInit':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:156: undefined reference to `hdma_usart1_rx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:156: undefined reference to `hdma_usart1_tx'
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+makefile:35: recipe for target 'smartcard.elf' failed
+make: *** [smartcard.elf] Error 1
+16:46:39 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_hal_msp.o: In function `HAL_SMARTCARD_MspInit':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:185: undefined reference to `hdma_usart1_rx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_hal_msp.c:185: undefined reference to `hdma_usart1_tx'
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+makefile:35: recipe for target 'smartcard.elf' failed
+make: *** [smartcard.elf] Error 1
+16:48:04 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+makefile:35: recipe for target 'smartcard.elf' failed
+make: *** [smartcard.elf] Error 1
+16:48:19 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Src/stm32f0xx_it.o: In function `DMA1_Channel2_3_IRQHandler':
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_tx'
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug/../Src/stm32f0xx_it.c:102: undefined reference to `hdma_usart1_rx'
+collect2.exe: error: ld returned 1 exit status
+make: *** [smartcard.elf] Error 1
+makefile:35: recipe for target 'smartcard.elf' failed
+16:48:29 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Finished building target: smartcard.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard.elf" "smartcard.bin"
+arm-none-eabi-size "smartcard.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9120	     12	   1852	  10984	   2ae8	smartcard.elf
+ 

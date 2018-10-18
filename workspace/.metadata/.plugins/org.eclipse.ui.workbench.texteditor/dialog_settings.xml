@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="__io_putchar" key="selection"/>
+		<item value="HAL_SMARTCARD_Transmit" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="HAL_SMARTCARD_Transmit"/>
+			<item value="USART_SetGuardTime"/>
+			<item value="IS_TIM_COUNTER_MODE_SELECT_INSTANCE"/>
 			<item value="__io_putchar"/>
 			<item value="io_putchar"/>
 			<item value="print"/>
 			<item value="IS_UART_WAKEUP_FROMSTOP_INSTANCE"/>
 			<item value="uwTick"/>
-			<item value="RCC_CFGR_PLLSRC_HSE_PREDIV"/>
-			<item value="RCC_PeriphCLKInitTypeDef"/>
-			<item value="IRQn_Type"/>
 		</list>
 		<list key="replacehistory">
 		</list>
