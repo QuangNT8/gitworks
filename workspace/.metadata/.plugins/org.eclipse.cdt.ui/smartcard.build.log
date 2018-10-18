@@ -1,23 +1,6 @@
-16:48:29 **** Incremental Build of configuration Debug for project smartcard ****
+17:26:42 **** Incremental Build of configuration Debug for project smartcard ****
 make all 
-Building file: ../Src/stm32f0xx_it.c
-Invoking: MCU GCC Compiler
-E:\gitworks\STM32F0-Smartcard\mysmartcard\Debug
-arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/mysmartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
-Finished building: ../Src/stm32f0xx_it.c
- 
-Building target: smartcard.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
-Finished building target: smartcard.elf
- 
-make --no-print-directory post-build
-Generating binary and Printing size information:
-arm-none-eabi-objcopy -O binary "smartcard.elf" "smartcard.bin"
-arm-none-eabi-size "smartcard.elf"
-   text	   data	    bss	    dec	    hex	filename
-   9120	     12	   1852	  10984	   2ae8	smartcard.elf
- 
+make: Nothing to be done for 'all'.
 
-16:48:30 Build Finished (took 1s.432ms)
+17:26:42 Build Finished (took 228ms)
 

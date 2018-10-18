@@ -2756,3 +2756,356 @@ arm-none-eabi-size "smartcard.elf"
    text	   data	    bss	    dec	    hex	filename
    9120	     12	   1852	  10984	   2ae8	smartcard.elf
  
+17:15:09 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+make: Nothing to be done for 'all'.
+17:15:09 **** Build of configuration Debug for project smartcard1 ****
+make all 
+Building file: ../startup/startup_stm32f051x8.s
+Invoking: MCU GCC Assembler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-as -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -g -o "startup/startup_stm32f051x8.o" "../startup/startup_stm32f051x8.s"
+Finished building: ../startup/startup_stm32f051x8.s
+ 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building file: ../Src/system_stm32f0xx.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f0xx.d" -MT"Src/system_stm32f0xx.o" -o "Src/system_stm32f0xx.o" "../Src/system_stm32f0xx.c"
+Finished building: ../Src/system_stm32f0xx.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+ 
+Building target: smartcard1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard1.elf" @"objects.list"   -lm
+Finished building target: smartcard1.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard1.elf" "smartcard1.bin"
+arm-none-eabi-size "smartcard1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7784	     12	   1924	   9720	   25f8	smartcard1.elf
+ 
+17:26:07 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+make: Nothing to be done for 'all'.
+17:26:08 **** Incremental Build of configuration Debug for project smartcard1 ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building file: ../Src/system_stm32f0xx.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f0xx.d" -MT"Src/system_stm32f0xx.o" -o "Src/system_stm32f0xx.o" "../Src/system_stm32f0xx.c"
+Finished building: ../Src/system_stm32f0xx.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+ 
+Building target: smartcard1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard1.elf" @"objects.list"   -lm
+Src/main.o: In function `MX_ADC_Init':
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug/../Src/main.c:212: undefined reference to `HAL_ADC_Init'
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug/../Src/main.c:222: undefined reference to `HAL_ADC_ConfigChannel'
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug/../Src/main.c:230: undefined reference to `HAL_ADC_ConfigChannel'
+collect2.exe: error: ld returned 1 exit status
+make: *** [smartcard1.elf] Error 1
+makefile:35: recipe for target 'smartcard1.elf' failed
+17:26:42 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+make: Nothing to be done for 'all'.
+17:26:43 **** Incremental Build of configuration Debug for project smartcard1 ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.c
+ 
+Building target: smartcard1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard1.elf" @"objects.list"   -lm
+Finished building target: smartcard1.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard1.elf" "smartcard1.bin"
+arm-none-eabi-size "smartcard1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9356	     12	   2084	  11452	   2cbc	smartcard1.elf
+ 
+17:27:35 **** Incremental Build of configuration Debug for project smartcard1 ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building target: smartcard1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard1.elf" @"objects.list"   -lm
+Finished building target: smartcard1.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard1.elf" "smartcard1.bin"
+arm-none-eabi-size "smartcard1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9420	     12	   2084	  11516	   2cfc	smartcard1.elf
+ 
+17:27:43 **** Incremental Build of configuration Debug for project smartcard1 ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32F0-Smartcard\smartcard1\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32F0-Smartcard/smartcard1/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building target: smartcard1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard1.elf" @"objects.list"   -lm
+Finished building target: smartcard1.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard1.elf" "smartcard1.bin"
+arm-none-eabi-size "smartcard1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9420	     12	   2084	  11516	   2cfc	smartcard1.elf
+ 
