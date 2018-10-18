@@ -1,0 +1,23 @@
+14:26:49 **** Incremental Build of configuration Debug for project smartcard ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+E:\gitworks\STM32-QT\smartcardconfig\smartcard\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F051x8 -I"E:/gitworks/STM32-QT/smartcardconfig/smartcard/Inc" -I"E:/gitworks/STM32-QT/smartcardconfig/smartcard/Drivers/STM32F0xx_HAL_Driver/Inc" -I"E:/gitworks/STM32-QT/smartcardconfig/smartcard/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"E:/gitworks/STM32-QT/smartcardconfig/smartcard/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"E:/gitworks/STM32-QT/smartcardconfig/smartcard/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building target: smartcard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F051R8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "smartcard.elf" @"objects.list"   -lm
+Finished building target: smartcard.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "smartcard.elf" "smartcard.bin"
+arm-none-eabi-size "smartcard.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9076	     12	   1852	  10940	   2abc	smartcard.elf
+ 
+
+14:26:51 Build Finished (took 1s.437ms)
+

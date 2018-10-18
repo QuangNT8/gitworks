@@ -4,8 +4,8 @@ Product
 {
     property string boardId: "682249636"
     name: "power"
-    //type: ["application", "hex", "flash"]
-    type: ["application", "hex",]
+    type: ["application", "hex", "flash"]
+    //type: ["application", "hex",]
 
     Depends { name:"cpp"}
     Depends {name: "stm32f0"}

@@ -329,7 +329,7 @@ int32_t pidcal_voltage(int32_t setpointin, int32_t signalin)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOC))
 	{
 		ADC_RAW[adcindex]=HAL_ADC_GetValue(hadc);
@@ -343,7 +343,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOS))
 	{
-		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 		adcindex=0;
 	}
 }
@@ -381,22 +381,22 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC_Init();
-  MX_TIM1_Init();
+//  MX_ADC_Init();
+//  MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
-  HAL_ADC_Start_IT(&hadc);
-  /* USER CODE END 2 */
-  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-  MX_COMP1_Init();
-  MX_DAC1_Init();
-  HAL_COMP_Start(&hcomp1);
-  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
-  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
-
-  HAL_TIM_Base_Start_IT(&htim2);
+//  /* USER CODE BEGIN 2 */
+//  HAL_ADC_Start_IT(&hadc);
+//  /* USER CODE END 2 */
+//  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+//  MX_COMP1_Init();
+//  MX_DAC1_Init();
+//  HAL_COMP_Start(&hcomp1);
+//  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+//  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
+//  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
+//
+//  HAL_TIM_Base_Start_IT(&htim2);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 //  while(1);
@@ -404,11 +404,13 @@ int main(void)
 //  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
   while (1)
   {
-
+	  HAL_UART_Transmit(&huart1,'a',1,10);
+	  printf("%d, adc value = %lu\r\n",count++,counter);
 //	  if(adcVal<100)
   /* USER CODE END WHILE */
 //	  printf("%d, adc value = %lu\r\n",count++,counter);
-//	  HAL_Delay(10);
+	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+	  HAL_Delay(1000);
   /* USER CODE BEGIN 3 */
 //	  counter = __HAL_TIM_GET_COUNTER(&htim2);
 //	  HAL_Delay(1);
@@ -494,45 +496,45 @@ float mypid(float SetPoint, float input)
 void SystemClock_Config(void)
 {
 
-  RCC_OscInitTypeDef RCC_OscInitStruct;
-  RCC_ClkInitTypeDef RCC_ClkInitStruct;
-  RCC_PeriphCLKInitTypeDef PeriphClkInit;
+	  RCC_OscInitTypeDef RCC_OscInitStruct;
+	  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+	  RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
-    /**Initializes the CPU, AHB and APB busses clocks 
-    */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI14;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSI14State = RCC_HSI14_ON;
-  RCC_OscInitStruct.HSICalibrationValue = 16;
-  RCC_OscInitStruct.HSI14CalibrationValue = 16;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
-  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+		/**Initializes the CPU, AHB and APB busses clocks
+		*/
+	  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI14;
+	  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+	  RCC_OscInitStruct.HSI14State = RCC_HSI14_ON;
+	  RCC_OscInitStruct.HSICalibrationValue = 16;
+	  RCC_OscInitStruct.HSI14CalibrationValue = 16;
+	  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+	  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+	  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
+	  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+	  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+	  {
+		_Error_Handler(__FILE__, __LINE__);
+	  }
 
-    /**Initializes the CPU, AHB and APB busses clocks 
-    */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+		/**Initializes the CPU, AHB and APB busses clocks
+		*/
+	  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+								  |RCC_CLOCKTYPE_PCLK1;
+	  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+	  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+	  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+	  {
+		_Error_Handler(__FILE__, __LINE__);
+	  }
 
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
-  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+	  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+	  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
+	  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+	  {
+		_Error_Handler(__FILE__, __LINE__);
+	  }
 
     /**Configure the Systick interrupt time 
     */

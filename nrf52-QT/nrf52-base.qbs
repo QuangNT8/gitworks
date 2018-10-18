@@ -9,7 +9,7 @@ Project
         //"blinky/blinky.qbs",
         //"radio/TX/radioTX.qbs",
         //"radio/RX/radioRX.qbs",
-        //"UART_TEST/UART_TEST.qbs",
+        "UART_TEST/UART_TEST.qbs",
         "ADC_TEST/ADC_TEST.qbs",
     ]
 

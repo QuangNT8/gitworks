@@ -330,7 +330,7 @@ int32_t pidcal_voltage(int32_t setpointin, int32_t signalin)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOC))
 	{
 		ADC_RAW[adcindex]=HAL_ADC_GetValue(hadc);
@@ -344,7 +344,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
 	if(__HAL_ADC_GET_FLAG(hadc,ADC_FLAG_EOS))
 	{
-		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
 		adcindex=0;
 	}
 }
@@ -382,34 +382,31 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC_Init();
-  MX_TIM1_Init();
-  MX_TIM2_Init();
-  MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
-  HAL_ADC_Start_IT(&hadc);
-  /* USER CODE END 2 */
-  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-  MX_COMP1_Init();
-  MX_DAC1_Init();
-  HAL_COMP_Start(&hcomp1);
-  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
-  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
+//  MX_ADC_Init();
+//  MX_TIM1_Init();
+//  MX_TIM2_Init();
+//  MX_USART1_UART_Init();
+//  /* USER CODE BEGIN 2 */
+//  HAL_ADC_Start_IT(&hadc);
+//  /* USER CODE END 2 */
+//  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+//  MX_COMP1_Init();
+//  MX_DAC1_Init();
+//  HAL_COMP_Start(&hcomp1);
+//  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+//  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,constan_pwm_duty);
+//  HAL_DAC_SetValue(&hdac1,DAC_CHANNEL_1,DAC_ALIGN_12B_R,4095);
 
-  HAL_TIM_Base_Start_IT(&htim2);
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-//  while(1);
-//  HAL_TIM_Base_Stop_IT(&htim2);
-//  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
+//  HAL_TIM_Base_Start_IT(&htim2);
+
   while (1)
   {
 
 //	  if(adcVal<100)
   /* USER CODE END WHILE */
 //	  printf("%d, adc value = %lu\r\n",count++,counter);
-//	  HAL_Delay(10);
+      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+      HAL_Delay(10);
   /* USER CODE BEGIN 3 */
 //	  counter = __HAL_TIM_GET_COUNTER(&htim2);
 //	  HAL_Delay(1);
