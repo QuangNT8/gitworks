@@ -44,25 +44,45 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
+SPI_HandleTypeDef hspi1;
+DMA_HandleTypeDef hdma_spi1_rx;
+
 TIM_HandleTypeDef htim2;
 
-SMARTCARD_HandleTypeDef hsmartcard1;
-UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
-DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
-/* Private variables ---------------------------------------------------------*/
 
+uint8_t datatest[256];
+uint8_t DATAOUT[256];
+/* Private variables ---------------------------------------------------------*/
+int __io_putchar(int ch)
+{
+	uint8_t c[1];
+ 	 c[0] = ch & 0x00FF;
+ 	 HAL_UART_Transmit(&huart1, &*c, 1, 10);
+ 	 return ch;
+}
+
+int _write(int file,char *ptr, int len)
+{
+ int DataIdx;
+ for(DataIdx= 0; DataIdx< len; DataIdx++)
+ {
+ __io_putchar(*ptr++);
+ }
+return len;
+}
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_USART1_SMARTCARD_Init(void);
-static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_SPI1_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -81,7 +101,7 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	uint16_t i,j;
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -103,22 +123,36 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_USART1_SMARTCARD_Init();
-  MX_USART2_UART_Init();
   MX_TIM2_Init();
+  MX_USART1_UART_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim2);
+//  HAL_TIM_Base_Start_IT(&htim2);
+//  HAL_UART_Receive_DMA(&huart1,datatest,16);
+//  HAL_USART_Transmit_DMA(&husart1,datatest,255);
+  HAL_SPI_Receive_DMA(&hspi1,datatest,255);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  j=0;
+  i=0;
   while (1)
   {
 
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-
+	  for(i=0;i<16;i++)
+	  {
+		  if((datatest[i]!=0)&&(datatest[i]!=255))
+		  {
+			  DATAOUT[j++] = datatest[i];
+		  }
+	  }
+//	  printf("Hello\r\n");
+	  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_9);
+	  HAL_Delay(100);
   }
   /* USER CODE END 3 */
 
@@ -181,6 +215,31 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
+/* SPI1 init function */
+static void MX_SPI1_Init(void)
+{
+
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_SLAVE;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 7;
+  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
+
 /* TIM2 init function */
 static void MX_TIM2_Init(void)
 {
@@ -215,48 +274,20 @@ static void MX_TIM2_Init(void)
 }
 
 /* USART1 init function */
-static void MX_USART1_SMARTCARD_Init(void)
+static void MX_USART1_UART_Init(void)
 {
 
-  hsmartcard1.Instance = USART1;
-  hsmartcard1.Init.BaudRate = 38400;
-  hsmartcard1.Init.WordLength = SMARTCARD_WORDLENGTH_9B;
-  hsmartcard1.Init.StopBits = SMARTCARD_STOPBITS_1_5;
-  hsmartcard1.Init.Parity = SMARTCARD_PARITY_EVEN;
-  hsmartcard1.Init.Mode = SMARTCARD_MODE_TX_RX;
-  hsmartcard1.Init.CLKPolarity = SMARTCARD_POLARITY_LOW;
-  hsmartcard1.Init.CLKPhase = SMARTCARD_PHASE_1EDGE;
-  hsmartcard1.Init.CLKLastBit = SMARTCARD_LASTBIT_DISABLE;
-  hsmartcard1.Init.OneBitSampling = SMARTCARD_ONE_BIT_SAMPLE_DISABLE;
-  hsmartcard1.Init.Prescaler = 10;
-  hsmartcard1.Init.GuardTime = 0;
-  hsmartcard1.Init.NACKEnable = SMARTCARD_NACK_ENABLE;
-  hsmartcard1.Init.TimeOutEnable = SMARTCARD_TIMEOUT_DISABLE;
-  hsmartcard1.Init.BlockLength = 0;
-  hsmartcard1.Init.AutoRetryCount = 0;
-  hsmartcard1.AdvancedInit.AdvFeatureInit = SMARTCARD_ADVFEATURE_NO_INIT;
-  if (HAL_SMARTCARD_Init(&hsmartcard1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-}
-
-/* USART2 init function */
-static void MX_USART2_UART_Init(void)
-{
-
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 38400;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_9B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
