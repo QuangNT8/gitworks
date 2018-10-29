@@ -54,8 +54,10 @@ DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
 
-uint8_t datatest[256];
-uint8_t DATAOUT[256];
+extern uint8_t datatest[2];
+extern uint8_t dataout[50];
+uint32_t input_capture;
+uint32_t count;
 /* Private variables ---------------------------------------------------------*/
 int __io_putchar(int ch)
 {
@@ -74,6 +76,12 @@ int _write(int file,char *ptr, int len)
  }
 return len;
 }
+
+void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+}
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,7 +98,15 @@ static void MX_SPI1_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance==TIM2)
+	{
+//		input_capture = __HAL_TIM_GET_COMPARE(&htim2, TIM_CHANNEL_2);
+//		__HAL_TIM_SET_COUNTER(&htim2, 0);
+		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_9);
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -130,7 +146,12 @@ int main(void)
 //  HAL_TIM_Base_Start_IT(&htim2);
 //  HAL_UART_Receive_DMA(&huart1,datatest,16);
 //  HAL_USART_Transmit_DMA(&husart1,datatest,255);
-  HAL_SPI_Receive_DMA(&hspi1,datatest,255);
+//  HAL_SPI_Receive_DMA(&hspi1,datatest,1);
+//  	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_2);
+//  	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_2);
+//  HAL_SPI_Receive_IT(&hspi1,datatest,255);
+//  HAL_TIM_Base_Start(&htim2);
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,20 +160,13 @@ int main(void)
   i=0;
   while (1)
   {
-
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-	  for(i=0;i<16;i++)
-	  {
-		  if((datatest[i]!=0)&&(datatest[i]!=255))
-		  {
-			  DATAOUT[j++] = datatest[i];
-		  }
-	  }
+	  count = __HAL_TIM_GET_COUNTER(&htim2);
 //	  printf("Hello\r\n");
-	  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_9);
-	  HAL_Delay(100);
+//	  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_9);
+//	  HAL_Delay(100);
   }
   /* USER CODE END 3 */
 
@@ -224,7 +238,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.Mode = SPI_MODE_SLAVE;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -244,22 +258,25 @@ static void MX_SPI1_Init(void)
 static void MX_TIM2_Init(void)
 {
 
-  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_SlaveConfigTypeDef sSlaveConfig;
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 100;
+  htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 480;
+  htim2.Init.Period = 4800;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_EXTERNAL1;
+  sSlaveConfig.InputTrigger = TIM_TS_TI1FP1;
+  sSlaveConfig.TriggerPolarity = TIM_TRIGGERPOLARITY_RISING;
+  sSlaveConfig.TriggerFilter = 0;
+  if (HAL_TIM_SlaveConfigSynchronization(&htim2, &sSlaveConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -328,12 +345,6 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, LD4_Pin|LD3_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB12 */
   GPIO_InitStruct.Pin = GPIO_PIN_12;

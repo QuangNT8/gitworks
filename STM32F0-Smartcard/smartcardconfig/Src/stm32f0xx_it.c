@@ -36,7 +36,9 @@
 #include "stm32f0xx_it.h"
 
 /* USER CODE BEGIN 0 */
-
+uint8_t dataout[50];
+static indexdata=0;
+uint8_t datatest[2];
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -95,7 +97,16 @@ void DMA1_Channel2_3_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_spi1_rx);
   HAL_DMA_IRQHandler(&hdma_usart1_rx);
   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_9);
 
+  if((datatest[0]!=0)&&(datatest[0]!=255))
+  {
+	  dataout[indexdata++]=datatest[0];
+	  if(indexdata>=50)
+	  {
+		  indexdata=0;
+	  }
+  }
   /* USER CODE END DMA1_Channel2_3_IRQn 1 */
 }
 
