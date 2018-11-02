@@ -83,7 +83,7 @@
 #define SW1_read        	nrf_gpio_pin_read(14)
 #define SW2_read         	nrf_gpio_pin_read(13)
 
-#define debug_enable 
+//#define debug_enable
 
 #if defined(debug_enable)
 
@@ -107,7 +107,7 @@ void button_scan()
 	if(SW1_read==0)
 	{
 		nrf_delay_ms(50);
-		if((SW1_read==0)&&(sw1_flag==0))
+        if((SW1_read==0)&&(sw1_flag==0))
 		{
 			LED2_toggle;
 			//LED1_toggle;
@@ -167,7 +167,7 @@ void button_scan_wallsocket()
 	}
 	else
 	{
-		sw2_flag = 0;
+        sw2_flag = 0;
 	}
 }
 
@@ -220,7 +220,7 @@ void clock_initialization()
     NRF_CLOCK->TASKS_HFCLKSTART    = 1;
 
     /* Wait for the external oscillator to start up */
-	nrf_delay_ms(1);
+    nrf_delay_ms(1);
 	#if 0
     while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0)
     {
@@ -231,7 +231,7 @@ void clock_initialization()
     NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
     NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_LFCLKSTART    = 1;
-	nrf_delay_ms(1);
+    nrf_delay_ms(1);
 	#if 0
     while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
     {
@@ -326,13 +326,15 @@ int main(void)
 	printf("\r\n Debug Enable \r\n");
 #endif
 	packet=0;
-	while (true)
+    while (true)
     {
 		#if defined(debug_enable)
-			printf("\r\n RF packet: 0x%lx \r\n",packet);
+            printf("\r\n RF packet: 0x%lx \r\n",packet);
 		#endif
-		button_remote_wallsocket();
-		read_packet();	
+        button_remote_wallsocket();
+        read_packet();
+//        LED2_toggle;
+//        nrf_delay_ms(100);
     }
 }
 

@@ -2,7 +2,8 @@ import qbs
 
 Product
 {
-    property string boardId: "682249636"
+    property string boardId: "682555254"
+    //property string boardId: "682249636"
     name: "RadioTX"
     type: ["application", "hex", "flash"]
 

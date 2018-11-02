@@ -88,7 +88,25 @@
 #define SW1_read        	nrf_gpio_pin_read(14)
 #define SW2_read         	nrf_gpio_pin_read(13)
 
-static uint32_t                   packet;                    /**< Packet to transmit. */
+typedef struct
+{
+    uint8_t Header;
+    uint8_t Count;
+    uint8_t DeviceID;
+    uint8_t TargetID;
+    uint8_t data[8] ;
+    uint32_t eof;
+} MSG_DATA_t;
+
+static MSG_DATA_t                   packet;                    /**< Packet to transmit. */
+
+void MSG_init()
+{
+    packet.Header = 0xff;
+    packet.DeviceID = 54;
+    packet.TargetID = 36;
+    packet.eof = 0xffffffff;
+}
 
 /**@brief Function for sending packet.
  */
@@ -157,7 +175,7 @@ void bsp_evt_handler(bsp_event_t evt)
             /* No implementation needed. */
             break;
     }
-    packet = prep_packet;
+//    packet[0] = prep_packet;
 }
 
 
@@ -202,6 +220,7 @@ int main(void)
     uint32_t err_code = NRF_SUCCESS;
 	uint8_t sw1_flag=0;
 	uint8_t sw2_flag=0;
+    uint8_t i;
 	 /* Configure board. */
     bsp_board_leds_init();
 	
@@ -230,7 +249,8 @@ int main(void)
 //    NRF_LOG_INFO("Press Any Button");
     APP_ERROR_CHECK(err_code);
 #endif
-	packet = 0;
+    MSG_init();
+    for(i=0;i<8;i++) packet.data[i] = 0;
     while (true)
     {
 //        if (packet != 0)
@@ -244,11 +264,18 @@ int main(void)
 			nrf_delay_ms(50);
 			if((SW1_read==0)&&(sw1_flag==0))
 			{
-				packet=1;
+                packet.data[0]=1;
+                packet.data[1]=2;
+                packet.data[2]=3;
+                packet.data[3]=4;
+                packet.data[4]=5;
+                packet.data[5]=6;
+                packet.data[6]=7;
+                packet.data[7]=8;
 				send_packet();
-				//LED1_toggle;
+                LED1_toggle;
 				//RELAY1_toggle;
-				sw1_flag = 1;
+                sw1_flag = 1;
 			}
 		}
 		else
@@ -260,16 +287,23 @@ int main(void)
 			nrf_delay_ms(50);
 			if((SW2_read==0)&&(sw2_flag==0))
 			{
-				//LED2_toggle;
+                LED2_toggle;
 				//RELAY2_toggle;
-				packet=2;
-				send_packet();
+                packet.data[0]=9;
+                packet.data[1]=10;
+                packet.data[2]=11;
+                packet.data[3]=12;
+                packet.data[4]=13;
+                packet.data[5]=14;
+                packet.data[6]=15;
+                packet.data[7]=16;
+                send_packet();
 				sw2_flag = 1;
 			}
 		}
 		else
-		{
-			sw2_flag = 0;
+        {
+            sw2_flag = 0;
 		}
 		
 		//packet++;
