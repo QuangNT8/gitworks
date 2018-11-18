@@ -93,6 +93,33 @@ void timer_handler(nrf_timer_event_t event_type, void * p_context)
 {
 
 }
+void nrf_drv_common_irq_enable(IRQn_Type IRQn, uint8_t priority)
+{
+
+
+}
+
+uint32_t timer_init(nrf_drv_timer_t const * const p_instance,
+                              nrf_drv_timer_config_t const * p_config,
+                              nrf_timer_event_handler_t timer_event_handler)
+{
+
+    ret_code_t err_code;
+
+//    p_cb->handler = timer_event_handler;
+
+    NVIC_SetPriority(TIMER0_IRQn, 7);
+    NVIC_ClearPendingIRQ(TIMER0_IRQn);
+    NVIC_EnableIRQ(TIMER0_IRQn);
+//    nrf_drv_common_irq_enable(nrf_drv_get_IRQn(p_instance->p_reg),
+//        p_config->interrupt_priority);
+    NRF_TIMER0->MODE = TIMER_DEFAULT_CONFIG_MODE;
+    NRF_TIMER0->BITMODE = TIMER_DEFAULT_CONFIG_BIT_WIDTH;
+    NRF_TIMER0->PRESCALER = TIMER_DEFAULT_CONFIG_FREQUENCY;
+//    nrf_timer_mode_set(p_instance->p_reg, p_config->mode);
+//    nrf_timer_bit_width_set(p_instance->p_reg, p_config->bit_width);
+//    nrf_timer_frequency_set(p_instance->p_reg, p_config->frequency);
+}
 
 void saadc_sampling_event_init(void)
 {
