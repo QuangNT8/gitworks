@@ -69,58 +69,9 @@
 #define FLASHWRITE_EXAMPLE_BLOCK_INVALID        (0xA55A0000)
 #define FLASHWRITE_EXAMPLE_BLOCK_NOT_INIT       (0xFFFFFFFF)
 
-//NRF_CLI_UART_DEF(m_cli_uart_transport, 0, 64, 16);
-APP_TIMER_DEF(m_cli_uart_transport_timer);
-NRF_RINGBUF_DEF(m_cli_uart_transport_tx_ringbuf, 64);
-NRF_RINGBUF_DEF(m_cli_uart_transport_rx_ringbuf, 16);
-static nrf_drv_uart_t m_cli_uart_transport_uart; // = {NRF_UART0,0};//NRF_DRV_UART_INSTANCE(0);
+NRF_CLI_UART_DEF(m_cli_uart_transport, 0, 64, 16);
+NRF_CLI_DEF(m_cli_uart, "uart_cli:~$ ", &m_cli_uart_transport.transport, '\r', 4);
 
-static nrf_cli_uart_internal_cb_t m_cli_uart_transport_cb;
-static const nrf_cli_uart_internal_t m_cli_uart_transport =\
-{
-    .transport = {.p_api = &nrf_cli_uart_transport_api},
-    .p_cb = &m_cli_uart_transport_cb,
-    .p_timer = &m_cli_uart_transport_timer,
-    .p_rx_ringbuf = &m_cli_uart_transport_rx_ringbuf,
-    .p_tx_ringbuf = &m_cli_uart_transport_tx_ringbuf,
-    .p_uart       = &m_cli_uart_transport_uart,
-};
-static nrf_cli_ctx_t m_cli_uart_ctx;
-
-NRF_LOG_BACKEND_CLI_DEF(m_cli_uart_log_backend, 4);
-NRF_CLI_HISTORY_MEM_OBJ(m_cli_uart);
-/*lint -save -e31*/
-static nrf_cli_t m_cli_uart = {
-    .p_name = "uart_cli:~$ ",
-    .p_iface = &m_cli_uart_transport.transport,
-    .p_ctx = &m_cli_uart_ctx,
-    .p_log_backend = NRF_CLI_BACKEND_PTR(m_cli_uart),
-//    .p_fprintf_ctx = &m_cli_uart_fprintf_ctx,
-    .p_cmd_hist_mempool = NRF_CLI_MEMOBJ_PTR(m_cli_uart),
-    .newline_char = '\r'
-};
-
-static nrf_fprintf_ctx_t m_cli_uart_fprintf_ctx =
-   {
-       .p_io_buffer = m_cli_uart_ctx.printf_buff,
-       .io_buffer_size = NRF_CLI_PRINTF_BUFF_SIZE,
-       .io_buffer_cnt = 0,
-       .auto_flush = false,
-       .p_user_ctx = &m_cli_uart,
-       .fwrite = nrf_cli_print_stream
-   };
-//NRF_CLI_DEF(m_cli_uart, "uart_cli:~$ ", &m_cli_uart_transport.transport, '\r', 4);
-
-void mycli_init()
-{
-    nrf_drv_uart_t cliinit;
-    cliinit.drv_inst_idx = 0;
-    cliinit.reg.p_uart = NRF_UART0;
-    m_cli_uart_transport_uart = cliinit;
-    nrf_fprintf_ctx_t test;
-    test.auto_flush = false;
-    m_cli_uart.p_fprintf_ctx = &m_cli_uart_fprintf_ctx;
-}
 
 typedef struct
 {
@@ -184,7 +135,7 @@ static void flash_page_init(void)
 int main(void)
 {
     uint32_t err_code;
-    mycli_init();
+
     APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
 
     err_code = app_timer_init();
