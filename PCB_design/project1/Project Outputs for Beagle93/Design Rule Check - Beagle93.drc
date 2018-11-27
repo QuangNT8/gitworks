@@ -1,0 +1,65 @@
+Protel Design System Design Rule Check
+PCB File : D:\STM32\workspace\gitworks\PCB_design\project1\Beagle93.PCBDOC
+Date     : 11/27/2018
+Time     : 10:49:30 PM
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT11'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT10'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT9'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT8'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT7'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT6'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT5'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT4'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT3'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT2'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT1'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=0.508mm) (InxSignalClass('ADDR_PP1') OR InxSignalClass('DATA_BL0'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1.3mm) (InxSignalClass('DATA_BL0'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=2mm) (InxSignalClass('ADDR_PP1'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InDifferentialPairClass('All Differential Pairs'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=10mm) (InNetClass('EXT0'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1mm) (InxSignalClass('Clock fanout'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1mm) (InxSignalClass('Differential clocks'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1mm) (InDifferentialPairClass('SFP_RX_TX'))
+Rule Violations :0
+
+
+Violations Detected : 0
+Time Elapsed        : 00:00:00
