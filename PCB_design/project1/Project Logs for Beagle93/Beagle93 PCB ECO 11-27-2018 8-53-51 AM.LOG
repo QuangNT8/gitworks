@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=ENET_TXD_N Pin=IC4-A13
+Removed Pin From Net: NetName=ENET_TXD_P Pin=IC4-A14
+Removed Pin From Net: NetName=ENET_RXD_P Pin=IC4-B18
+Removed Pin From Net: NetName=ENET_RXD_N Pin=IC4-D17
+Removed Pin From Net: NetName=ENET_XTAL Pin=IC4-D19
+Removed Pin From Net: NetName=EXT9.LVDS_0_N Pin=R22-1
+Removed Pin From Net: NetName=EXT8.LVDS_0_N Pin=R29-2
+Removed Pin From Net: NetName=EXT9.LVDS_3_P Pin=R36-2
+Removed Pin From Net: NetName=EXT9.LVDS_0_N Pin=U5-12
+Removed Pin From Net: NetName=EXT7.LVDS_0_P Pin=U5-13
+Removed Pin From Net: NetName=EXT9.LVDS_0_P Pin=U5-15
+Added Pin To Net: NetName=ENET_TXD_N Pin=IC4-G15
+Added Pin To Net: NetName=ENET_TXD_P Pin=IC4-G16
+Added Pin To Net: NetName=ENET_RXD_N Pin=IC4-G17
+Added Pin To Net: NetName=ENET_RXD_P Pin=IC4-H14
+Added Pin To Net: NetName=ENET_XTAL Pin=IC4-H18
+Added Pin To Net: NetName=EXT5.LVDS_1_N Pin=R22-1
+Added Pin To Net: NetName=EXT5.LVDS_4_N Pin=R29-2
+Added Pin To Net: NetName=EXT6.LVDS_4_P Pin=R36-2
+Added Pin To Net: NetName=EXT5.LVDS_1_N Pin=U5-12
+Added Pin To Net: NetName=EXT6.LVDS_1_P Pin=U5-13
+Added Pin To Net: NetName=EXT5.LVDS_1_P Pin=U5-15
+Added Pin To Net: NetName=EXT7.LVDS_0_N Pin=IC4-D19
+Added Net: Name=EXT7.LVDS_0_N
+Added Pin To Net: NetName=EXT8.LVDS_0_P Pin=IC4-D17
+Added Net: Name=EXT8.LVDS_0_P
+Added Pin To Net: NetName=EXT8.LVDS_2_N Pin=IC4-A14
+Added Net: Name=EXT8.LVDS_2_N
+Added Pin To Net: NetName=EXT8.LVDS_2_P Pin=IC4-A13
+Added Net: Name=EXT8.LVDS_2_P
+Added Pin To Net: NetName=EXT9.LVDS_3_N Pin=IC4-B18
+Added Net: Name=EXT9.LVDS_3_N

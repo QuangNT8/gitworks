@@ -1,0 +1,4 @@
+Added Component: Designator=R13(RESC1005N)
+Added Pin To Net: NetName=NetC16_2 Pin=R13-1
+Added Pin To Net: NetName=GND Pin=R13-2
+Added Member To Class: ClassName=U_adc Member=Component R13 147

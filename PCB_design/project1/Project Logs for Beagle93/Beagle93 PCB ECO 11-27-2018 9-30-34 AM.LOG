@@ -1,0 +1,11 @@
+Added Component: Designator=U2(SOIC127P1030-16L)
+Added Pin To Net: NetName=CFG_D03 Pin=U2-1
+Added Pin To Net: NetName=VCC Pin=U2-2
+Added Pin To Net: NetName=CFG_FCS Pin=U2-7
+Added Pin To Net: NetName=NetU2_8 Pin=U2-8
+Added Pin To Net: NetName=CFG_D02 Pin=U2-9
+Added Pin To Net: NetName=GND Pin=U2-10
+Added Pin To Net: NetName=P2V5 Pin=U2-14
+Added Pin To Net: NetName=CFG_MOSI Pin=U2-15
+Added Pin To Net: NetName=CFG_CCLK Pin=U2-16
+Added Member To Class: ClassName=TOP Member=Component U2 S25FL128SAGMFIR01

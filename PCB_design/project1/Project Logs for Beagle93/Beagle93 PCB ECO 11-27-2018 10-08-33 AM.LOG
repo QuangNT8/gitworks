@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=FPGA_NPCLK Pin=IC4-E6
+Removed Pin From Net: NetName=FPGA_PCLK Pin=IC4-F6
+Change Component Comment : Designator=IC4 Old Comment=XC7A50T-2FGG484C New Comment=XC7A100T-2FGG484C
+Added Component: Designator=T2(SOT95P230X110-3N)
+Added Component: Designator=T3(SOT95P230X110-3N)
+Added Component: Designator=T12(SOT95P230X110-3N)
+Added Pin To Net: NetName=LED_USER2 Pin=T2-1
+Added Pin To Net: NetName=GND Pin=T2-2
+Added Pin To Net: NetName=NetLD13_2 Pin=T2-3
+Added Pin To Net: NetName=LED_USER1 Pin=T3-1
+Added Pin To Net: NetName=GND Pin=T3-2
+Added Pin To Net: NetName=NetLD2_2 Pin=T3-3
+Added Pin To Net: NetName=LED_USER3 Pin=T12-1
+Added Pin To Net: NetName=GND Pin=T12-2
+Added Pin To Net: NetName=NetLD14_2 Pin=T12-3
+Added Member To Class: ClassName=Artix Member=Component T2 BSH103
+Added Member To Class: ClassName=U_FPGA Member=Component T2 BSH103
+Added Member To Class: ClassName=Artix Member=Component T3 BSH103
+Added Member To Class: ClassName=U_FPGA Member=Component T3 BSH103
+Added Member To Class: ClassName=Artix Member=Component T12 BSH103
+Added Member To Class: ClassName=U_FPGA Member=Component T12 BSH103
