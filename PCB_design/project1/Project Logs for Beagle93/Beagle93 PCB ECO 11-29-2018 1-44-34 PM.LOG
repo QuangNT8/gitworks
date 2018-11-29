@@ -1,0 +1,9 @@
+Added Component: Designator=TP20(TPS127)
+Added Pin To Net: NetName=NetTP20_1 Pin=TP20-1
+Added Differential Pair: Name=ENET_RXD
+Added Differential Pair: Name=ENET_TXD
+Added Differential Pair: Name=RA1
+Added Differential Pair: Name=RA2
+Added Differential Pair: Name=RX
+Added Differential Pair: Name=TX
+Added Member To Class: ClassName=U_adc Member=Component TP20 P2V5
