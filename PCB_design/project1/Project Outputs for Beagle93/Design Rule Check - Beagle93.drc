@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : E:\gitworks\PCB_design\project1\Beagle93.PCBDOC
+PCB File : D:\STM32\workspace\gitworks\PCB_design\project1\Beagle93.PCBDOC
 Date     : 12/4/2018
-Time     : 3:41:54 PM
+Time     : 9:02:52 PM
 
 Processing Rule : Clearance Constraint (Gap=0.152mm) (InNamedPolygon('BAL_TOP') or InNamedPolygon('BAL_BOT') or InNamedPolygon('ML1_BAL') or  InNamedPolygon('ML2_BAL')),(All)
 Rule Violations :0
@@ -113,4 +113,4 @@ Rule Violations :0
 
 
 Violations Detected : 0
-Time Elapsed        : 00:00:19
+Time Elapsed        : 00:00:10
