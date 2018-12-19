@@ -1,0 +1,12 @@
+Added Component: Designator=C8(0805_HV)
+Added Component: Designator=U4(SOT95P280X145-6N)
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=3.3V Pin=C8-2
+Added Pin To Net: NetName=CURRENT_SIGNAL2 Pin=U4-1
+Added Pin To Net: NetName=GND Pin=U4-2
+Added Pin To Net: NetName=L Pin=U4-3
+Added Pin To Net: NetName=LOUT Pin=U4-4
+Added Pin To Net: NetName=VREF Pin=U4-5
+Added Pin To Net: NetName=3.3V Pin=U4-6
+Added Member To Class: ClassName=Aptomat_power_supply Member=Component C8 104
+Added Member To Class: ClassName=Aptomat_power_supply Member=Component U4 INA181A1IDBVT
