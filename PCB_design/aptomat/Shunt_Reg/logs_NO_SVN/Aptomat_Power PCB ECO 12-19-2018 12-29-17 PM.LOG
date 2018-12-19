@@ -1,0 +1,91 @@
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=C7-1
+Removed Pin From Net: NetName=GND Pin=C8-1
+Removed Pin From Net: NetName=GND Pin=C10-1
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=C10-2
+Removed Pin From Net: NetName=GND Pin=C11-1
+Removed Pin From Net: NetName=GND Pin=C12-1
+Removed Pin From Net: NetName=GND Pin=C14-1
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=C14-2
+Removed Pin From Net: NetName=GND Pin=C15-1
+Removed Pin From Net: NetName=GND Pin=C16-1
+Removed Pin From Net: NetName=N Pin=D6-1
+Removed Pin From Net: NetName=L Pin=F1-2
+Removed Pin From Net: NetName=LL Pin=R2-2
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=R11-2
+Removed Pin From Net: NetName=CUR_P Pin=R12-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL2 Pin=R14-1
+Removed Pin From Net: NetName=CUR_N Pin=R15-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL2 Pin=R17-1
+Removed Pin From Net: NetName=GND Pin=R17-2
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=R22-2
+Removed Pin From Net: NetName=CUR_P Pin=R23-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL1 Pin=R25-1
+Removed Pin From Net: NetName=CUR_N Pin=R26-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL1 Pin=R28-1
+Removed Pin From Net: NetName=GND Pin=R28-2
+Removed Pin From Net: NetName=VOFFSET_CURRENT Pin=R30-2
+Removed Pin From Net: NetName=CUR_P Pin=R31-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL3 Pin=R33-1
+Removed Pin From Net: NetName=CUR_N Pin=R34-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL3 Pin=R36-1
+Removed Pin From Net: NetName=GND Pin=R36-2
+Removed Pin From Net: NetName=N Pin=RV1-1
+Removed Pin From Net: NetName=VCC_RELAY Pin=U1-4
+Removed Pin From Net: NetName=GND Pin=U1-11
+Removed Pin From Net: NetName=L Pin=Wp1-1
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C6
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C7
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C8
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C10
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C11
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C12
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C14
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C15
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=C16
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R11
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R12
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R13
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R14
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R15
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R16
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R17
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R21
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R22
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R23
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R24
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R25
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R26
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R27
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R28
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R29
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R30
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R31
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R32
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R33
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R34
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R35
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R36
+Removed Member From Class: ClassName=pca10040_sheet5_power_supply Member=R37
+Change Component DesignItemId : Designator=U1 Old DesignItemId=LM324_MH New DesignItemId=LM358 SOP8_MH
+Change Component Footprint: Designator=U1 Old Footprint=D014_L New Footprint=SOP 8
+Change Component Comment : Designator=R38 Old Comment=1K New Comment=22R
+Change Component Comment : Designator=U1 Old Comment=LM324 New Comment=LM358 SOP8_MH
+Added Component: Designator=Rshunt1(0805_HV)
+Added Component: Designator=U3(SOT95P280X145-6N)
+Added Pin To Net: NetName=L Pin=D6-1
+Added Pin To Net: NetName=N Pin=F1-2
+Added Pin To Net: NetName=LOUT Pin=Rshunt1-1
+Added Pin To Net: NetName=L Pin=Rshunt1-2
+Added Pin To Net: NetName=L Pin=RV1-1
+Added Pin To Net: NetName=GND Pin=U1-4
+Added Pin To Net: NetName=VCC_RELAY Pin=U1-8
+Added Pin To Net: NetName=N Pin=Wp1-1
+Change Net Name : Old Net Name=LL New Net Name=NN
+Added Pin To Net: NetName=LL Pin=R2-2
+Added Net: Name=LL
+Change Class Name : Old Net Name=pca10040_sheet5_power_supply New Net Name=Aptomat_power_supply
+Added Member To Class: ClassName=Aptomat_power_supply Member=Component Rshunt1 0.006R
+Added Member To Class: ClassName=Aptomat_power_supply Member=Component U3 INA181A1IDBVT
+Added Room: Name=Aptomat_power_supply
