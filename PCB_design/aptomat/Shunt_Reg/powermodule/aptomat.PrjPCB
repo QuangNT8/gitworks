@@ -172,6 +172,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DMMWGAVM
 
+[GeneratedDocument1]
+DocumentPath=..\outputs_NO_SVN\Design Rule Check - Aptomat_Power.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
