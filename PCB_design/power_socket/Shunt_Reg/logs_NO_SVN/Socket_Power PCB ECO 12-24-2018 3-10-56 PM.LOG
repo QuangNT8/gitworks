@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=GND Pin=C1-2
+Removed Pin From Net: NetName=GND Pin=C24-1
+Removed Pin From Net: NetName=GND Pin=D1-1
+Removed Pin From Net: NetName=GND Pin=D4-2
+Removed Pin From Net: NetName=GND Pin=L4-2
+Removed Pin From Net: NetName=GND Pin=P8-5
+Removed Pin From Net: NetName=GND Pin=P8-6
+Removed Pin From Net: NetName=GND Pin=R20-2
+Removed Pin From Net: NetName=GND Pin=RL1-2
+Removed Pin From Net: NetName=GND Pin=U1-8
+Added Pin To Net: NetName=VCC_RELAY Pin=C1-2
+Added Pin To Net: NetName=VCC_RELAY Pin=C24-1
+Added Pin To Net: NetName=VCC_RELAY Pin=D1-1
+Added Pin To Net: NetName=VCC_RELAY Pin=D4-2
+Added Pin To Net: NetName=VCC_RELAY Pin=L4-2
+Added Pin To Net: NetName=VCC_RELAY Pin=P8-5
+Added Pin To Net: NetName=VCC_RELAY Pin=P8-6
+Added Pin To Net: NetName=VCC_RELAY Pin=R20-2
+Added Pin To Net: NetName=VCC_RELAY Pin=RL1-2
+Added Pin To Net: NetName=VCC_RELAY Pin=U1-8
+Added Net: Name=VCC_RELAY

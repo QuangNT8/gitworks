@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=VOL_SIGNAL Pin=P9-6
+Added Pin To Net: NetName=VOL_SIGNAL Pin=P8-3
+Added Pin To Net: NetName=VREF Pin=P9-6

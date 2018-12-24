@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=VOFFSET_VOL Pin=C2-2
+Removed Pin From Net: NetName=VOFFSET_VOL Pin=R1-2
+Added Pin To Net: NetName=3.3V Pin=C2-2
+Added Pin To Net: NetName=3.3V Pin=R1-2

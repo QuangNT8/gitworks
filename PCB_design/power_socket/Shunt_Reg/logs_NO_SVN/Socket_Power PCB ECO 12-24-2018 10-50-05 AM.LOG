@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=VOL_SIGNAL Pin=P9-5
+Removed Pin From Net: NetName=RL1C Pin=P9-6
+Added Pin To Net: NetName=RL1C Pin=P9-5
+Added Pin To Net: NetName=VOL_SIGNAL Pin=P9-6

@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=CURRENT_SIGNAL1 Pin=P9-1
+Removed Pin From Net: NetName=3.3V Pin=P9-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL2 Pin=P9-3
+Removed Pin From Net: NetName=GND Pin=P9-4
+Removed Pin From Net: NetName=VOFFSET_VOL Pin=P9-6
+Removed Pin From Net: NetName=VOL_SIGNAL Pin=P9-7
+Removed Pin From Net: NetName=GND Pin=P9-8
+Added Component: Designator=P9(HDR2X3)
+Added Pin To Net: NetName=CURRENT_SIGNAL1 Pin=P9-1
+Added Pin To Net: NetName=3.3V Pin=P9-2
+Added Pin To Net: NetName=CURRENT_SIGNAL2 Pin=P9-3
+Added Pin To Net: NetName=GND Pin=P9-4
+Added Pin To Net: NetName=VOL_SIGNAL Pin=P9-5
+Added Pin To Net: NetName=VOFFSET_VOL Pin=P9-6
+Added Member To Class: ClassName=socket_power_supply Member=Component C6 104

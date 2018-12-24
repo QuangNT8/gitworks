@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=VCC_RELAY Pin=P8-2
+Removed Pin From Net: NetName=GND Pin=P8-3
+Removed Pin From Net: NetName=BUTTON1 Pin=P8-5
+Removed Pin From Net: NetName=RL1C Pin=P8-7
+Removed Pin From Net: NetName=GND Pin=P8-8
+Removed Pin From Net: NetName=CURRENT_SIGNAL1 Pin=P9-1
+Removed Pin From Net: NetName=3.3V Pin=P9-2
+Removed Pin From Net: NetName=CURRENT_SIGNAL2 Pin=P9-3
+Removed Pin From Net: NetName=GND Pin=P9-4
+Removed Pin From Net: NetName=VOL_SIGNAL Pin=P9-5
+Removed Pin From Net: NetName=VOFFSET_VOL Pin=P9-6
+Change Component DesignItemId : Designator=P9 Old DesignItemId=Header 3X2 New DesignItemId=Header 4X2
+Change Component DesignItemId : Designator=P8 Old DesignItemId=Header 4X2 New DesignItemId=Header 3X2
+Change Component Footprint: Designator=P9 Old Footprint=HDR2X3 New Footprint=HDR2X4
+Change Component Footprint: Designator=P8 Old Footprint=HDR2X4 New Footprint=HDR2X3
+Change Component Comment : Designator=P9 Old Comment=Header 3X2 New Comment=Header 4X2
+Change Component Comment : Designator=P8 Old Comment=Header 4X2 New Comment=Header 3X2
+Added Component: Designator=P9(HDR2X3)
+Added Pin To Net: NetName=GND Pin=P8-2
+Added Pin To Net: NetName=VOFFSET_VOL Pin=P8-5
+Added Pin To Net: NetName=CURRENT_SIGNAL1 Pin=P9-1
+Added Pin To Net: NetName=3.3V Pin=P9-2
+Added Pin To Net: NetName=CURRENT_SIGNAL2 Pin=P9-3
+Added Pin To Net: NetName=GND Pin=P9-4
+Added Pin To Net: NetName=VOL_SIGNAL Pin=P9-5
+Added Pin To Net: NetName=RL1C Pin=P9-6

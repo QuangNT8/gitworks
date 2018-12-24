@@ -1,0 +1,9 @@
+Removed Member From Class: ClassName=pca10040_sheet1_radio Member=R1
+Added Component: Designator=LED3(LED_0603_G)
+Added Pin To Net: NetName=LED1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED1_2 Pin=LED3-2
+Change Class Name : Old Net Name=pca10040_sheet1_radio New Net Name=Aptomat_Radio
+Change Class Name : Old Net Name=pca10040_sheet3_buttons_and_leds New Net Name=Aptomat_buttons_and_leds
+Added Member To Class: ClassName=Aptomat_buttons_and_leds Member=Component LED3 L0603G
+Added Room: Name=Aptomat_buttons_and_leds
+Added Room: Name=Aptomat_Radio

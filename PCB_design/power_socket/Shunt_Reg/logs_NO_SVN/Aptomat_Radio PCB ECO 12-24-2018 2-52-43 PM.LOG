@@ -1,0 +1,9 @@
+Added Component: Designator=C6(0805_HV)
+Added Component: Designator=R2(0805_HV)
+Added Component: Designator=R11(0805_HV)
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=VREF Pin=C6-2
+Added Pin To Net: NetName=VREF Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-2
+Added Pin To Net: NetName=VDD_NRF Pin=R11-1
+Added Pin To Net: NetName=VREF Pin=R11-2

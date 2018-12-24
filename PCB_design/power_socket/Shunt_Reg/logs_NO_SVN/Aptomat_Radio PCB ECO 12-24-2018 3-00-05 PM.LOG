@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=GND Pin=P8-4
+Added Pin To Net: NetName=VCC_RELAY Pin=P8-4

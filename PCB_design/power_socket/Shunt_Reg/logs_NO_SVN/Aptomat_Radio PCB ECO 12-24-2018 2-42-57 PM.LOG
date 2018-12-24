@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=P0.12 Pin=P9-5
+Added Component: Designator=Q1(SOT23B)
+Added Component: Designator=R39(0805_HV)
+Added Component: Designator=R40(0805_HV)
+Added Pin To Net: NetName=GND Pin=Q1-3
+Added Pin To Net: NetName=P0.12 Pin=R39-2
+Added Pin To Net: NetName=GND Pin=R40-2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R39-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R40-1
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=RL1 Pin=P9-5
+Added Pin To Net: NetName=RL1 Pin=Q1-2
+Added Net: Name=RL1
+Added Member To Class: ClassName=Aptomat_buttons_and_leds Member=Component Q1 C1815
+Added Member To Class: ClassName=Aptomat_buttons_and_leds Member=Component R39 1K
+Added Member To Class: ClassName=Aptomat_buttons_and_leds Member=Component R40 10K
+Added Room: Name=Aptomat_buttons_and_leds
+Added Room: Name=Aptomat_Radio

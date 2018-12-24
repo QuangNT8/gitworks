@@ -1,0 +1,6 @@
+Added Component: Designator=C2(0805_HV)
+Added Component: Designator=C14(0805_HV)
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=CURRENT_SIGNAL2 Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=CURRENT_SIGNAL1 Pin=C14-2

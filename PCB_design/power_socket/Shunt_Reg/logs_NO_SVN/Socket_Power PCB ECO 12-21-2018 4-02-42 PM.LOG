@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=L Pin=AC-2
+Added Pin To Net: NetName=GROUND Pin=AC-2
+Added Pin To Net: NetName=GROUND Pin=SOCKET1-3
+Added Pin To Net: NetName=GROUND Pin=SOCKET1-3
+Added Pin To Net: NetName=GROUND Pin=SOCKET1-3
+Added Net: Name=GROUND

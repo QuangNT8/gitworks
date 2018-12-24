@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=L1 Pin=AC-1
+Removed Pin From Net: NetName=L Pin=SOCKET1-2
+Removed Pin From Net: NetName=L Pin=SOCKET1-2
+Removed Pin From Net: NetName=L Pin=SOCKET1-2
+Removed Pin From Net: NetName=L Pin=SOCKET1-2
+Added Pin To Net: NetName=L Pin=AC-1
