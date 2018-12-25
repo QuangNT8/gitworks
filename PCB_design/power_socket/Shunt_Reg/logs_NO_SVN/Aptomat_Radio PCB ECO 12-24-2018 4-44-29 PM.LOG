@@ -1,0 +1,5 @@
+Added Component: Designator=SW2(BTSMDN)
+Added Pin To Net: NetName=GND Pin=SW2-1
+Added Pin To Net: NetName=GND Pin=SW2-1
+Added Pin To Net: NetName=BUTTON1 Pin=SW2-2
+Added Pin To Net: NetName=BUTTON1 Pin=SW2-2
