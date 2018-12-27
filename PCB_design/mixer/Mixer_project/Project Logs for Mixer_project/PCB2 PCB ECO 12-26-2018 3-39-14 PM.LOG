@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=GND Pin=U2-5
+Removed Pin From Net: NetName=NetC25_1 Pin=U2-6
+Removed Pin From Net: NetName=NetC22_1 Pin=U2-7
+Removed Member From Class: ClassName=Tone_board Member=U2
+Added Component: Designator=C35(TU_GOM(104-->105pF))
+Added Component: Designator=C36(TU_GOM(104-->105pF))
+Added Pin To Net: NetName=GND Pin=C35-1
+Added Pin To Net: NetName=+15V Pin=C35-2
+Added Pin To Net: NetName=-15V Pin=C36-1
+Added Pin To Net: NetName=GND Pin=C36-2
+Added Pin To Net: NetName=NetC22_1 Pin=U2-1
+Added Pin To Net: NetName=NetC25_1 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=-15V Pin=U2-4
+Added Pin To Net: NetName=+15V Pin=U2-8
+Added Member To Class: ClassName=Righ_CH Member=Component C35 104
+Added Member To Class: ClassName=Righ_CH Member=Component C36 104
+Added Room: Name=Righ_CH
+Added Room: Name=Tone_board

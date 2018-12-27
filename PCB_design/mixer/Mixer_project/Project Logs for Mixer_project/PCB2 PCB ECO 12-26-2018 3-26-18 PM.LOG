@@ -1,0 +1,190 @@
+Removed Pin From Net: NetName=GND Pin=C13-1
+Removed Pin From Net: NetName=+15V Pin=C13-2
+Removed Pin From Net: NetName=GND Pin=C17-1
+Removed Pin From Net: NetName=-15V Pin=C17-2
+Removed Pin From Net: NetName=NetC7_1 Pin=U1-1
+Removed Pin From Net: NetName=NetR6_2 Pin=U1-2
+Removed Pin From Net: NetName=+15V Pin=U1-4
+Removed Pin From Net: NetName=+15V Pin=U2-1
+Removed Pin From Net: NetName=NetR4_1 Pin=U2-2
+Removed Pin From Net: NetName=NetR12_1 Pin=U2-3
+Removed Pin From Net: NetName=-15V Pin=U2-4
+Removed Pin From Net: NetName=+15V Pin=U2-8
+Removed Pin From Net: NetName=NetC15_1 Pin=U3-1
+Removed Pin From Net: NetName=NetC16_1 Pin=U3-2
+Removed Member From Class: ClassName=Tone_board Member=U1
+Removed Member From Class: ClassName=Tone_board Member=U3
+Added Component: Designator=C18(TU_GOM(104-->105pF))
+Added Component: Designator=C19(TU_GOM(104-->105pF))
+Added Component: Designator=C20(TU_GOM(104-->105pF))
+Added Component: Designator=C21(CP1/3.0)
+Added Component: Designator=C22(TU_GOM(104-->105pF))
+Added Component: Designator=C23(TU_GOM(104-->105pF))
+Added Component: Designator=C24(TU_GOM(104-->105pF))
+Added Component: Designator=C25(TU_GOM(104-->105pF))
+Added Component: Designator=C26(TU_GOM(104-->105pF))
+Added Component: Designator=C27(TU_GOM(104-->105pF))
+Added Component: Designator=C28(CP1/3.0)
+Added Component: Designator=C29(TU_GOM(104-->105pF))
+Added Component: Designator=C30(TU_GOM(104-->105pF))
+Added Component: Designator=C31(TU_GOM(104-->105pF))
+Added Component: Designator=C32(TU_GOM(104-->105pF))
+Added Component: Designator=C33(TU_GOM(104-->105pF))
+Added Component: Designator=C34(TU_GOM(104-->105pF))
+Added Component: Designator=R19(TRO_VACH_ 1/4W)
+Added Component: Designator=R20(TRO_VACH_ 1/4W)
+Added Component: Designator=R21(TRO_VACH_ 1/4W)
+Added Component: Designator=R22(TRO_VACH_ 1/4W)
+Added Component: Designator=R23(TRO_VACH_ 1/4W)
+Added Component: Designator=R24(TRO_VACH_ 1/4W)
+Added Component: Designator=R25(TRO_VACH_ 1/4W)
+Added Component: Designator=R26(TRO_VACH_ 1/4W)
+Added Component: Designator=R27(TRO_VACH_ 1/4W)
+Added Component: Designator=R28(TRO_VACH_ 1/4W)
+Added Component: Designator=R29(TRO_VACH_ 1/4W)
+Added Component: Designator=R30(TRO_VACH_ 1/4W)
+Added Component: Designator=R31(TRO_VACH_ 1/4W)
+Added Component: Designator=R32(TRO_VACH_ 1/4W)
+Added Component: Designator=R33(TRO_VACH_ 1/4W)
+Added Component: Designator=R34(TRO_VACH_ 1/4W)
+Added Component: Designator=R35(TRO_VACH_ 1/4W)
+Added Component: Designator=R36(TRO_VACH_ 1/4W)
+Added Component: Designator=U2(DIP8)
+Added Component: Designator=U4(DIP8)
+Added Component: Designator=U5(DIP8)
+Added Component: Designator=U5(DIP8)
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=+15V Pin=C20-1
+Added Pin To Net: NetName=GND Pin=C20-2
+Added Pin To Net: NetName=IN_L Pin=C21-1
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=+15V Pin=C23-2
+Added Pin To Net: NetName=GND Pin=C26-1
+Added Pin To Net: NetName=-15V Pin=C26-2
+Added Pin To Net: NetName=GND Pin=C27-2
+Added Pin To Net: NetName=+15V Pin=C28-1
+Added Pin To Net: NetName=OUT_L Pin=C28-2
+Added Pin To Net: NetName=GND Pin=C29-1
+Added Pin To Net: NetName=-15V Pin=C29-2
+Added Pin To Net: NetName=GND Pin=C30-1
+Added Pin To Net: NetName=+15V Pin=C30-2
+Added Pin To Net: NetName=GND Pin=C34-1
+Added Pin To Net: NetName=-15V Pin=C34-2
+Added Pin To Net: NetName=GND Pin=R23-1
+Added Pin To Net: NetName=+15V Pin=R29-1
+Added Pin To Net: NetName=GND Pin=R31-1
+Added Pin To Net: NetName=GND Pin=R32-1
+Added Pin To Net: NetName=GND Pin=R34-1
+Added Pin To Net: NetName=GND Pin=R36-1
+Added Pin To Net: NetName=-15V Pin=U1-4
+Added Pin To Net: NetName=GND Pin=U2-5
+Added Pin To Net: NetName=GND Pin=U3-5
+Added Pin To Net: NetName=NetC16_1 Pin=U3-6
+Added Pin To Net: NetName=NetC15_1 Pin=U3-7
+Added Pin To Net: NetName=NetC7_1 Pin=U4-1
+Added Pin To Net: NetName=NetR6_2 Pin=U4-2
+Added Pin To Net: NetName=GND Pin=U4-3
+Added Pin To Net: NetName=+15V Pin=U4-4
+Added Pin To Net: NetName=GND Pin=U4-5
+Added Pin To Net: NetName=+15V Pin=U4-8
+Added Pin To Net: NetName=+15V Pin=U5-1
+Added Pin To Net: NetName=+15V Pin=U5-1
+Added Pin To Net: NetName=NetR4_1 Pin=U5-2
+Added Pin To Net: NetName=NetR12_1 Pin=U5-3
+Added Pin To Net: NetName=-15V Pin=U5-4
+Added Pin To Net: NetName=-15V Pin=U5-4
+Added Pin To Net: NetName=+15V Pin=U5-8
+Added Pin To Net: NetName=+15V Pin=U5-8
+Added Pin To Net: NetName=NetC18_1 Pin=C18-1
+Added Pin To Net: NetName=NetC18_1 Pin=R21-2
+Added Pin To Net: NetName=NetC18_1 Pin=U1-2
+Added Net: Name=NetC18_1
+Added Pin To Net: NetName=NetC18_2 Pin=C18-2
+Added Pin To Net: NetName=NetC18_2 Pin=R20-2
+Added Pin To Net: NetName=NetC18_2 Pin=U1-1
+Added Pin To Net: NetName=NetC18_2 Pin=VR1-4
+Added Net: Name=NetC18_2
+Added Pin To Net: NetName=NetC19_2 Pin=C19-2
+Added Pin To Net: NetName=NetC19_2 Pin=R19-2
+Added Pin To Net: NetName=NetC19_2 Pin=R20-1
+Added Pin To Net: NetName=NetC19_2 Pin=R21-1
+Added Net: Name=NetC19_2
+Added Pin To Net: NetName=NetC21_2 Pin=C21-2
+Added Pin To Net: NetName=NetC21_2 Pin=R24-1
+Added Net: Name=NetC21_2
+Added Pin To Net: NetName=NetC22_1 Pin=C22-1
+Added Pin To Net: NetName=NetC22_1 Pin=R27-2
+Added Pin To Net: NetName=NetC22_1 Pin=U2-7
+Added Pin To Net: NetName=NetC22_1 Pin=VR2-4
+Added Net: Name=NetC22_1
+Added Pin To Net: NetName=NetC22_2 Pin=C22-2
+Added Pin To Net: NetName=NetC22_2 Pin=C25-2
+Added Pin To Net: NetName=NetC22_2 Pin=R26-1
+Added Pin To Net: NetName=NetC22_2 Pin=R28-2
+Added Net: Name=NetC22_2
+Added Pin To Net: NetName=NetC24_1 Pin=C24-1
+Added Pin To Net: NetName=NetC24_1 Pin=C31-2
+Added Pin To Net: NetName=NetC24_1 Pin=R19-1
+Added Pin To Net: NetName=NetC24_1 Pin=R25-2
+Added Pin To Net: NetName=NetC24_1 Pin=U4-7
+Added Net: Name=NetC24_1
+Added Pin To Net: NetName=NetC24_2 Pin=C24-2
+Added Pin To Net: NetName=NetC24_2 Pin=R26-2
+Added Net: Name=NetC24_2
+Added Pin To Net: NetName=NetC25_1 Pin=C25-1
+Added Pin To Net: NetName=NetC25_1 Pin=R27-1
+Added Pin To Net: NetName=NetC25_1 Pin=U2-6
+Added Net: Name=NetC25_1
+Added Pin To Net: NetName=NetC27_1 Pin=C27-1
+Added Pin To Net: NetName=NetC27_1 Pin=R28-1
+Added Net: Name=NetC27_1
+Added Pin To Net: NetName=NetC31_1 Pin=C31-1
+Added Pin To Net: NetName=NetC31_1 Pin=C32-2
+Added Pin To Net: NetName=NetC31_1 Pin=C33-2
+Added Pin To Net: NetName=NetC31_1 Pin=R34-2
+Added Net: Name=NetC31_1
+Added Pin To Net: NetName=NetC32_1 Pin=C32-1
+Added Pin To Net: NetName=NetC32_1 Pin=R33-2
+Added Pin To Net: NetName=NetC32_1 Pin=U3-1
+Added Pin To Net: NetName=NetC32_1 Pin=VR3-4
+Added Net: Name=NetC32_1
+Added Pin To Net: NetName=NetC33_1 Pin=C33-1
+Added Pin To Net: NetName=NetC33_1 Pin=R33-1
+Added Pin To Net: NetName=NetC33_1 Pin=U3-2
+Added Net: Name=NetC33_1
+Added Pin To Net: NetName=NetR22_1 Pin=R22-1
+Added Pin To Net: NetName=NetR22_1 Pin=R29-2
+Added Pin To Net: NetName=NetR22_1 Pin=R35-1
+Added Pin To Net: NetName=NetR22_1 Pin=U5-2
+Added Net: Name=NetR22_1
+Added Pin To Net: NetName=NetR22_2 Pin=R22-2
+Added Pin To Net: NetName=NetR22_2 Pin=VR1-5
+Added Net: Name=NetR22_2
+Added Pin To Net: NetName=NetR23_2 Pin=R23-2
+Added Pin To Net: NetName=NetR23_2 Pin=VR1-6
+Added Net: Name=NetR23_2
+Added Pin To Net: NetName=NetR24_2 Pin=R24-2
+Added Pin To Net: NetName=NetR24_2 Pin=R25-1
+Added Pin To Net: NetName=NetR24_2 Pin=U4-6
+Added Net: Name=NetR24_2
+Added Pin To Net: NetName=NetR30_1 Pin=R30-1
+Added Pin To Net: NetName=NetR30_1 Pin=R32-2
+Added Pin To Net: NetName=NetR30_1 Pin=U5-3
+Added Net: Name=NetR30_1
+Added Pin To Net: NetName=NetR30_2 Pin=R30-2
+Added Pin To Net: NetName=NetR30_2 Pin=VR2-5
+Added Net: Name=NetR30_2
+Added Pin To Net: NetName=NetR31_2 Pin=R31-2
+Added Pin To Net: NetName=NetR31_2 Pin=VR2-6
+Added Net: Name=NetR31_2
+Added Pin To Net: NetName=NetR35_2 Pin=R35-2
+Added Pin To Net: NetName=NetR35_2 Pin=VR3-5
+Added Net: Name=NetR35_2
+Added Pin To Net: NetName=NetR36_2 Pin=R36-2
+Added Pin To Net: NetName=NetR36_2 Pin=VR3-6
+Added Net: Name=NetR36_2
+Added Class: Name=Righ_CH
+Added Member To Class: ClassName=Tone_board Member=Component U4 TL082ACP
+Added Member To Class: ClassName=Tone_board Member=Component U5 TL082ACP
+Added Room: Name=Righ_CH
+Added Room: Name=Tone_board
