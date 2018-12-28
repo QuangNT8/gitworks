@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=MUSIC_L Pin=VR4-5
+Added Net: Name=MUSIC_L
+Added Pin To Net: NetName=MUSIC_R Pin=VR4-2
+Added Net: Name=MUSIC_R

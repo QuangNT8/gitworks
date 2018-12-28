@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=GND Pin=HD_L-2
+Removed Pin From Net: NetName=OUT_L Pin=HD_L-3
+Removed Pin From Net: NetName=GND Pin=HD_R-2
+Removed Pin From Net: NetName=OUT_R Pin=HD_R-3
+Removed Pin From Net: NetName=IN_L Pin=VR4-2
+Change Component Comment : Designator=R19 Old Comment=8.2K New Comment=1K
+Change Component Comment : Designator=R24 Old Comment=8.2K New Comment=1K
+Added Pin To Net: NetName=OUT_R Pin=VR4-3
+Added Pin To Net: NetName=GND Pin=VR4-4
+Added Pin To Net: NetName=OUT_L Pin=VR4-6

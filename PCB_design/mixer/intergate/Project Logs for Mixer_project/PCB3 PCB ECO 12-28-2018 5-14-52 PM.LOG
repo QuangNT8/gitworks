@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=OUTPUT_L Pin=C12-2
+Added Pin To Net: NetName=OUTPUT_L Pin=OUTPUT-3
+Added Net: Name=OUTPUT_L
+Added Pin To Net: NetName=OUTPUT_R Pin=C3-2
+Added Pin To Net: NetName=OUTPUT_R Pin=OUTPUT-1
+Added Net: Name=OUTPUT_R

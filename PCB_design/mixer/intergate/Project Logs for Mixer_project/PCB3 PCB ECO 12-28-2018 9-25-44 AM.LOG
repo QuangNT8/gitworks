@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=NetR4_1 Pin=U2-5
+Removed Pin From Net: NetName=NetR1_1 Pin=U2-6
+Removed Pin From Net: NetName=NetC1_1 Pin=U2-7
+Change Component Designator: OldDesignator=C? NewDesignator=C6
+Change Component Designator: OldDesignator=C? NewDesignator=C7
+Change Component Designator: OldDesignator=U2 NewDesignator=U3
+Change Component Designator: OldDesignator=U3 NewDesignator=U2
+Added Component: Designator=C4(TU_GOM(104-->105pF))
+Added Component: Designator=C5(TU_GOM(104-->105pF))
+Added Pin To Net: NetName=+15V Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=-15V Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=NetC1_1 Pin=U3-1
+Added Pin To Net: NetName=NetR1_1 Pin=U3-2
+Added Pin To Net: NetName=NetR4_1 Pin=U3-3
+Added Pin To Net: NetName=-15V Pin=U3-4
+Added Pin To Net: NetName=+15V Pin=U3-8
+Change Net Name : Old Net Name=NetU3_3 New Net Name=NetU2_3
+Change Net Name : Old Net Name=NetU3_4 New Net Name=NetU2_4
+Change Net Name : Old Net Name=NetU3_5 New Net Name=NetU2_5

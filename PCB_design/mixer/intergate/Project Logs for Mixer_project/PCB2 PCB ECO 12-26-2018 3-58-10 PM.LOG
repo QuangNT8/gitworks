@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=NetC1_2 Pin=VR1-1
+Removed Pin From Net: NetName=NetR5_2 Pin=VR1-3
+Removed Pin From Net: NetName=NetC18_2 Pin=VR1-4
+Removed Pin From Net: NetName=NetR23_2 Pin=VR1-6
+Removed Pin From Net: NetName=NetC5_1 Pin=VR2-1
+Removed Pin From Net: NetName=NetR13_2 Pin=VR2-3
+Removed Pin From Net: NetName=NetC22_1 Pin=VR2-4
+Removed Pin From Net: NetName=NetR31_2 Pin=VR2-6
+Removed Pin From Net: NetName=NetC15_1 Pin=VR3-1
+Removed Pin From Net: NetName=NetR18_2 Pin=VR3-3
+Removed Pin From Net: NetName=NetC32_1 Pin=VR3-4
+Removed Pin From Net: NetName=NetR36_2 Pin=VR3-6
+Added Pin To Net: NetName=NetR5_2 Pin=VR1-1
+Added Pin To Net: NetName=NetC1_2 Pin=VR1-3
+Added Pin To Net: NetName=NetR23_2 Pin=VR1-4
+Added Pin To Net: NetName=NetC18_2 Pin=VR1-6
+Added Pin To Net: NetName=NetR13_2 Pin=VR2-1
+Added Pin To Net: NetName=NetC5_1 Pin=VR2-3
+Added Pin To Net: NetName=NetR31_2 Pin=VR2-4
+Added Pin To Net: NetName=NetC22_1 Pin=VR2-6
+Added Pin To Net: NetName=NetR18_2 Pin=VR3-1
+Added Pin To Net: NetName=NetC15_1 Pin=VR3-3
+Added Pin To Net: NetName=NetR36_2 Pin=VR3-4
+Added Pin To Net: NetName=NetC32_1 Pin=VR3-6
+Added Room: Name=Righ_CH
+Added Room: Name=Tone_board

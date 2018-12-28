@@ -1,0 +1,8 @@
+Added Component: Designator=R?(TRO_VACH_ 1/4W)
+Added Component: Designator=R?(TRO_VACH_ 1/4W)
+Added Pin To Net: NetName=NetC9_2 Pin=R?-2
+Added Pin To Net: NetName=NetC10_2 Pin=R?-2
+Added Pin To Net: NetName=MIC_L Pin=R?-1
+Added Net: Name=MIC_L
+Added Pin To Net: NetName=MIC_R Pin=R?-1
+Added Net: Name=MIC_R

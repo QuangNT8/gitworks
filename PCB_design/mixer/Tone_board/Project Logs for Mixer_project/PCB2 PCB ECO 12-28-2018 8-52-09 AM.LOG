@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=IN_L Pin=P1-1
+Removed Pin From Net: NetName=GND Pin=P1-2
+Removed Pin From Net: NetName=-15V Pin=P1-3
+Removed Pin From Net: NetName=GND Pin=P1-4
+Removed Pin From Net: NetName=+15V Pin=P1-5
+Removed Pin From Net: NetName=GND Pin=P2-1
+Removed Pin From Net: NetName=GND Pin=P2-2
+Removed Pin From Net: NetName=LOW Pin=P2-3
+Removed Pin From Net: NetName=HIGHT Pin=P2-4
+Removed Pin From Net: NetName=MID Pin=P2-5
+Added Component: Designator=JP1(Jump 5)
+Added Component: Designator=JP2(Jump 5)
+Added Pin To Net: NetName=IN_L Pin=JP1-1
+Added Pin To Net: NetName=GND Pin=JP1-2
+Added Pin To Net: NetName=-15V Pin=JP1-3
+Added Pin To Net: NetName=GND Pin=JP1-4
+Added Pin To Net: NetName=+15V Pin=JP1-5
+Added Pin To Net: NetName=GND Pin=JP2-1
+Added Pin To Net: NetName=GND Pin=JP2-2
+Added Pin To Net: NetName=LOW Pin=JP2-3
+Added Pin To Net: NetName=HIGHT Pin=JP2-4
+Added Pin To Net: NetName=MID Pin=JP2-5

@@ -1,0 +1,6 @@
+Added Component: Designator=HD1(HEADER 3)
+Added Component: Designator=HD2(HEADER 3)
+Added Pin To Net: NetName=OUT_L Pin=HD1-1
+Added Pin To Net: NetName=GND Pin=HD1-2
+Added Pin To Net: NetName=OUT_L Pin=HD2-1
+Added Pin To Net: NetName=GND Pin=HD2-2

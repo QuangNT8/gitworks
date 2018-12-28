@@ -1,0 +1,5 @@
+Added Component: Designator=VR4(VR2-B)
+Added Pin To Net: NetName=GND Pin=VR4-1
+Added Pin To Net: NetName=IN_L Pin=VR4-2
+Added Pin To Net: NetName=IN_L_PRE Pin=VR4-3
+Added Net: Name=IN_L_PRE

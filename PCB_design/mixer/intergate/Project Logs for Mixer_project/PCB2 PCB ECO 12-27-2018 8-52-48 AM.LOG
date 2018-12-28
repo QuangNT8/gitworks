@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=VR1 Old Footprint=VR2-B New Footprint=9011
+Change Component Footprint: Designator=VR2 Old Footprint=VR2-B New Footprint=9011
+Change Component Footprint: Designator=VR3 Old Footprint=VR2-B New Footprint=9011
+Added Pin To Net: NetName=NetR29_2 Pin=R22-1
+Change Net Name : Old Net Name=NetR29_2 New Net Name=NetR22_1

@@ -1,0 +1,4 @@
+Added Component: Designator=INPUT(HEADER 3)
+Added Pin To Net: NetName=IN_R Pin=INPUT-1
+Added Pin To Net: NetName=GND Pin=INPUT-2
+Added Pin To Net: NetName=IN_L Pin=INPUT-3
