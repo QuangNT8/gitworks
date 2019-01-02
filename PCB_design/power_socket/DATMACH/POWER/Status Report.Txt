@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [powersocket.PrjPCB]
+   Generated File[Socket_Power-RoundHoles.TXT]
+   Generated File[Socket_Power-SlotHoles.TXT]
+   Generated File[Socket_Power.LDP]
+   Generated File[Socket_Power.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 1:22:22 PM On 1/2/2019

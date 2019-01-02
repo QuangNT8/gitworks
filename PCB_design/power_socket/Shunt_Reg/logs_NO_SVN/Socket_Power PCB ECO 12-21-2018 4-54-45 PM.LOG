@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=LOUT Pin=R2-2
-Removed Pin From Net: NetName=N Pin=R6-2
-Removed Member From Class: ClassName=socket_power_supply Member=R2
-Removed Member From Class: ClassName=socket_power_supply Member=R6
-Change Component Comment : Designator=R3 Old Comment=1.2M New Comment=2M
-Change Component Comment : Designator=R7 Old Comment=1.2M New Comment=2M
-Added Pin To Net: NetName=LOUT Pin=R3-2
-Added Pin To Net: NetName=N Pin=R7-2

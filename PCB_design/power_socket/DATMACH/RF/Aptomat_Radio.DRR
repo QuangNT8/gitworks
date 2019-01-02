@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: Aptomat_Radio.PcbDoc   1/2/2019  1:24:11 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Aptomat_Radio.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          264              650.45 mm (25.61 Inch)
+T2        0.33mm (12.992mil)       Round          16               18.00 mm (0.71 Inch)
+T3        0.7mm (27.559mil)        Round          4                3.60 mm (0.14 Inch)
+T4        0.8mm (31.496mil)        Round          6                7.50 mm (0.30 Inch)
+T5        0.9mm (35.433mil)        Round          12               105.41 mm (4.15 Inch)
+---------------------------------------------------------------------------
+Totals                                            302              784.96 mm (30.90 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:01

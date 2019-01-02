@@ -1,9 +1,0 @@
-Added Component: Designator=SW1(TL3330AF260QG)
-Added Component: Designator=SW2(TL3330AF260QG)
-Added Component: Designator=SW3(TL3330AF260QG)
-Added Pin To Net: NetName=GND Pin=SW1-1
-Added Pin To Net: NetName=BUTTON1 Pin=SW1-2
-Added Pin To Net: NetName=GND Pin=SW2-1
-Added Pin To Net: NetName=BUTTON1 Pin=SW2-2
-Added Pin To Net: NetName=GND Pin=SW3-1
-Added Pin To Net: NetName=BUTTON2 Pin=SW3-2

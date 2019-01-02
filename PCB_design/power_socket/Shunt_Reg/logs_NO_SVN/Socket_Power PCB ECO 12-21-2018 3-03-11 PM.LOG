@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=N Pin=AC-1
-Removed Pin From Net: NetName=L1 Pin=AC-3
-Added Pin To Net: NetName=L1 Pin=AC-1
-Added Pin To Net: NetName=N Pin=AC-3
-Added Room: Name=socket_power_supply
