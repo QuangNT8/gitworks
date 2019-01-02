@@ -1,0 +1,5 @@
+Added Component: Designator=RCA1(RCA3P)
+Added Pin To Net: NetName=GND Pin=RCA1-1
+Added Net: Name=GND
+Added Class: Name=RCA
+Added Room: Name=RCA

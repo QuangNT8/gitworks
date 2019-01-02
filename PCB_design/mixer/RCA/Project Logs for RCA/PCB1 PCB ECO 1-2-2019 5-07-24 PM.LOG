@@ -1,0 +1,38 @@
+Removed Pin From Net: NetName=GND Pin=RCA1-1
+Added Component: Designator=INPUT(HEADER 3)
+Added Component: Designator=OUTPUT(HEADER 3)
+Added Component: Designator=P1(HEADER2M_8P)
+Added Component: Designator=RCA2(RCA3P)
+Added Component: Designator=RCA3(RCA3P)
+Added Component: Designator=RCA4(RCA3P)
+Added Pin To Net: NetName=GND Pin=INPUT-2
+Added Pin To Net: NetName=GND Pin=OUTPUT-2
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=GND Pin=P1-6
+Added Pin To Net: NetName=GND Pin=RCA4-1
+Added Pin To Net: NetName=+15V Pin=P1-3
+Added Net: Name=+15V
+Added Pin To Net: NetName=-15V Pin=P1-5
+Added Net: Name=-15V
+Added Pin To Net: NetName=A/B_C Pin=P1-8
+Added Net: Name=A/B_C
+Added Pin To Net: NetName=DIR_C Pin=P1-7
+Added Net: Name=DIR_C
+Added Pin To Net: NetName=IN_L Pin=INPUT-3
+Added Net: Name=IN_L
+Added Pin To Net: NetName=IN_R Pin=INPUT-1
+Added Net: Name=IN_R
+Added Pin To Net: NetName=MO Pin=P1-1
+Added Net: Name=MO
+Added Pin To Net: NetName=OUT_L Pin=OUTPUT-3
+Added Net: Name=OUT_L
+Added Pin To Net: NetName=OUT_R Pin=OUTPUT-1
+Added Net: Name=OUT_R
+Added Member To Class: ClassName=RCA Member=Component INPUT Header 3_MH
+Added Member To Class: ClassName=RCA Member=Component OUTPUT Header 3_MH
+Added Member To Class: ClassName=RCA Member=Component P1 ToMICBOARD
+Added Member To Class: ClassName=RCA Member=Component RCA2 RCA
+Added Member To Class: ClassName=RCA Member=Component RCA3 RCA
+Added Member To Class: ClassName=RCA Member=Component RCA4 RCA
+Added Room: Name=RCA
