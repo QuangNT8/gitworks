@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C4 Old Footprint=TU_HOA(100uF/35V - 470uF/16V) New Footprint=NHG_1000x2200
+Change Component Footprint: Designator=C5 Old Footprint=TU_HOA(100uF/35V - 470uF/16V) New Footprint=NHG_1000x2200
+Added Pin To Net: NetName=NetC3_2 Pin=U2-3

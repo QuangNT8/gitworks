@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetC9_1 Pin=C9-1
+Removed Pin From Net: NetName=NetC9_2 Pin=C9-2
+Removed Pin From Net: NetName=NetC10_1 Pin=C10-1
+Removed Pin From Net: NetName=NetC10_2 Pin=C10-2
+Removed Pin From Net: NetName=NetC18_1 Pin=C18-1
+Removed Pin From Net: NetName=NetC18_2 Pin=C18-2
+Removed Pin From Net: NetName=NetC19_1 Pin=C19-1
+Removed Pin From Net: NetName=NetC19_2 Pin=C19-2
+Change Net Name : Old Net Name=NetC9_1 New Net Name=NetC12_1
+Change Net Name : Old Net Name=NetC9_2 New Net Name=NetR5_2
+Change Net Name : Old Net Name=NetC10_1 New Net Name=NetC13_1
+Change Net Name : Old Net Name=NetC10_2 New Net Name=NetR7_2
+Change Net Name : Old Net Name=NetC18_1 New Net Name=NetC21_1
+Change Net Name : Old Net Name=NetC18_2 New Net Name=NetR11_2
+Change Net Name : Old Net Name=NetC19_1 New Net Name=NetC22_1
+Change Net Name : Old Net Name=NetC19_2 New Net Name=NetR13_2

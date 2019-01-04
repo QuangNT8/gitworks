@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=C1 Old Footprint=TU_HOA(47uF---220uF/16V,25V) New Footprint=NHG_1000x2200
+Added Component: Designator=C8(TU_GOM(104-->105pF))
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=A/B_C Pin=C8-2

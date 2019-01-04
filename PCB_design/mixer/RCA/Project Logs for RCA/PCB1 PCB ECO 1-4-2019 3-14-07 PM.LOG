@@ -1,0 +1,6 @@
+Added Component: Designator=C9(TU_GOM(104-->105pF))
+Added Component: Designator=TP_PE1(Keystone5012)
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=NetC9_2 Pin=C9-2
+Added Pin To Net: NetName=NetC9_2 Pin=TP_PE1-1
+Added Net: Name=NetC9_2

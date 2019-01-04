@@ -1,0 +1,9 @@
+Change Component DesignItemId : Designator=C2 Old DesignItemId=TU_HOA_3300uF_16V_MH New DesignItemId=EEU-FC1H561
+Change Component DesignItemId : Designator=C3 Old DesignItemId=TU_HOA_3300uF_16V_MH New DesignItemId=EEU-FC1H561
+Change Component Comment : Designator=C2 Old Comment=3300uF_16V New Comment=ELZA350ELL152MK25S
+Change Component Comment : Designator=C3 Old Comment=3300uF_16V New Comment=ELZA350ELL152MK25S
+Change Component Description : Designator=C2 Old Description=TU_HOA_3300uF_16V New Description=CAP ALUM 1500UF 20% 35V RADIAL
+Change Component Description : Designator=C3 Old Description=TU_HOA_3300uF_16V New Description=CAP ALUM 1500UF 20% 35V RADIAL
+Change Component Library : Designator=C2 Old Library=MH_DA_THU_VIEN_16122016.SchLib New Library=Capacitor_Aluminum.IntLib
+Change Component Library : Designator=C3 Old Library=MH_DA_THU_VIEN_16122016.SchLib New Library=Capacitor_Aluminum.IntLib
+Added Pin To Net: NetName=NetC3_2 Pin=U2-3

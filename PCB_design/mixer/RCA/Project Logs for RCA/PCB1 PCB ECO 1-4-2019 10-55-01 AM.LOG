@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=NetC9_1 Pin=U1-1
+Removed Pin From Net: NetName=VCC Pin=U1-1
+Removed Pin From Net: NetName=GND Pin=U1-2
+Removed Pin From Net: NetName=NetC9_2 Pin=U1-2
+Removed Pin From Net: NetName=+15V Pin=U1-3
+Removed Pin From Net: NetName=NetC14_2 Pin=U1-3
+Removed Pin From Net: NetName=-15V Pin=U1-4
+Removed Pin From Net: NetName=NetC15_2 Pin=U1-5
+Removed Pin From Net: NetName=NetC10_2 Pin=U1-6
+Removed Pin From Net: NetName=NetC10_1 Pin=U1-7
+Removed Pin From Net: NetName=+15V Pin=U1-8
+Change Component DesignItemId : Designator=U1 Old DesignItemId=TL082ACP New DesignItemId=78M12
+Change Component Footprint: Designator=U1 Old Footprint=DIP8 New Footprint=TO-220AB
+Change Component Comment : Designator=U1 Old Comment=TL082ACP New Comment=78M15
+Change Component Designator: OldDesignator=U2 NewDesignator=U4
+Added Component: Designator=U3(DIP8)
+Added Pin To Net: NetName=VCC Pin=U1-1
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=+15V Pin=U1-3
+Added Pin To Net: NetName=NetC9_1 Pin=U3-1
+Added Pin To Net: NetName=NetC9_2 Pin=U3-2
+Added Pin To Net: NetName=NetC14_2 Pin=U3-3
+Added Pin To Net: NetName=-15V Pin=U3-4
+Added Pin To Net: NetName=+15V Pin=U3-8

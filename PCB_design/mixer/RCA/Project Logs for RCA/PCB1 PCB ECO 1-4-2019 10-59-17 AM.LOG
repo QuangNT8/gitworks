@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetC9_1 Pin=U3-1
+Removed Pin From Net: NetName=NetC9_2 Pin=U3-2
+Removed Pin From Net: NetName=NetC14_2 Pin=U3-3
+Removed Pin From Net: NetName=-15V Pin=U3-4
+Removed Pin From Net: NetName=+15V Pin=U3-8
+Added Component: Designator=U5(DIP8)
+Added Pin To Net: NetName=NetC9_1 Pin=U5-1
+Added Pin To Net: NetName=NetC9_2 Pin=U5-2
+Added Pin To Net: NetName=NetC14_2 Pin=U5-3
+Added Pin To Net: NetName=-15V Pin=U5-4
+Added Pin To Net: NetName=+15V Pin=U5-8

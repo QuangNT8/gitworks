@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=U1 Old Footprint=TO-220_FullPAK_Offset New Footprint=TO-220AB
+Change Component Footprint: Designator=U2 Old Footprint=TO-220_FullPAK_Offset New Footprint=TO-220AB
+Change Component Description : Designator=AC Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=INPUT Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=OUTPUT Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=RCA1 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA2 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA3 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA4 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Added Pin To Net: NetName=-15V Pin=U2-3

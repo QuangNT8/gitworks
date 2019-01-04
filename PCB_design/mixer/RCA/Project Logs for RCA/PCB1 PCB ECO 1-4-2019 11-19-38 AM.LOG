@@ -1,0 +1,21 @@
+Added Component: Designator=R17(TRO_VACH_ 1/4W)
+Added Component: Designator=R18(TRO_VACH_ 1/4W)
+Added Component: Designator=R19(TRO_VACH_ 1/4W)
+Added Component: Designator=R20(TRO_VACH_ 1/4W)
+Added Component: Designator=R21(TRO_VACH_ 1/4W)
+Added Pin To Net: NetName=OUT_L Pin=R17-1
+Added Pin To Net: NetName=OUT_R Pin=R18-1
+Added Pin To Net: NetName=OUT_L Pin=R19-2
+Added Pin To Net: NetName=OUT_R Pin=R21-1
+Added Pin To Net: NetName=NetC14_1 Pin=C14-1
+Added Pin To Net: NetName=NetC14_1 Pin=R17-2
+Added Net: Name=NetC14_1
+Added Pin To Net: NetName=NetC15_1 Pin=C15-1
+Added Pin To Net: NetName=NetC15_1 Pin=R18-2
+Added Net: Name=NetC15_1
+Added Pin To Net: NetName=NetC23_1 Pin=C23-1
+Added Pin To Net: NetName=NetC23_1 Pin=R19-1
+Added Net: Name=NetC23_1
+Added Pin To Net: NetName=NetC24_1 Pin=C24-1
+Added Pin To Net: NetName=NetC24_1 Pin=R21-2
+Added Net: Name=NetC24_1

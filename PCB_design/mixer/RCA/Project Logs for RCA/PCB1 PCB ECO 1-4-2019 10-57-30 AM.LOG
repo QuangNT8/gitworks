@@ -1,0 +1,6 @@
+Added Component: Designator=U3(DIP8)
+Added Pin To Net: NetName=NetC9_1 Pin=U3-1
+Added Pin To Net: NetName=NetC9_2 Pin=U3-2
+Added Pin To Net: NetName=NetC14_2 Pin=U3-3
+Added Pin To Net: NetName=-15V Pin=U3-4
+Added Pin To Net: NetName=+15V Pin=U3-8

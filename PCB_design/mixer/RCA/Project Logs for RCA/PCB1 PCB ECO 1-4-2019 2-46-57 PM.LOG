@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=IN_R Pin=INPUT-1
+Removed Pin From Net: NetName=IN_L Pin=INPUT-3
+Change Component Description : Designator=LED1 Old Description=Header 2P XH2.54 th?ng New Description=Header 2P XH2.54 th?ng
+Change Component Description : Designator=AC Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=INPUT Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=OUTPUT Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=RCA1 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA2 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA3 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Change Component Description : Designator=RCA4 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Added Component: Designator=R20(TRO_VACH_ 1/4W)
+Added Pin To Net: NetName=IN_L Pin=INPUT-1
+Added Pin To Net: NetName=IN_R Pin=INPUT-3
