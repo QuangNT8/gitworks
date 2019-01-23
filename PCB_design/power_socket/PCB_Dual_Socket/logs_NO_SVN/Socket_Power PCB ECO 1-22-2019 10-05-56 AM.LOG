@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=N Pin=SOCKET2-1
+Removed Pin From Net: NetName=N Pin=SOCKET2-1
+Removed Pin From Net: NetName=N Pin=SOCKET2-1
+Removed Pin From Net: NetName=L1 Pin=SOCKET2-2
+Removed Pin From Net: NetName=L1 Pin=SOCKET2-2
+Removed Pin From Net: NetName=L1 Pin=SOCKET2-2
+Removed Pin From Net: NetName=L1 Pin=SOCKET2-2
+Added Pin To Net: NetName=L1 Pin=SOCKET2-1
+Added Pin To Net: NetName=L1 Pin=SOCKET2-1
+Added Pin To Net: NetName=L1 Pin=SOCKET2-1
+Added Pin To Net: NetName=N Pin=SOCKET2-2
+Added Pin To Net: NetName=N Pin=SOCKET2-2
+Added Pin To Net: NetName=N Pin=SOCKET2-2
+Added Pin To Net: NetName=N Pin=SOCKET2-2
+Added Room: Name=socket_power_supply

@@ -1,0 +1,10 @@
+Added Component: Designator=P7(HDR2X3)
+Added Pin To Net: NetName=GND Pin=P7-1
+Added Pin To Net: NetName=GND Pin=P7-2
+Added Pin To Net: NetName=VCC_RELAY Pin=P7-5
+Added Pin To Net: NetName=VCC_RELAY Pin=P7-6
+Added Pin To Net: NetName=GND_RL Pin=P7-3
+Added Pin To Net: NetName=GND_RL Pin=P7-4
+Added Net: Name=GND_RL
+Added Member To Class: ClassName=socket_power_supply Member=Component P7 Header 3X2
+Added Room: Name=socket_power_supply

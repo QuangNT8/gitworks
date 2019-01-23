@@ -1,0 +1,12 @@
+Added Component: Designator=R13(0805_HV)
+Added Component: Designator=R14(0805_HV)
+Added Pin To Net: NetName=GND Pin=R14-2
+Added Pin To Net: NetName=NetR13_2 Pin=R13-2
+Added Pin To Net: NetName=NetR13_2 Pin=R14-1
+Added Pin To Net: NetName=NetR13_2 Pin=U1-7
+Added Net: Name=NetR13_2
+Added Pin To Net: NetName=WRONG_WIRE Pin=P8-1
+Added Pin To Net: NetName=WRONG_WIRE Pin=R13-1
+Added Net: Name=WRONG_WIRE
+Added Member To Class: ClassName=socket_power_supply Member=Component R13 10K
+Added Member To Class: ClassName=socket_power_supply Member=Component R14 10K

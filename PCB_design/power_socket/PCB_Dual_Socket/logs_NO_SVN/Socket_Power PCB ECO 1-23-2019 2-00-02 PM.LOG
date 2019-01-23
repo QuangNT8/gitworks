@@ -1,0 +1,9 @@
+Change Component Footprint: Designator=C21 Old Footprint=CAP_100N New Footprint=TU_NHOM_10uF_MH
+Change Component Footprint: Designator=C24 Old Footprint=CAPU200N New Footprint=TU_NHOM_2.5_MH
+Added Component: Designator=RL1(RELAY20ASLA12VDC)
+Added Pin To Net: NetName=RL1C Pin=RL1-1
+Added Pin To Net: NetName=VCC_RELAY Pin=RL1-2
+Added Pin To Net: NetName=LOUT Pin=RL1-3
+Added Pin To Net: NetName=L1 Pin=RL1-4
+Added Member To Class: ClassName=socket_power_supply Member=Component RL1 Component_1
+Added Room: Name=socket_power_supply
