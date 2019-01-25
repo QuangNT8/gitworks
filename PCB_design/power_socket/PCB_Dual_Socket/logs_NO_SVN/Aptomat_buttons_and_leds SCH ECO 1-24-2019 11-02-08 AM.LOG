@@ -1,0 +1,8 @@
+Remove Pin=SB22-2 From Net=CTS
+Remove Pin=SB23-2 From Net=P0.06
+Remove Pin=SB24-2 From Net=RTS
+Remove Pin=SB25-2 From Net=P0.08
+Change Component Footprint: Designator=C1 Old Footprint=0603 New Footprint=0805_HV
+Change Component Footprint: Designator=C15 Old Footprint=0603 New Footprint=0805_HV
+Change Component Footprint: Designator=R39 Old Footprint=0603 New Footprint=0805_HV
+Change Component Footprint: Designator=R40 Old Footprint=0603 New Footprint=0805_HV

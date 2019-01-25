@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=GND Pin=C16-1
+Removed Pin From Net: NetName=BUTTON2 Pin=C16-2
+Removed Pin From Net: NetName=LED1 Pin=LED3-1
+Removed Pin From Net: NetName=NetLED1_2 Pin=LED3-2
+Removed Pin From Net: NetName=VDD_NRF Pin=R6-2
+Removed Pin From Net: NetName=GND Pin=SW2-1
+Removed Pin From Net: NetName=GND Pin=SW2-1
+Removed Pin From Net: NetName=GND Pin=SW2-1
+Removed Pin From Net: NetName=BUTTON1 Pin=SW2-2
+Removed Pin From Net: NetName=GND Pin=SW3-1
+Removed Pin From Net: NetName=GND Pin=SW3-1
+Removed Pin From Net: NetName=GND Pin=SW3-1
+Removed Pin From Net: NetName=BUTTON2 Pin=SW3-2
+Added Pin To Net: NetName=P0.18 Pin=U1-21
+Added Net: Name=P0.18
