@@ -1,0 +1,652 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD15\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">2/13/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">2:41:54 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc" class="file"><acronym title="E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc">E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">74</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAEQB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBEQB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBEQB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBEQB">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWBEQB">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2BEQB">Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAYDEQB">Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA4DEQB">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAEEEQB">Hole Size Constraint (Min=0.01mm) (Max=5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAKEEQB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAQEEQB">Width Constraint (Min=0.254mm) (Max=5mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWEEQB">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA2EEQB">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDACFEQB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDALQEQB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDARQEQB">Clearance Constraint (Gap=0.2mm) (OnLayer('Keep-Out Layer')),(All)</a></td>
+<td class="column2">24</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAPXEQB">Clearance Constraint (Gap=0.2mm) (IsRegion),(All)</a></td>
+<td class="column2">13</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDANDFQB">Clearance Constraint (Gap=0.254mm) (InNet('GND')),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">74</td>
+</tr>
+</table><br><hr><a name="IDA2BEQB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4757.385mil|Location2.X=4765.385mil|Location1.Y=5395.657mil|Location2.Y=5568.618mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4757.385mil|Location2.X=4765.385mil|Location1.Y=5395.657mil|Location2.Y=5568.618mil|Absolute=True">Track (74.729mm,-11.795mm)(74.729mm,-7.605mm)  Bottom Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4727.995mil|Location2.X=4800.995mil|Location1.Y=5538.118mil|Location2.Y=5611.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4727.995mil|Location2.X=4800.995mil|Location1.Y=5538.118mil|Location2.Y=5611.118mil|Absolute=True">Pad D2-2(74.808mm,-7.351mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4757.385mil|Location2.X=4765.385mil|Location1.Y=5200.618mil|Location2.Y=5363.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4757.385mil|Location2.X=4765.385mil|Location1.Y=5200.618mil|Location2.Y=5363.657mil|Absolute=True">Track (74.729mm,-16.749mm)(74.729mm,-12.811mm)  Bottom Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4727.995mil|Location2.X=4800.995mil|Location1.Y=5163.118mil|Location2.Y=5236.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4727.995mil|Location2.X=4800.995mil|Location1.Y=5163.118mil|Location2.Y=5236.118mil|Absolute=True">Pad D2-1(74.808mm,-16.876mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4868.487mil|Location2.X=4876.487mil|Location1.Y=5395.972mil|Location2.Y=5568.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4868.487mil|Location2.X=4876.487mil|Location1.Y=5395.972mil|Location2.Y=5568.933mil|Absolute=True">Track (77.551mm,-11.787mm)(77.551mm,-7.597mm)  Bottom Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4839.097mil|Location2.X=4912.097mil|Location1.Y=5538.433mil|Location2.Y=5611.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4839.097mil|Location2.X=4912.097mil|Location1.Y=5538.433mil|Location2.Y=5611.433mil|Absolute=True">Pad D7-2(77.63mm,-7.343mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4868.487mil|Location2.X=4876.487mil|Location1.Y=5200.933mil|Location2.Y=5363.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4868.487mil|Location2.X=4876.487mil|Location1.Y=5200.933mil|Location2.Y=5363.972mil|Absolute=True">Track (77.551mm,-16.741mm)(77.551mm,-12.803mm)  Bottom Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4839.097mil|Location2.X=4912.097mil|Location1.Y=5163.433mil|Location2.Y=5236.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4839.097mil|Location2.X=4912.097mil|Location1.Y=5163.433mil|Location2.Y=5236.433mil|Absolute=True">Pad D7-1(77.63mm,-16.868mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3383.412mil|Location2.X=3793.924mil|Location1.Y=5508.575mil|Location2.Y=5513.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3383.412mil|Location2.X=3793.924mil|Location1.Y=5508.575mil|Location2.Y=5513.575mil|Absolute=True">Track (39.792mm,-8.965mm)(50.092mm,-8.965mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3478.645mil|Location2.X=3703.18mil|Location1.Y=5508.374mil|Location2.Y=5575.429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3478.645mil|Location2.X=3703.18mil|Location1.Y=5508.374mil|Location2.Y=5575.429mil|Absolute=True">Pad AC-2(44.999mm,-8.182mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.109mil|Location2.X=3713.826mil|Location1.Y=5569.5mil|Location2.Y=5577.374mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.109mil|Location2.X=3713.826mil|Location1.Y=5569.5mil|Location2.Y=5577.374mil|Absolute=True">Track (41.421mm,-7.381mm)(48.021mm,-7.381mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3478.645mil|Location2.X=3703.18mil|Location1.Y=5508.374mil|Location2.Y=5575.429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3478.645mil|Location2.X=3703.18mil|Location1.Y=5508.374mil|Location2.Y=5575.429mil|Absolute=True">Pad AC-2(44.999mm,-8.182mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDACFEQB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4244.865mil|Location2.X=4512.708mil|Location1.Y=5160.657mil|Location2.Y=5286.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4244.865mil|Location2.X=4512.708mil|Location1.Y=5160.657mil|Location2.Y=5286.767mil|Absolute=True">Un-Routed Net Constraint: Net GROUND Between Pad SOCKET2-3 (62.711,-16.264mm) And Pad SOCKET2-3 (67.311,-16.264mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4244.865mil|Location2.X=4441.841mil|Location1.Y=5160.657mil|Location2.Y=5775.796mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4244.865mil|Location2.X=4441.841mil|Location1.Y=5160.657mil|Location2.Y=5775.796mil|Absolute=True">Un-Routed Net Constraint: Net GROUND Between Pad SOCKET2-3 (62.711,-16.264mm) And Pad SOCKET2-3 (65.011,-3.093mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2670.101mil|Location2.X=2867.078mil|Location1.Y=5159.988mil|Location2.Y=5784.969mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2670.101mil|Location2.X=2867.078mil|Location1.Y=5159.988mil|Location2.Y=5784.969mil|Absolute=True">Un-Routed Net Constraint: Net GROUND Between Pad SOCKET1-3 (22.712,-16.281mm) And Pad SOCKET1-3 (25.012,-3.11mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4812.327mil|Absolute=True">Un-Routed Net Constraint: Net L1 Between Pad SOCKET2-1 (51.711,-27.565mm) And Pad SOCKET2-1 (51.711,-36.065mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4811.657mil|Absolute=True">Un-Routed Net Constraint: Net L1 Between Pad SOCKET1-2 (38.312,-36.082mm) And Pad SOCKET1-2 (38.312,-27.582mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=4233.18mil|Location1.Y=4518.925mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=4233.18mil|Location1.Y=4518.925mil|Location2.Y=4812.327mil|Absolute=True">Un-Routed Net Constraint: Net L1 Between Pad SOCKET2-1 (51.711,-27.565mm) And Pad SOCKET2-1 (60.461,-31.814mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2949.627mil|Location2.X=3420.218mil|Location1.Y=4518.255mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2949.627mil|Location2.X=3420.218mil|Location1.Y=4518.255mil|Location2.Y=4811.657mil|Absolute=True">Un-Routed Net Constraint: Net L1 Between Pad SOCKET1-2 (29.562,-31.831mm) And Pad SOCKET1-2 (38.312,-27.582mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3947.755mil|Location1.Y=4744.602mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3947.755mil|Location1.Y=4744.602mil|Location2.Y=4812.327mil|Absolute=True">Un-Routed Net Constraint: Net L1 Between Pad SOCKET1-2 (38.312,-27.582mm) And Pad SOCKET2-1 (51.711,-27.565mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.816mil|Location2.X=4994.981mil|Location1.Y=4410.626mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.816mil|Location2.X=4994.981mil|Location1.Y=4410.626mil|Location2.Y=4812.327mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad SOCKET2-2 (78.311,-36.065mm) And Pad SOCKET2-2 (78.311,-27.565mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2187.826mil|Location2.X=2372.991mil|Location1.Y=4409.957mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2187.826mil|Location2.X=2372.991mil|Location1.Y=4409.957mil|Location2.Y=4811.657mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad SOCKET1-1 (11.712,-27.582mm) And Pad SOCKET1-1 (11.712,-36.082mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4570.574mil|Location2.X=4994.981mil|Location1.Y=4745.272mil|Location2.Y=4961.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4570.574mil|Location2.X=4994.981mil|Location1.Y=4745.272mil|Location2.Y=4961.689mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad R7-2 (70.634,-23.946mm) And Pad SOCKET2-2 (78.311,-27.565mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2187.826mil|Location2.X=2699.435mil|Location1.Y=4519.415mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2187.826mil|Location2.X=2699.435mil|Location1.Y=4519.415mil|Location2.Y=4811.657mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad SOCKET1-1 (11.712,-27.582mm) And Pad SOCKET1-1 (20.754,-31.802mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3862.515mil|Location2.X=4629.755mil|Location1.Y=4880.854mil|Location2.Y=5596.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3862.515mil|Location2.X=4629.755mil|Location1.Y=4880.854mil|Location2.Y=5596.829mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad AC-3 (54.999,-8.488mm) And Pad R7-2 (70.634,-23.946mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.325mil|Location2.X=4608.512mil|Location1.Y=4519.415mil|Location2.Y=4704.58mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.325mil|Location2.X=4608.512mil|Location1.Y=4519.415mil|Location2.Y=4704.58mil|Absolute=True">Un-Routed Net Constraint: Net N Between Pad SOCKET1-1 (20.754,-31.802mm) And Pad SOCKET2-2 (69.244,-31.802mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2207.782mil|Location2.X=3102.79mil|Location1.Y=5445.836mil|Location2.Y=5740.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2207.782mil|Location2.X=3102.79mil|Location1.Y=5445.836mil|Location2.Y=5740.001mil|Absolute=True">Un-Routed Net Constraint: </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3430.873mil|Location2.X=4830.361mil|Location1.Y=4197.256mil|Location2.Y=5256.39mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3430.873mil|Location2.X=4830.361mil|Location1.Y=4197.256mil|Location2.Y=5256.39mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Free-1 (43.474,-39.796mm) And Track on layer Bottom Layer (73.941,-17.974mm)</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDARQEQB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.2mm) (OnLayer('Keep-Out Layer')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True">Pad SOCKET2-1(51.711mm,-36.065mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.103mil|Location2.X=3813.288mil|Location1.Y=4455.745mil|Location2.Y=4475.931mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.103mil|Location2.X=3813.288mil|Location1.Y=4455.745mil|Location2.Y=4475.931mil|Absolute=True">Arc (50.641mm,-35.264mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True">Pad SOCKET2-1(51.711mm,-36.065mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.103mil|Location2.X=3813.288mil|Location1.Y=4412.438mil|Location2.Y=4432.623mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.103mil|Location2.X=3813.288mil|Location1.Y=4412.438mil|Location2.Y=4432.623mil|Absolute=True">Arc (50.641mm,-36.864mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2656.936mil|Location2.X=2668.747mil|Location1.Y=5344.238mil|Location2.Y=5517.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2656.936mil|Location2.X=2668.747mil|Location1.Y=5344.238mil|Location2.Y=5517.689mil|Absolute=True">Track (21.426mm,-13.053mm)(21.426mm,-8.947mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True">Arc (25.012mm,-11.831mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.433mil|Location2.X=2683.055mil|Location1.Y=5329.93mil|Location2.Y=5353.552mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.433mil|Location2.X=2683.055mil|Location1.Y=5329.93mil|Location2.Y=5353.552mil|Absolute=True">Via (21.639mm,-13.266mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True">Arc (25.012mm,-11.831mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2665.339mil|Location2.X=2677.15mil|Location1.Y=5335.835mil|Location2.Y=5365.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2665.339mil|Location2.X=2677.15mil|Location1.Y=5335.835mil|Location2.Y=5365.113mil|Absolute=True">Track (21.639mm,-13.266mm)(21.639mm,-12.822mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True">Arc (25.012mm,-11.831mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.983mil|Location2.X=2677.15mil|Location1.Y=5353.301mil|Location2.Y=5396.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.983mil|Location2.X=2677.15mil|Location1.Y=5353.301mil|Location2.Y=5396.468mil|Absolute=True">Track (20.843mm,-12.026mm)(21.639mm,-12.822mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True">Arc (25.012mm,-11.831mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2674.101mil|Location2.X=2933.944mil|Location1.Y=5183.673mil|Location2.Y=5262.413mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2674.101mil|Location2.X=2933.944mil|Location1.Y=5183.673mil|Location2.Y=5262.413mil|Absolute=True">Track (22.712mm,-16.281mm)(27.312mm,-16.281mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.82mil|Location2.X=2932.225mil|Location1.Y=5270.037mil|Location2.Y=5490.821mil|Absolute=True">Arc (25.012mm,-11.831mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2110.204mil|Location2.X=2277.212mil|Location1.Y=5300.76mil|Location2.Y=5467.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2110.204mil|Location2.X=2277.212mil|Location1.Y=5300.76mil|Location2.Y=5467.767mil|Absolute=True">Track (7.539mm,-10.215mm)(11.481mm,-14.157mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2057.689mil|Location2.X=2252.619mil|Location1.Y=5176.699mil|Location2.Y=5468.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2057.689mil|Location2.X=2252.619mil|Location1.Y=5176.699mil|Location2.Y=5468.185mil|Absolute=True">Arc (3mm,-17.452mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3739.849mil|Location2.X=3819.141mil|Location1.Y=5931.508mil|Location2.Y=5951.193mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3739.849mil|Location2.X=3819.141mil|Location1.Y=5931.508mil|Location2.Y=5951.193mil|Absolute=True">Track (49.032mm,1.964mm)(50.546mm,1.964mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3767.868mil|Location2.X=3807.738mil|Location1.Y=5958.265mil|Location2.Y=5978.45mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3767.868mil|Location2.X=3807.738mil|Location1.Y=5958.265mil|Location2.Y=5978.45mil|Absolute=True">Arc (50mm,2.9mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3717.119mil|Location1.Y=4237.831mil|Location2.Y=4238.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3717.119mil|Location1.Y=4237.831mil|Location2.Y=4238.224mil|Absolute=True">Track (45.415mm,-41.3mm)(48.2mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.794mil|Location2.X=3698.535mil|Location1.Y=4233.846mil|Location2.Y=4399.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.794mil|Location2.X=3698.535mil|Location1.Y=4233.846mil|Location2.Y=4399.327mil|Absolute=True">Pad P1-1(46.631mm,-39.305mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1945.033mil|Location2.X=1977.029mil|Location1.Y=4237.792mil|Location2.Y=4269.788mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1945.033mil|Location2.X=1977.029mil|Location1.Y=4237.792mil|Location2.Y=4269.788mil|Absolute=True">Track (3.2mm,-41.3mm)(4mm,-40.5mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899.905mil|Location2.X=1947.274mil|Location1.Y=4233.925mil|Location2.Y=4360.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899.905mil|Location2.X=1947.274mil|Location1.Y=4233.925mil|Location2.Y=4360.035mil|Absolute=True">Pad P2-1(2.649mm,-39.803mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.544mil|Location2.X=1945.533mil|Location1.Y=4237.792mil|Location2.Y=4238.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.544mil|Location2.X=1945.533mil|Location1.Y=4237.792mil|Location2.Y=4238.292mil|Absolute=True">Track (0.8mm,-41.3mm)(3.2mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899.905mil|Location2.X=1947.274mil|Location1.Y=4233.925mil|Location2.Y=4360.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899.905mil|Location2.X=1947.274mil|Location1.Y=4233.925mil|Location2.Y=4360.035mil|Absolute=True">Pad P2-1(2.649mm,-39.803mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.544mil|Location2.X=1945.533mil|Location1.Y=4237.792mil|Location2.Y=4238.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.544mil|Location2.X=1945.533mil|Location1.Y=4237.792mil|Location2.Y=4238.292mil|Absolute=True">Track (0.8mm,-41.3mm)(3.2mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.731mil|Location2.X=1898.101mil|Location1.Y=4233.728mil|Location2.Y=4359.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.731mil|Location2.X=1898.101mil|Location1.Y=4233.728mil|Location2.Y=4359.838mil|Absolute=True">Pad P2-2(1.4mm,-39.808mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.048mil|Location2.X=1851.044mil|Location1.Y=4237.792mil|Location2.Y=4269.788mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.048mil|Location2.X=1851.044mil|Location1.Y=4237.792mil|Location2.Y=4269.788mil|Absolute=True">Track (0mm,-40.5mm)(0.8mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.731mil|Location2.X=1898.101mil|Location1.Y=4233.728mil|Location2.Y=4359.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1850.731mil|Location2.X=1898.101mil|Location1.Y=4233.728mil|Location2.Y=4359.838mil|Absolute=True">Pad P2-2(1.4mm,-39.808mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3607.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3607.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True">Track (45.415mm,-41.3mm)(45.415mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.322mil|Location2.X=3698.062mil|Location1.Y=4234.673mil|Location2.Y=4360.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.322mil|Location2.X=3698.062mil|Location1.Y=4234.673mil|Location2.Y=4360.783mil|Absolute=True">Pad Free-2(46.619mm,-39.784mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3717.119mil|Location1.Y=4237.831mil|Location2.Y=4238.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3717.119mil|Location1.Y=4237.831mil|Location2.Y=4238.224mil|Absolute=True">Track (45.415mm,-41.3mm)(48.2mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.322mil|Location2.X=3698.062mil|Location1.Y=4234.673mil|Location2.Y=4360.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.322mil|Location2.X=3698.062mil|Location1.Y=4234.673mil|Location2.Y=4360.783mil|Absolute=True">Pad Free-2(46.619mm,-39.784mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3759.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3759.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True">Track (49.276mm,-36.576mm)(49.276mm,-26.797mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True">Pad SOCKET2-1(51.711mm,-36.065mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3759.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3759.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True">Track (49.276mm,-36.576mm)(49.276mm,-26.797mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4745.272mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4745.272mil|Location2.Y=4812.327mil|Absolute=True">Pad SOCKET2-1(51.711mm,-27.565mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3419.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3419.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True">Track (40.64mm,-36.83mm)(40.64mm,-26.67mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4477.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4477.012mil|Absolute=True">Pad SOCKET1-2(38.312mm,-36.082mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3419.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3419.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True">Track (40.64mm,-36.83mm)(40.64mm,-26.67mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4744.602mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4744.602mil|Location2.Y=4811.657mil|Absolute=True">Pad SOCKET1-2(38.312mm,-27.582mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.516mil|Location2.X=5164.752mil|Location1.Y=5484.245mil|Location2.Y=5503.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.516mil|Location2.X=5164.752mil|Location1.Y=5484.245mil|Location2.Y=5503.93mil|Absolute=True">Track (81.612mm,-9.396mm)(84.725mm,-9.396mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True">Track (83.939mm,-10.061mm)(88.765mm,-8.061mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5145.067mil|Location2.X=5275.479mil|Location1.Y=5484.245mil|Location2.Y=5614.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5145.067mil|Location2.X=5275.479mil|Location1.Y=5484.245mil|Location2.Y=5614.657mil|Absolute=True">Track (84.725mm,-9.396mm)(87.537mm,-6.584mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True">Track (83.939mm,-10.061mm)(88.765mm,-8.061mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True">Track (83.939mm,-10.061mm)(88.765mm,-8.061mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.516mil|Location2.X=5164.752mil|Location1.Y=5484.245mil|Location2.Y=5503.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.516mil|Location2.X=5164.752mil|Location1.Y=5484.245mil|Location2.Y=5503.93mil|Absolute=True">Track (81.612mm,-9.396mm)(84.725mm,-9.396mm)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.717mil|Location2.X=5314.25mil|Location1.Y=5467.685mil|Location2.Y=5546.899mil|Absolute=True">Track (83.939mm,-10.061mm)(88.765mm,-8.061mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5145.067mil|Location2.X=5275.479mil|Location1.Y=5484.245mil|Location2.Y=5614.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5145.067mil|Location2.X=5275.479mil|Location1.Y=5484.245mil|Location2.Y=5614.657mil|Absolute=True">Track (84.725mm,-9.396mm)(87.537mm,-6.584mm)  Bottom Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAPXEQB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.2mm) (IsRegion),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4410.626mil|Location2.Y=4477.681mil|Absolute=True">Pad SOCKET2-1(51.711mm,-36.065mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4745.272mil|Location2.Y=4812.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3762.589mil|Location2.X=3947.755mil|Location1.Y=4745.272mil|Location2.Y=4812.327mil|Absolute=True">Pad SOCKET2-1(51.711mm,-27.565mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4477.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4409.957mil|Location2.Y=4477.012mil|Absolute=True">Pad SOCKET1-2(38.312mm,-36.082mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4744.602mil|Location2.Y=4811.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3235.052mil|Location2.X=3420.218mil|Location1.Y=4744.602mil|Location2.Y=4811.657mil|Absolute=True">Pad SOCKET1-2(38.312mm,-27.582mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.433mil|Location2.X=2683.055mil|Location1.Y=5329.93mil|Location2.Y=5353.552mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.433mil|Location2.X=2683.055mil|Location1.Y=5329.93mil|Location2.Y=5353.552mil|Absolute=True">Via (21.639mm,-13.266mm) Top Layer to Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3607.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3607.101mil|Location2.X=3607.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True">Track (45.415mm,-41.3mm)(45.415mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-38.1mm)(45.415mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.101mil|Location2.X=3729.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.101mil|Location2.X=3729.495mil|Location1.Y=4423.831mil|Location2.Y=4809.224mil|Absolute=True">Track (48.514mm,-36.576mm)(48.514mm,-26.797mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4424.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.101mil|Location2.X=3759.495mil|Location1.Y=4423.831mil|Location2.Y=4424.224mil|Absolute=True">Track (48.514mm,-36.576mm)(49.276mm,-36.576mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.983mil|Location2.X=2677.15mil|Location1.Y=5353.301mil|Location2.Y=5396.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.983mil|Location2.X=2677.15mil|Location1.Y=5353.301mil|Location2.Y=5396.468mil|Absolute=True">Track (20.843mm,-12.026mm)(21.639mm,-12.822mm)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2665.339mil|Location2.X=2677.15mil|Location1.Y=5335.835mil|Location2.Y=5365.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2665.339mil|Location2.X=2677.15mil|Location1.Y=5335.835mil|Location2.Y=5365.113mil|Absolute=True">Track (21.639mm,-13.266mm)(21.639mm,-12.822mm)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2675.174mil|Location2.X=2931.871mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2656.936mil|Location2.X=2668.747mil|Location1.Y=5344.238mil|Location2.Y=5517.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2656.936mil|Location2.X=2668.747mil|Location1.Y=5344.238mil|Location2.Y=5517.689mil|Absolute=True">Track (21.426mm,-13.053mm)(21.426mm,-8.947mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.298mil|Location2.X=4029.298mil|Location1.Y=4246.325mil|Location2.Y=5349.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.298mil|Location2.X=3759.298mil|Location1.Y=4424.027mil|Location2.Y=4809.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDANDFQB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.254mm) (InNet('GND')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4512.621mil|Location2.X=4570.621mil|Location1.Y=5379.433mil|Location2.Y=5450.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4512.621mil|Location2.X=4570.621mil|Location1.Y=5379.433mil|Location2.Y=5450.433mil|Absolute=True">Pad R14-2(69.147mm,-11.407mm)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4250.583mil|Location2.X=4506.989mil|Location1.Y=5270.707mil|Location2.Y=5491.49mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4250.583mil|Location2.X=4506.989mil|Location1.Y=5270.707mil|Location2.Y=5491.49mil|Absolute=True">Arc (65.011mm,-11.814mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.087mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4238.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.087mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4238.238mil|Absolute=True">Track (44.653mm,-41.3mm)(44.653mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True">Pad P1-2(43.485mm,-39.296mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-41.3mm)(44.653mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True">Pad P1-2(43.485mm,-39.296mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-38.1mm)(45.415mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True">Pad P1-2(43.485mm,-39.296mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3464.771mil|Location2.X=3577.481mil|Location1.Y=4237.845mil|Location2.Y=4238.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3464.771mil|Location2.X=3577.481mil|Location1.Y=4237.845mil|Location2.Y=4238.238mil|Absolute=True">Track (41.8mm,-41.3mm)(44.653mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.936mil|Location2.X=3574.676mil|Location1.Y=4234.201mil|Location2.Y=4399.681mil|Absolute=True">Pad P1-2(43.485mm,-39.296mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.087mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4238.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.087mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4238.238mil|Absolute=True">Track (44.653mm,-41.3mm)(44.653mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True">Pad Free-1(43.474mm,-39.796mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-41.3mm)(44.653mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True">Pad Free-1(43.474mm,-39.796mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3464.771mil|Location2.X=3577.481mil|Location1.Y=4237.845mil|Location2.Y=4238.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3464.771mil|Location2.X=3577.481mil|Location1.Y=4237.845mil|Location2.Y=4238.238mil|Absolute=True">Track (41.8mm,-41.3mm)(44.653mm,-41.3mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.503mil|Location2.X=3574.243mil|Location1.Y=4234.201mil|Location2.Y=4360.311mil|Absolute=True">Pad Free-1(43.474mm,-39.796mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4249.978mil|Location2.X=4506.675mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4249.978mil|Location2.X=4506.675mil|Location1.Y=5271.051mil|Location2.Y=5655.691mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4512.621mil|Location2.X=4570.621mil|Location1.Y=5379.433mil|Location2.Y=5450.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4512.621mil|Location2.X=4570.621mil|Location1.Y=5379.433mil|Location2.Y=5450.433mil|Absolute=True">Pad R14-2(69.147mm,-11.407mm)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3577.495mil|Location1.Y=4237.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-41.3mm)(44.653mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3577.101mil|Location2.X=3607.495mil|Location1.Y=4363.831mil|Location2.Y=4364.224mil|Absolute=True">Track (44.653mm,-38.1mm)(45.415mm,-38.1mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3449.495mil|Location1.Y=4813.831mil|Location2.Y=4814.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3449.495mil|Location1.Y=4813.831mil|Location2.Y=4814.224mil|Absolute=True">Track (40.64mm,-26.67mm)(41.402mm,-26.67mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.101mil|Location2.X=3449.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.101mil|Location2.X=3449.495mil|Location1.Y=4413.831mil|Location2.Y=4814.224mil|Absolute=True">Track (41.402mm,-36.83mm)(41.402mm,-26.67mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3449.495mil|Location1.Y=4413.831mil|Location2.Y=4414.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.101mil|Location2.X=3449.495mil|Location1.Y=4413.831mil|Location2.Y=4414.224mil|Absolute=True">Track (40.64mm,-36.83mm)(41.402mm,-36.83mm)  Keep-Out Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3134.298mil|Location2.X=3574.298mil|Location1.Y=4250.339mil|Location2.Y=5344.027mil|Absolute=True">Polygon Region (0 hole(s)) Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\power_socket\PCB_Dual_Socket\powermodule\Socket_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.298mil|Location2.X=3449.298mil|Location1.Y=4414.027mil|Location2.Y=4814.027mil|Absolute=True">Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>
