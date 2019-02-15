@@ -1,5 +1,0 @@
-Added Component: Designator=R39(0805_HV)
-Added Component: Designator=R40(0805_HV)
-Added Pin To Net: NetName=NetQ1_1 Pin=R39-1
-Added Pin To Net: NetName=NetQ1_1 Pin=R40-1
-Added Pin To Net: NetName=GND_RL Pin=R40-2

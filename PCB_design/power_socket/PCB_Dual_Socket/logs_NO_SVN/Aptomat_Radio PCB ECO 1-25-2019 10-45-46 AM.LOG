@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=GND Pin=P8-4
-Removed Pin From Net: NetName=VCC_RELAY Pin=P8-6
-Added Pin To Net: NetName=BUTTON1 Pin=P8-4
-Added Pin To Net: NetName=LED1 Pin=P8-6

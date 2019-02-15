@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=RL1C Pin=RL1-1
-Removed Pin From Net: NetName=VCC_RELAY Pin=RL1-2
-Removed Member From Class: ClassName=socket_power_supply Member=Wp2
-Added Pin To Net: NetName=VCC_RELAY Pin=RL1-1
-Added Pin To Net: NetName=RL1C Pin=RL1-2
