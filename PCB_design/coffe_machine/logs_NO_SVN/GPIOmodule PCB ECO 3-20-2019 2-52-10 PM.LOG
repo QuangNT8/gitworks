@@ -1,0 +1,4 @@
+Added Component: Designator=CON1(CON 2 EDG 5.08)
+Added Pin To Net: NetName=GND Pin=CON1-1
+Added Pin To Net: NetName=12V Pin=CON1-2
+Added Net: Name=12V

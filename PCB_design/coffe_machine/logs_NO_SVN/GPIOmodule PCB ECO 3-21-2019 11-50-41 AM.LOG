@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=5V Pin=C4-2
+Added Component: Designator=C7(TU_NHOM_2.5_MH)
+Added Component: Designator=C8(0805_HV)
+Added Component: Designator=L2(Inductor 4.5x5)
+Added Pin To Net: NetName=MO_5V Pin=C4-2
+Added Pin To Net: NetName=5V Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=5V Pin=C8-2
+Added Pin To Net: NetName=MO_5V Pin=L2-1
+Added Pin To Net: NetName=5V Pin=L2-2

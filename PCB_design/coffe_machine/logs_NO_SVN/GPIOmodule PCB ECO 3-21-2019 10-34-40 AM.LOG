@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=PF0O Pin=U1-7
+Added Pin To Net: NetName=PF0O Pin=U3-16
+Added Net: Name=PF0O
+Added Pin To Net: NetName=PF1O Pin=U1-8
+Added Pin To Net: NetName=PF1O Pin=U3-15
+Added Net: Name=PF1O

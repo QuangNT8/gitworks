@@ -1,0 +1,7 @@
+Added Component: Designator=U3(DIP20)
+Added Component: Designator=U4(DIP20)
+Added Pin To Net: NetName=GND Pin=U3-10
+Added Pin To Net: NetName=GND Pin=U4-10
+Added Pin To Net: NetName=VCC Pin=U3-20
+Added Pin To Net: NetName=VCC Pin=U4-20
+Added Net: Name=VCC
