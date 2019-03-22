@@ -1,6 +1,0 @@
-Added Component: Designator=P1(HEADER2M_8P)
-Added Component: Designator=P2(HEADER2M_8P)
-Added Pin To Net: NetName=GND Pin=P1-7
-Added Pin To Net: NetName=5V Pin=P1-8
-Added Pin To Net: NetName=GND Pin=P2-7
-Added Pin To Net: NetName=5V Pin=P2-8

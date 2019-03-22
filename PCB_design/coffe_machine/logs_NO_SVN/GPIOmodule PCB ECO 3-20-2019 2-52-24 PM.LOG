@@ -1,4 +1,0 @@
-Change Component Library : Designator=PW1 Old Library=mySch.SchLib New Library=MH_DA_THU_VIEN_16122016.SchLib
-Added Pin To Net: NetName=GND Pin=PW1-1
-Added Pin To Net: NetName=12V Pin=PW1-2
-Added Net: Name=12V

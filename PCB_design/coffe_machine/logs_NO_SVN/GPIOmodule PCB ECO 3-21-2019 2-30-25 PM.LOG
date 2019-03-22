@@ -1,7 +1,0 @@
-Added Component: Designator=PWR2(LED_0805)
-Added Component: Designator=R2(Tro SMD 0805)
-Added Pin To Net: NetName=5V Pin=PWR2-1
-Added Pin To Net: NetName=GND Pin=R2-1
-Added Pin To Net: NetName=NetPWR2_2 Pin=PWR2-2
-Added Pin To Net: NetName=NetPWR2_2 Pin=R2-2
-Added Net: Name=NetPWR2_2

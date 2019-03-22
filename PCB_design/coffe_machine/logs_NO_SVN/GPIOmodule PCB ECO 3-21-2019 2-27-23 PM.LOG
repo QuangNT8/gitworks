@@ -1,7 +1,0 @@
-Added Component: Designator=LED1(LED_0805)
-Added Component: Designator=R1(Tro SMD 0805)
-Added Pin To Net: NetName=12V Pin=LED1-1
-Added Pin To Net: NetName=GND Pin=R1-1
-Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
-Added Pin To Net: NetName=NetLED1_2 Pin=R1-2
-Added Net: Name=NetLED1_2

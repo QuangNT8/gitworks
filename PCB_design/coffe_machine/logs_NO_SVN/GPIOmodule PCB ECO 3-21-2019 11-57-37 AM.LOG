@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=PA10O Pin=U4-12
-Removed Pin From Net: NetName=PA11O Pin=U4-13
-Removed Pin From Net: NetName=PA12O Pin=U4-14
-Removed Pin From Net: NetName=PA13O Pin=U4-15
-Added Pin To Net: NetName=PA13O Pin=U4-12
-Added Pin To Net: NetName=PA12O Pin=U4-13
-Added Pin To Net: NetName=PA11O Pin=U4-14
-Added Pin To Net: NetName=PA10O Pin=U4-15

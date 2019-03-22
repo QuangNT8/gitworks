@@ -1,0 +1,21 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: GPIOmodule.PcbDoc   3/22/2019  9:39:17 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : GPIOmodule.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          8                107.20 mm (4.22 Inch)
+T2        0.6mm (23.622mil)        Round          16               171.43 mm (6.75 Inch)
+T3        0.7874mm (31mil)         Round          40               137.40 mm (5.41 Inch)
+T4        0.8128mm (32mil)         Round          18               76.64 mm (3.02 Inch)
+T5        0.9mm (35.433mil)        Round          56               328.10 mm (12.92 Inch)
+T6        1mm (39.37mil)           Round          66               200.66 mm (7.90 Inch)
+T7        1.6mm (62.992mil)        Round          4                13.01 mm (0.51 Inch)
+T8        3mm (118.11mil)          Round          2                8.38 mm (0.33 Inch)
+---------------------------------------------------------------------------
+Totals                                            210              1042.82 mm (41.06 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:01
