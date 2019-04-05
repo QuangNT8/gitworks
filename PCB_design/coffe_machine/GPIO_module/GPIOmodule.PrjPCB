@@ -156,74 +156,70 @@ GenerateClassCluster=0
 DocumentUniqueId=WWSXSBGF
 
 [GeneratedDocument1]
-DocumentPath=..\outputs_NO_SVN\Design Rule Check - GPIOmodule.html
-DItemRevisionGUID=
-
-[GeneratedDocument2]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.DRR
 DItemRevisionGUID=
 
-[GeneratedDocument3]
+[GeneratedDocument2]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.EXTREP
 DItemRevisionGUID=
 
-[GeneratedDocument4]
+[GeneratedDocument3]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GBL
 DItemRevisionGUID=
 
-[GeneratedDocument5]
+[GeneratedDocument4]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GBO
 DItemRevisionGUID=
 
-[GeneratedDocument6]
+[GeneratedDocument5]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GBP
 DItemRevisionGUID=
 
-[GeneratedDocument7]
+[GeneratedDocument6]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GBS
 DItemRevisionGUID=
 
-[GeneratedDocument8]
+[GeneratedDocument7]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GKO
 DItemRevisionGUID=
 
-[GeneratedDocument9]
+[GeneratedDocument8]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GPB
 DItemRevisionGUID=
 
-[GeneratedDocument10]
+[GeneratedDocument9]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GPT
 DItemRevisionGUID=
 
-[GeneratedDocument11]
+[GeneratedDocument10]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GTL
 DItemRevisionGUID=
 
-[GeneratedDocument12]
+[GeneratedDocument11]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GTO
 DItemRevisionGUID=
 
-[GeneratedDocument13]
+[GeneratedDocument12]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GTP
 DItemRevisionGUID=
 
-[GeneratedDocument14]
+[GeneratedDocument13]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.GTS
 DItemRevisionGUID=
 
-[GeneratedDocument15]
+[GeneratedDocument14]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.LDP
 DItemRevisionGUID=
 
-[GeneratedDocument16]
+[GeneratedDocument15]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.REP
 DItemRevisionGUID=
 
-[GeneratedDocument17]
+[GeneratedDocument16]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.RUL
 DItemRevisionGUID=
 
-[GeneratedDocument18]
+[GeneratedDocument17]
 DocumentPath=..\outputs_NO_SVN\GPIOmodule.TXT
 DItemRevisionGUID=
 
