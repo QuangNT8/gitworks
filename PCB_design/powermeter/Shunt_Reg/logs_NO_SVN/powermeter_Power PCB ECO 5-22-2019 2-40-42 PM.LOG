@@ -1,0 +1,25 @@
+Added Component: Designator=C25(0805_HV)
+Added Component: Designator=C26(0805_HV)
+Added Component: Designator=C27(0805_HV)
+Added Component: Designator=F2(1206)
+Added Component: Designator=U5(SOT223)
+Added Pin To Net: NetName=GND Pin=C25-1
+Added Pin To Net: NetName=GND Pin=C26-1
+Added Pin To Net: NetName=GND Pin=C27-1
+Added Pin To Net: NetName=VCC_RELAY Pin=F2-2
+Added Pin To Net: NetName=GND Pin=U5-1
+Added Pin To Net: NetName=MCU_VCC Pin=C26-2
+Added Pin To Net: NetName=MCU_VCC Pin=C27-2
+Added Pin To Net: NetName=MCU_VCC Pin=U5-2
+Added Pin To Net: NetName=MCU_VCC Pin=U5-4
+Added Net: Name=MCU_VCC
+Added Pin To Net: NetName=NetC25_2 Pin=C25-2
+Added Pin To Net: NetName=NetC25_2 Pin=F2-1
+Added Pin To Net: NetName=NetC25_2 Pin=U5-3
+Added Net: Name=NetC25_2
+Added Member To Class: ClassName=powermeter_power_supply Member=Component C25 105
+Added Member To Class: ClassName=powermeter_power_supply Member=Component C26 105
+Added Member To Class: ClassName=powermeter_power_supply Member=Component C27 105
+Added Member To Class: ClassName=powermeter_power_supply Member=Component F2 Res
+Added Member To Class: ClassName=powermeter_power_supply Member=Component U5 AMS1117-3.3V SOT223 _MH
+Added Room: Name=powermeter_power_supply

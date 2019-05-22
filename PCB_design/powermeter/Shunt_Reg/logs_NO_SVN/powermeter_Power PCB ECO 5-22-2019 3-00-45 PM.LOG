@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=CURRENT_SIGNAL1 Pin=P1-3
+Added Pin To Net: NetName=CURRENT_SIGNAL2 Pin=P1-5
+Added Pin To Net: NetName=VOL_SIGNAL Pin=P1-7

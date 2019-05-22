@@ -1,0 +1,3 @@
+Added Component: Designator=P1\(HEADER2M_8P)
+Added Member To Class: ClassName=powermeter_power_supply Member=Component P1\ Header 6
+Added Room: Name=powermeter_power_supply

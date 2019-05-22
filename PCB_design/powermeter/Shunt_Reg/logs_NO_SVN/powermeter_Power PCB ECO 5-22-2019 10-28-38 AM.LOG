@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=N Pin=AC-1
+Removed Pin From Net: NetName=L Pin=AC-2
+Removed Member From Class: ClassName=powermeter_power_supply Member=AC

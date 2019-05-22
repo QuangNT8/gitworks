@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=VCC_RELAY Pin=D1-1
+Removed Pin From Net: NetName=GND Pin=Q1-3
+Removed Pin From Net: NetName=RL1C Pin=R39-2
+Removed Pin From Net: NetName=GND Pin=R40-2
+Removed Pin From Net: NetName=VCC_RELAY Pin=RL1-2
+Removed Pin From Net: NetName=LOUT Pin=RL1-3
+Removed Pin From Net: NetName=L1 Pin=RL1-4
+Removed Member From Class: ClassName=Aptomat_power_supply Member=D1
+Removed Member From Class: ClassName=Aptomat_power_supply Member=Q1
+Removed Member From Class: ClassName=Aptomat_power_supply Member=R39
+Removed Member From Class: ClassName=Aptomat_power_supply Member=R40
+Removed Member From Class: ClassName=Aptomat_power_supply Member=RL1
+Removed Member From Class: ClassName=Aptomat_power_supply Member=Wp2
+Added Component: Designator=AC(CHAN3DONG)
+Added Pin To Net: NetName=N Pin=AC-1
+Added Pin To Net: NetName=L Pin=AC-2
+Added Pin To Net: NetName=L1 Pin=AC-3
+Change Class Name : Old Net Name=Aptomat_power_supply New Net Name=powermeter_power_supply
+Added Member To Class: ClassName=powermeter_power_supply Member=Component AC Header 3
+Added Room: Name=powermeter_power_supply

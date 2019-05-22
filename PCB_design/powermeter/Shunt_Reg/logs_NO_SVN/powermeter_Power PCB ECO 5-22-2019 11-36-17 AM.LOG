@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=L Pin=R2-2
+Removed Pin From Net: NetName=N Pin=R6-2
+Removed Member From Class: ClassName=powermeter_power_supply Member=R2
+Removed Member From Class: ClassName=powermeter_power_supply Member=R6
+Added Pin To Net: NetName=L Pin=R3-2
+Added Pin To Net: NetName=N Pin=R7-2
+Added Room: Name=powermeter_power_supply

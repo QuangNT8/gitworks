@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=VCC_RELAY Pin=C1-2
+Removed Pin From Net: NetName=GND Pin=C9-1
+Removed Pin From Net: NetName=CURRENT_SIGNAL2 Pin=C9-2
+Removed Pin From Net: NetName=GND Pin=C10-1
+Removed Pin From Net: NetName=CURRENT_SIGNAL1 Pin=C10-2
+Removed Member From Class: ClassName=powermeter_power_supply Member=C1
+Removed Member From Class: ClassName=powermeter_power_supply Member=C9
+Removed Member From Class: ClassName=powermeter_power_supply Member=C10
