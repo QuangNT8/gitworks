@@ -1,6 +1,0 @@
-Removed Pin From Net: NetName=RL1C Pin=R39-1
-Removed Pin From Net: NetName=NetQ1_1 Pin=R39-2
-Change Component Footprint: Designator=R39 Old Footprint=0603 New Footprint=0805_HV
-Change Component Footprint: Designator=R40 Old Footprint=0603 New Footprint=0805_HV
-Added Pin To Net: NetName=NetQ1_1 Pin=R39-1
-Added Pin To Net: NetName=RL1C Pin=R39-2

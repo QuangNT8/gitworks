@@ -1,4 +1,0 @@
-Added Component: Designator=COIL1(CURRENT_COIL-N)
-Added Pin To Net: NetName=CUR_N Pin=COIL1-1
-Added Pin To Net: NetName=CUR_P Pin=COIL1-2
-Added Member To Class: ClassName=pca10040_sheet5_power_supply Member=Component COIL1 Header 2
