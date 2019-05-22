@@ -1,0 +1,3 @@
+Added Component: Designator=Wp2(PIN1)
+Added Pin To Net: NetName=LOUT Pin=Wp2-1
+Added Member To Class: ClassName=pca10040_sheet5_power_supply Member=Component Wp2 Socket

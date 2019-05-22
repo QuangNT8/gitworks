@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: E:\design\attomat\Ver1.1\ghep\aptomat.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=aptomat-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=aptomat-slotholes.txt|DrillLayers=gtl,gbl

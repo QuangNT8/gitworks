@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VDD_NRF Pin=P2-2
+Removed Pin From Net: NetName=VDD_NRF Pin=P2-3
+Removed Pin From Net: NetName=SWDIO Pin=P2-4
+Removed Pin From Net: NetName=SWDCLK Pin=P2-5
+Removed Pin From Net: NetName=P0.06 Pin=P2-6
+Removed Pin From Net: NetName=P0.08 Pin=P2-7
+Removed Pin From Net: NetName=GND Pin=P2-8
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 8 New DesignItemId=Header 6
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X8 New Footprint=CON6P-ZH1.5
+Change Component Comment : Designator=P2 Old Comment=Header 8 New Comment=Header 6
+Added Pin To Net: NetName=SWDIO Pin=P2-2
+Added Pin To Net: NetName=SWDCLK Pin=P2-3
+Added Pin To Net: NetName=P0.06 Pin=P2-4
+Added Pin To Net: NetName=P0.08 Pin=P2-5
+Added Pin To Net: NetName=GND Pin=P2-6
