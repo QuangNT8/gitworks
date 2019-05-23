@@ -37,6 +37,23 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
+DocumentPath=powermeter_buttons_and_leds.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=0
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XYXNIQLM
+
+[Document2]
 DocumentPath=powermeter_Radio.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -46,14 +63,14 @@ AnnotateScope=All
 AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
+ClassGenCCAutoEnabled=0
+ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RVFGWMDX
 
-[Document2]
+[Document3]
 DocumentPath=powermeter_Radio.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -70,7 +87,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FBYBQWYQ
 
-[Document3]
+[Document4]
 DocumentPath=pca10040.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -87,7 +104,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document4]
+[Document5]
 DocumentPath=C:\Users\Public\Documents\Altium\AD15\Library\Miscellaneous Connectors.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -104,7 +121,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document5]
+[Document6]
 DocumentPath=..\..\..\lib\PcbLib1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -119,7 +136,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=VTVNFJRY
 
 [Configuration1]
 Name=Default Configuration
