@@ -138,6 +138,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VTVNFJRY
 
+[GeneratedDocument1]
+DocumentPath=..\outputs_NO_SVN\Design Rule Check - powermeter_Radio.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
