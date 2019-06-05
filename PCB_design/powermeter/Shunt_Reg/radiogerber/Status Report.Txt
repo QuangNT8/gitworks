@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [powermeter_radio.PrjPCB]
+   Generated File[powermeter_Radio.TXT]
+   Generated File[powermeter_Radio.LDP]
+   Generated File[powermeter_Radio.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 11:32:23 AM On 6/5/2019

@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [powermeter.PrjPCB]
+   Generated File[powermeter_Power-RoundHoles.TXT]
+   Generated File[powermeter_Power-SlotHoles.TXT]
+   Generated File[powermeter_Power.LDP]
+   Generated File[powermeter_Power.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 11:36:15 AM On 6/5/2019

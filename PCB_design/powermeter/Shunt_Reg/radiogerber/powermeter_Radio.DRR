@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: powermeter_Radio.PcbDoc   6/5/2019  11:32:23 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : powermeter_Radio.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          168              344.53 mm (13.56 Inch)
+T2        0.33mm (12.992mil)       Round          16               18.00 mm (0.71 Inch)
+T3        0.6mm (23.622mil)        Round          9                20.30 mm (0.80 Inch)
+T4        0.8mm (31.496mil)        Round          6                7.50 mm (0.30 Inch)
+T5        2.3mm (90.551mil)        Round          4                76.00 mm (2.99 Inch)
+---------------------------------------------------------------------------
+Totals                                            203              466.33 mm (18.36 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

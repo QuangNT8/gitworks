@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: powermeter_Power.PcbDoc   6/5/2019  11:36:15 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : powermeter_Power-RoundHoles.TXT
+ASCII SlotHoles File : powermeter_Power-SlotHoles.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          20               142.97 mm (5.63 Inch)
+T2        0.6mm (23.622mil)        Round          13               92.38 mm (3.64 Inch)
+T3        1.067mm (42.008mil)      Round          2                7.82 mm (0.31 Inch)
+T4        1.5mm (59.055mil)        Round          1                0.00 mm (0.00 Inch)
+T5        2.3mm (90.551mil)        Slot           2                52.78 mm (2.08 Inch)
+---------------------------------------------------------------------------
+Totals                                            38               295.94 mm (11.65 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
