@@ -1,0 +1,414 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD15\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">6/5/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">3:24:49 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc" class="file"><acronym title="E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc">E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">13</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAMCD"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBMCD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBMCD">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBMCD">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWBMCD">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2BMCD">Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)</a></td>
+<td class="column2">10</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA2EMCD">Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDACFMCD">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAIFMCD">Hole Size Constraint (Min=0.01mm) (Max=5mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA0FMCD">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAAGMCD">Width Constraint (Min=0.254mm) (Max=5mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAGGMCD">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAMGMCD">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASGMCD">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAYGMCD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA4GMCD">Clearance Constraint (Gap=0.01mm) (OnLayer('Keep-Out Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAEHMCD">Clearance Constraint (Gap=0.01mm) (IsRegion),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAKHMCD">Clearance Constraint (Gap=0.3mm) (InNet('GND')),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">13</td>
+</tr>
+</table><br><hr><a name="IDA2BMCD"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6137.565mil|Location2.X=6344.415mil|Location1.Y=4927.728mil|Location2.Y=5134.579mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6137.565mil|Location2.X=6344.415mil|Location1.Y=4927.728mil|Location2.Y=5134.579mil|Absolute=True">Arc (25.047mm,-26.172mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6266.518mil|Location2.X=6412.313mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6266.518mil|Location2.X=6412.313mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True">Pad C24-2(27.547mm,-26.172mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6137.565mil|Location2.X=6344.415mil|Location1.Y=4927.728mil|Location2.Y=5134.579mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6137.565mil|Location2.X=6344.415mil|Location1.Y=4927.728mil|Location2.Y=5134.579mil|Absolute=True">Arc (25.047mm,-26.172mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6069.667mil|Location2.X=6215.463mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6069.667mil|Location2.X=6215.463mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True">Pad C24-1(22.547mm,-26.172mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.124mil|Location2.X=5991.856mil|Location1.Y=5200.288mil|Location2.Y=5342.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.124mil|Location2.X=5991.856mil|Location1.Y=5200.288mil|Location2.Y=5342.02mil|Absolute=True">Arc (16.919mm,-20.076mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5296.681mil|Location2.Y=5403.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5296.681mil|Location2.Y=5403.106mil|Absolute=True">Pad C21-2(16.919mm,-18.076mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.124mil|Location2.X=5991.856mil|Location1.Y=5200.288mil|Location2.Y=5342.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5850.124mil|Location2.X=5991.856mil|Location1.Y=5200.288mil|Location2.Y=5342.02mil|Absolute=True">Arc (16.919mm,-20.076mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5139.201mil|Location2.Y=5245.626mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5139.201mil|Location2.Y=5245.626mil|Absolute=True">Pad C21-1(16.919mm,-22.076mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6354.1mil|Location2.X=6364.1mil|Location1.Y=4908.043mil|Location2.Y=5154.264mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6354.1mil|Location2.X=6364.1mil|Location1.Y=4908.043mil|Location2.Y=5154.264mil|Absolute=True">Track (28.047mm,-29.172mm)(28.047mm,-23.172mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6266.518mil|Location2.X=6412.313mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6266.518mil|Location2.X=6412.313mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True">Pad C24-2(27.547mm,-26.172mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6106.069mil|Location2.X=6116.069mil|Location1.Y=4947.413mil|Location2.Y=5118.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6106.069mil|Location2.X=6116.069mil|Location1.Y=4947.413mil|Location2.Y=5118.831mil|Absolute=True">Track (21.747mm,-28.172mm)(21.747mm,-24.072mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6069.667mil|Location2.X=6215.463mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6069.667mil|Location2.X=6215.463mil|Location1.Y=4968.098mil|Location2.Y=5094.209mil|Absolute=True">Pad C24-1(22.547mm,-26.172mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5837.25mil|Location2.X=6004.73mil|Location1.Y=5344.894mil|Location2.Y=5354.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5837.25mil|Location2.X=6004.73mil|Location1.Y=5344.894mil|Location2.Y=5354.894mil|Absolute=True">Track (14.919mm,-18.076mm)(18.919mm,-18.076mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5296.681mil|Location2.Y=5403.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5296.681mil|Location2.Y=5403.106mil|Absolute=True">Pad C21-2(16.919mm,-18.076mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5876.62mil|Location2.X=5965.36mil|Location1.Y=5187.413mil|Location2.Y=5197.413mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5876.62mil|Location2.X=5965.36mil|Location1.Y=5187.413mil|Location2.Y=5197.413mil|Absolute=True">Track (15.919mm,-22.076mm)(17.919mm,-22.076mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5139.201mil|Location2.Y=5245.626mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5887.463mil|Location2.X=5954.518mil|Location1.Y=5139.201mil|Location2.Y=5245.626mil|Absolute=True">Pad C21-1(16.919mm,-22.076mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5221.268mil|Location2.X=5363mil|Location1.Y=4555.997mil|Location2.Y=4559.934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5221.268mil|Location2.X=5363mil|Location1.Y=4555.997mil|Location2.Y=4559.934mil|Absolute=True">Track (-0.804mm,-38.191mm)(2.696mm,-38.191mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5219.243mil|Location2.X=5581.574mil|Location1.Y=4540.195mil|Location2.Y=4701.738mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5219.243mil|Location2.X=5581.574mil|Location1.Y=4540.195mil|Location2.Y=4701.738mil|Absolute=True">Pad TE1-1(3.696mm,-36.591mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5359.063mil|Location2.X=5363mil|Location1.Y=4024.501mil|Location2.Y=4559.934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5359.063mil|Location2.X=5363mil|Location1.Y=4024.501mil|Location2.Y=4559.934mil|Absolute=True">Track (2.696mm,-51.691mm)(2.696mm,-38.191mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5219.243mil|Location2.X=5581.574mil|Location1.Y=4540.195mil|Location2.Y=4701.738mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5219.243mil|Location2.X=5581.574mil|Location1.Y=4540.195mil|Location2.Y=4701.738mil|Absolute=True">Pad TE1-1(3.696mm,-36.591mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAIFMCD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.01mm) (Max=5mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5254.302mil|Location2.X=5546.891mil|Location1.Y=5300.765mil|Location2.Y=5593.353mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5254.302mil|Location2.X=5546.891mil|Location1.Y=5300.765mil|Location2.Y=5593.353mil|Absolute=True">Hole Size Constraint (7.4mm &gt; 5mm) : Pad TE1-2(3.701mm,-15.608mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5254.114mil|Location2.X=5546.703mil|Location1.Y=4474.672mil|Location2.Y=4767.261mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5254.114mil|Location2.X=5546.703mil|Location1.Y=4474.672mil|Location2.Y=4767.261mil|Absolute=True">Hole Size Constraint (7.4mm &gt; 5mm) : Pad TE1-1(3.696mm,-36.591mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAKHMCD"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.3mm) (InNet('GND')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6443.466mil|Location2.X=6443.966mil|Location1.Y=4085.293mil|Location2.Y=5983.432mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6443.466mil|Location2.X=6443.966mil|Location1.Y=4085.293mil|Location2.Y=5983.432mil|Absolute=True">Track (30.196mm,-50.19mm)(30.196mm,-1.99mm)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6273.966mil|Location2.X=6441.966mil|Location1.Y=5689.433mil|Location2.Y=5756.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\gitworks\PCB_design\powermeter\Shunt_Reg\powermodule\powermeter_Power.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6273.966mil|Location2.X=6441.966mil|Location1.Y=5689.433mil|Location2.Y=5756.488mil|Absolute=True">Pad C23-2(28.018mm,-8.6mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>
