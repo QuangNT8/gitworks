@@ -1,0 +1,9 @@
+Added Component: Designator=P1(HDR1X8)
+Added Pin To Net: NetName=DIM1 Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=VDD1 Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=VDD2 Pin=P1-5
+Added Pin To Net: NetName=DIM2 Pin=P1-6
+Added Pin To Net: NetName=GND Pin=P1-7
+Added Pin To Net: NetName=3.3V Pin=P1-8

@@ -1,0 +1,15 @@
+Added Component: Designator=C9(0805_HV)
+Added Component: Designator=C10(0805_HV)
+Added Component: Designator=C11(0805_HV)
+Added Component: Designator=U4(SOT223)
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=+15V Pin=C9-2
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=U4-1
+Added Pin To Net: NetName=+15V Pin=U4-3
+Added Pin To Net: NetName=3.3V Pin=C10-2
+Added Pin To Net: NetName=3.3V Pin=C11-2
+Added Pin To Net: NetName=3.3V Pin=U4-2
+Added Pin To Net: NetName=3.3V Pin=U4-4
+Added Net: Name=3.3V
