@@ -1,0 +1,66 @@
+Protel Design System Design Rule Check
+PCB File : E:\gitworks\PCB_design\led_driver\PCB.PcbDoc
+Date     : 6/6/2019
+Time     : 3:29:18 PM
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=2.54mm) (Preferred=0.508mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+   Violation between Text "D5" (72.009mm,-35.179mm)  Top Overlay and 
+                     Track (73.393mm,-34.772mm)(73.393mm,-27.991mm)  Top Overlay
+   Violation between Text "C7" (71.425mm,-24.765mm)  Top Overlay and 
+                     Track (71.044mm,-24.46mm)(71.044mm,-23.444mm)  Top Overlay
+   Violation between Text "C7" (71.425mm,-24.765mm)  Top Overlay and 
+                     Track (71.044mm,-25.476mm)(71.044mm,-24.46mm)  Top Overlay
+   Violation between Text "R4" (82.882mm,-4.445mm)  Top Overlay and 
+                     Track (82.486mm,-5.35mm)(82.486mm,-2.93mm)  Top Overlay
+   Violation between Text "R1" (45.923mm,-24.638mm)  Top Overlay and 
+                     Track (47.269mm,-25.095mm)(47.269mm,-23.393mm)  Top Overlay
+   Violation between Text "C11" (54.051mm,-4.648mm)  Bottom Overlay and 
+                     Track (52.375mm,-5.258mm)(52.375mm,-4.242mm)  Bottom Overlay
+   Violation between Text "DIM2" (53.746mm,-3.658mm)  Top Overlay and 
+                     Text "DIM2" (53.746mm,-3.658mm)  Top Overlay
+   Violation between Area Fill (75.133mm,-36.932mm) (75.641mm,-32.766mm)  Top Overlay and 
+                     Text "D5" (72.009mm,-35.179mm)  Top Overlay
+Rule Violations :8
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+
+Violations Detected : 8
+Time Elapsed        : 00:00:01

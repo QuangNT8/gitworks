@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=+VDC Pin=C18-1
-Removed Pin From Net: NetName=GND Pin=C18-2
-Removed Member From Class: ClassName=SCH Member=C18
-Added Component: Designator=U1(SOP 8)
-Added Member To Class: ClassName=SCH Member=Component U1 FL77905MX

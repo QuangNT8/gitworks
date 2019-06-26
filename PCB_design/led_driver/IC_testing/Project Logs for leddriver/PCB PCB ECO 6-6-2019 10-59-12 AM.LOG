@@ -1,0 +1,4 @@
+Added Component: Designator=C8(B32922_12mm)
+Added Pin To Net: NetName=LED- Pin=C8-1
+Added Pin To Net: NetName=LED+ Pin=C8-2
+Added Member To Class: ClassName=SCH Member=Component C8 B32922C3334M189

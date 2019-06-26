@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=Q1 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q2 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q3 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q4 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q5 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q6 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q7 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Change Component Footprint: Designator=Q8 Old Footprint=TO-220AB New Footprint=TO-220AB_NH
+Added Room: Name=leddriver
+Added Room: Name=powerswitch

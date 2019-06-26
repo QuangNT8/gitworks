@@ -1,0 +1,33 @@
+Added Component: Designator=C6(0805_HV)
+Added Component: Designator=CON2(Con 4 EDG 5.08)
+Added Component: Designator=R4(1206)
+Added Component: Designator=Rcs(TRO_VACH_2W)
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=+VDC Pin=CON2-1
+Added Pin To Net: NetName=+VDC Pin=R4-2
+Added Pin To Net: NetName=GND Pin=Rcs-1
+Added Pin To Net: NetName=GND Pin=U2-6
+Added Pin To Net: NetName=DIM Pin=U2-1
+Added Net: Name=DIM
+Added Pin To Net: NetName=NetCON2_2 Pin=CON2-2
+Added Pin To Net: NetName=NetCON2_2 Pin=U2-3
+Added Net: Name=NetCON2_2
+Added Pin To Net: NetName=NetCON2_3 Pin=CON2-3
+Added Pin To Net: NetName=NetCON2_3 Pin=U2-4
+Added Net: Name=NetCON2_3
+Added Pin To Net: NetName=NetCON2_4 Pin=CON2-4
+Added Pin To Net: NetName=NetCON2_4 Pin=U2-5
+Added Net: Name=NetCON2_4
+Added Pin To Net: NetName=NetR4_1 Pin=R4-1
+Added Pin To Net: NetName=NetR4_1 Pin=U2-2
+Added Net: Name=NetR4_1
+Added Pin To Net: NetName=NetRcs_2 Pin=Rcs-2
+Added Pin To Net: NetName=NetRcs_2 Pin=U2-7
+Added Net: Name=NetRcs_2
+Added Pin To Net: NetName=VDD Pin=C6-2
+Added Pin To Net: NetName=VDD Pin=U2-8
+Added Net: Name=VDD
+Added Member To Class: ClassName=SCH Member=Component C6 104
+Added Member To Class: ClassName=SCH Member=Component CON2 CON 4 EDG 5.08_MH
+Added Member To Class: ClassName=SCH Member=Component R4 2K
+Added Member To Class: ClassName=SCH Member=Component Rcs TRO_CS_2W_MH

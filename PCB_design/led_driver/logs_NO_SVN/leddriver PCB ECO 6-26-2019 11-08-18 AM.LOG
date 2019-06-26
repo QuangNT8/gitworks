@@ -1,0 +1,21 @@
+Removed Member From Class: ClassName=powerswitch Member=KIT1
+Change Component Footprint: Designator=Q1 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q2 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q3 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q4 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q5 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q6 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q7 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Change Component Footprint: Designator=Q8 Old Footprint=TO-220-2 New Footprint=TO-220AB
+Added Pin To Net: NetName=LED_STR1 Pin=Q1-2
+Added Pin To Net: NetName=LED_STR5 Pin=Q2-2
+Added Pin To Net: NetName=LED_STR2 Pin=Q3-2
+Added Pin To Net: NetName=LED_STR6 Pin=Q4-2
+Added Pin To Net: NetName=LED_STR3 Pin=Q5-2
+Added Pin To Net: NetName=LED_STR7 Pin=Q6-2
+Added Pin To Net: NetName=LED_STR4 Pin=Q7-2
+Added Pin To Net: NetName=LED_STR8 Pin=Q8-2
+Added Member To Class: ClassName=leddriver Member=Component C1 104
+Added Member To Class: ClassName=powerswitch Member=Component U1 PM8834TR
+Added Room: Name=leddriver
+Added Room: Name=powerswitch
