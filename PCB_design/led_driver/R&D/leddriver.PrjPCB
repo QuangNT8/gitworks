@@ -55,7 +55,7 @@ DocumentUniqueId=
 
 [Document2]
 DocumentPath=leddriver.SchDoc
-AnnotationEnabled=0
+AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
@@ -123,7 +123,7 @@ DocumentUniqueId=VTVNFJRY
 
 [Document6]
 DocumentPath=powerswitch.SchDoc
-AnnotationEnabled=0
+AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
@@ -182,8 +182,8 @@ AnnotateScope=All
 AnnotateOrder=2
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
+ClassGenCCAutoEnabled=0
+ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0

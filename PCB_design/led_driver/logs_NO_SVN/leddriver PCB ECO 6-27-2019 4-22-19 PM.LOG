@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=+VDC Pin=C10-2
+Added Component: Designator=C16(0805_HV)
+Added Component: Designator=D21(SMB)
+Added Component: Designator=D22(SOD-323)
+Added Component: Designator=R22(1206)
+Added Component: Designator=R23(1206)
+Added Component: Designator=R24(1206)
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=IN1 Pin=C16-2
+Added Pin To Net: NetName=+VDC Pin=D21-2
+Added Pin To Net: NetName=IN1 Pin=D22-1
+Added Pin To Net: NetName=GND Pin=D22-2
+Added Pin To Net: NetName=+VDC Pin=R22-2
+Added Pin To Net: NetName=IN1 Pin=R23-1
+Added Pin To Net: NetName=IN1 Pin=R24-1
+Added Pin To Net: NetName=GND Pin=R24-2
+Change Net Name : Old Net Name=+VDC New Net Name=HV1
+Added Pin To Net: NetName=+VDC Pin=C10-2
+Added Pin To Net: NetName=+VDC Pin=D21-1
+Added Net: Name=+VDC
+Added Pin To Net: NetName=NetR22_1 Pin=R22-1
+Added Pin To Net: NetName=NetR22_1 Pin=R23-2
+Added Net: Name=NetR22_1

@@ -1,0 +1,12 @@
+Added Component: Designator=C7(0805_HV)
+Added Component: Designator=R17(0805_HV)
+Added Component: Designator=R18(0805_HV)
+Added Component: Designator=R19(0805_HV)
+Added Pin To Net: NetName=S Pin=C7-1
+Added Pin To Net: NetName=BP Pin=C7-2
+Added Pin To Net: NetName=FB Pin=R17-1
+Added Pin To Net: NetName=NetC6_1 Pin=R17-2
+Added Pin To Net: NetName=S Pin=R18-1
+Added Pin To Net: NetName=FB Pin=R18-2
+Added Pin To Net: NetName=GND Pin=R19-1
+Added Pin To Net: NetName=12V Pin=R19-2

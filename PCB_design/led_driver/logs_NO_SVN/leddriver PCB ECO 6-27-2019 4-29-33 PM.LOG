@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=NetR22_1 Pin=R23-2
+Change Component Designator: OldDesignator=R23 NewDesignator=R25
+Added Component: Designator=R23(1206)
+Added Pin To Net: NetName=NetR22_1 Pin=R22-2
+Added Pin To Net: NetName=NetR23_1 Pin=R22-1
+Added Pin To Net: NetName=NetR23_1 Pin=R25-2
+Added Net: Name=NetR23_1

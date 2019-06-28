@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=HV1 Pin=CON1-9
+Removed Pin From Net: NetName=HV1 Pin=CON1-10
+Added Pin To Net: NetName=+VDC Pin=CON1-9
+Added Pin To Net: NetName=+VDC Pin=CON1-10
