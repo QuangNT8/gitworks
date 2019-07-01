@@ -1,0 +1,7 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C30
+Change Component Designator: OldDesignator=U? NewDesignator=U8
+Added Component: Designator=C15(0805_HV)
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=12V Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C29-1
+Added Pin To Net: NetName=IN0 Pin=C29-2

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=U8-2
+Added Pin To Net: NetName=3.3V Pin=KIT1-1
+Added Pin To Net: NetName=GND_INA Pin=KIT1-2
+Added Pin To Net: NetName=GND_INA Pin=U8-2
+Added Net: Name=GND_INA

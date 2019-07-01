@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=IN0 Pin=C15-2
+Added Component: Designator=C29(0805_HV)
+Added Pin To Net: NetName=12V Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=IN0 Pin=C15-2
+Added Pin To Net: NetName=LED_PWM1 Pin=KIT1-23
+Added Pin To Net: NetName=LED_PWM2 Pin=KIT1-24
+Added Pin To Net: NetName=LED_PWM3 Pin=KIT1-42
+Added Pin To Net: NetName=LED_PWM4 Pin=KIT1-43
+Added Pin To Net: NetName=LED_PWM5 Pin=KIT1-44
