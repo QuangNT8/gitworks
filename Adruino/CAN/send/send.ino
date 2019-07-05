@@ -14,7 +14,7 @@ void setup()
 {
     Serial.begin(115200);
 
-    while (CAN_OK != CAN.begin(CAN_33KBPS,MCP_16MHz))              // init can bus : baudrate = 500k
+    while (CAN_OK != CAN.begin(CAN_33KBPS,MCP_16MHz))       // init can bus : baudrate = 33k
     {
         Serial.println("CAN BUS Shield init fail");
         Serial.println(" Init CAN BUS Shield again");
@@ -27,7 +27,6 @@ void setup()
     } 
 }
 
-unsigned char stmp[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 void loop()
 {
    
@@ -59,88 +58,89 @@ unsigned char dattmp4[8] = {0, 0, 0, 0, 0x4C, 0, 0xF1, 0};
 -----------------------------
 Get data from ID: E040
 */
+/* 
 
+*/
+unsigned char dattmp5[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 /*
 -----------------------------
 Get data from ID: 621
 0	52	0	0	0	0	0	0	
 */
-unsigned char dattmp5[8] = {0, 0x52, 0, 0, 0, 0, 0, 0};
+unsigned char dattmp6[8] = {0, 0x52, 0, 0, 0, 0, 0, 0};
 /*
 -----------------------------
 Get data from ID: 62C
 1	12	0	0	0	0	0	0
 */
-unsigned char dattmp6[8] = {0x01, 0x12, 0, 0, 0, 0, 0, 0};
-/*
+unsigned char dattmp7[8] = {0x01, 0x12, 0, 0, 0, 0, 0, 0};
+/* 
 -----------------------------
-Get data from ID: 624
-1	10	0	0	0	0	0	0	
-*/
-unsigned char dattmp7[8] = {0x01, 0x10, 0, 0, 0, 0, 0, 0};
-/*	
+Get data from ID: 4060
+0	
 -----------------------------
-Get data from ID: 621
-0	52	0	0	0	0	0	0	
------------------------------
-Get data from ID: E040
-
------------------------------
-Get data from ID: 621
-0	52	0	0	0	0	0	0	
+ */
+unsigned char dattmp8[1] = {0};
+/* 
 -----------------------------
 Get data from ID: 40
-EC	CD	13	B1	3	
+0	0	80	0	0	0	80	0	
+-----------------------------
+ */
+unsigned char dattmp9[8] = {0, 0, 0x80, 0, 0, 0, 0x80, 0}; 
+/* 
+-----------------------------
+Get data from ID: C060
+0	
+-----------------------------
+*/
+unsigned char dattmp10[1] = {0};
+/*  
+-----------------------------
+Get data from ID: 40
+80	
+-----------------------------
+*/
+unsigned char dattmp11[1] = {0x80};
+
+/*  
+-----------------------------
+Get data from ID: 6060
+0	
+-----------------------------	
+*/
+unsigned char dattmp12[1] = {0};
+/*
 */
 
 void Msg1()
 {
+    CAN.sendMsgBuf(0x00, 0x0040, 5, dattmp1);
   
-	CAN.sendMsgBuf(0x00, 0x0040, 5, dattmp1);
+    CAN.sendMsgBuf(0x00, 0x4058, 3, dattmp2);
+    
+    CAN.sendMsgBuf(0x00, 0x4040, 3, dattmp3);
   
-	CAN.sendMsgBuf(0x00, 0x4058, 3, dattmp2);
-	
-  CAN.sendMsgBuf(0x00, 0x4040, 3, dattmp3);
+    CAN.sendMsgBuf(0x00, 0xA040, 8, dattmp4);
+    
+    CAN.sendMsgBuf(0x00, 0xE040, 0, dattmp5);
   
-  CAN.sendMsgBuf(0x00, 0xA040, 8, dattmp4);
+    CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp6);
   
-//  CAN.sendMsgBuf(0x00, 0xE040, 0, dattmp5);
-//  CAN.sendMsgBuf(0x00, 0x0624, 8, dattmp7);     
-  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
-    	
-  CAN.sendMsgBuf(0x00, 0x062C, 8, dattmp6);
+    CAN.sendMsgBuf(0x00, 0x062C, 8, dattmp7);
         
-  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
- 
-//  CAN.sendMsgBuf(0x00, 0xE040, 0, dattmp5);
+    CAN.sendMsgBuf(0x00, 0x4060, 1, dattmp8);
       
-  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
-  CAN.sendMsgBuf(0x00, 0x0040, 5, dattmp1);
-  CAN.sendMsgBuf(0x00, 0x0624, 8, dattmp7);     
+    CAN.sendMsgBuf(0x00, 0x0040, 9, dattmp9);
+    
+    CAN.sendMsgBuf(0x00, 0xC060, 1, dattmp10);
+    
+    CAN.sendMsgBuf(0x00, 0x0040, 1, dattmp11);
+    
+    CAN.sendMsgBuf(0x00, 0x6060, 1, dattmp12);        
 }
 void Msg2()
 {
-  CAN.sendMsgBuf(0x00, 0x0624, 8, dattmp7);
-//  CAN.sendMsgBuf(0x00, 0x0040, 5, dattmp1);
-  
-//  CAN.sendMsgBuf(0x00, 0x4058, 3, dattmp2);
-  
-//  CAN.sendMsgBuf(0x00, 0x4040, 3, dattmp3);
-  
-//  CAN.sendMsgBuf(0x00, 0xA040, 8, dattmp4);
-  
-//  CAN.sendMsgBuf(0x00, 0xE040, 0, dattmp5);
-      
-  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
-      
-  CAN.sendMsgBuf(0x00, 0x062C, 8, dattmp6);
-        
-//  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
- 
-//  CAN.sendMsgBuf(0x00, 0xE040, 0, dattmp5);
-      
-//  CAN.sendMsgBuf(0x00, 0x0621, 8, dattmp5);
-//  CAN.sendMsgBuf(0x00, 0x0040, 5, dattmp1);
-	
+    
 }
 // END FILE
