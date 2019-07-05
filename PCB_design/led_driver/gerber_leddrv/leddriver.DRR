@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: leddriver.PcbDoc   7/4/2019  9:51:07 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : leddriver.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.6mm (23.622mil)        Round          24               336.08 mm (13.23 Inch)
+T2        0.9906mm (39mil)         Round          4                74.79 mm (2.94 Inch)
+T3        1mm (39.37mil)           Round          85               479.53 mm (18.88 Inch)
+T4        1.016mm (40mil)          Round          2                20.00 mm (0.79 Inch)
+T5        1.0668mm (42mil)         Round          2                7.82 mm (0.31 Inch)
+T6        1.5mm (59.055mil)        Round          15               51.02 mm (2.01 Inch)
+T7        1.524mm (60mil)          Round          8                45.72 mm (1.80 Inch)
+T8        1.6mm (62.992mil)        Round          4                129.17 mm (5.09 Inch)
+T9        1.7mm (66.929mil)        Round          2                23.75 mm (0.94 Inch)
+---------------------------------------------------------------------------
+Totals                                            146              1167.88 mm (45.98 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
