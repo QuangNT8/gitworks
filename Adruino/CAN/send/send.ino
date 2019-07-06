@@ -14,7 +14,7 @@ void setup()
 {
     Serial.begin(115200);
 
-    while (CAN_OK != CAN.begin(CAN_33KBPS,MCP_16MHz))       // init can bus : baudrate = 33k
+    while (CAN_OK != CAN.begin(MCP_ANY,CAN_33K3BPS))       // init can bus : baudrate = 33k
     {
         Serial.println("CAN BUS Shield init fail");
         Serial.println(" Init CAN BUS Shield again");
@@ -112,6 +112,11 @@ Get data from ID: 6060
 unsigned char dattmp12[1] = {0};
 /*
 */
+/*  
+Extended ID: 0x103D6060  DLC: 1  Data: 0x00
+-----------------------------  
+*/
+unsigned char dattmp13[1] = {0};
 
 void Msg1()
 {
@@ -137,7 +142,10 @@ void Msg1()
     
     CAN.sendMsgBuf(0x00, 0x0040, 1, dattmp11);
     
-    CAN.sendMsgBuf(0x00, 0x6060, 1, dattmp12);        
+    CAN.sendMsgBuf(0x00, 0xA060, 1, dattmp12);
+
+    CAN.sendMsgBuf(0x00, 0x6060, 1, dattmp13);
+            
 }
 void Msg2()
 {
