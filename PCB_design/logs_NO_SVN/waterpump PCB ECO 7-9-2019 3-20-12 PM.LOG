@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=5V Pin=C1-2
+Removed Pin From Net: NetName=3.3V Pin=KIT1-1
+Removed Pin From Net: NetName=GND_INA Pin=KIT1-2
+Removed Pin From Net: NetName=GND1 Pin=KIT1-9
+Removed Pin From Net: NetName=IN0 Pin=KIT1-15
+Removed Pin From Net: NetName=IN1 Pin=KIT1-16
+Removed Pin From Net: NetName=LED_PWM1 Pin=KIT1-23
+Removed Pin From Net: NetName=LED_PWM2 Pin=KIT1-24
+Removed Pin From Net: NetName=LED_PWM3 Pin=KIT1-42
+Removed Pin From Net: NetName=LED_PWM4 Pin=KIT1-43
+Removed Pin From Net: NetName=LED_PWM5 Pin=KIT1-44
+Removed Pin From Net: NetName=GND Pin=KIT1-65
+Removed Pin From Net: NetName=5V Pin=KIT1-66
+Added Component: Designator=T1(TRF_4)
+Change Net Name : Old Net Name=5V New Net Name=MCU_VCC
+Added Class: Name=waterpump
+Added Room: Name=waterpump
