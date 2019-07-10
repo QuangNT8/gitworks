@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=ACIN_N Pin=CON1-2
+Added Component: Designator=CON2(Con 10 EDG 5.08)
+Added Pin To Net: NetName=ACIN_N Pin=CON1-1
+Added Pin To Net: NetName=NetCON1_2 Pin=CON1-2
+Added Pin To Net: NetName=NetCON1_2 Pin=F1-1
+Added Net: Name=NetCON1_2

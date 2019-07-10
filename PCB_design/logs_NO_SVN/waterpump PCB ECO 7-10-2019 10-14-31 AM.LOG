@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=ACIN_N Pin=CON1-2
+Change Component DesignItemId : Designator=CON1 Old DesignItemId=CON 2 HB9500_MH New DesignItemId=CON 2 KF301_MH
+Change Component Footprint: Designator=CON1 Old Footprint=Con 2 HB9500 New Footprint=CON 2 KF301
+Change Component Comment : Designator=CON1 Old Comment=CON 2 HB9500_MH New Comment=CON 2 KF301_MH
+Added Component: Designator=CON2(Con 10 EDG 5.08)
+Added Component: Designator=CON?(Con 2 KF762)
+Added Pin To Net: NetName=ACIN_N Pin=CON1-1
+Added Pin To Net: NetName=NetCON1_2 Pin=CON1-2
+Added Pin To Net: NetName=NetCON1_2 Pin=F1-1
+Added Net: Name=NetCON1_2

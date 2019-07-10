@@ -1,0 +1,14 @@
+Change Component DesignItemId : Designator=CON? Old DesignItemId=CON 2 KF762_MH New DesignItemId=CON 3 KF301_MH
+Change Component Footprint: Designator=CON? Old Footprint=Con 2 KF762 New Footprint=CON 3 KF301
+Change Component Comment : Designator=CON? Old Comment=CON 2 KF762_MH New Comment=CON 3 KF301_MH
+Added Component: Designator=CON2(Con 10 EDG 5.08)
+Added Component: Designator=SW1(CON 3 KF301)
+Added Pin To Net: NetName=NetRL1_1 Pin=RL1-1
+Added Pin To Net: NetName=NetRL1_1 Pin=SW1-2
+Added Net: Name=NetRL1_1
+Added Pin To Net: NetName=NetRL1_2 Pin=RL1-2
+Added Pin To Net: NetName=NetRL1_2 Pin=SW1-1
+Added Net: Name=NetRL1_2
+Added Pin To Net: NetName=NetRL1_3 Pin=RL1-3
+Added Pin To Net: NetName=NetRL1_3 Pin=SW1-3
+Added Net: Name=NetRL1_3
