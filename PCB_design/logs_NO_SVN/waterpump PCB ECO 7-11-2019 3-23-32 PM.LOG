@@ -1,0 +1,27 @@
+Change Component Comment : Designator=U2 Old Comment=AMS1117-3.3V SOT223 _MH New Comment=AMS1117-5V SOT223 _MH
+Added Component: Designator=BT1(BUTTON 4P SMD)
+Added Component: Designator=C6(0805_HV)
+Added Component: Designator=LED5(LED_0805)
+Added Component: Designator=R6(0805_HV)
+Added Component: Designator=R7(0805_HV)
+Added Pin To Net: NetName=GND Pin=BT1-2
+Added Pin To Net: NetName=GND Pin=BT1-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=LED5-2
+Added Pin To Net: NetName=3.3V Pin=ESP1-3V3
+Added Pin To Net: NetName=3.3V Pin=ESP1-3V3
+Added Pin To Net: NetName=3.3V Pin=ESP1-3V3
+Added Pin To Net: NetName=3.3V Pin=R7-2
+Added Net: Name=3.3V
+Added Pin To Net: NetName=LED5 Pin=R6-2
+Added Net: Name=LED5
+Added Pin To Net: NetName=LED6 Pin=ESP1-D4
+Added Net: Name=LED6
+Added Pin To Net: NetName=NetBT1_1 Pin=BT1-1
+Added Pin To Net: NetName=NetBT1_1 Pin=BT1-1
+Added Pin To Net: NetName=NetBT1_1 Pin=C6-2
+Added Pin To Net: NetName=NetBT1_1 Pin=R7-1
+Added Net: Name=NetBT1_1
+Added Pin To Net: NetName=NetLED5_1 Pin=LED5-1
+Added Pin To Net: NetName=NetLED5_1 Pin=R6-1
+Added Net: Name=NetLED5_1
