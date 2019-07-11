@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: waterpump.PcbDoc   7/10/2019  4:45:16 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : waterpump.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.6mm (23.622mil)        Round          21               180.40 mm (7.10 Inch)
+T2        0.8mm (31.496mil)        Round          1                0.00 mm (0.00 Inch)
+T3        0.889mm (35mil)          Round          40               181.82 mm (7.16 Inch)
+T4        1.016mm (40mil)          Round          2                20.00 mm (0.79 Inch)
+T5        1.27mm (50mil)           Round          14               136.58 mm (5.38 Inch)
+T6        1.3mm (51.181mil)        Round          20               325.29 mm (12.81 Inch)
+T7        1.5mm (59.055mil)        Round          4                51.43 mm (2.02 Inch)
+T8        5mm (196.85mil)          Round          4                286.73 mm (11.29 Inch)
+T9        2.921mm (115mil)         Round          4         NPTH   85.34 mm (3.36 Inch)
+---------------------------------------------------------------------------
+Totals                                            110              1267.58 mm (49.90 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,9 +1,0 @@
-Added Component: Designator=UR?(MB6S)
-Added Pin To Net: NetName=NetT1_3 Pin=T1-3
-Added Pin To Net: NetName=NetT1_3 Pin=UR?-4
-Added Net: Name=NetT1_3
-Added Pin To Net: NetName=NetT1_4 Pin=T1-4
-Added Pin To Net: NetName=NetT1_4 Pin=UR?-3
-Added Net: Name=NetT1_4
-Added Member To Class: ClassName=waterpump Member=Component UR? MB6S
-Added Room: Name=waterpump

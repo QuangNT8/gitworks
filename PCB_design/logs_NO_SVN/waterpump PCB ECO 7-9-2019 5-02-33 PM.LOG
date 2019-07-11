@@ -1,4 +1,0 @@
-Change Component DesignItemId : Designator=CON1 Old DesignItemId=CON 2 EDG 5.08_MH New DesignItemId=CON 2 KF301_MH
-Change Component Footprint: Designator=CON1 Old Footprint=CON 2 EDG 5.08 New Footprint=CON 2 KF301
-Change Component Comment : Designator=CON1 Old Comment=CON 2 EDG 5.08_MH New Comment=CON 2 KF301_MH
-Added Component: Designator=CON2(Con 10 EDG 5.08)
