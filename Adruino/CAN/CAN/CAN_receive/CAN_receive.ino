@@ -28,12 +28,17 @@ void setup()
   pinMode(CAN0_INT, INPUT);                            // Configuring pin for /INT input
   
   Serial.println("MCP2515 Library Receive Example...");
+  CAN0.enOneShotTX();
+  Msg1();
+  Msg2();
 }
 
 void loop()
 {
-	//received();
+//	received();
 	Msg1();
+  Msg2();
+// delay(10);
 }
 
 void send()
@@ -156,59 +161,49 @@ unsigned char dattmp13[1] = {0};
 */
 void Msg1()
 {
-    CAN0.sendMsgBuf(0x102C0040, 5, dattmp1);
+    CAN0.sendMsgBuf(0x102C0040,1, 5, dattmp1);
 	  
-    CAN0.sendMsgBuf(0x10304058, 3, dattmp2);
+    CAN0.sendMsgBuf(0x10304058,1, 3, dattmp2);
     
-    CAN0.sendMsgBuf(0x10644040, 3, dattmp3);
+    CAN0.sendMsgBuf(0x10644040,1, 3, dattmp3);
     
-    CAN0.sendMsgBuf(0x102CA040, 8, dattmp4);
+    CAN0.sendMsgBuf(0x102CA040,1, 8, dattmp4);
     
-    CAN0.sendMsgBuf(0x13FFE040, 0, dattmp5);
+    CAN0.sendMsgBuf(0x13FFE040,1, 0, dattmp5);
     
-    CAN0.sendMsgBuf(0x621, 8, dattmp6);
+    CAN0.sendMsgBuf(0x621,0, 8, dattmp6);
     
-    CAN0.sendMsgBuf(0x62C, 8, dattmp7);
+    CAN0.sendMsgBuf(0x62C,0, 8, dattmp7);
         
-    CAN0.sendMsgBuf(0x10244060, 1, dattmp8);
+    CAN0.sendMsgBuf(0x10244060,1, 1, dattmp8);
     
-    CAN0.sendMsgBuf(0x10210040, 8, dattmp9);
+    CAN0.sendMsgBuf(0x10210040,1, 8, dattmp9);
     
-    CAN0.sendMsgBuf(0x103BC060, 1, dattmp10);
+    CAN0.sendMsgBuf(0x103BC060,1, 1, dattmp10);
     
-    CAN0.sendMsgBuf(0x0C630040, 1, dattmp11);
+    CAN0.sendMsgBuf(0x0C630040,1, 1, dattmp11);
     
-    CAN0.sendMsgBuf(0x103DA060, 1, dattmp12);
+    CAN0.sendMsgBuf(0x103DA060,1, 1, dattmp12);
     
-    CAN0.sendMsgBuf(0x103D6060, 1, dattmp13);	
+    CAN0.sendMsgBuf(0x103D6060,1, 1, dattmp13);	
 }
+
+unsigned char dattmpex1[4] = {0,0,0,0};
+unsigned char dattmpex2[8] = {0x1E,0,0,0,0,0,0,0};
+unsigned char dattmpex3[8] = {0x10,0,0,0,0,0,0,0};
+unsigned char dattmpex4[8] = {0x01,0x10,0,0,0,0,0,0};
+unsigned char dattmpex5[1] = {0};
+unsigned char dattmpex6[1] = {0x01};
+unsigned char dattmpex7[1] = {0};
 void Msg2()
 {
-    CAN0.sendMsgBuf(0x0040, 0, 5, dattmp1);
-
-    CAN0.sendMsgBuf(0x4058, 0, 3, dattmp2);
-     
-    CAN0.sendMsgBuf(0x4040, 0, 3, dattmp3);
-     
-    CAN0.sendMsgBuf(0xA040, 0, 8, dattmp4);
-     
-    CAN0.sendMsgBuf(0xE040, 0, 0, dattmp5);
-     
-    CAN0.sendMsgBuf(0x621, 0, 8, dattmp6);
-     
-    CAN0.sendMsgBuf(0x62C, 0, 8, dattmp7);
-        
-    CAN0.sendMsgBuf(0x4060, 10, 1, dattmp8);
-     
-    CAN0.sendMsgBuf(0x0040, 0, 8, dattmp9);
-     
-    CAN0.sendMsgBuf(0xC060, 0, 1, dattmp10);
-     
-    CAN0.sendMsgBuf(0x0040, 0, 1, dattmp11);
-     
-    CAN0.sendMsgBuf(0xA060, 0, 1, dattmp12);
-  
-    CAN0.sendMsgBuf(0x6060, 0, 1, dattmp13);  
+    CAN0.sendMsgBuf(0x1022C040,1, 4, dattmpex1); 
+    CAN0.sendMsgBuf(0x10ACE060,1, 8, dattmpex2);
+    CAN0.sendMsgBuf(0x1022E040,1, 8, dattmpex3);
+    CAN0.sendMsgBuf(0x624,0, 8, dattmpex4);
+    CAN0.sendMsgBuf(0x1040A080,1, 1, dattmpex5);
+    CAN0.sendMsgBuf(0x10242040,1, 1, dattmpex6);
+    CAN0.sendMsgBuf(0x13FFE060,1, 1, dattmpex7); 
 }
 /*********************************************************************************************************
   END FILE

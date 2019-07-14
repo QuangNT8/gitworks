@@ -5,7 +5,7 @@
 #include <SPI.h>
 
 MCP_CAN CAN0(10);     // Set CS to pin 10
-
+unsigned char dattmp[5] = {0xEC, 0xCD, 0x13, 0xB1, 0x03}; //ID : 0x40
 void setup()
 {
   Serial.begin(115200);
@@ -15,12 +15,15 @@ void setup()
   else Serial.println("Error Initializing MCP2515...");
 
   CAN0.setMode(MCP_NORMAL);   // Change to normal mode to allow messages to be transmitted
+
+  CAN0.enOneShotTX();
 }
 
 
 void loop()
 {
-	Msg1();
+  Msg1();
+//  CAN0.sendMsgBuf(0x102C0040, 5, dattmp);
   delay(20);
 }
 
@@ -113,31 +116,31 @@ unsigned char dattmp13[1] = {0};
 */
 void Msg1()
 {
-    CAN0.sendMsgBuf(0x102C0040, 5, dattmp1);
+    CAN0.sendMsgBuf(0x102C0040,1, 5, dattmp1);
 	  
-    CAN0.sendMsgBuf(0x10304058, 3, dattmp2);
+    CAN0.sendMsgBuf(0x10304058,1, 3, dattmp2);
 	   
-    CAN0.sendMsgBuf(0x10644040, 3, dattmp3);
+    CAN0.sendMsgBuf(0x10644040,1, 3, dattmp3);
 	   
-    CAN0.sendMsgBuf(0x102CA040, 8, dattmp4);
+    CAN0.sendMsgBuf(0x102CA040,1, 8, dattmp4);
 	   
-    CAN0.sendMsgBuf(0x13FFE040, 0, dattmp5);
+    CAN0.sendMsgBuf(0x13FFE040,1, 0, dattmp5);
 	   
-    CAN0.sendMsgBuf(0x621, 8, dattmp6);
+    CAN0.sendMsgBuf(0x621,0, 8, dattmp6);
 	   
-    CAN0.sendMsgBuf(0x62C, 8, dattmp7);
+    CAN0.sendMsgBuf(0x62C,0, 8, dattmp7);
         
-    CAN0.sendMsgBuf(0x10244060, 1, dattmp8);
+    CAN0.sendMsgBuf(0x10244060,1, 1, dattmp8);
 	   
-    CAN0.sendMsgBuf(0x10210040, 8, dattmp9);
+    CAN0.sendMsgBuf(0x10210040,1, 8, dattmp9);
 	   
-    CAN0.sendMsgBuf(0x103BC060, 1, dattmp10);
+    CAN0.sendMsgBuf(0x103BC060,1, 1, dattmp10);
 	   
-    CAN0.sendMsgBuf(0x0C630040, 1, dattmp11);
+    CAN0.sendMsgBuf(0x0C630040,1, 1, dattmp11);
 	   
-    CAN0.sendMsgBuf(0x103DA060, 1, dattmp12);
+    CAN0.sendMsgBuf(0x103DA060,1, 1, dattmp12);
 	
-	CAN0.sendMsgBuf(0x103D6060, 1, dattmp13);	
+	  CAN0.sendMsgBuf(0x103D6060,1, 1, dattmp13);	
 }
 void Msg2()
 {
