@@ -1,0 +1,25 @@
+Project{name:'motor-coffee-machine'}
+Section{name:'Speed Control'}
+Field{name:'Speed',min:-30000,max:30000,value:10,readonly:0,command:6}
+Section{name:'Actions'}
+Button{name:'ValveOFF',command:32}
+Button{name:'Valve1',command:31}
+Button{name:'Valve2',command:30}
+Button{name:'Valve3',command:29}
+Button{name:'Valve4',command:28}
+Button{name:'Valve5',command:27}
+Button{name:'Valve6',command:26}
+Button{name:'Valve7',command:25}
+Button{name:'Valve8',command:24}
+Button{name:'Valve9',command:23}
+Button{name:'Valve10',command:22}
+Button{name:'Valve11',command:21}
+Button{name:'Valve12',command:20}
+Field{name:'Round',min:0,max:20000,value:0,readonly:1,command:19}
+Button{name:'Start Motor',command:17}
+Button{name:'Stop Motor',command:16}
+Chart{ name:'Chart 1',min:-5000,max:5000,visible:1}
+Plot{name:'ia',color:'#cc0000',highSpeed:0}
+Plot{name:'ib',color:'#3465a4',highSpeed:0}
+Chart{ name:'Chart 2',min:-25000,max:25000,visible:1}
+Plot{name:'Angle',color:'#75507b',highSpeed:0}

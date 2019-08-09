@@ -1,0 +1,23 @@
+Project{name:'RCservo_controller'}
+Section{name:'Fields'}
+Field{name:'Field 1',min:0,max:4096,value:0,readonly:0,command:3}
+Field{name:'Field 2',min:0,max:4096,value:0,readonly:0,command:2}
+Field{name:'Field 3',min:0,max:4096,value:0,readonly:0,command:1}
+Button{name:'New Button',command:17}
+Section{name:'Actions'}
+Button{name:'Valve 1',command:27}
+Button{name:'Valve 2',command:26}
+Button{name:'Valve 3',command:25}
+Button{name:'Valve 4',command:24}
+Button{name:'Valve 5',command:23}
+Button{name:'Valve 6',command:22}
+Button{name:'Valve 7',command:21}
+Button{name:'Valve 8',command:20}
+Button{name:'Valve 9',command:19}
+Button{name:'Valve 10',command:18}
+Button{name:'Valve 11',command:5}
+Button{name:'Valve 12',command:4}
+Chart{ name:'Chart 1',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 1',color:'#444444',highSpeed:0}
+Chart{ name:'Chart 2',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 2',color:'#444444',highSpeed:0}
