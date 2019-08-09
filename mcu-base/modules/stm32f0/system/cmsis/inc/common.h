@@ -228,8 +228,6 @@ typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
 
 typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 
-
-
 /** @addtogroup Peripheral_registers_structures
   * @{
   */   

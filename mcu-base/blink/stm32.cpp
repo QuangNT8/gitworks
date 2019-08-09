@@ -1,5 +1,5 @@
 #include "controller.h"
-#include "stm32f0xx.h"
+#include "stm32f042x6.h"
 #define BSRR_VAL        0x0300
 
 blink::Controller blink::CONTROLLER;

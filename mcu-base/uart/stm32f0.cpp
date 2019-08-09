@@ -1,4 +1,4 @@
-#include "stm32f0xx.h"
+#include "stm32f042x6.h"
 #include "controller.h"
 
 void uart::Controller::initUART_()
