@@ -8,8 +8,8 @@ StaticLibrary
     Depends { name:"mdk"}
     cpp.defines:
     [
-        'STM32F051x8',
-       '___int16_t_defined',
+        'STM32F042x6',
+        '___int16_t_defined',
         '___int8_t_defined',
     ]
     files:

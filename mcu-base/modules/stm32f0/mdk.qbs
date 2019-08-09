@@ -7,7 +7,7 @@ StaticLibrary
     Depends { name:"stm32f0"}
     cpp.defines:
     [
-        'STM32F051x8',
+        'STM32F042x6',
        '___int16_t_defined',
         '___int8_t_defined',
     ]
@@ -39,7 +39,7 @@ StaticLibrary
         "system/cmsis/inc/*.h",
         "system/STM32F0xx_HAL_Driver/inc/*.h",
         "system/STM32F0xx_HAL_Driver/Src/*.c",
-        "system/startup_stm32f051x8.s",
+        "system/startup_stm32f042x6.s",
         "system/system_stm32f0xx.c",
         "system/cmsis/inc/system_stm32f0xx.h/",
         "core/*",

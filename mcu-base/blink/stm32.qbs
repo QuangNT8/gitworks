@@ -9,10 +9,7 @@ Product
     Depends{name: "cpp"}
     Depends{name: "stm32f0"}
     Depends{name: "mdk"}
-    Depends{name: "timer"}
-    Depends{name: "osc"}
     Depends{name: "GPIO"}
-    Depends{name: "Usart"}
 
     cpp.includePaths: [project.sourceDirectory]
     cpp.defines:

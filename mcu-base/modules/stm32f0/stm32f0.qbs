@@ -41,7 +41,7 @@ Module
         [
         "--gc-sections",
         "-L"+ path + "/system/ld",
-        "-T" + path + "/system/ld/STM32F051R8Tx_FLASH.ld",
+        "-T" + path + "/system/ld/STM32F042F4Px_FLASH.ld",
         "-lnosys",
         "-lgcc",
         "-lc",

@@ -43,8 +43,9 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f0xx.h"
-#include "stm32f051x8.h"
+//#include "stm32f0xx.h"
+#include "stm32f042x6.h"
+
 #if defined(USE_HAL_LEGACY)
   #include "Legacy/stm32_hal_legacy.h"
 #endif
