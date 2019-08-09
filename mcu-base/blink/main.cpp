@@ -21,7 +21,7 @@ int main()
 //        timer::CONTROLLER.loop();
 //        blink::CONTROLLER.loop();
         //printf("quang \r\n");
-//        GPIO::CONTROLLER.loop();
+        GPIO::CONTROLLER.loop();
         //USART::CONTROLLER.loop();
     }
 //    return 0;
