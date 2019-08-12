@@ -10,6 +10,7 @@ Product
     Depends{name: "stm32f0"}
     Depends{name: "mdk"}
     Depends{name: "GPIO"}
+    Depends{name: "uart"}
 
     cpp.includePaths: [project.sourceDirectory]
     cpp.defines:
@@ -17,6 +18,6 @@ Product
        '___int16_t_defined',
         '___int8_t_defined',
     ]
-    files:["main.cpp","stm32.cpp","controller.h"]
+    files:["main.cpp","stm32.cpp","controller.h","command.h","command.cpp"]
 }
 
