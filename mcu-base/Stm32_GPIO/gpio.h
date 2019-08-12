@@ -13,7 +13,7 @@ namespace GPIO
     public:
         void init();
         void loop();
-        void led_PC9_toggle();
+        void led_PB1_toggle();
     private:
       
     };

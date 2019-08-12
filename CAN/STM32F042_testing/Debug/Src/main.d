@@ -24,7 +24,9 @@ Src/main.o: ../Src/main.c D:/gitworks/CAN/STM32F042_testing/Inc/main.h \
  D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h \
  D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h \
  D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h \
- D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h
+ D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h \
+ D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h \
+ D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
 
 D:/gitworks/CAN/STM32F042_testing/Inc/main.h:
 
@@ -79,3 +81,7 @@ D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal
 D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h:
 
 D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h:
+
+D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h:
+
+D:/gitworks/CAN/STM32F042_testing/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h:

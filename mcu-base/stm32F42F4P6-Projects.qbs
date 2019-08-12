@@ -14,6 +14,7 @@ Project
         "uart/stm32.qbs",
 //        "Stm32_USART/Usart.qbs",
         "blink/stm32.qbs",
+        "CAN/can.qbs",
 //        "Stm32_System_clock/osc.qbs",
 //        "stm32_timer/timer.qbs",
 //        "PWM/PWM.qbs",

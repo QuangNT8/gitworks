@@ -56,7 +56,7 @@ void GPIO::Controller::loop()
     //    HAL_Delay(1);
 }
 
-void GPIO::Controller::led_PC9_toggle()
+void GPIO::Controller::led_PB1_toggle()
 {
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9);
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1);
 }

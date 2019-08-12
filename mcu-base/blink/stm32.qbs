@@ -11,6 +11,7 @@ Product
     Depends{name: "mdk"}
     Depends{name: "GPIO"}
     Depends{name: "uart"}
+    Depends{name: "CAN"}
 
     cpp.includePaths: [project.sourceDirectory]
     cpp.defines:
