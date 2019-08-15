@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND Pin=HD1-4
+Removed Pin From Net: NetName=VCC_MO Pin=HD1-5
+Change Component DesignItemId : Designator=HD1 Old DesignItemId=Header 5 Cong_MH New DesignItemId=Header 6 Cong_MH
+Change Component Footprint: Designator=HD1 Old Footprint=HEADER 5 CONG New Footprint=HEADER 6 CONG
+Change Component Comment : Designator=HD1 Old Comment=Header 5 Cong_MH New Comment=Header 6 Cong_MH
+Added Pin To Net: NetName=GND_MCU Pin=HD1-4
+Added Pin To Net: NetName=GND Pin=HD1-5
+Added Pin To Net: NetName=VCC_MO Pin=HD1-6

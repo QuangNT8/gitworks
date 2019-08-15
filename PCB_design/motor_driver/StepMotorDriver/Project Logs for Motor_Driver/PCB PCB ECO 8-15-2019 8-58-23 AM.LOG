@@ -1,0 +1,8 @@
+Change Component Description : Designator=PRO1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=UART1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=MO1 Old Description=Header 4P XH2.54 th?ng New Description=Header 4P XH2.54 th?ng
+Added Component: Designator=R5(0805_HV)
+Added Pin To Net: NetName=3.3V Pin=R5-2
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=U6-1
+Added Net: Name=NetR5_1

@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=GND_MO Pin=C6-2
+Removed Pin From Net: NetName=GND_MO Pin=C7-2
+Added Component: Designator=U7(SOP 8)

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND_MCU Pin=SPI1-1
+Removed Pin From Net: NetName=+3.3V Pin=SPI1-2
+Removed Pin From Net: NetName=MOSI Pin=SPI1-5
+Removed Pin From Net: NetName=MISO Pin=SPI1-6
+Change Net Name : Old Net Name=+3.3V New Net Name=3.3V

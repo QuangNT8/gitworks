@@ -1,0 +1,16 @@
+Added Component: Designator=MO1(HEADER 4)
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=NetMO1_1 Pin=MO1-1
+Added Pin To Net: NetName=NetMO1_1 Pin=U1-3
+Added Pin To Net: NetName=NetMO1_1 Pin=U1-4
+Added Net: Name=NetMO1_1
+Added Pin To Net: NetName=NetMO1_2 Pin=MO1-2
+Added Pin To Net: NetName=NetMO1_2 Pin=U2-7
+Added Net: Name=NetMO1_2
+Added Pin To Net: NetName=NetMO1_3 Pin=MO1-3
+Added Pin To Net: NetName=NetMO1_3 Pin=U3-3
+Added Pin To Net: NetName=NetMO1_3 Pin=U3-4
+Added Net: Name=NetMO1_3
+Added Pin To Net: NetName=NetMO1_4 Pin=MO1-4
+Added Pin To Net: NetName=NetMO1_4 Pin=U2-8
+Added Net: Name=NetMO1_4

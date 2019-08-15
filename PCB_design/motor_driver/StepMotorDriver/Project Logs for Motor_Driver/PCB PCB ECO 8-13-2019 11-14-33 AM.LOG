@@ -1,0 +1,28 @@
+Change Component Designator: OldDesignator=U2 NewDesignator=U3
+Change Component Designator: OldDesignator=U3 NewDesignator=U4
+Added Component: Designator=U2(TSSOP14)
+Added Pin To Net: NetName=MISO Pin=U2-3
+Added Pin To Net: NetName=MOSI Pin=U2-4
+Added Pin To Net: NetName=GND Pin=U2-13
+Added Pin To Net: NetName=A Pin=U2-6
+Added Net: Name=A
+Added Pin To Net: NetName=B Pin=U2-7
+Added Net: Name=B
+Added Pin To Net: NetName=CLK Pin=U2-2
+Added Net: Name=CLK
+Added Pin To Net: NetName=CSN Pin=U2-1
+Added Net: Name=CSN
+Added Pin To Net: NetName=I Pin=U2-14
+Added Net: Name=I
+Added Pin To Net: NetName=TEST Pin=U2-5
+Added Net: Name=TEST
+Added Pin To Net: NetName=U Pin=U2-10
+Added Net: Name=U
+Added Pin To Net: NetName=VDD3V Pin=U2-12
+Added Net: Name=VDD3V
+Added Pin To Net: NetName=VDD Pin=U2-11
+Added Net: Name=VDD
+Added Pin To Net: NetName=V Pin=U2-9
+Added Net: Name=V
+Added Pin To Net: NetName=W Pin=U2-8
+Added Net: Name=W

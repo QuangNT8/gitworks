@@ -1,0 +1,8 @@
+Change Component Description : Designator=MO1 Old Description=Header 4P XH2.54 th?ng New Description=Header 4P XH2.54 th?ng
+Change Component Description : Designator=PRO1 Old Description=Header 4P XH2.54 th?ng New Description=Header 4P XH2.54 th?ng
+Added Component: Designator=C3(0805_HV)
+Added Component: Designator=C4(0805_HV)
+Added Pin To Net: NetName=GND_MCU Pin=C3-1
+Added Pin To Net: NetName=IA Pin=C3-2
+Added Pin To Net: NetName=GND_MCU Pin=C4-1
+Added Pin To Net: NetName=IB Pin=C4-2

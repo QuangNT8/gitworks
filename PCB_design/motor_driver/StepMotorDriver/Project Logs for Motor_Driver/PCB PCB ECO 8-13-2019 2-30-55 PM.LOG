@@ -1,0 +1,5 @@
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=PWM_CH2 Pin=U2-22
+Added Pin To Net: NetName=PWM_CH1 Pin=U2-23
+Added Pin To Net: NetName=PWM_CH2 Pin=U6-31
+Added Pin To Net: NetName=PWM_CH1 Pin=U6-32

@@ -1,0 +1,5 @@
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=CSN Pin=U6-14
+Added Pin To Net: NetName=CLK Pin=U6-15
+Added Pin To Net: NetName=MISO Pin=U6-16
+Added Pin To Net: NetName=MOSI Pin=U6-17

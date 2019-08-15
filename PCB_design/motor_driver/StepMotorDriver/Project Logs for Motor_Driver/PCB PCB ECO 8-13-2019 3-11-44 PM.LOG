@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=HV+ Pin=CON1-1
+Removed Pin From Net: NetName=GND_MO Pin=CON1-2
+Removed Pin From Net: NetName=GND_MO Pin=CON2-1
+Removed Pin From Net: NetName=DRV_12V Pin=CON2-2
+Removed Pin From Net: NetName=GND_MCU Pin=CON2-3
+Removed Pin From Net: NetName=MCU_5V Pin=CON2-4
+Added Component: Designator=U7(SOP 8)

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=MCU_5V Pin=C8-1
+Removed Pin From Net: NetName=GND_MCU Pin=C8-2
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=VCC_MO Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C8-2

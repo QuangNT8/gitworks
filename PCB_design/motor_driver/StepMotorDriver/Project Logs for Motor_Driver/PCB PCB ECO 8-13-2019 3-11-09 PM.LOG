@@ -1,0 +1,22 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C16
+Change Component Designator: OldDesignator=C? NewDesignator=C17
+Change Component Designator: OldDesignator=C? NewDesignator=C18
+Change Component Designator: OldDesignator=C? NewDesignator=C19
+Change Component Designator: OldDesignator=C? NewDesignator=C20
+Change Component Designator: OldDesignator=R? NewDesignator=R4
+Change Component Designator: OldDesignator=R? NewDesignator=R5
+Added Component: Designator=R6(0603_R)
+Added Component: Designator=R7(0603_R)
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=V3P3OUT Pin=R6-2
+Added Pin To Net: NetName=GND Pin=R7-1
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC18_1
+Change Net Name : Old Net Name=NetC?_2 New Net Name=NetC17_2
+Added Pin To Net: NetName=NetC17_1 Pin=C17-1
+Added Pin To Net: NetName=NetC17_1 Pin=U2-2
+Added Net: Name=NetC17_1
+Added Pin To Net: NetName=NetR6_1 Pin=R6-1
+Added Pin To Net: NetName=NetR6_1 Pin=R7-2
+Added Pin To Net: NetName=NetR6_1 Pin=U2-12
+Added Pin To Net: NetName=NetR6_1 Pin=U2-13
+Added Net: Name=NetR6_1

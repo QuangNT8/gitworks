@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=3.3V Pin=UART1-4
+Change Component DesignItemId : Designator=UART1 Old DesignItemId=Jump 4 New DesignItemId=Header 3_MH
+Change Component Footprint: Designator=UART1 Old Footprint=HEADER 4 New Footprint=HEADER 3
+Change Component Comment : Designator=UART1 Old Comment=Jump 4 New Comment=Header 3_MH

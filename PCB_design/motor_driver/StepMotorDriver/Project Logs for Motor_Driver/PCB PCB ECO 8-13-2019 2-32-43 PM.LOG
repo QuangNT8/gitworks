@@ -1,0 +1,5 @@
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=CAN_RX Pin=U6-45
+Added Net: Name=CAN_RX
+Added Pin To Net: NetName=CAN_TX Pin=U6-46
+Added Net: Name=CAN_TX

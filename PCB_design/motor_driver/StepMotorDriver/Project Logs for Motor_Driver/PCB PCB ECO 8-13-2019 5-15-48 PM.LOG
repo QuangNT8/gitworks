@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=R6 Old Footprint=0603_R New Footprint=0805_HV
+Change Component Footprint: Designator=R7 Old Footprint=0603_R New Footprint=0805_HV
+Added Component: Designator=U7(SOP 8)

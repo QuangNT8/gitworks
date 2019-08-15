@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=CAN_TX Pin=U6-1
+Removed Pin From Net: NetName=GND_MCU Pin=U6-2
+Removed Pin From Net: NetName=5V Pin=U6-3
+Removed Pin From Net: NetName=CAN_RX Pin=U6-4
+Removed Pin From Net: NetName=GND_MCU Pin=U6-8
+Added Pin To Net: NetName=GND Pin=U6-8
+Added Pin To Net: NetName=GND_MCU Pin=U7-4
+Added Pin To Net: NetName=CAN_TX Pin=U7-5
+Added Pin To Net: NetName=GND_MCU Pin=U7-6
+Added Pin To Net: NetName=5V Pin=U7-7
+Added Pin To Net: NetName=CAN_RX Pin=U7-8

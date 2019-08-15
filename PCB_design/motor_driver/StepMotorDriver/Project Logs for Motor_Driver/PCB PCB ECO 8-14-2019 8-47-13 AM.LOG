@@ -1,0 +1,4 @@
+Change Component Description : Designator=MO1 Old Description=Header 4P XH2.54 th?ng New Description=Header 4P XH2.54 th?ng
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=TX Pin=U6-42
+Added Pin To Net: NetName=RX Pin=U6-43

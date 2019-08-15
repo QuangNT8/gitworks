@@ -1,0 +1,40 @@
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=R?(0603_R)
+Added Component: Designator=R?(0603_R)
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=U2-14
+Added Pin To Net: NetName=GND Pin=U2-28
+Added Pin To Net: NetName=DECAY Pin=U2-19
+Added Net: Name=DECAY
+Added Pin To Net: NetName=MOTOR_EN Pin=U2-17
+Added Net: Name=MOTOR_EN
+Added Pin To Net: NetName=MOTOR_RST Pin=U2-16
+Added Net: Name=MOTOR_RST
+Added Pin To Net: NetName=NetC?_1 Pin=C?-1
+Added Pin To Net: NetName=NetC?_1 Pin=R?-1
+Added Pin To Net: NetName=NetC?_1 Pin=U2-3
+Added Net: Name=NetC?_1
+Added Pin To Net: NetName=NetC?_2 Pin=C?-2
+Added Pin To Net: NetName=NetC?_2 Pin=U2-1
+Added Net: Name=NetC?_2
+Added Pin To Net: NetName=NFAULT Pin=R?-1
+Added Pin To Net: NetName=NFAULT Pin=U2-18
+Added Net: Name=NFAULT
+Added Pin To Net: NetName=V3P3OUT Pin=C?-2
+Added Pin To Net: NetName=V3P3OUT Pin=R?-2
+Added Pin To Net: NetName=V3P3OUT Pin=U2-15
+Added Net: Name=V3P3OUT
+Added Pin To Net: NetName=VCC_MO Pin=C?-2
+Added Pin To Net: NetName=VCC_MO Pin=C?-2
+Added Pin To Net: NetName=VCC_MO Pin=C?-2
+Added Pin To Net: NetName=VCC_MO Pin=R?-2
+Added Pin To Net: NetName=VCC_MO Pin=U2-4
+Added Pin To Net: NetName=VCC_MO Pin=U2-11
+Added Net: Name=VCC_MO

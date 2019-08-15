@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=GND_MCU Pin=U7-4
+Removed Pin From Net: NetName=CAN_TX Pin=U7-5
+Removed Pin From Net: NetName=GND_MCU Pin=U7-6
+Removed Pin From Net: NetName=5V Pin=U7-7
+Removed Pin From Net: NetName=CAN_RX Pin=U7-8
+Added Component: Designator=R10(0603_R)
+Added Pin To Net: NetName=CAN_TX Pin=U7-1
+Added Pin To Net: NetName=GND_MCU Pin=U7-2
+Added Pin To Net: NetName=5V Pin=U7-3
+Added Pin To Net: NetName=CAN_RX Pin=U7-4
+Added Pin To Net: NetName=GND_MCU Pin=U7-8
+Added Pin To Net: NetName=CAN_H Pin=R10-2
+Added Pin To Net: NetName=CAN_H Pin=U7-7
+Added Net: Name=CAN_H
+Added Pin To Net: NetName=CAN_L Pin=R10-1
+Added Pin To Net: NetName=CAN_L Pin=U7-6
+Added Net: Name=CAN_L

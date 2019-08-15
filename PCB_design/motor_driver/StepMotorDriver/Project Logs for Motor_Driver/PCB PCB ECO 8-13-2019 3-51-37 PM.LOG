@@ -1,0 +1,13 @@
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=AI0 Pin=U2-24
+Added Pin To Net: NetName=AI0 Pin=U6-38
+Added Net: Name=AI0
+Added Pin To Net: NetName=AI1 Pin=U2-25
+Added Pin To Net: NetName=AI1 Pin=U6-39
+Added Net: Name=AI1
+Added Pin To Net: NetName=BI1 Pin=U2-26
+Added Pin To Net: NetName=BI1 Pin=U6-40
+Added Net: Name=BI1
+Added Pin To Net: NetName=BI2 Pin=U2-27
+Added Pin To Net: NetName=BI2 Pin=U6-41
+Added Net: Name=BI2

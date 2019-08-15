@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=MB- Pin=MO1-1
+Removed Pin From Net: NetName=MB+ Pin=MO1-2
+Removed Pin From Net: NetName=MA- Pin=MO1-3
+Removed Pin From Net: NetName=MA+ Pin=MO1-4
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=MA+ Pin=MO1-1
+Added Pin To Net: NetName=MA- Pin=MO1-2
+Added Pin To Net: NetName=MB+ Pin=MO1-3
+Added Pin To Net: NetName=MB- Pin=MO1-4

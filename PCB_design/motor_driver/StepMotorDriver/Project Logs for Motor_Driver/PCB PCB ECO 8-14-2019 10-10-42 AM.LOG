@@ -1,0 +1,6 @@
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=CAN_TX Pin=U6-1
+Added Pin To Net: NetName=GND_MCU Pin=U6-2
+Added Pin To Net: NetName=5V Pin=U6-3
+Added Pin To Net: NetName=CAN_RX Pin=U6-4
+Added Pin To Net: NetName=GND_MCU Pin=U6-8

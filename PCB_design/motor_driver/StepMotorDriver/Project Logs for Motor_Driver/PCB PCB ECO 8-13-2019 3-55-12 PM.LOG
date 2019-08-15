@@ -1,0 +1,7 @@
+Added Component: Designator=R8(0603_R)
+Added Component: Designator=R9(0603_R)
+Added Component: Designator=U7(SOP 8)
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=BOOT0 Pin=R8-2
+Added Pin To Net: NetName=BOOT1 Pin=R9-1
+Added Pin To Net: NetName=GND Pin=R9-2

@@ -1,0 +1,27 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Motor_Driver.PrjPcb|ReportField=ProjectFullPath~D:\uki\coffee_machine\coffee-machine\hardware\StepMotorDriver\Motor_Driver.PrjPcb|ReportField=Title~Bill of Materials For Project [Motor_Driver.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~42|ReportField=ReportTime~9:51:35 AM|ReportField=ReportDate~8/15/2019|ReportField=ReportDateTime~8/15/2019 9:51:35 AM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~|ReportField=CurrentTime~|ReportField=Date~|ReportField=DocumentFullPathAndName~|ReportField=DocumentName~|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~|ReportField=Organization~|ReportField=ProjectName~|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~Motor_Driver.PrjPcb|ReportField=DataSourceFullPath~D:\uki\coffee_machine\coffee-machine\hardware\StepMotorDriver\Motor_Driver.PrjPcb
+104|Ceramic Chip Capacitor - Standard|C1, C2, C3, C4, C5, C6, C10|0805_HV|Capacitor 0805|7
+330uF|TU_NHOM_330uF_16V_MH|C7|TU_NHOM_220uF_25V_MH|TU_NHOM_330uF_16V_MH|1
+390uF||C8, C9|CP1/3.0|Capacitor TuHoa|2
+105|Cap SMD|C11, C12, C13|0805_HV|CM|3
+22P|Cap SMD|C14, C15|0805_HV|CM|2
+103|Ceramic Chip Capacitor - Standard|C16, C17, C19|0805_HV|Capacitor 0805|3
+0.1uF|Ceramic Chip Capacitor - Standard|C18|0805_HV|Capacitor 0805|1
+0.47uF|Ceramic Chip Capacitor - Standard|C20|0805_HV|Capacitor 0805|1
+Header 6 Cong_MH|Header 6P XH2.54 cong|HD1|HEADER 6 CONG|Header 6 Cong_MH|1
+Header 4_MH|Header 4P XH2.54 th?ng|MO1|HEADER 4|Header 4_MH|1
+Header 3_MH|Header 3P XH2.54 th?ng|PRO1, UART1|HEADER 3|Header 3_MH|2
+RT0603DRE07140KL|RES, 140 k, 0.5%, 0.1 W, 0603|R1, R2|1210|RT0603DRE07140KL|2
+10K|RES, 100, 1%, 0.1 W, 0402|R3|0805_HV|R nho|1
+1M|RES, 100, 1%, 0.1 W, 0402|R4|0805_HV|R nho|1
+0R|RES, 100, 1%, 0.1 W, 0402|R5|0805_HV|R nho|1
+50K|RES, 100, 1%, 0.1 W, 0402|R6|0805_HV|R nho|1
+30K|RES, 100, 1%, 0.1 W, 0402|R7|0805_HV|R nho|1
+100K|RES, 100, 1%, 0.1 W, 0402|R8, R9|0805_HV|R nho|2
+120|RES, 100, 1%, 0.1 W, 0402|R10|0805_HV|R nho|1
+ACS711||U1, U3|SOP 8|ACS712|2
+DRV8841PWPR||U2|TSSOP-28EP|DRV8841PWPR|1
+AS5047D||U4|TSSOP14|AS5047D|1
+STM32F103C8T6 LQFP48 _MH|STM32F103C8T6 LQFP48 _MH|U6|LQFP48|STM32F103C8T6 LQFP48 _MH|1
+TJA1050T/CM,118||U7|SOP 8|TJA1050T/CM,118|1
+AMS1117-3.3V SOT223 _MH|AMS1117-3.3V SOT223 _MH|U8|SOT223|AMS1117-3.3V SOT223 _MH|1
+8MHZ|Crystal Oscillator|Y1|XT2|CRYSTAL_49S DIP_MH|1

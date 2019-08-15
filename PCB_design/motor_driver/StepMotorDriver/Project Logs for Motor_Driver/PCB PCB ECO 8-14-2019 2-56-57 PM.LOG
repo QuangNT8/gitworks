@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=3.3V Pin=PRO1-1
+Removed Pin From Net: NetName=SWDIO Pin=PRO1-2
+Removed Pin From Net: NetName=SWCLK Pin=PRO1-3
+Removed Pin From Net: NetName=GND_MCU Pin=PRO1-4
+Change Component DesignItemId : Designator=PRO1 Old DesignItemId=Header 4_MH New DesignItemId=Header 3_MH
+Change Component Footprint: Designator=PRO1 Old Footprint=HEADER 4 New Footprint=HEADER 3
+Change Component Comment : Designator=PRO1 Old Comment=Header 4_MH New Comment=Header 3_MH
+Added Pin To Net: NetName=SWDIO Pin=PRO1-1
+Added Pin To Net: NetName=SWCLK Pin=PRO1-2
+Added Pin To Net: NetName=GND_MCU Pin=PRO1-3

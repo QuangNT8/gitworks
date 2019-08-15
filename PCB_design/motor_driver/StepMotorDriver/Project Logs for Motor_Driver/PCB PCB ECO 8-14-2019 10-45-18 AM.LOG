@@ -1,0 +1,6 @@
+Added Component: Designator=HD1(HEADER 5 CONG)
+Added Pin To Net: NetName=VCC_MO Pin=HD1-1
+Added Pin To Net: NetName=GND Pin=HD1-2
+Added Pin To Net: NetName=5V Pin=HD1-3
+Added Pin To Net: NetName=CAN_H Pin=HD1-4
+Added Pin To Net: NetName=CAN_L Pin=HD1-5

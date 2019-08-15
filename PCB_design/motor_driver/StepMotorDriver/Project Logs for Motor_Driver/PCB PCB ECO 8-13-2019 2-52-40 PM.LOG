@@ -1,0 +1,5 @@
+Added Component: Designator=U7(SOP 8)
+Change Net Name : Old Net Name=NetMO1_1 New Net Name=MA+
+Change Net Name : Old Net Name=NetMO1_2 New Net Name=MA-
+Change Net Name : Old Net Name=NetMO1_3 New Net Name=MB+
+Change Net Name : Old Net Name=NetMO1_4 New Net Name=MB-
