@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=5V Pin=C1-1
+Removed Pin From Net: NetName=GND Pin=C1-2
+Removed Pin From Net: NetName=GND Pin=P1-7
+Removed Pin From Net: NetName=GND Pin=P1-8
+Removed Pin From Net: NetName=5V Pin=P1-9
+Removed Pin From Net: NetName=5V Pin=P1-10
+Change Component DesignItemId : Designator=C1 Old DesignItemId=TU_NHOM_1000uF_16V_MH New DesignItemId=CM
+Change Component Comment : Designator=C1 Old Comment=1000uF New Comment=105
+Change Component Designator: OldDesignator=P1 NewDesignator=P2
+Change Component Designator: OldDesignator=P2 NewDesignator=P3
+Change Component Designator: OldDesignator=P3 NewDesignator=P1
+Change Component Description : Designator=C1 Old Description=TU_NHOM_1000uF_16V_MH New Description=Cap SMD
+Change Component Library : Designator=C1 Old Library=MH_DA_THU_VIEN_16122016.SchLib New Library=hatcatbietbay.SchLib
+Added Component: Designator=C4(TU_NHOM_470uF_25V_MH)
+Added Component: Designator=U1(SOT223)
+Added Component: Designator=U2(TSSOP20)
+Added Pin To Net: NetName=5V Pin=C1-2
+Added Pin To Net: NetName=5V Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=5V Pin=U1-3
+Added Pin To Net: NetName=3.3V Pin=U1-2
+Added Pin To Net: NetName=3.3V Pin=U1-4
+Added Net: Name=3.3V
+Added Pin To Net: NetName=GND_MCU Pin=C1-1
+Added Pin To Net: NetName=GND_MCU Pin=U1-1
+Added Net: Name=GND_MCU

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND_MCU Pin=C1-1
+Change Component DesignItemId : Designator=C1 Old DesignItemId=CM New DesignItemId=TU_NHOM_1000uF_16V_MH
+Change Component Comment : Designator=C1 Old Comment=105 New Comment=1000uF
+Change Component Description : Designator=C1 Old Description=Cap SMD New Description=TU_NHOM_1000uF_16V_MH
+Change Component Library : Designator=C1 Old Library=hatcatbietbay.SchLib New Library=MH_DA_THU_VIEN_16122016.SchLib
+Added Pin To Net: NetName=5V Pin=C1-1
+Added Pin To Net: NetName=GND_MCU Pin=C1-1
+Added Pin To Net: NetName=5V Pin=C1-2

@@ -1,0 +1,70 @@
+Removed Pin From Net: NetName=NetR?_2 Pin=U1-1
+Removed Pin From Net: NetName=GND Pin=U1-15
+Removed Pin From Net: NetName=3.3V Pin=U1-16
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 10 New DesignItemId=Header 6
+Change Component DesignItemId : Designator=U1 Old DesignItemId=STM32F042F4P6 New DesignItemId=AMS1117-3.3V SOT223 _MH
+Change Component Footprint: Designator=P2 Old Footprint=JST-PH2.00-10P New Footprint=CON6_1.5D
+Change Component Footprint: Designator=U1 Old Footprint=TSSOP20 New Footprint=SOT223
+Change Component Comment : Designator=R1 Old Comment=220 New Comment=10K
+Change Component Comment : Designator=P2 Old Comment=IN New Comment=Header 6
+Change Component Comment : Designator=U1 Old Comment=STM32F042F4P6 New Comment=AMS1117-3.3V SOT223 _MH
+Change Component Designator: OldDesignator=C1 NewDesignator=C?
+Change Component Designator: OldDesignator=C1 NewDesignator=C?
+Change Component Designator: OldDesignator=C2 NewDesignator=C?
+Change Component Designator: OldDesignator=C3 NewDesignator=C?
+Change Component Designator: OldDesignator=P3 NewDesignator=P?
+Change Component Designator: OldDesignator=R1 NewDesignator=R?
+Change Component Designator: OldDesignator=U1 NewDesignator=U?
+Added Component: Designator=C?(0805_HV)
+Added Component: Designator=C?(0805_HV)
+Added Component: Designator=C?(0805_HV)
+Added Component: Designator=P?(HDR1X5)
+Added Component: Designator=R?(0805_HV)
+Added Component: Designator=R?(0805_HV)
+Added Component: Designator=U?(TSSOP20)
+Added Component: Designator=U?(SOP 8)
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=3.3V Pin=C?-2
+Added Pin To Net: NetName=3.3V Pin=C?-2
+Added Pin To Net: NetName=3.3V Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-5
+Added Pin To Net: NetName=3.3V Pin=R?-2
+Added Pin To Net: NetName=GND_MCU Pin=U?-1
+Added Pin To Net: NetName=NetR?_2 Pin=U?-1
+Added Pin To Net: NetName=GND_MCU Pin=U?-2
+Added Pin To Net: NetName=5V Pin=U?-3
+Added Pin To Net: NetName=3.3V Pin=U?-5
+Added Pin To Net: NetName=SERVO_C Pin=U?-6
+Added Pin To Net: NetName=DET Pin=U?-7
+Added Pin To Net: NetName=GND_MCU Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-15
+Added Pin To Net: NetName=3.3V Pin=U?-16
+Added Pin To Net: NetName=CAN_H Pin=R?-2
+Added Pin To Net: NetName=CAN_H Pin=U?-7
+Added Net: Name=CAN_H
+Added Pin To Net: NetName=CAN_L Pin=R?-1
+Added Pin To Net: NetName=CAN_L Pin=U?-6
+Added Net: Name=CAN_L
+Added Pin To Net: NetName=CAN_RX Pin=U?-4
+Added Pin To Net: NetName=CAN_RX Pin=U?-17
+Added Net: Name=CAN_RX
+Added Pin To Net: NetName=CAN_TX Pin=U?-1
+Added Pin To Net: NetName=CAN_TX Pin=U?-18
+Added Net: Name=CAN_TX
+Added Pin To Net: NetName=RST Pin=C?-2
+Added Pin To Net: NetName=RST Pin=P?-2
+Added Pin To Net: NetName=RST Pin=R?-1
+Added Pin To Net: NetName=RST Pin=U?-4
+Added Net: Name=RST
+Added Pin To Net: NetName=RX Pin=U?-9
+Added Net: Name=RX
+Added Pin To Net: NetName=SWCLK Pin=P?-4
+Added Pin To Net: NetName=SWCLK Pin=U?-20
+Added Net: Name=SWCLK
+Added Pin To Net: NetName=SWDIO Pin=P?-3
+Added Pin To Net: NetName=SWDIO Pin=U?-19
+Added Net: Name=SWDIO
+Added Pin To Net: NetName=TX Pin=U?-8
+Added Net: Name=TX

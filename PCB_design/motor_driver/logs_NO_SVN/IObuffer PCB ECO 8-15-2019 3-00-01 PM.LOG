@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=GND_MCU Pin=C1-1
+Removed Pin From Net: NetName=GND_MCU Pin=U1-1
+Removed Pin From Net: NetName=3.3V Pin=U1-2
+Removed Pin From Net: NetName=5V Pin=U1-3
+Removed Pin From Net: NetName=3.3V Pin=U1-4
+Change Component DesignItemId : Designator=U1 Old DesignItemId=AMS1117-3.3V SOT223 _MH New DesignItemId=STM32F042F4P6
+Change Component Footprint: Designator=U1 Old Footprint=SOT223 New Footprint=TSSOP20
+Change Component Comment : Designator=U1 Old Comment=AMS1117-3.3V SOT223 _MH New Comment=STM32F042F4P6
+Added Component: Designator=C1(0805_HV)
+Added Component: Designator=C2(0805_HV)
+Added Component: Designator=C3(0805_HV)
+Added Component: Designator=R?(0805_HV)
+Added Component: Designator=R?(0805_HV)
+Added Component: Designator=U2(SOT223)
+Added Pin To Net: NetName=5V Pin=C1-1
+Added Pin To Net: NetName=GND_MCU Pin=C1-1
+Added Pin To Net: NetName=5V Pin=C1-2
+Added Pin To Net: NetName=GND_MCU Pin=C2-1
+Added Pin To Net: NetName=3.3V Pin=C2-2
+Added Pin To Net: NetName=GND_MCU Pin=C3-1
+Added Pin To Net: NetName=3.3V Pin=C3-2
+Added Pin To Net: NetName=3.3V Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=3.3V Pin=U1-16
+Added Pin To Net: NetName=GND_MCU Pin=U1-1
+Added Pin To Net: NetName=3.3V Pin=U1-2
+Added Pin To Net: NetName=5V Pin=U1-3
+Added Pin To Net: NetName=3.3V Pin=U1-4
+Added Pin To Net: NetName=NetR?_2 Pin=R?-2
+Added Pin To Net: NetName=NetR?_2 Pin=R?-2
+Added Pin To Net: NetName=NetR?_2 Pin=U1-1
+Added Net: Name=NetR?_2
