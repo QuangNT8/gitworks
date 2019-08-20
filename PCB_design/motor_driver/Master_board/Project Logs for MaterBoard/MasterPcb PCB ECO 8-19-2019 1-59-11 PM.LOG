@@ -1,0 +1,20 @@
+Added Component: Designator=Val1(JST-PH2.00-4P)
+Added Component: Designator=Val2(JST-PH2.00-4P)
+Added Component: Designator=Val3(JST-PH2.00-4P)
+Added Component: Designator=Val4(JST-PH2.00-4P)
+Added Pin To Net: NetName=5V Pin=Val1-1
+Added Pin To Net: NetName=GND Pin=Val1-2
+Added Pin To Net: NetName=CAN_L Pin=Val1-3
+Added Pin To Net: NetName=CAN_H Pin=Val1-4
+Added Pin To Net: NetName=5V Pin=Val2-1
+Added Pin To Net: NetName=GND Pin=Val2-2
+Added Pin To Net: NetName=CAN_L Pin=Val2-3
+Added Pin To Net: NetName=CAN_H Pin=Val2-4
+Added Pin To Net: NetName=5V Pin=Val3-1
+Added Pin To Net: NetName=GND Pin=Val3-2
+Added Pin To Net: NetName=CAN_L Pin=Val3-3
+Added Pin To Net: NetName=CAN_H Pin=Val3-4
+Added Pin To Net: NetName=5V Pin=Val4-1
+Added Pin To Net: NetName=GND Pin=Val4-2
+Added Pin To Net: NetName=CAN_L Pin=Val4-3
+Added Pin To Net: NetName=CAN_H Pin=Val4-4

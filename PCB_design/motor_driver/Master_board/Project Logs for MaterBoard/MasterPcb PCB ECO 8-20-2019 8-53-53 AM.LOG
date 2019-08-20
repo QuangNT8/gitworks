@@ -1,0 +1,16 @@
+Change Component Description : Designator=LED1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=LED2 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=PRO1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=UART1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Added Pin To Net: NetName=PWM_CH3 Pin=U5-4
+Added Pin To Net: NetName=PWM_CH4 Pin=U5-5
+Added Pin To Net: NetName=PA12 Pin=U1-33
+Added Net: Name=PA12
+Added Pin To Net: NetName=PB12 Pin=U1-25
+Added Net: Name=PB12
+Added Pin To Net: NetName=PB13 Pin=U1-26
+Added Net: Name=PB13
+Added Pin To Net: NetName=PB14 Pin=U1-27
+Added Net: Name=PB14
+Added Pin To Net: NetName=PB15 Pin=U1-28
+Added Net: Name=PB15

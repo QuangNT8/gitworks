@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=MO_5V Pin=USB1-1
+Added Pin To Net: NetName=GND_MCU Pin=USB1-4
+Added Pin To Net: NetName=GND_MCU Pin=USB1-5
+Added Pin To Net: NetName=MO_5V Pin=USB1-8

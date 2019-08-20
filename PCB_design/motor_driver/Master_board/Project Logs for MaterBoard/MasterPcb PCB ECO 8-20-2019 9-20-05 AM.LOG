@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=PA1 Pin=U1-12
+Removed Pin From Net: NetName=PA2 Pin=U1-13
+Removed Pin From Net: NetName=PA3 Pin=U1-14
+Added Component: Designator=JP1(Jump 8)
+Added Pin To Net: NetName=PA2 Pin=JP1-1
+Added Pin To Net: NetName=PA3 Pin=JP1-2
+Added Pin To Net: NetName=PB1 Pin=JP1-4
+Added Pin To Net: NetName=PB10 Pin=JP1-5
+Added Pin To Net: NetName=PB11 Pin=JP1-6
+Added Pin To Net: NetName=PB13 Pin=JP1-7
+Added Pin To Net: NetName=PB12 Pin=JP1-8
+Added Pin To Net: NetName=PA2 Pin=U1-12
+Added Pin To Net: NetName=PA3 Pin=U1-13
+Added Pin To Net: NetName=PA4 Pin=JP1-3
+Added Pin To Net: NetName=PA4 Pin=U1-14
+Added Net: Name=PA4

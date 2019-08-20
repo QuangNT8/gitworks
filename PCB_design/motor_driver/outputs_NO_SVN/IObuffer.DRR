@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: IObuffer.PcbDoc   8/19/2019  11:11:46 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : IObuffer.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          30               121.08 mm (4.77 Inch)
+T2        0.8mm (31.496mil)        Round          8                17.00 mm (0.67 Inch)
+T3        0.9mm (35.433mil)        Round          7                27.37 mm (1.08 Inch)
+T4        1mm (39.37mil)           Round          5                25.46 mm (1.00 Inch)
+T5        3mm (118.11mil)          Round          4                87.00 mm (3.43 Inch)
+---------------------------------------------------------------------------
+Totals                                            54               277.91 mm (10.94 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

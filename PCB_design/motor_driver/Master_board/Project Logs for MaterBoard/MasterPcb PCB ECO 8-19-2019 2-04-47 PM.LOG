@@ -1,0 +1,11 @@
+Added Component: Designator=CON3(Con 5 EDG 5.08)
+Added Pin To Net: NetName=5V_RC Pin=CON3-2
+Added Net: Name=5V_RC
+Added Pin To Net: NetName=12V Pin=CON3-3
+Added Net: Name=12V
+Added Pin To Net: NetName=24V Pin=CON3-5
+Added Net: Name=24V
+Added Pin To Net: NetName=GND24 Pin=CON3-4
+Added Net: Name=GND24
+Added Pin To Net: NetName=GND_RC Pin=CON3-1
+Added Net: Name=GND_RC

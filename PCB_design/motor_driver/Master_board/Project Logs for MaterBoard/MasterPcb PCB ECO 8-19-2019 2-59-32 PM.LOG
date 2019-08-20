@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=VCC_MO Pin=CON1-5
+Added Pin To Net: NetName=VCC_MO Pin=LED1-1
+Added Pin To Net: NetName=VCC_MO Pin=LED2-1
+Change Net Name : Old Net Name=VCC_MO New Net Name=24V

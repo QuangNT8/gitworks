@@ -1,0 +1,9 @@
+Added Component: Designator=LED1(LED_0805)
+Added Component: Designator=R6(0805_HV)
+Added Pin To Net: NetName=3.3V Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2 Pin=R6-1
+Added Net: Name=NetLED1_2
+Added Pin To Net: NetName=RB1 Pin=R6-2
+Added Pin To Net: NetName=RB1 Pin=U3-14
+Added Net: Name=RB1

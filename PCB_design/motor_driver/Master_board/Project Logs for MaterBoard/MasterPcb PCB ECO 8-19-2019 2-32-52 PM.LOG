@@ -1,0 +1,6 @@
+Change Component DesignItemId : Designator=C2 Old DesignItemId=TU_NHOM_330uF_16V_MH New DesignItemId=Capacitor TuHoa
+Change Component Footprint: Designator=C2 Old Footprint=TU_NHOM_220uF_25V_MH New Footprint=CP1/3.0
+Change Component Comment : Designator=C2 Old Comment=330uF New Comment=390uF
+Added Component: Designator=C16(CP1/3.0)
+Added Pin To Net: NetName=VCC_MO Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C16-2

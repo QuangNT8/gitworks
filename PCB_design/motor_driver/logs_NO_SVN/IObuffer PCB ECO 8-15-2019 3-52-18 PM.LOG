@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=5V Pin=P?-1
+Removed Pin From Net: NetName=5V Pin=P?-2
+Removed Pin From Net: NetName=GND Pin=P?-3
+Removed Pin From Net: NetName=GND Pin=P?-4
+Change Component DesignItemId : Designator=P3 Old DesignItemId=Header 10 New DesignItemId=Header 6
+Change Component Footprint: Designator=P2 Old Footprint=CON6_1.5D New Footprint=JST-PH2.00-4P
+Change Component Footprint: Designator=P3 Old Footprint=JST-PH2.00-10P New Footprint=JST-PH2.00-4P
+Change Component Comment : Designator=P3 Old Comment=IN New Comment=Header 6

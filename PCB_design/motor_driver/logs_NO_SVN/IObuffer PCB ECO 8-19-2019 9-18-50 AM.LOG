@@ -1,0 +1,4 @@
+Change Component Description : Designator=UART1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Added Component: Designator=C8(0805_HV)
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=5V Pin=C8-2

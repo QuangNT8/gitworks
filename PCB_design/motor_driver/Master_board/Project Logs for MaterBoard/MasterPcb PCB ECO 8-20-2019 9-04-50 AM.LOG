@@ -1,0 +1,15 @@
+Added Component: Designator=SPI1(ZH 1.5 6P)
+Added Pin To Net: NetName=GND_MCU Pin=SPI1-1
+Added Pin To Net: NetName=3.3V Pin=SPI1-2
+Added Pin To Net: NetName=MISO Pin=SPI1-6
+Added Pin To Net: NetName=MISO Pin=U1-16
+Added Net: Name=MISO
+Added Pin To Net: NetName=MOSI Pin=SPI1-5
+Added Pin To Net: NetName=MOSI Pin=U1-17
+Added Net: Name=MOSI
+Added Pin To Net: NetName=SCLK Pin=SPI1-4
+Added Pin To Net: NetName=SCLK Pin=U1-15
+Added Net: Name=SCLK
+Added Pin To Net: NetName=SPI_CS Pin=SPI1-3
+Added Pin To Net: NetName=SPI_CS Pin=U1-18
+Added Net: Name=SPI_CS

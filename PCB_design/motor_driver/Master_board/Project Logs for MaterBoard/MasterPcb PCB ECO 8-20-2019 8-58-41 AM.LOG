@@ -1,0 +1,22 @@
+Change Net Name : Old Net Name=CLK New Net Name=PA4
+Change Net Name : Old Net Name=CSN New Net Name=PA3
+Change Net Name : Old Net Name=MISO New Net Name=PA5
+Change Net Name : Old Net Name=MOSI New Net Name=PA6
+Added Pin To Net: NetName=PA1 Pin=U1-12
+Added Net: Name=PA1
+Added Pin To Net: NetName=PA2 Pin=U1-13
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA7 Pin=U1-18
+Added Net: Name=PA7
+Added Pin To Net: NetName=PB1 Pin=U1-19
+Added Net: Name=PB1
+Added Pin To Net: NetName=PB10 Pin=U1-21
+Added Net: Name=PB10
+Added Pin To Net: NetName=PB11 Pin=U1-22
+Added Net: Name=PB11
+Added Pin To Net: NetName=PC13 Pin=U1-2
+Added Net: Name=PC13
+Added Pin To Net: NetName=PC14 Pin=U1-3
+Added Net: Name=PC14
+Added Pin To Net: NetName=PC15 Pin=U1-4
+Added Net: Name=PC15

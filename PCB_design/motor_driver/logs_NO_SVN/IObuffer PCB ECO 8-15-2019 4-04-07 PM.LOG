@@ -1,0 +1,4 @@
+Added Component: Designator=UART1(HEADER 3)
+Added Pin To Net: NetName=GND Pin=UART1-1
+Added Pin To Net: NetName=TX Pin=UART1-2
+Added Pin To Net: NetName=RX Pin=UART1-3

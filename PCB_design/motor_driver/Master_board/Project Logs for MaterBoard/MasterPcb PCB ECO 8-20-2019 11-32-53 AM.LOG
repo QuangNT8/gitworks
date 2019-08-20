@@ -1,0 +1,7 @@
+Change Component Description : Designator=LED1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=LED2 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=SS1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=SS2 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=UART1 Old Description=Header 3P XH2.54 th?ng New Description=Header 3P XH2.54 th?ng
+Change Component Description : Designator=PRO1 Old Description=Header 5P XH2.54 th?ng New Description=Header 5P XH2.54 th?ng
+Added Pin To Net: NetName=GND_MCU Pin=JP2-3

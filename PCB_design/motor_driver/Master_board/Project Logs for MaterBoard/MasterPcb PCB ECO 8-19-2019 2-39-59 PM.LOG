@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=VCC_MO Pin=C19-1
+Removed Pin From Net: NetName=GND Pin=C19-2
+Removed Pin From Net: NetName=MO_5V Pin=C20-1
+Removed Pin From Net: NetName=GND_MCU Pin=C20-2
+Removed Pin From Net: NetName=MO_5V Pin=C22-1
+Removed Pin From Net: NetName=GND_MCU Pin=C22-2

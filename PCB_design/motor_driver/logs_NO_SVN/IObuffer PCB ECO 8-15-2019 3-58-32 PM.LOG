@@ -1,0 +1,7 @@
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 6 New DesignItemId=Header 4
+Change Component Footprint: Designator=P2 Old Footprint=JST-PH2.00-4P New Footprint=HDR1X4
+Change Component Comment : Designator=P2 Old Comment=Header 6 New Comment=Header 4
+Added Pin To Net: NetName=5V Pin=P2-1
+Added Pin To Net: NetName=GND Pin=P2-2
+Added Pin To Net: NetName=CAN_L Pin=P2-3
+Added Pin To Net: NetName=CAN_H Pin=P2-4

@@ -1,0 +1,14 @@
+Added Component: Designator=MO3(HEADER 6)
+Added Component: Designator=MO4(HEADER 6)
+Added Pin To Net: NetName=VCC_MO Pin=MO3-1
+Added Pin To Net: NetName=GND Pin=MO3-2
+Added Pin To Net: NetName=5V Pin=MO3-3
+Added Pin To Net: NetName=GND_MCU Pin=MO3-4
+Added Pin To Net: NetName=CAN_H Pin=MO3-5
+Added Pin To Net: NetName=CAN_L Pin=MO3-6
+Added Pin To Net: NetName=VCC_MO Pin=MO4-1
+Added Pin To Net: NetName=GND Pin=MO4-2
+Added Pin To Net: NetName=5V Pin=MO4-3
+Added Pin To Net: NetName=GND_MCU Pin=MO4-4
+Added Pin To Net: NetName=CAN_H Pin=MO4-5
+Added Pin To Net: NetName=CAN_L Pin=MO4-6

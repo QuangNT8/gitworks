@@ -1,0 +1,8 @@
+Added Component: Designator=SS1(HEADER 3)
+Added Component: Designator=SS2(HEADER 3)
+Added Pin To Net: NetName=PA1 Pin=SS1-1
+Added Pin To Net: NetName=3.3V Pin=SS1-2
+Added Pin To Net: NetName=GND Pin=SS1-3
+Added Pin To Net: NetName=PA0 Pin=SS2-1
+Added Pin To Net: NetName=3.3V Pin=SS2-2
+Added Pin To Net: NetName=GND Pin=SS2-3

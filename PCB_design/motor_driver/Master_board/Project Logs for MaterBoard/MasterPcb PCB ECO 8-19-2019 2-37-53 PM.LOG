@@ -1,0 +1,16 @@
+Added Component: Designator=C17(CP1/3.0)
+Added Component: Designator=C18(CP1/3.0)
+Added Component: Designator=C19(CP1/3.0)
+Added Component: Designator=C20(CP1/3.0)
+Added Component: Designator=C21(CP1/3.0)
+Added Component: Designator=C22(CP1/3.0)
+Added Pin To Net: NetName=VCC_MO Pin=C17-1
+Added Pin To Net: NetName=GND Pin=C17-2
+Added Pin To Net: NetName=MO_5V Pin=C18-1
+Added Pin To Net: NetName=GND_MCU Pin=C18-2
+Added Pin To Net: NetName=VCC_MO Pin=C19-1
+Added Pin To Net: NetName=GND Pin=C19-2
+Added Pin To Net: NetName=MO_5V Pin=C20-1
+Added Pin To Net: NetName=GND_MCU Pin=C20-2
+Added Pin To Net: NetName=MO_5V Pin=C22-1
+Added Pin To Net: NetName=GND_MCU Pin=C22-2

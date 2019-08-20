@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Valves_module.PrjPCB]
+   Generated File[IObuffer.TXT]
+   Generated File[IObuffer.LDP]
+   Generated File[IObuffer.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 11:11:46 AM On 8/19/2019

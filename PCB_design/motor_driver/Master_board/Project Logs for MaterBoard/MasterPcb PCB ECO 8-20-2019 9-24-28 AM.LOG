@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=PA2 Pin=JP1-1
+Removed Pin From Net: NetName=PA3 Pin=JP1-2
+Removed Pin From Net: NetName=PA4 Pin=JP1-3
+Removed Pin From Net: NetName=PB1 Pin=JP1-4
+Removed Pin From Net: NetName=PB13 Pin=JP1-7
+Removed Pin From Net: NetName=PB12 Pin=JP1-8
+Added Component: Designator=JP2(Jump 8)
+Added Pin To Net: NetName=PB1 Pin=JP1-1
+Added Pin To Net: NetName=PB12 Pin=JP1-7
+Added Pin To Net: NetName=PB13 Pin=JP1-8
+Added Pin To Net: NetName=PB14 Pin=JP2-1
+Added Pin To Net: NetName=PB15 Pin=JP2-2
+Added Pin To Net: NetName=PA2 Pin=JP2-4
+Added Pin To Net: NetName=PA3 Pin=JP2-5
+Added Pin To Net: NetName=PA4 Pin=JP2-6
+Added Pin To Net: NetName=PA12 Pin=JP2-7
+Added Pin To Net: NetName=PA15 Pin=JP2-8
+Added Pin To Net: NetName=PA15 Pin=U1-38
+Added Net: Name=PA15
+Added Pin To Net: NetName=PB3 Pin=JP1-2
+Added Pin To Net: NetName=PB3 Pin=U1-39
+Added Net: Name=PB3
+Added Pin To Net: NetName=PB4 Pin=JP1-3
+Added Pin To Net: NetName=PB4 Pin=U1-40
+Added Net: Name=PB4
+Added Pin To Net: NetName=PB5 Pin=JP1-4
+Added Pin To Net: NetName=PB5 Pin=U1-41
+Added Net: Name=PB5
