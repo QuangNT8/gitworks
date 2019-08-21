@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\gitworks\PCB_design\motor_driver\Master_board\MasterPcb.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=masterpcb-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=masterpcb-slotholes.txt|DrillLayers=gtl,gbl

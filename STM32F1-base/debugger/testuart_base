@@ -1,0 +1,12 @@
+Project{name:'testuart'}
+Section{name:'Fields'}
+Field{name:'Field 1',min:0,max:65535,value:0,readonly:0,command:3}
+Field{name:'Field 2',min:0,max:65535,value:0,readonly:0,command:2}
+Field{name:'Field 3',min:0,max:65535,value:0,readonly:0,command:1}
+Section{name:'Actions'}
+Button{name:'Button 1',command:5}
+Button{name:'Button 2',command:4}
+Chart{ name:'Chart 1',min:0,max:16960,visible:1}
+Plot{name:'Plot 1',color:'#444444',highSpeed:0}
+Chart{ name:'Chart 2',min:0,max:16960,visible:1}
+Plot{name:'Plot 2',color:'#444444',highSpeed:0}

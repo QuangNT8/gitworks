@@ -1,0 +1,25 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: MasterPcb.PcbDoc   8/21/2019  11:17:56 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MasterPcb-RoundHoles.TXT
+ASCII SlotHoles File : MasterPcb-SlotHoles.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.3mm (11.811mil)        Round          106              594.01 mm (23.39 Inch)
+T2        0.6mm (23.622mil)        Round          4                37.77 mm (1.49 Inch)
+T3        0.7874mm (31mil)         Round          8                16.62 mm (0.65 Inch)
+T4        0.7874mm (31mil)         Slot           4                56.75 mm (2.23 Inch)
+T5        0.8mm (31.496mil)        Round          22               326.54 mm (12.86 Inch)
+T6        0.9mm (35.433mil)        Round          16               43.44 mm (1.71 Inch)
+T7        1mm (39.37mil)           Round          54               432.69 mm (17.04 Inch)
+T8        1.016mm (40mil)          Round          14               125.65 mm (4.95 Inch)
+T9        1.524mm (60mil)          Round          3                10.16 mm (0.40 Inch)
+T10       1.6mm (62.992mil)        Round          2                5.08 mm (0.20 Inch)
+T11       3mm (118.11mil)          Round          6                332.74 mm (13.10 Inch)
+---------------------------------------------------------------------------
+Totals                                            239              1981.45 mm (78.01 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:01
