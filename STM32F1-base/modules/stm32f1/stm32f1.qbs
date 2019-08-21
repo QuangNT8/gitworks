@@ -27,23 +27,14 @@ Module
     }
 
     cpp.driverFlags:
-        [
-        "-mthumb",
-        "-mcpu=cortex-m3",
-        "-mfloat-abi=soft",
-        "-fno-strict-aliasing",
-        "-g3",
-        "-Wall",
-        "-mfpu=vfp",
-        "-flto"
+    [
+        "-mlittle-endian", "-mcpu=cortex-m3",  "-march=armv6-m", "-mthumb", "-specs=nano.specs", "-specs=nosys.specs"
     ]
 
     cpp.commonCompilerFlags:
         [
         "-fdata-sections",
         "-ffunction-sections",
-        "-fno-inline",
-        "-flto"
     ]
 
     cpp.linkerFlags:
@@ -99,7 +90,7 @@ Module
         prepare:
         {
             var OpenOCDInterface = "stlink-v2.cfg"
-            var OpenOCDTarget = "stm32f0x.cfg"
+            var OpenOCDTarget = "stm32f1x.cfg"
 
             var argsFlashing =
                     [

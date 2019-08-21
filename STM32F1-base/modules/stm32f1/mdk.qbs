@@ -38,10 +38,9 @@ StaticLibrary
     files:
     [
         "system/cmsis/Include/*.h",
-        "system/STM32F1xx_HAL_Driver/inc/*.h",
+        "system/STM32F1xx_HAL_Driver/Inc/*.h",
         "system/STM32F1xx_HAL_Driver/Src/*.c",
         "system/startup/startup_stm32f103xb.s",
-        "system/Src/system_stm32f1xx.c",
         "system/Src/*.c",
         "system/Inc/*.h",
         "system/cmsis/Device/ST/STM32F1xx/Include/*.h",
