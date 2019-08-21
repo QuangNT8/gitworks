@@ -1,0 +1,23 @@
+syntax = "proto2";
+package comm;
+
+enum ErrorType
+{
+    OK = 0;
+    REQUEST_INVALID = 1000;
+    INTERNAL_ERROR = 1001;
+    DB_ERROR = 1002;
+    SESSION_INVALID = 1004;
+}
+
+message Reply
+{
+    required uint32 type = 1;
+    extensions 4 to max;
+}
+
+message Event
+{
+    optional uint64 time = 1;
+    extensions 4 to max;
+}

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=OP4-3
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=U5-44
+Added Pin To Net: NetName=PWM-IN-OPTO-BL Pin=OP4-3
+Added Pin To Net: NetName=PWM-IN-OPTO-BL Pin=U5-44
+Added Net: Name=PWM-IN-OPTO-BL

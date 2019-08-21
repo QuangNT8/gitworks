@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND_MCU Pin=C49-2
+Change Component DesignItemId : Designator=C48 Old DesignItemId=TU_NHOM_470uF_25V_MH New DesignItemId=Capacitor TuHoa
+Change Component DesignItemId : Designator=C49 Old DesignItemId=TU_NHOM_470uF_25V_MH New DesignItemId=Capacitor TuHoa
+Change Component Footprint: Designator=C48 Old Footprint=TU_NHOM_470uF_25V_MH New Footprint=CP1/3.0
+Change Component Footprint: Designator=C49 Old Footprint=TU_NHOM_470uF_25V_MH New Footprint=CP1/3.0
+Change Component Comment : Designator=C48 Old Comment=470uF New Comment=390uF
+Change Component Comment : Designator=C49 Old Comment=470uF New Comment=390uF

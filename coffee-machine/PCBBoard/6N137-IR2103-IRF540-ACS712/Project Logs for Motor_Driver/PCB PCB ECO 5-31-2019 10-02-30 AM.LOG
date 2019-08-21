@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetC31_1 Pin=C11-1
+Change Component DesignItemId : Designator=C3 Old DesignItemId=Capacitor 0805 New DesignItemId=VJ1210A102JXGAT5Z
+Change Component Footprint: Designator=C3 Old Footprint=TU_SMD_0805 New Footprint=1210
+Change Component Comment : Designator=C3 Old Comment=104 New Comment=VJ1210A102JXGAT5Z
+Change Component Designator: OldDesignator=C3 NewDesignator=C34
+Added Component: Designator=C31(0805_HV)
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2

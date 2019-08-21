@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=GND Pin=U7-10
+Removed Pin From Net: NetName=5V Pin=U7-20
+Removed Pin From Net: NetName=GND Pin=U8-10
+Removed Pin From Net: NetName=5V Pin=U8-20
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=GND Pin=C21-1
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=GND Pin=C24-2
+Added Pin To Net: NetName=GND Pin=C25-1
+Added Pin To Net: NetName=GND Pin=C26-2
+Added Pin To Net: NetName=GND Pin=CON2-1
+Added Pin To Net: NetName=GND Pin=CON3-3
+Added Pin To Net: NetName=GND Pin=Hall1-5
+Added Pin To Net: NetName=GND Pin=Hall2-5
+Added Pin To Net: NetName=GND Pin=R13-1
+Added Pin To Net: NetName=GND Pin=SPI1-1
+Added Pin To Net: NetName=GND Pin=U5-12
+Added Pin To Net: NetName=GND Pin=U5-31
+Added Pin To Net: NetName=GND Pin=U5-63
+Added Pin To Net: NetName=GND Pin=UART1-1
+Change Net Name : Old Net Name=GND New Net Name=GND_MCU
+Added Pin To Net: NetName=GND Pin=U7-10
+Added Pin To Net: NetName=GND Pin=U8-10
+Added Net: Name=GND
+Added Pin To Net: NetName=VCC Pin=U7-20
+Added Pin To Net: NetName=VCC Pin=U8-20
+Added Net: Name=VCC

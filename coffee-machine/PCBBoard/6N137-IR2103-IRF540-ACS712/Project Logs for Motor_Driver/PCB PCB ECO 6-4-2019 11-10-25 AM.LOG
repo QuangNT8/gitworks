@@ -1,0 +1,6 @@
+Added Component: Designator=R38(0805_hv)
+Added Component: Designator=R40(0805_hv)
+Added Pin To Net: NetName=NetC33_2 Pin=R38-1
+Added Pin To Net: NetName=PRI_12V Pin=R38-2
+Added Pin To Net: NetName=GND_MO Pin=R40-1
+Added Pin To Net: NetName=NetC33_2 Pin=R40-2

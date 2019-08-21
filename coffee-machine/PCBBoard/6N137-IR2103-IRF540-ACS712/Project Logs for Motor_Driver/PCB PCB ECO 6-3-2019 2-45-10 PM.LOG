@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND1 Pin=UART1-1
+Removed Pin From Net: NetName=GND_MCU Pin=UART2-1
+Removed Pin From Net: NetName=TX Pin=UART2-2
+Removed Pin From Net: NetName=RX Pin=UART2-3
+Added Pin To Net: NetName=GND_MCU Pin=UART1-1

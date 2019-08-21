@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=NetC31_1 Pin=C11-1
+Added Component: Designator=C31(0805_HV)
+Added Component: Designator=D6(SOD-323)
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2
+Added Pin To Net: NetName=NetD6_1 Pin=D6-1
+Added Pin To Net: NetName=NetD6_2 Pin=D6-2

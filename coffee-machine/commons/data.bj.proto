@@ -1,0 +1,71 @@
+syntax = "proto2";
+package data.bj;
+
+message Session
+{
+    required uint64 id = 1;
+    required string host = 2;
+    required uint32 port = 3;
+}
+
+message Network
+{
+    message Neuron
+    {
+        optional double bias = 1;
+        repeated double weights = 3;
+        optional double min = 4;
+        optional double max = 5;
+    }
+    message Layer
+    {
+        repeated Neuron neurons = 1;
+    }
+    repeated Layer layers = 1;
+}
+
+message Motor
+{
+    required uint32 position = 1;
+}
+
+message Tank
+{
+    required uint32 index = 1;
+    required double volume = 2;
+    required uint64 liquidId = 3;
+    optional bool pouring = 4;
+}
+
+message Liquid
+{
+    required uint64 id = 1;
+    required string name = 2;
+    optional Network network = 3;
+}
+
+message Recipe
+{
+    message Ingredient
+    {
+        required uint64 liquidId = 1;
+        required double volume = 2;
+        optional uint32 min = 3;
+        optional uint32 max = 4;
+        optional string name = 5;
+    }
+
+    required uint64 id = 1;
+    required string name = 2;
+    required string description = 3;
+    optional string image = 4;
+    repeated Ingredient ingredients = 5;
+    optional bytes imageData = 6;
+}
+
+message Data
+{
+    repeated Liquid liquids = 1;
+    repeated Recipe recipes = 2;
+}
+

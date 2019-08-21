@@ -1,0 +1,11 @@
+Project{name:'test-f103'}
+Section{name:'Fields'}
+Field{name:'Field 1',min:0,max:4096,value:0,readonly:0,command:3}
+Section{name:'Actions'}
+Button{name:'togglePump',command:6}
+Button{name:'closePump',command:5}
+Button{name:'openPump',command:4}
+Chart{ name:'Chart 1',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 1',color:'#444444',highSpeed:0}
+Chart{ name:'Chart 2',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 2',color:'#444444',highSpeed:0}

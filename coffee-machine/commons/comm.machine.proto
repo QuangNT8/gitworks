@@ -1,0 +1,253 @@
+syntax = "proto2";
+import "comm.proto";
+import "data.bj.proto";
+package comm.machine;
+
+message KeepAlive
+{
+    message Request
+    {
+        optional uint64 lastUpdate = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1000; }
+        optional uint64 lastUpdate = 1;
+    }
+}
+
+message LoggedOut
+{
+    extend comm.Event { optional LoggedOut EXT = 1001; }
+}
+
+message Login
+{
+    message Request
+    {
+        required uint32 type = 1; // 1 for console, 2 for order
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1002; }
+        required bool debugMode = 1;
+        required bool machineReady = 2;
+        repeated data.bj.Recipe recipes = 3;
+        repeated data.bj.Liquid liquids = 4;
+        repeated data.bj.Tank tanks = 5;
+        required data.bj.Motor leftMotors = 6;
+        required data.bj.Motor rightMotors = 7;
+        optional data.bj.Session session = 8;
+    }
+}
+
+message DownloadFile
+{
+    message Request
+    {
+        required string name = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1003; }
+        required bytes data = 1;
+    }
+}
+
+message StateChanged
+{
+    extend comm.Event { optional StateChanged EXT = 1004; }
+    optional data.bj.Motor leftMotors = 1;
+    optional data.bj.Motor rightMotors = 2;
+    optional bool debugMode = 3;
+    optional uint32 drinkMadeOnDoor = 4;
+    optional bool machineReady = 5;
+    repeated data.bj.Tank tanks = 6;
+
+}
+
+message MessageReceived
+{
+    extend comm.Event { optional MessageReceived EXT = 1005; }
+    required string text = 1;
+}
+
+message OpenValve
+{
+    message Request
+    {
+        required uint32 index = 1;
+        optional uint32 time = 2;
+        optional double vol = 3;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1006; }
+    }
+    enum Error
+    {
+        TANK_INVALID = 1;
+        VOLUME_INVALID = 2;
+        TIME_INVALID = 3;
+    }
+}
+
+message MoveTo
+{
+    message Request
+    {
+        required uint32 index = 1; //0: for left motor, 1 for right motor
+        required uint32 position = 2;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1007; }
+    }
+}
+
+message ChangeTank
+{
+    message Request
+    {
+        required uint32 index = 1;
+        required uint64 liquid = 2;
+        required double volume = 3;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1008; }
+    }
+}
+
+message UpdateRecipe // id = 0 for ADD, else update
+{
+    message Request
+    {
+        required data.bj.Recipe recipe = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1009; }
+        required data.bj.Recipe recipe = 1;
+    }
+    enum Error
+    {
+        IMAGE_INVALID = 1;
+    }
+}
+
+message RemoveRecipe
+{
+    message Request
+    {
+        required uint64 id = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1010; }
+    }
+}
+
+message CheckOrder
+{
+    message Request
+    {
+        required uint32 door = 1;
+        repeated Ingredient ingredients = 2;
+        message Ingredient
+        {
+            required uint64 liquidId = 1;
+            required uint32 volume = 2;
+        }
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1011; }
+    }
+    enum Error
+    {
+        BUSY = 1;
+        LIQUID_NOT_ENOUGH = 2;
+        IN_DEBUG_MODE = 3;
+        MACHINE_CRASHED = 4;
+        MOTOR_INVALID = 5;
+        NEURAL_NETWORK_INVALID = 6;
+    }
+}
+
+message MakeDrink
+{
+    message Request
+    {
+        required uint32 door = 1;
+        repeated Ingredient ingredients = 2;
+        optional bool loop = 3;
+        message Ingredient
+        {
+            required uint64 liquidId = 1;
+            required uint32 volume = 2;
+        }
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1012; }
+    }
+    enum Error
+    {
+        BUSY = 1;
+        LIQUID_NOT_ENOUGH = 2;
+        IN_DEBUG_MODE = 3;
+        MACHINE_CRASHED = 4;
+        MOTOR_INVALID = 5;
+        NEURAL_NETWORK_INVALID = 6;
+    }
+}
+
+
+message UpdateLiquid // id = 0 for ADD, else update
+{
+    message Request
+    {
+        required data.bj.Liquid liquid = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1013; }
+        required data.bj.Liquid liquid = 1;
+    }
+}
+
+message UpdateDebugMode
+{
+    message Request
+    {
+        required bool value = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1014; }
+    }
+}
+
+message OrderStateChanged
+{
+    extend comm.Event { optional StateChanged EXT = 1015; }
+    required uint32 state = 1;
+    enum State
+    {
+        DONE = 1;
+        ERROR = 2;
+    }
+}
+
+message ResetMachine
+{
+    message Request
+    {
+
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1016; }
+    }
+}

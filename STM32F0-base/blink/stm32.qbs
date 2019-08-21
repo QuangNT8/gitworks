@@ -1,0 +1,26 @@
+import qbs
+
+Product
+{
+    name: "blink"
+    type: ["application", "hex", "flash"]
+//    type: ["application", "hex"]
+
+    Depends{name: "cpp"}
+    Depends{name: "stm32f0"}
+    Depends{name: "mdk"}
+//    Depends{name: "timer"}
+//    Depends{name: "osc"}
+//    Depends{name: "GPIO"}
+//    Depends{name: "Usart"}
+
+    cpp.includePaths: [project.sourceDirectory]
+    cpp.defines:
+    [
+         'STM32F051x8',
+       '___int16_t_defined',
+        '___int8_t_defined',
+    ]
+    files:["main.cpp"]
+}
+

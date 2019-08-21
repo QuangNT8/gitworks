@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetC31_1 Pin=C11-1
+Change Component Footprint: Designator=OP1 Old Footprint=DIP8 New Footprint=SMD-8_6.3MM
+Change Component Footprint: Designator=OP2 Old Footprint=DIP8 New Footprint=SMD-8_6.3MM
+Change Component Footprint: Designator=OP3 Old Footprint=DIP8 New Footprint=SMD-8_6.3MM
+Change Component Footprint: Designator=OP4 Old Footprint=DIP8 New Footprint=SMD-8_6.3MM
+Added Component: Designator=C31(0805_HV)
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2

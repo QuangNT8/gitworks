@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>PlotView.qml</file>
+        <file>Terminal.qml</file>
+        <file>ControlPanel.qml</file>
+        <file>Serial.qml</file>
+        <file>FieldItem.qml</file>
+        <file>SectionItem.qml</file>
+        <file>ButtonItem.qml</file>
+        <file>PlotItem.qml</file>
+        <file>PlotHeaderItem.qml</file>
+        <file>Welcome.qml</file>
+        <file>ProjectEditor.qml</file>
+        <file>SectionEditor.qml</file>
+        <file>FieldEditor.qml</file>
+        <file>ButtonEditor.qml</file>
+        <file>ChartEditor.qml</file>
+        <file>PlotEditor.qml</file>
+        <file>TextItem.qml</file>
+        <file>NumberItem.qml</file>
+        <file>CheckItem.qml</file>
+        <file>FileItem.qml</file>
+        <file>PlotAnalyse.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,14 @@
+Added Component: Designator=C26(0805_HV)
+Added Component: Designator=C27(0805_HV)
+Added Component: Designator=C54(0805_HV)
+Added Component: Designator=U11(SOT223)
+Added Pin To Net: NetName=GND_MO Pin=C26-1
+Added Pin To Net: NetName=DRV_12V Pin=C26-2
+Added Pin To Net: NetName=GND_MO Pin=C27-1
+Added Pin To Net: NetName=OP_5V Pin=C27-2
+Added Pin To Net: NetName=GND_MO Pin=C54-1
+Added Pin To Net: NetName=OP_5V Pin=C54-2
+Added Pin To Net: NetName=GND_MO Pin=U11-1
+Added Pin To Net: NetName=OP_5V Pin=U11-2
+Added Pin To Net: NetName=DRV_12V Pin=U11-3
+Added Pin To Net: NetName=OP_5V Pin=U11-4

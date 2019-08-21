@@ -1,0 +1,51 @@
+Project{name:'bj-board'}
+Section{name:'Position Control'}
+Field{name:'pKP',min:0,max:4096,value:600,readonly:0,command:9}
+Field{name:'pKI',min:0,max:4096,value:0,readonly:0,command:8}
+Field{name:'pKD',min:0,max:4096,value:0,readonly:0,command:7}
+Field{name:'vKP',min:0,max:4096,value:30,readonly:0,command:21}
+Field{name:'vKI',min:0,max:4096,value:0,readonly:0,command:24}
+Field{name:'KAFF',min:0,max:4096,value:100,readonly:0,command:23}
+Field{name:'KVFF',min:0,max:4096,value:100,readonly:0,command:22}
+Field{name:'Position',min:-30000,max:30000,value:0,readonly:0,command:6}
+Field{name:'Speed',min:0,max:30000,value:1000,readonly:0,command:10}
+Field{name:'Accel',min:0,max:4096,value:3,readonly:0,command:11}
+Section{name:'Current Control'}
+Field{name:'Pd',min:0,max:4096,value:800,readonly:0,command:15}
+Field{name:'Id',min:0,max:4096,value:80,readonly:0,command:14}
+Field{name:'Pq',min:0,max:4096,value:70,readonly:0,command:13}
+Field{name:'Iq',min:0,max:4096,value:0,readonly:0,command:12}
+Section{name:'Actions'}
+Field{name:'Angle',min:0,max:20000,value:16383,readonly:1,command:19}
+Field{name:'iaOfset',min:0,max:4096,value:0,readonly:1,command:44}
+Field{name:'ibOfset',min:0,max:4096,value:0,readonly:1,command:43}
+Button{name:'Calibrate',command:18}
+Button{name:'Set zero',command:25}
+Button{name:'Start Motor',command:17}
+Button{name:'Stop Motor',command:16}
+Button{name:'Read DRV',command:20}
+Section{name:'Option'}
+Button{name:'Option1',command:26}
+Button{name:'Option2',command:42}
+Button{name:'Option3',command:41}
+Button{name:'Option4',command:40}
+Button{name:'Option5',command:39}
+Section{name:'Time Open Valve (s)'}
+Field{name:'Valve1',min:0,max:4096,value:0,readonly:0,command:30}
+Field{name:'Valve2',min:0,max:4096,value:2,readonly:0,command:29}
+Field{name:'Valve3',min:0,max:4096,value:0,readonly:0,command:28}
+Field{name:'Valve4',min:0,max:4096,value:2,readonly:0,command:27}
+Field{name:'Valve5',min:0,max:4096,value:0,readonly:0,command:38}
+Field{name:'Valve6',min:0,max:4096,value:2,readonly:0,command:37}
+Field{name:'Valve7',min:0,max:4096,value:0,readonly:0,command:36}
+Field{name:'Valve8',min:0,max:4096,value:2,readonly:0,command:35}
+Field{name:'Valve9',min:0,max:4096,value:0,readonly:0,command:34}
+Field{name:'Valve10',min:0,max:4096,value:2,readonly:0,command:33}
+Field{name:'Valve11',min:0,max:4096,value:0,readonly:0,command:32}
+Field{name:'Valve12',min:0,max:4096,value:0,readonly:0,command:31}
+Chart{ name:'Chart 1',min:-32000,max:32000,visible:1}
+Plot{name:'pRef',color:'#cc0000',highSpeed:0}
+Plot{name:'p',color:'#3465a4',highSpeed:0}
+Chart{ name:'Chart 2',min:-5000,max:5000,visible:1}
+Plot{name:'vRef',color:'#75507b',highSpeed:0}
+Plot{name:'v',color:'#ce5c00',highSpeed:0}

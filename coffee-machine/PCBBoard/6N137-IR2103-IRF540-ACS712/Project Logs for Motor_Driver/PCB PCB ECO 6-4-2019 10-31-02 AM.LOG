@@ -1,0 +1,6 @@
+Added Component: Designator=C31(0805_hv)
+Added Component: Designator=C33(0805_hv)
+Added Pin To Net: NetName=NetC31_1 Pin=C31-1
+Added Pin To Net: NetName=PRI_12V Pin=C31-2
+Added Pin To Net: NetName=NetC31_1 Pin=C33-1
+Added Pin To Net: NetName=NetC33_2 Pin=C33-2

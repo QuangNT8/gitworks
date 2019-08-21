@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=12V Pin=C30-1
+Removed Pin From Net: NetName=12V Pin=D4-2
+Removed Pin From Net: NetName=12V Pin=R34-2
+Added Component: Designator=P2(HDR1X2)
+Added Pin To Net: NetName=12V Pin=P2-2
+Added Pin To Net: NetName=NetC30_1 Pin=C30-1
+Added Pin To Net: NetName=NetC30_1 Pin=D4-2
+Added Pin To Net: NetName=NetC30_1 Pin=P2-1
+Added Pin To Net: NetName=NetC30_1 Pin=R34-2
+Added Net: Name=NetC30_1

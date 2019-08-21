@@ -1,0 +1,7 @@
+Added Component: Designator=T1(POE13P)
+Added Pin To Net: NetName=PRI_12V Pin=T1-2
+Added Pin To Net: NetName=SW Pin=T1-3
+Added Pin To Net: NetName=NetD3_2 Pin=T1-7
+Added Pin To Net: NetName=IGND Pin=T1-8
+Added Pin To Net: NetName=NetD4_2 Pin=T1-9
+Added Pin To Net: NetName=GND_MO Pin=T1-10

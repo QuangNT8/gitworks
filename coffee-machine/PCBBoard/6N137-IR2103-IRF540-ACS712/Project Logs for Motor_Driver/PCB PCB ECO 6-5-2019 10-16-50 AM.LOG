@@ -1,0 +1,7 @@
+Added Component: Designator=TP7(PIN1)
+Added Component: Designator=TP8(PIN1)
+Added Component: Designator=TP9(PIN1)
+Added Component: Designator=TP10(PIN1)
+Added Pin To Net: NetName=PWM-IN-OPTO-AH Pin=TP7-1
+Added Pin To Net: NetName=PWM-IN-OPTO-AL Pin=TP8-1
+Added Pin To Net: NetName=PWM-IN-OPTO-BL Pin=TP10-1

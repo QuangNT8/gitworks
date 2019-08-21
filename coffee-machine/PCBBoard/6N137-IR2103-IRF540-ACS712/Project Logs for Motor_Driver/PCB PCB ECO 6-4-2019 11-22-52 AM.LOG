@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=DRV_12V Pin=F1-2
+Removed Pin From Net: NetName=IGND Pin=T1-8
+Removed Pin From Net: NetName=GND_MO Pin=T1-10
+Change Component Footprint: Designator=D4 Old Footprint=SOD-123 New Footprint=SOD123
+Added Pin To Net: NetName=12V Pin=D4-1
+Added Pin To Net: NetName=NetD4_2 Pin=T1-7
+Added Pin To Net: NetName=GND_MCU Pin=T1-8
+Added Pin To Net: NetName=GND_MCU Pin=T1-10

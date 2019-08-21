@@ -1,0 +1,12 @@
+Project{name:'motor-coffee-machine'}
+Section{name:'Speed Control'}
+Field{name:'Speed',min:-30000,max:30000,value:10,readonly:0,command:6}
+Section{name:'Actions'}
+Field{name:'Round',min:0,max:20000,value:0,readonly:1,command:19}
+Button{name:'Start Motor',command:17}
+Button{name:'Stop Motor',command:16}
+Chart{ name:'Chart 1',min:-5000,max:5000,visible:1}
+Plot{name:'ia',color:'#cc0000',highSpeed:0}
+Plot{name:'ib',color:'#3465a4',highSpeed:0}
+Chart{ name:'Chart 2',min:-25000,max:25000,visible:1}
+Plot{name:'Angle',color:'#75507b',highSpeed:0}

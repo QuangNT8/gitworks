@@ -1,0 +1,6 @@
+Added Component: Designator=TP1(PIN1)
+Added Component: Designator=TP2(PIN1)
+Added Component: Designator=TP3(PIN1)
+Added Pin To Net: NetName=IA Pin=TP1-1
+Added Pin To Net: NetName=IB Pin=TP2-1
+Added Pin To Net: NetName=GND_MCU Pin=TP3-1

@@ -1,0 +1,190 @@
+syntax = "proto2";
+import "comm.proto";
+import "data.kit.proto";
+package comm.kit;
+
+message KeepAlive
+{
+    message Request
+    {
+        optional uint64 lastUpdate = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1000; }
+        optional uint64 lastUpdate = 1;
+    }
+}
+
+message LoggedOut
+{
+    extend comm.Event { optional LoggedOut EXT = 1001; }
+}
+
+message Login
+{
+    message Request
+    {
+
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1002; }
+        repeated data.kit.Project projects = 1;
+        optional string currentProject = 2;
+        required uint32 state = 3;
+    }
+}
+
+message CreateProject
+{
+    message Request
+    {
+        required string name = 1;
+        required uint32 total = 2;
+        optional double tankSize = 3;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1003; }
+        required data.kit.Project project = 1;
+    }
+    enum Error
+    {
+        FILE_CREATE_ERROR = 1;
+    }
+}
+message SampleCreated
+{
+    extend comm.Event { optional SampleCreated EXT = 1004; }
+    required string project = 1;
+    required uint32 remain = 2;
+    required data.kit.Sample sample = 3;
+}
+
+message ProjectUpdated
+{
+    extend comm.Event { optional ProjectUpdated EXT = 1005; }
+    required data.kit.Project project = 1;
+}
+
+message MessageReceived
+{
+    extend comm.Event { optional MessageReceived EXT = 1006; }
+    required string text = 1;
+}
+
+message RemoveProject
+{
+    message Request
+    {
+        required string id = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1007; }
+    }
+    enum Error
+    {
+        IS_RUNNING = 1;
+    }
+}
+
+message BuildNetwork
+{
+    message Request
+    {
+        required string id = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1008; }
+    }
+}
+
+message StartProject
+{
+    message Request
+    {
+        required string id = 1;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1009; }
+    }
+    enum Error
+    {
+        ANOTHER_PROJECT_IS_RUNNING = 1;
+        THIS_PROJECT_IS_RUNNING = 2;
+    }
+}
+
+message StopProject
+{
+    message Request
+    {
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1010; }
+    }
+}
+
+message StateChanged
+{
+    extend comm.Event { optional StateChanged EXT = 1011; }
+    required uint32 state = 1;
+    optional string current = 2;
+}
+
+message CleanTank
+{
+    message Request
+    {
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1011; }
+    }
+}
+
+message OpenValue
+{
+    message Request
+    {
+        required uint32 value = 1; //projectid == "" open by time, else by vol
+        optional string projectid = 2;
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1012; }
+    }
+    enum Error
+    {
+        VALUE_ERROR = 1;
+    }
+}
+
+message FlushTank
+{
+    message Request
+    {
+
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1013; }
+    }
+}
+
+message ReFillTank
+{
+    message Request
+    {
+
+    }
+    message Reply
+    {
+        extend comm.Reply { optional Reply EXT = 1014; }
+    }
+}

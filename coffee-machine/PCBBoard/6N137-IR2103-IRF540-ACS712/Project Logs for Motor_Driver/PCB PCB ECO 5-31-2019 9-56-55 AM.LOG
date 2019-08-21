@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=IGND Pin=C3-1
+Removed Pin From Net: NetName=NetC31_1 Pin=C11-1
+Change Component DesignItemId : Designator=C4 Old DesignItemId=Capacitor 0805 New DesignItemId=C0805C225K4RACTU
+Change Component Footprint: Designator=C4 Old Footprint=TU_SMD_0805 New Footprint=0805_HV
+Change Component Comment : Designator=C4 Old Comment=104 New Comment=C0805C225K4RACTU
+Change Component Designator: OldDesignator=C4 NewDesignator=C24
+Added Component: Designator=C31(0805_HV)
+Added Component: Designator=C34(1210)
+Added Pin To Net: NetName=DRV_12V Pin=C3-2
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2
+Added Pin To Net: NetName=IGND Pin=C3-1
+Added Pin To Net: NetName=GND_MO Pin=C3-2

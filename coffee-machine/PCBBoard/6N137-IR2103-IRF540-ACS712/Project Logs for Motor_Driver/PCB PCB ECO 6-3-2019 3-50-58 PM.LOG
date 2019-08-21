@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=GND_MCU Pin=U7-10
+Added Pin To Net: NetName=RC3 Pin=U7-20
+Added Pin To Net: NetName=GND_MCU Pin=U8-10
+Added Pin To Net: NetName=RC11 Pin=U8-20

@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=C11 Old DesignItemId=Capacitor TuHoa New DesignItemId=C1608X5R1C105K
+Change Component Footprint: Designator=C11 Old Footprint=CAP_12.5 X 25 New Footprint=0805_HV
+Change Component Comment : Designator=C11 Old Comment=390uF New Comment=C1608X5R1C105K
+Change Component Designator: OldDesignator=C11 NewDesignator=C31

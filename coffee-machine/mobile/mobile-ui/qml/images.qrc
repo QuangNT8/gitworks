@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/default_recipe.jpg</file>
+        <file>images/qrcode_guide.png</file>
+        <file>images/bj_logo.png</file>
+        <file>images/put_cup.png</file>
+    </qresource>
+</RCC>

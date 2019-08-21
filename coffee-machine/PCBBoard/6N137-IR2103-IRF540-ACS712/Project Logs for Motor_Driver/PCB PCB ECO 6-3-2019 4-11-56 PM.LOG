@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=RC3 Pin=U7-20
+Removed Pin From Net: NetName=RC11 Pin=U8-20
+Change Component Footprint: Designator=U7 Old Footprint=SOIC-20 New Footprint=DIP20
+Change Component Footprint: Designator=U8 Old Footprint=SOIC-20 New Footprint=DIP20
+Added Pin To Net: NetName=5V Pin=U7-20
+Added Pin To Net: NetName=5V Pin=U8-20

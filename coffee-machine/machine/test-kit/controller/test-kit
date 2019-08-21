@@ -1,0 +1,10 @@
+Project{name:'test-kit'}
+Section{name:'Fields'}
+Field{name:'tvalve',min:0,max:4096,value:0,readonly:0,command:3}
+Section{name:'Actions'}
+Button{name:'openpump',command:5}
+Button{name:'closepump',command:4}
+Chart{ name:'Chart 1',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 1',color:'#444444',highSpeed:0}
+Chart{ name:'Chart 2',min:-4096,max:4096,visible:1}
+Plot{name:'Plot 2',color:'#444444',highSpeed:0}

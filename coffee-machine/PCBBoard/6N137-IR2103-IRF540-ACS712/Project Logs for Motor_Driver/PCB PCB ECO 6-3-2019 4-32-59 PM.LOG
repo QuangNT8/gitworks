@@ -1,0 +1,3 @@
+Change Component DesignItemId : Designator=C43 Old DesignItemId=TU_NHOM_470uF_25V_MH New DesignItemId=Capacitor TuHoa
+Change Component Footprint: Designator=C43 Old Footprint=TU_NHOM_470uF_25V_MH New Footprint=CP1/3.0
+Change Component Comment : Designator=C43 Old Comment=470uF New Comment=390uF

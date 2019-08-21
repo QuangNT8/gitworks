@@ -1,0 +1,6 @@
+Added Component: Designator=C28(CP1/3.0)
+Added Component: Designator=C29(CP1/3.0)
+Added Pin To Net: NetName=5V Pin=C28-1
+Added Pin To Net: NetName=GND_MCU Pin=C28-2
+Added Pin To Net: NetName=DRV_12V Pin=C29-1
+Added Pin To Net: NetName=GND_MO Pin=C29-2

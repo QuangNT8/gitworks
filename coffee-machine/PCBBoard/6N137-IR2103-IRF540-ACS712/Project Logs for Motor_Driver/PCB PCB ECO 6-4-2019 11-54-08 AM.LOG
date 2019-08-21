@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VIN Pin=C37-1
+Removed Pin From Net: NetName=VIN Pin=C38-1
+Removed Pin From Net: NetName=VIN Pin=R36-2
+Removed Pin From Net: NetName=VIN Pin=R37-1
+Removed Pin From Net: NetName=VIN Pin=U6-2
+Added Component: Designator=F1(1206)
+Added Pin To Net: NetName=VIN Pin=F1-2
+Change Net Name : Old Net Name=VIN New Net Name=HV+
+Added Pin To Net: NetName=VIN Pin=C37-1
+Added Pin To Net: NetName=VIN Pin=C38-1
+Added Pin To Net: NetName=VIN Pin=F1-1
+Added Pin To Net: NetName=VIN Pin=R36-2
+Added Pin To Net: NetName=VIN Pin=R37-1
+Added Pin To Net: NetName=VIN Pin=U6-2
+Added Net: Name=VIN

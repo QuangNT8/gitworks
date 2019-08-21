@@ -1,0 +1,39 @@
+syntax = "proto2";
+import "data.bj.proto";
+package data.kit;
+
+message Project
+{
+    required string id = 1;
+    required string name = 2;
+    required string file = 3;
+    required uint64 date = 4;
+    required uint32 total = 5;
+    required uint32 remain = 6;
+    required double tankSize = 7;
+    optional data.bj.Network network = 8;
+    repeated Sample samples = 9;
+    //Todo normal distribution
+}
+
+message ProjectList
+{
+    repeated Project projects = 1;
+}
+
+message Sample
+{
+    required double vTank = 1;
+    required double vOut = 2;
+    required uint32 time = 3;
+    optional uint32 index = 4;
+    optional double vExpected = 5;
+    optional string dateTime = 6;
+}
+
+message File
+{
+    repeated double maxs = 1;
+    repeated double mins = 2;
+    repeated Sample samples  = 3;
+}

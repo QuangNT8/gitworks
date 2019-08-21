@@ -1,0 +1,6 @@
+Added Component: Designator=C34(1210)
+Added Component: Designator=C35(1210)
+Added Pin To Net: NetName=PRI_12V Pin=C34-1
+Added Pin To Net: NetName=GND_MO Pin=C34-2
+Added Pin To Net: NetName=PRI_12V Pin=C35-1
+Added Pin To Net: NetName=GND_MO Pin=C35-2

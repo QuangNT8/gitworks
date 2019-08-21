@@ -1,0 +1,14 @@
+# ignore file user and config
+*.qbs.user
+*.pro.user
+*.pb.cc
+*.pb.h
+
+# ignore folder build
+local.db/
+build-*/**
+build/*
+raspberry/build/*
+build-*
+build.*
+log/*

@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>home/SelectMachinePage.qml</file>
+        <file>home/RecipePageHeader.qml</file>
+        <file>home/RecipeDetailPage.qml</file>
+        <file>home/MenuTab.qml</file>
+        <file>home/HomeView.qml</file>
+        <file>home/HomeTabItem.qml</file>
+        <file>home/EditRecipePage.qml</file>
+        <file>home/CategoryItem.qml</file>
+        <file>commons/TimerSection.qml</file>
+        <file>commons/SectionTitle.qml</file>
+        <file>commons/PageHeader.qml</file>
+        <file>commons/LoadingIndicator.qml</file>
+        <file>commons/Loading.qml</file>
+        <file>commons/InfoBar.qml</file>
+        <file>commons/HeaderIcon.qml</file>
+        <file>commons/FavoriteIndicator.qml</file>
+        <file>commons/DeleteDialog.qml</file>
+        <file>commons/BottomBar.qml</file>
+        <file>commons/BaseSlider.qml</file>
+        <file>commons/BasePage.qml</file>
+        <file>commons/BaseItem.qml</file>
+        <file>commons/Avatar.qml</file>
+        <file>home/GetDrinkPage.qml</file>
+        <file>home/SplashView.qml</file>
+    </qresource>
+</RCC>

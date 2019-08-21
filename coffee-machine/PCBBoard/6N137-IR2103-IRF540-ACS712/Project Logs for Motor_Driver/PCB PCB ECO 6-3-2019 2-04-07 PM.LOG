@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=GND Pin=U6-1
+Removed Pin From Net: NetName=PB8 Pin=U6-2
+Removed Pin From Net: NetName=PB9 Pin=U6-3
+Removed Pin From Net: NetName=PB10 Pin=U6-4
+Removed Pin From Net: NetName=PB11 Pin=U6-5
+Removed Pin From Net: NetName=PB12 Pin=U6-6
+Removed Pin From Net: NetName=PB13 Pin=U6-7
+Removed Pin From Net: NetName=PB14 Pin=U6-8
+Removed Pin From Net: NetName=PB15 Pin=U6-9
+Change Component DesignItemId : Designator=U6 Old DesignItemId=74HC573 DIP20 IC Flip-Flop_MH New DesignItemId=LM5017MRX/NOPB
+Change Component Footprint: Designator=U6 Old Footprint=SOIC-20 New Footprint=MRA08A_N
+Change Component Comment : Designator=U6 Old Comment=74HC573 New Comment=LM5017MRX/NOPB
+Added Component: Designator=U8(SOIC-20)
+Added Pin To Net: NetName=GND Pin=U8-1
+Added Pin To Net: NetName=PB8 Pin=U8-2
+Added Pin To Net: NetName=PB9 Pin=U8-3
+Added Pin To Net: NetName=PB10 Pin=U8-4
+Added Pin To Net: NetName=PB11 Pin=U8-5
+Added Pin To Net: NetName=PB12 Pin=U8-6
+Added Pin To Net: NetName=PB13 Pin=U8-7
+Added Pin To Net: NetName=PB14 Pin=U8-8
+Added Pin To Net: NetName=PB15 Pin=U8-9
+Added Pin To Net: NetName=GND Pin=U8-10
+Added Pin To Net: NetName=5V Pin=U8-11
+Added Pin To Net: NetName=RC16 Pin=U8-12
+Added Pin To Net: NetName=RC15 Pin=U8-13
+Added Pin To Net: NetName=RC14 Pin=U8-14
+Added Pin To Net: NetName=RC13 Pin=U8-15
+Added Pin To Net: NetName=RC12 Pin=U8-16
+Added Pin To Net: NetName=RC11 Pin=U8-17
+Added Pin To Net: NetName=RC10 Pin=U8-18
+Added Pin To Net: NetName=RC9 Pin=U8-19
+Added Pin To Net: NetName=5V Pin=U8-20

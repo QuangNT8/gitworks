@@ -1,0 +1,166 @@
+Removed Pin From Net: NetName=GND_MCU Pin=C17-1
+Removed Pin From Net: NetName=IA Pin=C17-2
+Removed Pin From Net: NetName=GND_MCU Pin=C18-1
+Removed Pin From Net: NetName=IB Pin=C18-2
+Removed Pin From Net: NetName=5VP Pin=C23-1
+Removed Pin From Net: NetName=IGND Pin=C23-2
+Removed Pin From Net: NetName=SEC_12V Pin=C25-1
+Removed Pin From Net: NetName=GND_MO Pin=C25-2
+Removed Pin From Net: NetName=GND_MCU Pin=CON1-1
+Removed Pin From Net: NetName=GND_MCU Pin=CON2-1
+Removed Pin From Net: NetName=+12V Pin=CON2-2
+Removed Pin From Net: NetName=+3.3V Pin=KIT1-1
+Removed Pin From Net: NetName=GND1 Pin=KIT1-2
+Removed Pin From Net: NetName=GND1 Pin=KIT1-9
+Removed Pin From Net: NetName=IA Pin=KIT1-11
+Removed Pin From Net: NetName=IB Pin=KIT1-12
+Removed Pin From Net: NetName=NSCS_AS Pin=KIT1-17
+Removed Pin From Net: NetName=SCLK Pin=KIT1-22
+Removed Pin From Net: NetName=MISO Pin=KIT1-23
+Removed Pin From Net: NetName=MOSI Pin=KIT1-24
+Removed Pin From Net: NetName=GND1 Pin=KIT1-35
+Removed Pin From Net: NetName=RX Pin=KIT1-40
+Removed Pin From Net: NetName=TX Pin=KIT1-41
+Removed Pin From Net: NetName=PWM-IN-OPTO-BH Pin=KIT1-42
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=KIT1-43
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=KIT1-57
+Removed Pin From Net: NetName=PWM-IN-OPTO-AH Pin=KIT1-58
+Removed Pin From Net: NetName=GND_MCU Pin=SPI1-1
+Removed Pin From Net: NetName=+3.3V Pin=SPI1-2
+Removed Pin From Net: NetName=NSCS_AS Pin=SPI1-3
+Removed Pin From Net: NetName=SCLK Pin=SPI1-4
+Removed Pin From Net: NetName=MOSI Pin=SPI1-5
+Removed Pin From Net: NetName=MISO Pin=SPI1-6
+Removed Pin From Net: NetName=GND_MCU Pin=UART1-1
+Removed Pin From Net: NetName=TX Pin=UART1-2
+Removed Pin From Net: NetName=RX Pin=UART1-3
+Change Component Comment : Designator=U? Old Comment=STM32F051R8T6 LQFP64 _MH New Comment=STM32F051R8T6 LQFP64
+Change Component Designator: OldDesignator=C19 NewDesignator=C?
+Change Component Designator: OldDesignator=C24 NewDesignator=C?
+Change Component Designator: OldDesignator=C27 NewDesignator=C?
+Change Component Designator: OldDesignator=C31 NewDesignator=C?
+Change Component Designator: OldDesignator=C34 NewDesignator=C?
+Change Component Designator: OldDesignator=F1 NewDesignator=F?
+Change Component Designator: OldDesignator=F2 NewDesignator=F?
+Change Component Designator: OldDesignator=R33 NewDesignator=R?
+Change Component Designator: OldDesignator=R34 NewDesignator=R?
+Change Component Designator: OldDesignator=R35 NewDesignator=R?
+Change Component Designator: OldDesignator=R37 NewDesignator=R?
+Change Component Designator: OldDesignator=U5 NewDesignator=U?
+Change Component Description : Designator=C? Old Description=Ceramic Chip Capacitor - Standard New Description=
+Change Component Library : Designator=U? Old Library=MH_DA_THU_VIEN_16122016.SchLib New Library=mySch.SchLib
+Added Component: Designator=C?(0805_hv)
+Added Component: Designator=C?(0603_Cap)
+Added Component: Designator=C?(0805_hv)
+Added Component: Designator=C?(0805_hv)
+Added Component: Designator=C?(0603_Cap)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=C?(TU_SMD_0805)
+Added Component: Designator=CON?(CON 2 EDG 5.08)
+Added Component: Designator=PRO?(Jump 4)
+Added Component: Designator=R?(0603_R)
+Added Component: Designator=R?(0603_R)
+Added Component: Designator=RS?(SMD Button 6X6)
+Added Component: Designator=SPI?(ZH 1.5 6P)
+Added Component: Designator=UART?(Jump 4)
+Added Component: Designator=UART?(Jump 3)
+Added Pin To Net: NetName=5VP Pin=C?-1
+Added Pin To Net: NetName=12VP Pin=C?-1
+Added Pin To Net: NetName=GND1 Pin=C?-1
+Added Pin To Net: NetName=GND1 Pin=C?-1
+Added Pin To Net: NetName=GND_MCU Pin=C?-1
+Added Pin To Net: NetName=GND_MCU Pin=C?-1
+Added Pin To Net: NetName=GND_MCU Pin=C?-1
+Added Pin To Net: NetName=GND_MCU Pin=C?-1
+Added Pin To Net: NetName=PRI_12V Pin=C?-1
+Added Pin To Net: NetName=PRI_12V Pin=C?-1
+Added Pin To Net: NetName=SEC_12V Pin=C?-1
+Added Pin To Net: NetName=VIN Pin=C?-1
+Added Pin To Net: NetName=VIN Pin=C?-1
+Added Pin To Net: NetName=GND_MCU Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=C?-2
+Added Pin To Net: NetName=IA Pin=C?-2
+Added Pin To Net: NetName=IB Pin=C?-2
+Added Pin To Net: NetName=IGND Pin=C?-2
+Added Pin To Net: NetName=IGND Pin=C?-2
+Added Pin To Net: NetName=PRI_12V Pin=C?-2
+Added Pin To Net: NetName=GND_MO Pin=CON1-1
+Added Pin To Net: NetName=VIN Pin=CON1-2
+Added Pin To Net: NetName=GND_MCU Pin=CON?-1
+Added Pin To Net: NetName=+12V Pin=CON?-2
+Added Pin To Net: NetName=GND1 Pin=PRO?-2
+Added Pin To Net: NetName=GND_MCU Pin=R?-1
+Added Pin To Net: NetName=GND_MO Pin=R?-1
+Added Pin To Net: NetName=GND_MO Pin=R?-1
+Added Pin To Net: NetName=GND_MO Pin=R?-1
+Added Pin To Net: NetName=IGND Pin=R?-1
+Added Pin To Net: NetName=IGND Pin=R?-1
+Added Pin To Net: NetName=5VP Pin=R?-2
+Added Pin To Net: NetName=12VP Pin=R?-2
+Added Pin To Net: NetName=OP_5V Pin=R?-2
+Added Pin To Net: NetName=PRI_12V Pin=R?-2
+Added Pin To Net: NetName=SEC_12V Pin=R?-2
+Added Pin To Net: NetName=GND1 Pin=RS?-1
+Added Pin To Net: NetName=GND_MCU Pin=SPI?-1
+Added Pin To Net: NetName=+3.3V Pin=SPI?-2
+Added Pin To Net: NetName=NSCS_AS Pin=SPI?-3
+Added Pin To Net: NetName=SCLK Pin=SPI?-4
+Added Pin To Net: NetName=MOSI Pin=SPI?-5
+Added Pin To Net: NetName=MISO Pin=SPI?-6
+Added Pin To Net: NetName=IA Pin=U?-8
+Added Pin To Net: NetName=IB Pin=U?-9
+Added Pin To Net: NetName=GND_MCU Pin=U?-12
+Added Pin To Net: NetName=TX Pin=U?-16
+Added Pin To Net: NetName=RX Pin=U?-17
+Added Pin To Net: NetName=NSCS_AS Pin=U?-20
+Added Pin To Net: NetName=SCLK Pin=U?-21
+Added Pin To Net: NetName=MISO Pin=U?-22
+Added Pin To Net: NetName=MOSI Pin=U?-23
+Added Pin To Net: NetName=GND_MCU Pin=U?-31
+Added Pin To Net: NetName=PWM-IN-OPTO-AH Pin=U?-41
+Added Pin To Net: NetName=PWM-IN-OPTO-AL Pin=U?-42
+Added Pin To Net: NetName=PWM-IN-OPTO-BH Pin=U?-43
+Added Pin To Net: NetName=PWM-IN-OPTO-AL Pin=U?-44
+Added Pin To Net: NetName=GND_MCU Pin=U?-63
+Added Pin To Net: NetName=GND1 Pin=UART?-1
+Added Pin To Net: NetName=GND_MCU Pin=UART?-1
+Added Pin To Net: NetName=TX Pin=UART?-2
+Added Pin To Net: NetName=TX Pin=UART?-2
+Added Pin To Net: NetName=RX Pin=UART?-3
+Added Pin To Net: NetName=RX Pin=UART?-3
+Change Net Name : Old Net Name=NetC27_2 New Net Name=NetC?_2
+Change Net Name : Old Net Name=NetR34_1 New Net Name=NetR?_1
+Change Net Name : Old Net Name=NetR35_2 New Net Name=NetR?_2
+Added Pin To Net: NetName=3.3V Pin=C?-1
+Added Pin To Net: NetName=3.3V Pin=C?-2
+Added Pin To Net: NetName=3.3V Pin=C?-2
+Added Pin To Net: NetName=3.3V Pin=C?-2
+Added Pin To Net: NetName=3.3V Pin=R?-2
+Added Pin To Net: NetName=3.3V Pin=U?-1
+Added Pin To Net: NetName=3.3V Pin=U?-13
+Added Pin To Net: NetName=3.3V Pin=U?-32
+Added Pin To Net: NetName=3.3V Pin=U?-64
+Added Pin To Net: NetName=3.3V Pin=UART?-4
+Added Net: Name=3.3V
+Added Pin To Net: NetName=NetC?_1 Pin=C?-1
+Added Pin To Net: NetName=NetC?_1 Pin=C?-1
+Added Pin To Net: NetName=NetC?_1 Pin=R?-2
+Added Net: Name=NetC?_1
+Added Net: Name=NetD?_2
+Added Pin To Net: NetName=NRST Pin=C?-2
+Added Pin To Net: NetName=NRST Pin=PRO?-4
+Added Pin To Net: NetName=NRST Pin=R?-1
+Added Pin To Net: NetName=NRST Pin=RS?-3
+Added Pin To Net: NetName=NRST Pin=RS?-4
+Added Pin To Net: NetName=NRST Pin=U?-7
+Added Net: Name=NRST
+Added Pin To Net: NetName=SWCLK Pin=PRO?-1
+Added Pin To Net: NetName=SWCLK Pin=U?-49
+Added Net: Name=SWCLK
+Added Pin To Net: NetName=SWDIO Pin=PRO?-3
+Added Pin To Net: NetName=SWDIO Pin=U?-46
+Added Net: Name=SWDIO

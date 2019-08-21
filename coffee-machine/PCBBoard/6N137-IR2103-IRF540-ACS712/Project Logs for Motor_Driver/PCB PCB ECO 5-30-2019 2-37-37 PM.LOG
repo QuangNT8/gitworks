@@ -1,0 +1,181 @@
+Removed Pin From Net: NetName=12VP Pin=C1-1
+Removed Pin From Net: NetName=IGND Pin=C1-2
+Removed Pin From Net: NetName=5VP Pin=C2-1
+Removed Pin From Net: NetName=IGND Pin=C2-2
+Removed Pin From Net: NetName=GND_MO Pin=C3-1
+Removed Pin From Net: NetName=IGND Pin=C3-1
+Removed Pin From Net: NetName=DRV_12V Pin=C3-2
+Removed Pin From Net: NetName=GND_MO Pin=C3-2
+Removed Pin From Net: NetName=GND_MO Pin=C4-1
+Removed Pin From Net: NetName=OP_5V Pin=C4-1
+Removed Pin From Net: NetName=DRV_12V Pin=C4-2
+Removed Pin From Net: NetName=GND_MO Pin=C4-2
+Removed Pin From Net: NetName=SEC_12V Pin=C5-1
+Removed Pin From Net: NetName=PRI_12V Pin=C6-2
+Removed Pin From Net: NetName=PRI_12V Pin=C9-1
+Removed Pin From Net: NetName=GND_MO Pin=C9-2
+Removed Pin From Net: NetName=PRI_12V Pin=C10-1
+Removed Pin From Net: NetName=GND_MO Pin=C10-2
+Removed Pin From Net: NetName=VIN Pin=C11-1
+Removed Pin From Net: NetName=GND_MO Pin=C11-2
+Removed Pin From Net: NetName=VIN Pin=C13-1
+Removed Pin From Net: NetName=+12V Pin=C23-1
+Removed Pin From Net: NetName=GND Pin=C23-2
+Removed Pin From Net: NetName=GND1 Pin=C24-1
+Removed Pin From Net: NetName=IA Pin=C24-2
+Removed Pin From Net: NetName=GND1 Pin=C25-1
+Removed Pin From Net: NetName=IB Pin=C25-2
+Removed Pin From Net: NetName=12VP Pin=D1-1
+Removed Pin From Net: NetName=5VP Pin=D2-1
+Removed Pin From Net: NetName=PRI_12V Pin=D5-2
+Removed Pin From Net: NetName=IGND Pin=R1-1
+Removed Pin From Net: NetName=12VP Pin=R1-2
+Removed Pin From Net: NetName=IGND Pin=R2-1
+Removed Pin From Net: NetName=5VP Pin=R2-2
+Removed Pin From Net: NetName=GND_MO Pin=R3-1
+Removed Pin From Net: NetName=OP_5V Pin=R3-2
+Removed Pin From Net: NetName=GND_MO Pin=R4-1
+Removed Pin From Net: NetName=SEC_12V Pin=R4-2
+Removed Pin From Net: NetName=PRI_12V Pin=R8-2
+Removed Pin From Net: NetName=GND_MO Pin=R10-1
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C1
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C2
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C3
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C4
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C5
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C6
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C7
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C8
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C9
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C10
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C11
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C12
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=C13
+Removed Member From Class: ClassName=MCU Member=C23
+Removed Member From Class: ClassName=MCU Member=C24
+Removed Member From Class: ClassName=MCU Member=C25
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=D1
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=D2
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=D5
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R1
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R2
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R3
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R4
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R5
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R6
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R7
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R8
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R9
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=R10
+Removed Member From Class: ClassName=DCTODC_Multioutput Member=U1
+Change Component DesignItemId : Designator=C4 Old DesignItemId=C0805C225K4RACTU New DesignItemId=Capacitor 0805
+Change Component DesignItemId : Designator=C11 Old DesignItemId=C1608X5R1C105K New DesignItemId=Capacitor TuHoa
+Change Component DesignItemId : Designator=C25 Old DesignItemId=Capacitor 0805 New DesignItemId=C0805C225K4RACTU
+Change Component DesignItemId : Designator=C23 Old DesignItemId=Capacitor TuHoa New DesignItemId=GRM21BR61E225KA12L
+Change Component DesignItemId : Designator=C3 Old DesignItemId=VJ1210A102JXGAT5Z New DesignItemId=Capacitor 0805
+Change Component Footprint: Designator=C11 Old Footprint=0805_HV New Footprint=CAP_12.5 X 25
+Change Component Footprint: Designator=C4 Old Footprint=0805_HV New Footprint=TU_SMD_0805
+Change Component Footprint: Designator=C3 Old Footprint=1210 New Footprint=TU_SMD_0805
+Change Component Comment : Designator=C25 Old Comment=104 New Comment=C0805C225K4RACTU
+Change Component Comment : Designator=C23 Old Comment=390uF New Comment=GRM21BR61E225KA12L
+Change Component Comment : Designator=C4 Old Comment=C0805C225K4RACTU New Comment=104
+Change Component Comment : Designator=C11 Old Comment=C1608X5R1C105K New Comment=390uF
+Change Component Comment : Designator=C3 Old Comment=VJ1210A102JXGAT5Z New Comment=104
+Change Component Designator: OldDesignator=C7 NewDesignator=C27
+Change Component Designator: OldDesignator=R5 NewDesignator=R33
+Change Component Designator: OldDesignator=R6 NewDesignator=R34
+Change Component Designator: OldDesignator=R7 NewDesignator=R35
+Change Component Designator: OldDesignator=R9 NewDesignator=R37
+Change Component Designator: OldDesignator=U1 NewDesignator=U5
+Change Component Description : Designator=C23 Old Description= New Description=CAP, CERM, 2.2 µF, 25 V, +/- 10%, X5R, 0805
+Change Component Description : Designator=C25 Old Description=Ceramic Chip Capacitor - Standard New Description=CAP, CERM, 2.2 µF, 16 V, +/- 10%, X7R, 0805
+Change Component Library : Designator=C23 Old Library=mySch.SchLib New Library=Capacitor_Ceramic.IntLib
+Change Component Library : Designator=C25 Old Library=mySch.SchLib New Library=Capacitor_Ceramic.IntLib
+Added Component: Designator=C17(TU_SMD_0805)
+Added Component: Designator=C18(TU_SMD_0805)
+Added Component: Designator=C19(CP1/3.0)
+Added Component: Designator=C24(0805_HV)
+Added Component: Designator=C31(0805_HV)
+Added Component: Designator=C34(1210)
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=AH1 Pin=C1-2
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=MA+ Pin=C2-2
+Added Pin To Net: NetName=GND_MO Pin=C3-1
+Added Pin To Net: NetName=DRV_12V Pin=C3-2
+Added Pin To Net: NetName=GND_MO Pin=C4-1
+Added Pin To Net: NetName=DRV_12V Pin=C4-2
+Added Pin To Net: NetName=OP_5V Pin=C5-1
+Added Pin To Net: NetName=OP_5V Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=BL Pin=C8-2
+Added Pin To Net: NetName=GND_MO Pin=C9-1
+Added Pin To Net: NetName=DRV_12V Pin=C9-2
+Added Pin To Net: NetName=GND_MO Pin=C10-1
+Added Pin To Net: NetName=DRV_12V Pin=C10-2
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=OP_5V Pin=C13-1
+Added Pin To Net: NetName=GND1 Pin=C17-1
+Added Pin To Net: NetName=IA Pin=C17-2
+Added Pin To Net: NetName=GND1 Pin=C18-1
+Added Pin To Net: NetName=IB Pin=C18-2
+Added Pin To Net: NetName=+12V Pin=C19-1
+Added Pin To Net: NetName=GND Pin=C19-2
+Added Pin To Net: NetName=5VP Pin=C23-1
+Added Pin To Net: NetName=IGND Pin=C23-2
+Added Pin To Net: NetName=OP_5V Pin=C4-1
+Added Pin To Net: NetName=GND_MO Pin=C4-2
+Added Pin To Net: NetName=SEC_12V Pin=C25-1
+Added Pin To Net: NetName=GND_MO Pin=C25-2
+Added Pin To Net: NetName=GND_MO Pin=C11-2
+Added Pin To Net: NetName=IGND Pin=C3-1
+Added Pin To Net: NetName=GND_MO Pin=C3-2
+Added Pin To Net: NetName=DRV_12V Pin=D1-1
+Added Pin To Net: NetName=NetC1_1 Pin=D1-2
+Added Pin To Net: NetName=DRV_12V Pin=D2-1
+Added Pin To Net: NetName=NetC2_1 Pin=D2-2
+Added Pin To Net: NetName=NetD5_1 Pin=D5-1
+Added Pin To Net: NetName=NetD5_2 Pin=D5-2
+Added Pin To Net: NetName=NetD5_1 Pin=R1-1
+Added Pin To Net: NetName=AH1 Pin=R1-2
+Added Pin To Net: NetName=NetD6_1 Pin=R2-1
+Added Pin To Net: NetName=MA+ Pin=R2-2
+Added Pin To Net: NetName=NetD5_1 Pin=R3-1
+Added Pin To Net: NetName=NetD5_2 Pin=R3-2
+Added Pin To Net: NetName=NetD6_1 Pin=R4-1
+Added Pin To Net: NetName=NetD6_2 Pin=R4-2
+Added Pin To Net: NetName=NetD10_1 Pin=R8-1
+Added Pin To Net: NetName=NetD10_2 Pin=R8-2
+Added Pin To Net: NetName=NetD10_1 Pin=R10-1
+Added Pin To Net: NetName=GND_MO Pin=R10-2
+Change Net Name : Old Net Name=NetC7_2 New Net Name=NetC27_2
+Change Net Name : Old Net Name=NetR7_2 New Net Name=NetR35_2
+Added Pin To Net: NetName=NetC26_1 Pin=R33-2
+Added Net: Name=NetC26_1
+Added Pin To Net: NetName=NetC28_2 Pin=U5-5
+Added Net: Name=NetC28_2
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=NetC31_1 Pin=U5-6
+Added Net: Name=NetC31_1
+Added Net: Name=NetD11_2
+Added Net: Name=NetD12_2
+Added Pin To Net: NetName=NetR34_1 Pin=R34-1
+Added Pin To Net: NetName=NetR34_1 Pin=R37-2
+Added Pin To Net: NetName=NetR34_1 Pin=U5-3
+Added Net: Name=NetR34_1
+Added Member To Class: ClassName=MCU Member=Component C17 104
+Added Member To Class: ClassName=MCU Member=Component C18 104
+Added Member To Class: ClassName=MCU Member=Component C19 390uF
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C23 GRM21BR61E225KA12L
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C24 C0805C225K4RACTU
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C25 C0805C225K4RACTU
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C27 C1608C0G1E103J
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C31 C1608X5R1C105K
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component C34 VJ1210A102JXGAT5Z
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component R33 RC0603FR-0740K2L
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component R34 CRCW0603100KFKEA
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component R35 1879339-3
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component R37 CRCW06038K87FKEA
+Added Member To Class: ClassName=DCTODC_Multioutput Member=Component U5 LM5017MRX/NOPB
+Added Room: Name=H_bridge

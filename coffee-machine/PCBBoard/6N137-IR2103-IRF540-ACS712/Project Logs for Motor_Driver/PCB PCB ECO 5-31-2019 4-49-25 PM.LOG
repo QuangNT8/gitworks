@@ -1,0 +1,115 @@
+Removed Pin From Net: NetName=NetC1_1 Pin=C1-1
+Removed Pin From Net: NetName=AH1 Pin=C1-2
+Removed Pin From Net: NetName=GND_MO Pin=C4-1
+Removed Pin From Net: NetName=DRV_12V Pin=C4-2
+Removed Pin From Net: NetName=NetC7_1 Pin=C7-1
+Removed Pin From Net: NetName=BH1 Pin=C7-2
+Removed Pin From Net: NetName=GND_MO Pin=C10-1
+Removed Pin From Net: NetName=DRV_12V Pin=C10-2
+Removed Pin From Net: NetName=VIN Pin=C11-1
+Removed Pin From Net: NetName=GND_MO Pin=C11-2
+Removed Pin From Net: NetName=+3.3V Pin=KIT1-1
+Removed Pin From Net: NetName=GND1 Pin=KIT1-2
+Removed Pin From Net: NetName=GND1 Pin=KIT1-9
+Removed Pin From Net: NetName=IA Pin=KIT1-11
+Removed Pin From Net: NetName=IB Pin=KIT1-12
+Removed Pin From Net: NetName=NSCS_AS Pin=KIT1-17
+Removed Pin From Net: NetName=SCLK Pin=KIT1-22
+Removed Pin From Net: NetName=MISO Pin=KIT1-23
+Removed Pin From Net: NetName=MOSI Pin=KIT1-24
+Removed Pin From Net: NetName=GND1 Pin=KIT1-35
+Removed Pin From Net: NetName=RX Pin=KIT1-40
+Removed Pin From Net: NetName=TX Pin=KIT1-41
+Removed Pin From Net: NetName=PWM-IN-OPTO-BH Pin=KIT1-42
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=KIT1-43
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=KIT1-57
+Removed Pin From Net: NetName=PWM-IN-OPTO-AH Pin=KIT1-58
+Removed Pin From Net: NetName=NetD5_2 Pin=R3-1
+Removed Pin From Net: NetName=NetD5_1 Pin=R3-2
+Removed Pin From Net: NetName=NetD10_2 Pin=R10-1
+Removed Pin From Net: NetName=GND_MO Pin=R10-2
+Removed Pin From Net: NetName=DRV_12V Pin=U1-1
+Removed Pin From Net: NetName=PWM-OUT-OPTO-AH Pin=U1-2
+Removed Pin From Net: NetName=NetR5_1 Pin=U1-3
+Removed Pin From Net: NetName=GND_MO Pin=U1-4
+Removed Pin From Net: NetName=NetD9_1 Pin=U1-5
+Removed Pin From Net: NetName=AH1 Pin=U1-6
+Removed Pin From Net: NetName=NetD5_1 Pin=U1-7
+Removed Pin From Net: NetName=NetC1_1 Pin=U1-8
+Change Component DesignItemId : Designator=C11 Old DesignItemId=Capacitor TuHoa New DesignItemId=Capacitor 0805
+Change Component DesignItemId : Designator=U1 Old DesignItemId=IR2103 New DesignItemId=STM32F051R8T6 LQFP64 _MH
+Change Component DesignItemId : Designator=C1 Old DesignItemId=TU_NHOM_10uF_25V_MH New DesignItemId=Capacitor 0805
+Change Component DesignItemId : Designator=C7 Old DesignItemId=TU_NHOM_10uF_25V_MH New DesignItemId=Capacitor 0805
+Change Component Footprint: Designator=C11 Old Footprint=CAP_12.5 X 25 New Footprint=0805_hv
+Change Component Footprint: Designator=U1 Old Footprint=SOP 8 New Footprint=LQFP64
+Change Component Footprint: Designator=R3 Old Footprint=Tro SMD 0805 New Footprint=0603_R
+Change Component Footprint: Designator=R10 Old Footprint=Tro SMD 0805 New Footprint=0603_R
+Change Component Footprint: Designator=C1 Old Footprint=TU_NHOM_10uF_MH New Footprint=0603_Cap
+Change Component Footprint: Designator=C7 Old Footprint=TU_NHOM_10uF_MH New Footprint=0603_Cap
+Change Component Footprint: Designator=C4 Old Footprint=TU_SMD_0805 New Footprint=0805_hv
+Change Component Footprint: Designator=C10 Old Footprint=TU_SMD_0805 New Footprint=0805_hv
+Change Component Comment : Designator=R3 Old Comment=10 New Comment=100
+Change Component Comment : Designator=R10 Old Comment=10k New Comment=510
+Change Component Comment : Designator=C1 Old Comment=10uF New Comment=104
+Change Component Comment : Designator=C7 Old Comment=10uF New Comment=104
+Change Component Comment : Designator=C11 Old Comment=390uF New Comment=104
+Change Component Comment : Designator=U1 Old Comment=IR2103 New Comment=STM32F051R8T6 LQFP64
+Added Component: Designator=C1(TU_NHOM_10uF_MH)
+Added Component: Designator=C4(TU_SMD_0805)
+Added Component: Designator=C7(TU_NHOM_10uF_MH)
+Added Component: Designator=C10(TU_SMD_0805)
+Added Component: Designator=C11(CAP_12.5 X 25)
+Added Component: Designator=R3(Tro SMD 0805)
+Added Component: Designator=R10(Tro SMD 0805)
+Added Component: Designator=RS(SMD Button 6X6)
+Added Component: Designator=U1(SOP 8)
+Added Component: Designator=UART(Jump 4)
+Added Pin To Net: NetName=GND1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=AH1 Pin=C1-2
+Added Pin To Net: NetName=GND_MCU Pin=C4-1
+Added Pin To Net: NetName=GND_MO Pin=C4-1
+Added Pin To Net: NetName=DRV_12V Pin=C4-2
+Added Pin To Net: NetName=GND1 Pin=C7-1
+Added Pin To Net: NetName=NetC7_1 Pin=C7-1
+Added Pin To Net: NetName=BH1 Pin=C7-2
+Added Pin To Net: NetName=GND_MO Pin=C10-1
+Added Pin To Net: NetName=DRV_12V Pin=C10-2
+Added Pin To Net: NetName=GND_MCU Pin=C10-2
+Added Pin To Net: NetName=GND_MCU Pin=C11-1
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2
+Added Pin To Net: NetName=NetD5_2 Pin=R3-1
+Added Pin To Net: NetName=NetD5_1 Pin=R3-2
+Added Pin To Net: NetName=GND_MCU Pin=R10-1
+Added Pin To Net: NetName=NetD10_2 Pin=R10-1
+Added Pin To Net: NetName=GND_MO Pin=R10-2
+Added Pin To Net: NetName=GND1 Pin=RS-1
+Added Pin To Net: NetName=DRV_12V Pin=U1-1
+Added Pin To Net: NetName=PWM-OUT-OPTO-AH Pin=U1-2
+Added Pin To Net: NetName=NetR5_1 Pin=U1-3
+Added Pin To Net: NetName=GND_MO Pin=U1-4
+Added Pin To Net: NetName=NetD9_1 Pin=U1-5
+Added Pin To Net: NetName=AH1 Pin=U1-6
+Added Pin To Net: NetName=NetD5_1 Pin=U1-7
+Added Pin To Net: NetName=IA Pin=U1-8
+Added Pin To Net: NetName=NetC1_1 Pin=U1-8
+Added Pin To Net: NetName=GND1 Pin=UART-1
+Added Pin To Net: NetName=TX Pin=UART-2
+Added Pin To Net: NetName=RX Pin=UART-3
+Added Pin To Net: NetName=3.3V Pin=C1-2
+Added Pin To Net: NetName=3.3V Pin=C4-2
+Added Pin To Net: NetName=3.3V Pin=C10-1
+Added Pin To Net: NetName=3.3V Pin=C11-2
+Added Pin To Net: NetName=3.3V Pin=R3-2
+Added Pin To Net: NetName=3.3V Pin=U1-1
+Added Pin To Net: NetName=3.3V Pin=UART-4
+Added Net: Name=3.3V
+Added Pin To Net: NetName=NetR10_2 Pin=R10-2
+Added Net: Name=NetR10_2
+Added Pin To Net: NetName=NRST Pin=C7-2
+Added Pin To Net: NetName=NRST Pin=R3-1
+Added Pin To Net: NetName=NRST Pin=RS-3
+Added Pin To Net: NetName=NRST Pin=RS-4
+Added Pin To Net: NetName=NRST Pin=U1-7
+Added Net: Name=NRST

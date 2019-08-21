@@ -1,0 +1,55 @@
+Change Component Footprint: Designator=U7 Old Footprint=DIP20 New Footprint=SOP-20
+Change Component Footprint: Designator=U8 Old Footprint=DIP20 New Footprint=SOP-20
+Change Component Designator: OldDesignator=M2 NewDesignator=M1
+Change Component Designator: OldDesignator=M3 NewDesignator=M7
+Change Component Designator: OldDesignator=M4 NewDesignator=M2
+Change Component Designator: OldDesignator=M5 NewDesignator=M8
+Change Component Designator: OldDesignator=M6 NewDesignator=M3
+Change Component Designator: OldDesignator=M7 NewDesignator=M9
+Change Component Designator: OldDesignator=M8 NewDesignator=M4
+Change Component Designator: OldDesignator=M9 NewDesignator=M10
+Change Component Designator: OldDesignator=M10 NewDesignator=M5
+Change Component Designator: OldDesignator=M12 NewDesignator=M6
+Change Component Designator: OldDesignator=M13 NewDesignator=M12
+Added Component: Designator=M13(HDR1X3)
+Added Component: Designator=M14(HDR1X3)
+Added Component: Designator=M15(HDR1X3)
+Added Component: Designator=M16(HDR1X3)
+Added Pin To Net: NetName=GND Pin=M13-1
+Added Pin To Net: NetName=MO_5V Pin=M13-2
+Added Pin To Net: NetName=PB12 Pin=M13-3
+Added Pin To Net: NetName=GND Pin=M14-1
+Added Pin To Net: NetName=MO_5V Pin=M14-2
+Added Pin To Net: NetName=PB13 Pin=M14-3
+Added Pin To Net: NetName=GND Pin=M15-1
+Added Pin To Net: NetName=MO_5V Pin=M15-2
+Added Pin To Net: NetName=PB14 Pin=M15-3
+Added Pin To Net: NetName=GND Pin=M16-1
+Added Pin To Net: NetName=MO_5V Pin=M16-2
+Added Pin To Net: NetName=PB15 Pin=M16-3
+Added Pin To Net: NetName=PB0 Pin=U5-26
+Added Pin To Net: NetName=PB1 Pin=U5-27
+Added Pin To Net: NetName=PB2 Pin=U5-28
+Added Pin To Net: NetName=PB10 Pin=U5-29
+Added Pin To Net: NetName=PB11 Pin=U5-30
+Added Pin To Net: NetName=PB12 Pin=U5-33
+Added Pin To Net: NetName=PB13 Pin=U5-34
+Added Pin To Net: NetName=PB14 Pin=U5-35
+Added Pin To Net: NetName=PB15 Pin=U5-36
+Added Pin To Net: NetName=PB3 Pin=U5-55
+Added Pin To Net: NetName=PB8 Pin=U5-61
+Added Pin To Net: NetName=PB9 Pin=U5-62
+Added Pin To Net: NetName=PB4 Pin=U5-56
+Added Net: Name=PB4
+Added Pin To Net: NetName=PB5 Pin=U5-57
+Added Net: Name=PB5
+Added Pin To Net: NetName=PB6 Pin=U5-58
+Added Net: Name=PB6
+Added Pin To Net: NetName=PB7 Pin=U5-59
+Added Net: Name=PB7
+Change Class Name : Old Net Name=GPIO New Net Name=RCservo_interface
+Added Member To Class: ClassName=RCservo_interface Member=Component M8 Header 3
+Added Member To Class: ClassName=RCservo_interface Member=Component M14 Header 3
+Added Member To Class: ClassName=RCservo_interface Member=Component M15 Header 3
+Added Member To Class: ClassName=RCservo_interface Member=Component M16 Header 3
+Added Room: Name=RCservo_interface

@@ -1,0 +1,114 @@
+Removed Pin From Net: NetName=PB0 Pin=M1-3
+Removed Pin From Net: NetName=PB1 Pin=M2-3
+Removed Pin From Net: NetName=PB2 Pin=M3-3
+Removed Pin From Net: NetName=PB3 Pin=M4-3
+Removed Pin From Net: NetName=PB8 Pin=M5-3
+Removed Pin From Net: NetName=PB9 Pin=M6-3
+Removed Pin From Net: NetName=PB10 Pin=M7-3
+Removed Pin From Net: NetName=PB11 Pin=M8-3
+Removed Pin From Net: NetName=PB12 Pin=M9-3
+Removed Pin From Net: NetName=PB13 Pin=M10-3
+Removed Pin From Net: NetName=PB14 Pin=M11-3
+Removed Pin From Net: NetName=PB15 Pin=M12-3
+Removed Pin From Net: NetName=PB12 Pin=M13-3
+Removed Pin From Net: NetName=PB13 Pin=M14-3
+Removed Pin From Net: NetName=PB14 Pin=M15-3
+Removed Pin From Net: NetName=PB15 Pin=M16-3
+Removed Pin From Net: NetName=5V Pin=P2-1
+Removed Pin From Net: NetName=GND Pin=P2-2
+Removed Pin From Net: NetName=5V Pin=P3-1
+Removed Pin From Net: NetName=GND Pin=P3-2
+Removed Pin From Net: NetName=GND Pin=RB1-1
+Removed Pin From Net: NetName=GND Pin=RB2-1
+Removed Pin From Net: NetName=GND_MO Pin=U6-1
+Removed Pin From Net: NetName=VIN Pin=U6-2
+Removed Pin From Net: NetName=NetR36_1 Pin=U6-3
+Removed Pin From Net: NetName=NetR37_2 Pin=U6-4
+Removed Pin From Net: NetName=NetC33_2 Pin=U6-5
+Removed Pin From Net: NetName=NetC36_1 Pin=U6-6
+Removed Pin From Net: NetName=NetC32_2 Pin=U6-7
+Removed Pin From Net: NetName=SW Pin=U6-8
+Removed Pin From Net: NetName=GND_MO Pin=U6-9
+Removed Pin From Net: NetName=GND Pin=U8-1
+Removed Pin From Net: NetName=GND Pin=U8-10
+Removed Pin From Net: NetName=5V Pin=U8-11
+Removed Pin From Net: NetName=5V Pin=U8-20
+Removed Member From Class: ClassName=RCservo_interface Member=P1
+Removed Member From Class: ClassName=RCservo_interface Member=P2
+Removed Member From Class: ClassName=RCservo_interface Member=P3
+Removed Member From Class: ClassName=RCservo_interface Member=RB1
+Removed Member From Class: ClassName=RCservo_interface Member=RB2
+Removed Member From Class: ClassName=RCservo_interface Member=U8
+Change Component DesignItemId : Designator=U6 Old DesignItemId=LM5017MRX/NOPB New DesignItemId=74HC573 DIP20 IC Flip-Flop_MH
+Change Component Footprint: Designator=U6 Old Footprint=MRA08A_N New Footprint=SOIC-20
+Change Component Footprint: Designator=U7 Old Footprint=SOP-20 New Footprint=SOIC-20
+Change Component Comment : Designator=U6 Old Comment=LM5017MRX/NOPB New Comment=74HC573
+Added Component: Designator=U6(MRA08A_N)
+Added Pin To Net: NetName=GND_MO Pin=U6-1
+Added Pin To Net: NetName=GND Pin=U6-1
+Added Pin To Net: NetName=PB8 Pin=U6-2
+Added Pin To Net: NetName=VIN Pin=U6-2
+Added Pin To Net: NetName=NetR36_1 Pin=U6-3
+Added Pin To Net: NetName=PB9 Pin=U6-3
+Added Pin To Net: NetName=NetR37_2 Pin=U6-4
+Added Pin To Net: NetName=PB10 Pin=U6-4
+Added Pin To Net: NetName=NetC33_2 Pin=U6-5
+Added Pin To Net: NetName=PB11 Pin=U6-5
+Added Pin To Net: NetName=NetC36_1 Pin=U6-6
+Added Pin To Net: NetName=PB12 Pin=U6-6
+Added Pin To Net: NetName=NetC32_2 Pin=U6-7
+Added Pin To Net: NetName=PB13 Pin=U6-7
+Added Pin To Net: NetName=PB14 Pin=U6-8
+Added Pin To Net: NetName=SW Pin=U6-8
+Added Pin To Net: NetName=GND_MO Pin=U6-9
+Added Pin To Net: NetName=PB15 Pin=U6-9
+Added Pin To Net: NetName=PB0 Pin=U7-2
+Added Pin To Net: NetName=PB1 Pin=U7-3
+Added Pin To Net: NetName=PB2 Pin=U7-4
+Added Pin To Net: NetName=PB3 Pin=U7-5
+Added Pin To Net: NetName=PB4 Pin=U7-6
+Added Pin To Net: NetName=PB5 Pin=U7-7
+Added Pin To Net: NetName=PB6 Pin=U7-8
+Added Pin To Net: NetName=PB7 Pin=U7-9
+Added Pin To Net: NetName=RC1 Pin=M1-3
+Added Pin To Net: NetName=RC1 Pin=U7-19
+Added Net: Name=RC1
+Added Pin To Net: NetName=RC2 Pin=M2-3
+Added Pin To Net: NetName=RC2 Pin=U7-18
+Added Net: Name=RC2
+Added Pin To Net: NetName=RC3 Pin=M3-3
+Added Pin To Net: NetName=RC3 Pin=U7-17
+Added Net: Name=RC3
+Added Pin To Net: NetName=RC4 Pin=M4-3
+Added Pin To Net: NetName=RC4 Pin=U7-16
+Added Net: Name=RC4
+Added Pin To Net: NetName=RC5 Pin=M5-3
+Added Pin To Net: NetName=RC5 Pin=U7-15
+Added Net: Name=RC5
+Added Pin To Net: NetName=RC6 Pin=M6-3
+Added Pin To Net: NetName=RC6 Pin=U7-14
+Added Net: Name=RC6
+Added Pin To Net: NetName=RC7 Pin=M7-3
+Added Pin To Net: NetName=RC7 Pin=U7-13
+Added Net: Name=RC7
+Added Pin To Net: NetName=RC8 Pin=M8-3
+Added Pin To Net: NetName=RC8 Pin=U7-12
+Added Net: Name=RC8
+Added Pin To Net: NetName=RC9 Pin=M9-3
+Added Net: Name=RC9
+Added Pin To Net: NetName=RC10 Pin=M10-3
+Added Net: Name=RC10
+Added Pin To Net: NetName=RC11 Pin=M11-3
+Added Net: Name=RC11
+Added Pin To Net: NetName=RC12 Pin=M12-3
+Added Net: Name=RC12
+Added Pin To Net: NetName=RC13 Pin=M13-3
+Added Net: Name=RC13
+Added Pin To Net: NetName=RC14 Pin=M14-3
+Added Net: Name=RC14
+Added Pin To Net: NetName=RC15 Pin=M15-3
+Added Net: Name=RC15
+Added Pin To Net: NetName=RC16 Pin=M16-3
+Added Net: Name=RC16
+Added Member To Class: ClassName=RCservo_interface Member=Component M13 Header 3
+Added Member To Class: ClassName=RCservo_interface Member=Component U6 74HC573

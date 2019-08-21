@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=12V Pin=D4-1
+Change Component DesignItemId : Designator=D4 Old DesignItemId=RB160M-90TR New DesignItemId=Diode S4 SOD123 ( 1N5819 SOD123)_MH
+Change Component Comment : Designator=D4 Old Comment=RB160M-90TR New Comment=IN5822
+Change Component Description : Designator=D4 Old Description=Diode, Schottky, 90 V, 1 A, SOD-123 New Description=Diode S4 SOD123 ( 1N5819 SOD123)
+Change Component Library : Designator=D4 Old Library=Diode.IntLib New Library=MH_DA_THU_VIEN_16122016.SchLib
+Added Pin To Net: NetName=12V Pin=D4-2
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=NetD4_1 Pin=T1-7
+Added Pin To Net: NetName=NetD4_1 Pin=T1-9
+Added Net: Name=NetD4_1

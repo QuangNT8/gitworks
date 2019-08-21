@@ -1,0 +1,108 @@
+SCH		----------------------------------------------
+TC		Tìm kiếm linh kiện trong SCH -> PCB và ngược lại
+DO		lua chon kho giay ve (to nho)
+TA 		tu dong danh ten linh kien
+VGS		Chon luoi min hay tho
+DU		Update sch -> pcb
+DM		List thu vien tu ban ve
+TS 		gom 1 nhom linh kien chuyen sang pcb
+G		dang keo bam phim nay de tang giam do min
+JC		nhay toi linh kien
+PVN		danh dau chan ko dung
+VD		dua ban ve vua trong khung hinh
+TU		update tu thu vien sang nguyen ly
+PER		Khoanh lai 1 khoi chuc nang
+ALT+Click	Highlight nhung Net cung ten
+CTRL+Click+keo Di chuyen linh kien cung voi day
+CTRL + Shift + lan chuot de chuyen lop ve mach in (via)
+Ctrl+Shift+L (hoặc A L)	Căn chỉnh các linh kiện thẳng hàng dọc.
+Ctrl+Shift+T (hoặc A T)	Căn chỉnh các linh kiện thẳng hàng ngang.
+Ctrl+Shift+H (hoặc A H)	Căn chỉnh các linh kiện cách đều nhau theo hàng ngang.
+Ctrl+Shift+V (hoặc A V)	Căn chỉnh các linh kiện cách đều nhau theo hàng dọc.
+
+PCB		----------------------------------------------
+		
+F11		Nhóm 1 nhóm linh kiện -> F11 -> chỉnh thông số giống nhau
+TC		Tìm kiếm linh kiện trong SCH -> PCB và ngược lại
+VCS		Hiển thị NET
+EO		Chinh goc toa do eol
+Q		Chuyen don vi mil<->mm
+PL		1. Chon lop Keep-Out Layer ve duong bao mạch
+		-> quet chon ca khoi gồm ca duong bao -> DSD 
+		2. Ve duong phu thiec (Top Solder, Bottom Solder)
+DSD 	Tạo biên dạng mạch (click nhóm tất cả các đường muốn bao biên dạng)
+TVB		Đục lỗ hoạc các biên dạng cắt bất kỳ trong mạch				
+PT		ve duong day mach in
+DR		1. Rules dat kich thuoc day
+		2. ket hop voi PG chon Plane->polygonConect->Constraints->Dirict Conect
+PP		Lo part (giong lo Via)
+PG		Bo duong mach to len
+TE		Giot le cho via
+CTRL+M	Do khoang cach			
+TI		tao thu vien PCB
+U		xoa nhanh duong machdr
+PDD	Hiển thị thông tin kích thước PCB (giống như trong Cad có dạng <– 80mm –>)
+TUA	Xóa bỏ tất cả các đường mạch đã chạy.
+TUN	Xóa các đường dây cùng tên.
+TDR	Kiểm tra xem đã nối hết dây chưa sau khi hoàn thành đi dây bằng tay.
+TM		Xóa lỗi hiển thị trên màn hình.
+DK		Chọn lớp vẽ. (Stack Manager)
+DR		Để chỉnh các thông số trong mạch như độ rộng của đường dây (Width), khoảng cách 2 – dây (Clearance),cho phép ngắn mạch (Shortcircuit)…
+DO		Chỉnh thông số mạch, nếu bạn không muốn các ô vuông làm ảnh hưởng đến viện vẽ mạch thì chuyển line thành dots.
+DTA	Hiển thị tất cả các lớp.
+DTS	Chỉ hiển thị lớp TOP + BOTTOM + MULTI…
+CK		Mở cửa sổ chỉnh sửa đường dẫn linh kiện.
+RB		Hiển thị thông tin mạch (kích thước, số lượng linh kiện…)
+OD 	(Hoặc Ctrl + D)	Hiện thị cửa sổ Configurations (Điều chỉnh ẩn hiện các thành phần)
+VB		Xoay bản vẽ 180 độ.
+VF		Hiển thị toàn bộ bản vẽ.
+L		Khi đang di chuyển linh kiện lật linh kiện giữa lớp Top và Bottom (Bottom và Top)
+L 		hoặc Ctrl+L	Mở View Configuration để điều chỉnh hiển thị các lớp.
+TAB		Hiện cửa sổ thay đổi thông tin khi đang thao tác.
+Ctrl G 	hoặc G	Cài đặt chế độ lưới.
+Ctrl M	Thước đo kích thước mạch.
+Shift M	Kính lúp hình vuông.
+Shift R	Thay đổi các chế độ đi dây (Cắt – Không cho cắt – Đẩy dây).
+Shift S	Chỉ cho phép hiện 1 lớp đang chọn (các lớp còn lại được ẩn).
+Shift+Space	Thay đổi các chế độ đường dây (Tự do – Theo luật – Vuông 90 độ – Cong)
+Ctrl+Shift+L (hoặc A L)	Căn chỉnh các linh kiện thẳng hàng dọc.
+Ctrl+Shift+T (hoặc A T)	Căn chỉnh các linh kiện thẳng hàng ngang.
+Ctrl+Shift+H (hoặc A H)	Căn chỉnh các linh kiện cách đều nhau theo hàng ngang.
+Ctrl+Shift+V (hoặc A V)	Căn chỉnh các linh kiện cách đều nhau theo hàng dọc.
+Ctrl+Shift+Cuộn chuột	Chuyển qua lại giữa các lớp.
+
+
+
+TimKiem	----------------------------------------------
+Tim kiem trong thu vien
+Operator = contains
+Value = <gia tri tim kiem>
+
+
+ThuVien footprint 3D  --------------------------------
+1. http://www.3dcontentcentral.com
+2. Tim kiem
+3. Tai ve file dang  STEP AP203
+4. Vao thu vien PCB -> PB -> (Generic STEP Model, Embed STEP Model) -> File da tai
+5. TBF chinh chieu 3D
+
+
+ThuVien footprint 2D  --------------------------------
+1. https://www.snapeda.com
+2. Tim kiem
+3. Tai ve chon altium
+4. Mo binh thuong
+
+
+
+TAO TEMPLATE CHO SCH
+1. Template mau: C:\Users\Public\Documents\Altium\AD15\Templates
+2. Chon Template muon chinh sua
+3. Edit
+4. Save
+5. Tim hieu sau
+
+
+Them thong tin Digi_key
+1. Click phai chuot vao man hinh -> supplier links
+2. Add -> tim kiem theo thong tin "Manufacturer Part Number" tren Digikey

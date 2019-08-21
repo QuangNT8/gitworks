@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [GPIOmodule.PrjPCB]
+   Generated File[IObuffer.TXT]
+   Generated File[IObuffer.LDP]
+   Generated File[IObuffer.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 9:33:25 AM On 7/18/2019

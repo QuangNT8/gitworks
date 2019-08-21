@@ -1,0 +1,216 @@
+Removed Pin From Net: NetName=GND Pin=AMS1-1
+Removed Pin From Net: NetName=+12V Pin=AMS1-3
+Removed Pin From Net: NetName=+5V Pin=AMS1-4
+Removed Pin From Net: NetName=GND Pin=C5-1
+Removed Pin From Net: NetName=+5V Pin=C5-2
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=+5V Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=C13-1
+Removed Pin From Net: NetName=+5V Pin=C13-2
+Removed Pin From Net: NetName=GND Pin=C14-1
+Removed Pin From Net: NetName=+5V Pin=C14-2
+Removed Pin From Net: NetName=GND1 Pin=C15-1
+Removed Pin From Net: NetName=GND1 Pin=C16-1
+Removed Pin From Net: NetName=GND Pin=C17-1
+Removed Pin From Net: NetName=+12V Pin=C17-2
+Removed Pin From Net: NetName=GND Pin=C18-1
+Removed Pin From Net: NetName=+12V Pin=C18-2
+Removed Pin From Net: NetName=GND Pin=C19-1
+Removed Pin From Net: NetName=+5V Pin=C19-2
+Removed Pin From Net: NetName=GND Pin=C20-1
+Removed Pin From Net: NetName=+5V Pin=C20-2
+Removed Pin From Net: NetName=GND1 Pin=C21-1
+Removed Pin From Net: NetName=GND1 Pin=C22-1
+Removed Pin From Net: NetName=+12V Pin=C23-1
+Removed Pin From Net: NetName=GND Pin=C23-2
+Removed Pin From Net: NetName=GND Pin=CON1-1
+Removed Pin From Net: NetName=VPP Pin=CON1-2
+Removed Pin From Net: NetName=GND Pin=CON2-1
+Removed Pin From Net: NetName=+12V Pin=CON2-2
+Removed Pin From Net: NetName=GND1 Pin=Hall1-5
+Removed Pin From Net: NetName=GND1 Pin=Hall2-5
+Removed Pin From Net: NetName=5V1 Pin=KIT1-34
+Removed Pin From Net: NetName=PWM-IN-OPTO-AH Pin=R11-1
+Removed Pin From Net: NetName=+3.3V Pin=R11-2
+Removed Pin From Net: NetName=PWM-IN-OPTO-AL Pin=R13-1
+Removed Pin From Net: NetName=+3.3V Pin=R13-2
+Removed Pin From Net: NetName=NetOP1_2 Pin=R15-1
+Removed Pin From Net: NetName=+3.3V Pin=R15-2
+Removed Pin From Net: NetName=+3.3V Pin=R16-2
+Removed Pin From Net: NetName=PWM-IN-OPTO-BH Pin=R27-1
+Removed Pin From Net: NetName=+3.3V Pin=R27-2
+Removed Pin From Net: NetName=+3.3V Pin=R29-2
+Removed Pin From Net: NetName=NetOP3_2 Pin=R31-1
+Removed Pin From Net: NetName=+3.3V Pin=R31-2
+Removed Member From Class: ClassName=SCH Member=C24
+Removed Member From Class: ClassName=SCH Member=C25
+Removed Member From Class: ClassName=SCH Member=KIT1
+Removed Member From Class: ClassName=SCH Member=R11
+Removed Member From Class: ClassName=SCH Member=R13
+Removed Member From Class: ClassName=SCH Member=R27
+Removed Member From Class: ClassName=SCH Member=R29
+Added Component: Designator=C3(1210)
+Added Component: Designator=C4(0805_HV)
+Added Component: Designator=C7(0805_HV)
+Added Component: Designator=C11(0805_HV)
+Added Component: Designator=F1(1206)
+Added Component: Designator=F2(1206)
+Added Component: Designator=M1(HDR1X4)
+Added Component: Designator=R5(0805_HV)
+Added Component: Designator=R6(0805_HV)
+Added Component: Designator=R7(0805_HV)
+Added Component: Designator=R9(0805_HV)
+Added Component: Designator=U1(MRA08A_N)
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=+5V Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=+5V Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=+5V Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=GND Pin=C10-2
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=VPP Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=+5V Pin=C13-1
+Added Pin To Net: NetName=VPP Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=+5V Pin=C14-1
+Added Pin To Net: NetName=+12V Pin=F1-2
+Added Pin To Net: NetName=+12V Pin=F2-2
+Added Pin To Net: NetName=PWM-IN-OPTO-AL Pin=KIT1-43
+Added Pin To Net: NetName=AL Pin=M1-1
+Added Pin To Net: NetName=BL Pin=M1-3
+Added Pin To Net: NetName=PWM-IN-OPTO-AL Pin=OP4-3
+Added Pin To Net: NetName=GND Pin=R3-1
+Added Pin To Net: NetName=+5V Pin=R3-2
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=VPP Pin=R6-2
+Added Pin To Net: NetName=VPP Pin=R7-1
+Added Pin To Net: NetName=GND Pin=R9-1
+Added Pin To Net: NetName=GND Pin=R10-1
+Added Pin To Net: NetName=+3.3V Pin=R15-1
+Added Pin To Net: NetName=NetOP1_2 Pin=R15-2
+Added Pin To Net: NetName=+3.3V Pin=R31-1
+Added Pin To Net: NetName=NetOP3_2 Pin=R31-2
+Added Pin To Net: NetName=GND Pin=U1-1
+Added Pin To Net: NetName=VPP Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-9
+Change Net Name : Old Net Name=+5V New Net Name=OP_5V
+Change Net Name : Old Net Name=+12V New Net Name=DRV_12V
+Change Net Name : Old Net Name=5V1 New Net Name=5V
+Change Net Name : Old Net Name=AL New Net Name=MA+
+Change Net Name : Old Net Name=GND New Net Name=GND_MO
+Change Net Name : Old Net Name=VPP New Net Name=VIN
+Added Pin To Net: NetName=+12V Pin=C23-1
+Added Pin To Net: NetName=+12V Pin=CON2-2
+Added Net: Name=+12V
+Added Pin To Net: NetName=5V1 Pin=KIT1-34
+Added Net: Name=5V1
+Added Pin To Net: NetName=5VP Pin=C2-1
+Added Pin To Net: NetName=5VP Pin=D2-1
+Added Pin To Net: NetName=5VP Pin=R2-2
+Added Net: Name=5VP
+Added Pin To Net: NetName=12VP Pin=C1-1
+Added Pin To Net: NetName=12VP Pin=D1-1
+Added Pin To Net: NetName=12VP Pin=R1-2
+Added Net: Name=12VP
+Added Pin To Net: NetName=GND_MCU Pin=C15-1
+Added Pin To Net: NetName=GND_MCU Pin=C16-1
+Added Pin To Net: NetName=GND_MCU Pin=C21-1
+Added Pin To Net: NetName=GND_MCU Pin=C22-1
+Added Pin To Net: NetName=GND_MCU Pin=Hall1-5
+Added Pin To Net: NetName=GND_MCU Pin=Hall2-5
+Added Net: Name=GND_MCU
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C14-2
+Added Pin To Net: NetName=GND Pin=C23-2
+Added Pin To Net: NetName=GND Pin=CON1-1
+Added Pin To Net: NetName=GND Pin=CON2-1
+Added Net: Name=GND
+Added Pin To Net: NetName=IGND Pin=C1-2
+Added Pin To Net: NetName=IGND Pin=C2-2
+Added Pin To Net: NetName=IGND Pin=C3-1
+Added Pin To Net: NetName=IGND Pin=R1-1
+Added Pin To Net: NetName=IGND Pin=R2-1
+Added Net: Name=IGND
+Added Pin To Net: NetName=MA- Pin=Hall1-3
+Added Pin To Net: NetName=MA- Pin=Hall1-4
+Added Pin To Net: NetName=MA- Pin=M1-2
+Added Net: Name=MA-
+Added Pin To Net: NetName=MB- Pin=Hall2-3
+Added Pin To Net: NetName=MB- Pin=Hall2-4
+Added Pin To Net: NetName=MB- Pin=M1-4
+Added Net: Name=MB-
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=NetC6_1 Pin=C8-1
+Added Pin To Net: NetName=NetC6_1 Pin=R5-2
+Added Net: Name=NetC6_1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=U1-7
+Added Net: Name=NetC7_2
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=R8-1
+Added Pin To Net: NetName=NetC8_2 Pin=R10-2
+Added Pin To Net: NetName=NetC8_2 Pin=U1-5
+Added Net: Name=NetC8_2
+Added Pin To Net: NetName=NetC11_1 Pin=C11-1
+Added Pin To Net: NetName=NetC11_1 Pin=D5-1
+Added Pin To Net: NetName=NetC11_1 Pin=U1-6
+Added Net: Name=NetC11_1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Net: Name=NetD1_2
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Net: Name=NetD2_2
+Added Net: Name=NetD3_2
+Added Net: Name=NetD4_2
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=NetR7_2 Pin=U1-4
+Added Net: Name=NetR7_2
+Added Pin To Net: NetName=PRI_12V Pin=C6-2
+Added Pin To Net: NetName=PRI_12V Pin=C9-1
+Added Pin To Net: NetName=PRI_12V Pin=C10-1
+Added Pin To Net: NetName=PRI_12V Pin=D5-2
+Added Pin To Net: NetName=PRI_12V Pin=F2-1
+Added Pin To Net: NetName=PRI_12V Pin=R8-2
+Added Net: Name=PRI_12V
+Added Pin To Net: NetName=SEC_12V Pin=C5-1
+Added Pin To Net: NetName=SEC_12V Pin=F1-1
+Added Pin To Net: NetName=SEC_12V Pin=R4-2
+Added Net: Name=SEC_12V
+Added Pin To Net: NetName=SW Pin=C7-1
+Added Pin To Net: NetName=SW Pin=R5-1
+Added Pin To Net: NetName=SW Pin=U1-8
+Added Net: Name=SW
+Added Pin To Net: NetName=VPP Pin=CON1-2
+Added Net: Name=VPP
+Change Class Name : Old Net Name=SCH New Net Name=H_bridge
+Added Class: Name=DCTODC_Multioutput
+Added Class: Name=MCU
+Added Member To Class: ClassName=H_bridge Member=Component C11 390uF
+Added Member To Class: ClassName=H_bridge Member=Component C12 390uF
+Added Member To Class: ClassName=H_bridge Member=Component M1 ToMotor
+Added Member To Class: ClassName=H_bridge Member=Component OP1 6N137 DIP8 Opto 10Mbit
+Added Member To Class: ClassName=H_bridge Member=Component OP2 6N137 DIP8 Opto 10Mbit
+Added Member To Class: ClassName=H_bridge Member=Component OP3 6N137 DIP8 Opto 10Mbit
+Added Member To Class: ClassName=H_bridge Member=Component OP4 6N137 DIP8 Opto 10Mbit
+Added Member To Class: ClassName=H_bridge Member=Component Q3 IRF540NS
+Added Member To Class: ClassName=H_bridge Member=Component Q4 IRF540NS
+Added Member To Class: ClassName=H_bridge Member=Component Q7 IRF540NS
+Added Member To Class: ClassName=H_bridge Member=Component Q8 IRF540NS
+Added Member To Class: ClassName=H_bridge Member=Component R3 10
+Added Member To Class: ClassName=H_bridge Member=Component R4 10
+Added Member To Class: ClassName=H_bridge Member=Component R7 10
+Added Member To Class: ClassName=H_bridge Member=Component R8 10
+Added Member To Class: ClassName=H_bridge Member=Component R9 10k
+Added Member To Class: ClassName=H_bridge Member=Component R10 10k
+Added Member To Class: ClassName=H_bridge Member=Component R19 10
+Added Member To Class: ClassName=H_bridge Member=Component R20 10
+Added Member To Class: ClassName=H_bridge Member=Component R23 10
+Added Member To Class: ClassName=H_bridge Member=Component R24 10
+Added Member To Class: ClassName=H_bridge Member=Component R25 10k
+Added Member To Class: ClassName=H_bridge Member=Component R26 10k
+Added Room: Name=H_bridge
+Added Room: Name=MCU

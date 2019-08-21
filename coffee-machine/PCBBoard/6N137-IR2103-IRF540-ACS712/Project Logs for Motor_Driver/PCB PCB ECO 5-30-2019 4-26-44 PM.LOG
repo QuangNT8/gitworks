@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=IGND Pin=C3-1
+Removed Pin From Net: NetName=GND_MO Pin=C3-2
+Removed Pin From Net: NetName=OP_5V Pin=C4-1
+Removed Pin From Net: NetName=GND_MO Pin=C4-2
+Removed Pin From Net: NetName=NetC31_1 Pin=C11-1
+Added Component: Designator=C24(0805_HV)
+Added Component: Designator=C31(0805_HV)
+Added Component: Designator=C34(1210)
+Added Pin To Net: NetName=GND_MO Pin=C3-1
+Added Pin To Net: NetName=DRV_12V Pin=C3-2
+Added Pin To Net: NetName=GND_MO Pin=C4-1
+Added Pin To Net: NetName=DRV_12V Pin=C4-2
+Added Pin To Net: NetName=VIN Pin=C11-1
+Added Pin To Net: NetName=OP_5V Pin=C4-1
+Added Pin To Net: NetName=GND_MO Pin=C4-2
+Added Pin To Net: NetName=NetC31_1 Pin=C11-1
+Added Pin To Net: NetName=GND_MO Pin=C11-2
+Added Pin To Net: NetName=IGND Pin=C3-1
+Added Pin To Net: NetName=GND_MO Pin=C3-2

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=MO_5V Pin=C47-1
+Removed Pin From Net: NetName=GND Pin=C47-2
+Added Component: Designator=C48(TU_NHOM_470uF_25V_MH)
+Added Component: Designator=C49(TU_NHOM_470uF_25V_MH)
+Added Pin To Net: NetName=MO_5V Pin=C48-1
+Added Pin To Net: NetName=GND Pin=C48-2
+Added Pin To Net: NetName=MO_5V Pin=C47-1
+Added Pin To Net: NetName=GND Pin=C47-2
