@@ -1,53 +1,53 @@
-#include "stm32f042x6.h"
+#include "stm32f103xb.h"
 #include "controller.h"
+
+#define sysclk  48000000
+#define baud    115200
+
+#define UART_DIV_SAMPLING16(_PCLK_, _BAUD_)            (((_PCLK_)*25U)/(4U*(_BAUD_)))
+#define UART_DIVMANT_SAMPLING16(_PCLK_, _BAUD_)        (UART_DIV_SAMPLING16((_PCLK_), (_BAUD_))/100U)
+#define UART_DIVFRAQ_SAMPLING16(_PCLK_, _BAUD_)        (((UART_DIV_SAMPLING16((_PCLK_), (_BAUD_)) - (UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) * 100U)) * 16U + 50U) / 100U)
+/* UART BRR = mantissa + overflow + fraction
+            = (UART DIVMANT << 4) + (UART DIVFRAQ & 0xF0) + (UART DIVFRAQ & 0x0FU) */
+#define UART_BRR_SAMPLING16(_PCLK_, _BAUD_)            (((UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) << 4U) + \
+                                                        (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0xF0U)) + \
+                                                        (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0x0FU))
+
 
 void uart::Controller::initUART_()
 {
-    // GPIOB Periph clock enable
-    RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+    // USART1 clock enable
+    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
 
-    // PB6 and PB7 Alternate function mode
-    GPIOA->MODER |= (GPIO_MODER_MODER2_1 | GPIO_MODER_MODER3_1);
+    GPIOB->CRL |= GPIO_CRL_CNF7_1|GPIO_CRL_CNF6_1|GPIO_CRL_MODE6;
+//      __HAL_AFIO_REMAP_USART1_ENABLE();
+    AFIO->MAPR |= AFIO_MAPR_USART1_REMAP;
+      /* USER CODE END USART1_Init 1 */
+    USART1->CR1 |=  USART_CR1_TE | USART_CR1_RE;
 
-    // Set alternate functions AF1 for PA2 and PA3
-    GPIOA->AFR[0] |= 0x00001100;
+    USART1->BRR = UART_BRR_SAMPLING16(sysclk, baud);
 
-    // USART2 clock enable
-    RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
-
-    // 115200 Bd @ 48 MHz ???
-    // USARTDIV = 48 MHz / 115200 = 416 = 0x01A0
-    // BRR[15:4] = USARTDIV[15:4]
-    // When OVER8 = 0, BRR [3:0] = USARTDIV [3:0]
-    USART2->BRR = (uint16_t)(0x01A0);
-
-    // USART enable
-    // Receiver enable
-    // Transmitter enable
-    USART2->CR1 = (uint32_t)(USART_CR1_UE |USART_CR1_RE |USART_CR1_TE);
-
-    // Default value
-    USART2->CR2 = (uint32_t)(0x00000000);
-    USART2->CR3 = (uint32_t)(0x00000000);
+    USART1->CR1 |= USART_CR1_UE;
 }
 
 
 bool uart::Controller::rxReady_()
 {
-    return (USART2->ISR & USART_ISR_RXNE);
+    return (USART1->SR & USART_SR_RXNE);
 }
 
 bool uart::Controller::txReady_()
 {
-    return (USART2->ISR & USART_ISR_TXE) ;
+    return (USART1->SR & USART_SR_TXE) ;
 }
 
 uint8_t uart::Controller::read_()
 {
-    return (uint8_t)USART2->RDR;
+    return (uint8_t)USART1->DR;
 }
 
 void uart::Controller::write_(uint8_t c)
 {
-    USART2->TDR = c;
+    USART2->DR = c;
 }

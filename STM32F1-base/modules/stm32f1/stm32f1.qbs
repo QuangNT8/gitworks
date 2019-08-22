@@ -28,7 +28,10 @@ Module
 
     cpp.driverFlags:
     [
-        "-mlittle-endian", "-mcpu=cortex-m3",  "-march=armv6-m", "-mthumb", "-specs=nano.specs", "-specs=nosys.specs"
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-mfloat-abi=soft",
+        "-fno-strict-aliasing",
     ]
 
     cpp.commonCompilerFlags:
@@ -40,8 +43,7 @@ Module
     cpp.linkerFlags:
         [
         "--gc-sections",
-        "-L"+ path + "/system/linker",
-        "-T" + path + "/system/linker/STM32F103C8Tx_FLASH.ld",
+        "-T" + path + "../../../CubeGen/STM32F103C8Tx_FLASH.ld",
         "-lnosys",
         "-lgcc",
         "-lc",
