@@ -16,6 +16,7 @@
 
 void uart::Controller::initUART_()
 {
+#if 1
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     // USART1 clock enable
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
@@ -27,8 +28,11 @@ void uart::Controller::initUART_()
     USART1->CR1 |=  USART_CR1_TE | USART_CR1_RE;
 
     USART1->BRR = UART_BRR_SAMPLING16(sysclk, baud);
-
+    // Default value
+    USART1->CR2 = (uint32_t)(0x00000000);
+    USART1->CR3 = (uint32_t)(0x00000000);
     USART1->CR1 |= USART_CR1_UE;
+#endif
 }
 
 
@@ -49,5 +53,5 @@ uint8_t uart::Controller::read_()
 
 void uart::Controller::write_(uint8_t c)
 {
-    USART2->DR = c;
+    USART1->DR = c;
 }

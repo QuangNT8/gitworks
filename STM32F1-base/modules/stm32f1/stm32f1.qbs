@@ -28,10 +28,13 @@ Module
 
     cpp.driverFlags:
     [
+        "-mlittle-endian",
         "-mcpu=cortex-m3",
         "-mthumb",
         "-mfloat-abi=soft",
         "-fno-strict-aliasing",
+        "-specs=nano.specs",
+        "-specs=nosys.specs",
     ]
 
     cpp.commonCompilerFlags:

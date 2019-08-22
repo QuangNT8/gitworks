@@ -10,16 +10,8 @@
 #include "stm32f1xx_hal_uart.h"
 
 #include "uart/controller.h"
+#include "command.h"
 
-
-#define UART_DIV_SAMPLING16(_PCLK_, _BAUD_)            (((_PCLK_)*25U)/(4U*(_BAUD_)))
-#define UART_DIVMANT_SAMPLING16(_PCLK_, _BAUD_)        (UART_DIV_SAMPLING16((_PCLK_), (_BAUD_))/100U)
-#define UART_DIVFRAQ_SAMPLING16(_PCLK_, _BAUD_)        (((UART_DIV_SAMPLING16((_PCLK_), (_BAUD_)) - (UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) * 100U)) * 16U + 50U) / 100U)
-/* UART BRR = mantissa + overflow + fraction
-            = (UART DIVMANT << 4) + (UART DIVFRAQ & 0xF0) + (UART DIVFRAQ & 0x0FU) */
-#define UART_BRR_SAMPLING16(_PCLK_, _BAUD_)            (((UART_DIVMANT_SAMPLING16((_PCLK_), (_BAUD_)) << 4U) + \
-                                                        (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0xF0U)) + \
-                                                        (UART_DIVFRAQ_SAMPLING16((_PCLK_), (_BAUD_)) & 0x0FU))
 
 //#include "uart/controller.h"
 //#include "Stm32_GPIO/gpio.h"
@@ -177,6 +169,7 @@ static void MX_GPIO_Init(void)
 int main()
 {
     uint8_t datatest[10]= "hello ";
+    uint32_t counttest=0,count=0;
     HAL_Init();
     HAL_MspInit();
     SystemClock_Config();
@@ -190,9 +183,20 @@ int main()
 //    MX_USART1_UART_Init(48000000,115200);
     while (true)
     {
-        uart::CONTROLLER.printMessage("hello123..");
+        counttest++;
+        if(counttest<50000)
+        {
+            counttest++;
+        }
+        else
+        {
+            uart::CONTROLLER.printfMessage("hello123..%d\r\n",count++);
+            HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+            counttest=0;
+        }
 //        HAL_UART_Transmit(&huart1, datatest, 10, 10);
-        HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+
+//        USART1->DR = ('a' & (uint8_t)0xFF);
         uart::CONTROLLER.loop();
 //        HAL_Delay(100);
     }

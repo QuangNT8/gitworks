@@ -9,6 +9,8 @@ namespace plot
 class Controller
 {
 public:
+    uint16_t MotorArray[16];
+    uint16_t valveisclicked[16]={0};
 	Controller(): _mask(0){}
 void init()
 	{
