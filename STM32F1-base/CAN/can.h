@@ -52,7 +52,7 @@ namespace can
     public:
         void init();
         void loop();
-        uint8_t Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data);
+        void CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData);
         void delay(uint16_t);
         void SystemClock_Config(void);
     private:

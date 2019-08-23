@@ -74,9 +74,41 @@ void can::Controller::loop()
 
 }
 
-uint8_t can::Controller::Transmit(uint32_t addr, uint32_t data_size, uint8_t *tab_data)
+void can::Controller::CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData)
 {
+    uint32_t transmitmailbox;
+    uint32_t tsr = READ_REG(CAN1->TSR);
 
+    /* Check that all the Tx mailboxes are not full */
+    if (((tsr & CAN_TSR_TME0) != 0U) ||
+        ((tsr & CAN_TSR_TME1) != 0U) ||
+        ((tsr & CAN_TSR_TME2) != 0U))
+    {
+        /* Select an empty transmit mailbox */
+        transmitmailbox = (tsr & CAN_TSR_CODE) >> CAN_TSR_CODE_Pos;
+
+        CAN1->sTxMailBox[transmitmailbox].TIR = ((addr << CAN_TI0R_STID_Pos));
+
+        /* Set up the DLC */
+        CAN1->sTxMailBox[transmitmailbox].TDTR = DTLC;
+
+//        SET_BIT(CAN1->sTxMailBox[transmitmailbox].TDTR, CAN_TDT0R_TGT);
+
+          /* Set up the data field */
+          WRITE_REG(CAN1->sTxMailBox[transmitmailbox].TDHR,
+                    ((uint32_t)aData[7] << CAN_TDH0R_DATA7_Pos) |
+                    ((uint32_t)aData[6] << CAN_TDH0R_DATA6_Pos) |
+                    ((uint32_t)aData[5] << CAN_TDH0R_DATA5_Pos) |
+                    ((uint32_t)aData[4] << CAN_TDH0R_DATA4_Pos));
+          WRITE_REG(CAN1->sTxMailBox[transmitmailbox].TDLR,
+                    ((uint32_t)aData[3] << CAN_TDL0R_DATA3_Pos) |
+                    ((uint32_t)aData[2] << CAN_TDL0R_DATA2_Pos) |
+                    ((uint32_t)aData[1] << CAN_TDL0R_DATA1_Pos) |
+                    ((uint32_t)aData[0] << CAN_TDL0R_DATA0_Pos));
+
+          /* Request transmission */
+          SET_BIT(CAN1->sTxMailBox[transmitmailbox].TIR, CAN_TI0R_TXRQ);
+    }
 }
 
 
