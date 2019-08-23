@@ -8,45 +8,64 @@
 #include "stm32f1xx_hal_dma.h"
 #include "stm32f1xx_hal_dma_ex.h"
 #include "stm32f1xx_hal_uart.h"
+#include "stm32f1xx_hal_can.h"
 
 #include "uart/controller.h"
 #include "command.h"
 
 
-//#include "uart/controller.h"
-//#include "Stm32_GPIO/gpio.h"
-//#include "controller.h"
-//#include "stdio.h"
-//#include "CAN/can.h"
-
-//void SystemInit (void)
-//{
-
-//};
+uint32_t checkvalue;
 UART_HandleTypeDef huart1;
+CAN_HandleTypeDef hcan;
 
-int __io_putchar(int ch)
-{
-    uint8_t c[1];
-     c[0] = ch & 0x00FF;
-     HAL_UART_Transmit(&huart1, &*c, 1, 10);
-     return ch;
-}
-
-int _write(int file,char *ptr, int len)
-{
-     int DataIdx;
-     for(DataIdx= 0; DataIdx< len; DataIdx++)
-     {
-     __io_putchar(*ptr++);
-     }
-    return len;
-}
+CAN_TxHeaderTypeDef   TxHeader;
+CAN_RxHeaderTypeDef   RxHeader;
+uint8_t               TxData[8];
+uint8_t               RxData[8];
+uint32_t              TxMailbox;
 
 extern "C" void SysTick_Handler(void)
 {
     HAL_IncTick();
 }
+
+uint32_t CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData)
+{
+    uint32_t transmitmailbox;
+    uint32_t tsr = READ_REG(CAN1->TSR);
+
+    /* Check that all the Tx mailboxes are not full */
+    if (((tsr & CAN_TSR_TME0) != 0U) ||
+        ((tsr & CAN_TSR_TME1) != 0U) ||
+        ((tsr & CAN_TSR_TME2) != 0U))
+    {
+        /* Select an empty transmit mailbox */
+        transmitmailbox = (tsr & CAN_TSR_CODE) >> CAN_TSR_CODE_Pos;
+
+        CAN1->sTxMailBox[transmitmailbox].TIR = ((addr << CAN_TI0R_STID_Pos));
+
+        /* Set up the DLC */
+        CAN1->sTxMailBox[transmitmailbox].TDTR = DTLC;
+
+//        SET_BIT(CAN1->sTxMailBox[transmitmailbox].TDTR, CAN_TDT0R_TGT);
+
+          /* Set up the data field */
+          WRITE_REG(CAN1->sTxMailBox[transmitmailbox].TDHR,
+                    ((uint32_t)aData[7] << CAN_TDH0R_DATA7_Pos) |
+                    ((uint32_t)aData[6] << CAN_TDH0R_DATA6_Pos) |
+                    ((uint32_t)aData[5] << CAN_TDH0R_DATA5_Pos) |
+                    ((uint32_t)aData[4] << CAN_TDH0R_DATA4_Pos));
+          WRITE_REG(CAN1->sTxMailBox[transmitmailbox].TDLR,
+                    ((uint32_t)aData[3] << CAN_TDL0R_DATA3_Pos) |
+                    ((uint32_t)aData[2] << CAN_TDL0R_DATA2_Pos) |
+                    ((uint32_t)aData[1] << CAN_TDL0R_DATA1_Pos) |
+                    ((uint32_t)aData[0] << CAN_TDL0R_DATA0_Pos));
+
+          /* Request transmission */
+          SET_BIT(CAN1->sTxMailBox[transmitmailbox].TIR, CAN_TI0R_TXRQ);
+    }
+}
+
 
 void HAL_MspInit(void)
 {
@@ -78,31 +97,132 @@ void Error_Handler(void)
 }
 //uint8_t datatest[8] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
 
-
-static void MX_USART1_UART_Init(uint32_t sysclk, uint32_t baud)
+uint8_t CAN_Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data)
 {
-    uint32_t pclk;
-    uint32_t tmpreg;
+//    if(data_size > 8 || sizeof(tab_data) / sizeof(tab_data[0]) <= data_size)
+//	return 0;
 
-    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-    // USART1 clock enable
-    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+    TxHeader.StdId = addr;
+    TxHeader.DLC = data_size;
 
-    GPIOB->CRL |= GPIO_CRL_CNF7_1|GPIO_CRL_CNF6_1|GPIO_CRL_MODE6;
-//      __HAL_AFIO_REMAP_USART1_ENABLE();
-    AFIO->MAPR |= AFIO_MAPR_USART1_REMAP;
-      /* USER CODE END USART1_Init 1 */
-    USART1->CR1 |=  USART_CR1_TE | USART_CR1_RE;
-    USART1->BRR = UART_BRR_SAMPLING16(sysclk, baud);
-
-    USART1->CR1 |= USART_CR1_UE;
-
-    /* Initialize the UART state */
-    huart1.Instance = USART1;
-    huart1.ErrorCode = HAL_UART_ERROR_NONE;
-    huart1.gState = HAL_UART_STATE_READY;
-    huart1.RxState = HAL_UART_STATE_READY;
+    for(int i = 0; i < data_size; i++)
+    {
+        TxData[i] = tab_data[i];
+    }
+//    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
+    CAN_SendTxMessage(data_size, addr, tab_data);
+    return 1;
 }
+
+static void MX_CAN_Init(void)
+{
+    uint32_t timeout=0;
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    /* Peripheral clock enable */
+    RCC->APB1ENR |= RCC_APB1ENR_CAN1EN;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    /**CAN GPIO Configuration
+    PB8     ------> CAN_RX
+    PB9     ------> CAN_TX
+    */
+    GPIOB->CRH &= ~GPIO_CRH_CNF9;
+    GPIOB->CRH &= ~GPIO_CRH_CNF8;
+    GPIOB->CRH &= ~GPIO_CRH_MODE8;
+    GPIOB->CRH |= GPIO_CRH_CNF9_1|GPIO_CRH_MODE9|GPIO_CRH_CNF8_0;
+
+    //    __HAL_AFIO_REMAP_CAN1_2();
+    AFIO->MAPR |= AFIO_MAPR_CAN_REMAP_REMAP2;
+
+
+    /* Exit from sleep mode */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_SLEEP);
+
+    /* Request initialisation */
+    SET_BIT(CAN1->MCR, CAN_MCR_INRQ);
+
+    /* Wait initialisation acknowledge */
+    timeout=0;
+    while (((CAN1->MSR & CAN_MSR_INAK) == 0U)&&(timeout<10000))
+    {
+        timeout++;
+    }
+
+    /* Set the time triggered communication mode */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_TTCM); // TimeTriggeredMode = DISABLE;
+
+    /* Set the automatic bus-off management */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_ABOM); // AutoBusOff = DISABLE;
+
+    /* Set the automatic wake-up mode */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_AWUM); // AutoWakeUp = DISABLE;
+
+    /* Set the automatic retransmission */
+    SET_BIT(CAN1->MCR, CAN_MCR_NART);   // AutoRetransmission = DISABLE;
+
+    /* Set the receive FIFO locked mode */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_RFLM); // ReceiveFifoLocked = DISABLE;
+
+    /* Set the transmit FIFO priority */
+    CLEAR_BIT(CAN1->MCR, CAN_MCR_TXFP); // TransmitFifoPriority = DISABLE;
+
+//    /* Set the bit timing register */
+//    WRITE_REG(CAN1->BTR, (uint32_t)(hcan->Init.Mode           |
+//                                              hcan->Init.SyncJumpWidth  |
+//                                              hcan->Init.TimeSeg1       |
+//                                              hcan->Init.TimeSeg2       |
+//                                              (hcan->Init.Prescaler - 1U)));
+    checkvalue = CAN1->BTR;
+
+    CAN_BTR_BRP
+    hcan.Instance = CAN1;
+    hcan.Init.Prescaler = 81;
+    hcan.Init.Mode = CAN_MODE_LOOPBACK;
+    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+    hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+    hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
+    hcan.Init.TimeTriggeredMode = DISABLE;
+    hcan.Init.AutoBusOff = DISABLE;
+    hcan.Init.AutoWakeUp = DISABLE;
+    hcan.Init.AutoRetransmission = DISABLE;
+    hcan.Init.ReceiveFifoLocked = DISABLE;
+    hcan.Init.TransmitFifoPriority = DISABLE;
+    if (HAL_CAN_Init(&hcan) != HAL_OK)
+    {
+      Error_Handler();
+    }
+}
+
+void CAN_Config (void)
+{
+  CAN_FilterTypeDef sFilterConfig;
+
+  sFilterConfig.FilterBank = 0;
+  sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+  sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+  sFilterConfig.FilterIdHigh = 0;
+  sFilterConfig.FilterIdLow = 0;
+  sFilterConfig.FilterMaskIdHigh = 0;
+  sFilterConfig.FilterMaskIdLow = 0;
+  sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+  sFilterConfig.FilterActivation = ENABLE;
+  sFilterConfig.SlaveStartFilterBank = 14;
+
+  HAL_CAN_ConfigFilter(&hcan, &sFilterConfig);
+
+  HAL_CAN_Start (& hcan);
+
+//  HAL_CAN_ActivateNotification (& hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+
+  TxHeader.StdId = 0x320;
+  TxHeader.ExtId = 0x01;
+  TxHeader.RTR = CAN_RTR_DATA;
+  TxHeader.IDE = CAN_ID_STD;
+  TxHeader.DLC = 8;
+//  TxHeader.TransmitGlobalTime = DISABLE;
+}
+
+
 
 void SystemClock_Config(void)
 {
@@ -168,37 +288,32 @@ static void MX_GPIO_Init(void)
 
 int main()
 {
-    uint8_t datatest[10]= "hello ";
+    uint8_t datatest[20]= "hello hello hello";
     uint32_t counttest=0,count=0;
     HAL_Init();
     HAL_MspInit();
     SystemClock_Config();
     MX_GPIO_Init();
     uart::CONTROLLER.init();
+    MX_CAN_Init();
+    CAN_Config();
     /* Initialize the UART state */
-    huart1.Instance = USART1;
-    huart1.ErrorCode = HAL_UART_ERROR_NONE;
-    huart1.gState = HAL_UART_STATE_READY;
-    huart1.RxState = HAL_UART_STATE_READY;
 //    MX_USART1_UART_Init(48000000,115200);
     while (true)
     {
         counttest++;
-        if(counttest<50000)
+        if(counttest<100000)
         {
             counttest++;
         }
         else
         {
-            uart::CONTROLLER.printfMessage("hello123..%d\r\n",count++);
+            CAN_SendTxMessage(8,0x01,datatest);
+            uart::CONTROLLER.printfMessage("hello123..%lx\r\n",checkvalue);
             HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
             counttest=0;
         }
-//        HAL_UART_Transmit(&huart1, datatest, 10, 10);
-
-//        USART1->DR = ('a' & (uint8_t)0xFF);
         uart::CONTROLLER.loop();
-//        HAL_Delay(100);
     }
 //    return 0;
 }

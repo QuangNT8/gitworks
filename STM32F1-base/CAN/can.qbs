@@ -8,10 +8,12 @@ StaticLibrary
     Depends { name:"mdk"}
     Depends{name: "uart"}
 
+    cpp.includePaths: [project.sourceDirectory]
+
     cpp.defines:
     [
-        'STM32F042x6',
-       '___int16_t_defined',
+        'STM32F103xB',
+        '___int16_t_defined',
         '___int8_t_defined',
     ]
     files:

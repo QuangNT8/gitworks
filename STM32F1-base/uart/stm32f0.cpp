@@ -16,23 +16,21 @@
 
 void uart::Controller::initUART_()
 {
-#if 1
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     // USART1 clock enable
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
 
-    GPIOB->CRL |= GPIO_CRL_CNF7_1|GPIO_CRL_CNF6_1|GPIO_CRL_MODE6;
+    GPIOB->CRL |= GPIO_CRL_CNF6_1|GPIO_CRL_MODE6;
 //      __HAL_AFIO_REMAP_USART1_ENABLE();
     AFIO->MAPR |= AFIO_MAPR_USART1_REMAP;
       /* USER CODE END USART1_Init 1 */
     USART1->CR1 |=  USART_CR1_TE | USART_CR1_RE;
 
     USART1->BRR = UART_BRR_SAMPLING16(sysclk, baud);
-    // Default value
+
     USART1->CR2 = (uint32_t)(0x00000000);
     USART1->CR3 = (uint32_t)(0x00000000);
     USART1->CR1 |= USART_CR1_UE;
-#endif
 }
 
 

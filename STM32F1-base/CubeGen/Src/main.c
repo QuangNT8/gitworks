@@ -89,6 +89,63 @@ static void MX_USART1_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+CAN_TxHeaderTypeDef   TxHeader;
+CAN_RxHeaderTypeDef   RxHeader;
+uint8_t               TxData[8];
+uint8_t               RxData[8];
+uint32_t              TxMailbox;
+
+uint8_t datatest[8] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
+
+uint8_t CAN_Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data)
+{
+//    if(data_size > 8 || sizeof(tab_data) / sizeof(tab_data[0]) <= data_size)
+//	return 0;
+
+    TxHeader.StdId = addr;
+    TxHeader.DLC = data_size;
+
+    for(int i = 0; i < data_size; i++)
+    {
+    	TxData[i] = tab_data[i];
+    }
+    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
+    return 1;
+}
+
+void CAN_Config (void)
+{
+  CAN_FilterTypeDef sFilterConfig;
+
+  sFilterConfig.FilterBank = 0;
+  sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+  sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+  sFilterConfig.FilterIdHigh = 0;
+  sFilterConfig.FilterIdLow = 0;
+  sFilterConfig.FilterMaskIdHigh = 0;
+  sFilterConfig.FilterMaskIdLow = 0;
+  sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+  sFilterConfig.FilterActivation = ENABLE;
+  sFilterConfig.SlaveStartFilterBank = 14;
+
+  HAL_CAN_ConfigFilter(&hcan, &sFilterConfig);
+
+  HAL_CAN_Start (& hcan);
+
+//  HAL_CAN_ActivateNotification (& hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+
+  TxHeader.StdId = 0x320;
+  TxHeader.ExtId = 0x01;
+  TxHeader.RTR = CAN_RTR_DATA;
+  TxHeader.IDE = CAN_ID_STD;
+  TxHeader.DLC = 8;
+//  TxHeader.TransmitGlobalTime = DISABLE;
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback (CAN_HandleTypeDef * hcan)
+{
+	HAL_CAN_GetRxMessage (hcan, CAN_RX_FIFO0, & RxHeader, RxData);
+}
 /* USER CODE END 0 */
 
 /**
@@ -127,14 +184,16 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  CAN_Config();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  CAN_Transmit(0x0f,8,datatest);
 //	  printf("%d, adc value = %lu\r\n",0,0);
-	  HAL_UART_Transmit(&huart1,datatest, 20, 10);
+//	  HAL_UART_Transmit(&huart1,datatest, 20, 10);
 	  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
 	  HAL_Delay(100);
     /* USER CODE END WHILE */
@@ -248,10 +307,10 @@ static void MX_CAN_Init(void)
 
   /* USER CODE END CAN_Init 1 */
   hcan.Instance = CAN1;
-  hcan.Init.Prescaler = 16;
-  hcan.Init.Mode = CAN_MODE_NORMAL;
+  hcan.Init.Prescaler = 81;
+  hcan.Init.Mode = CAN_MODE_LOOPBACK;
   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan.Init.TimeSeg1 = CAN_BS1_1TQ;
+  hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
   hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
   hcan.Init.TimeTriggeredMode = DISABLE;
   hcan.Init.AutoBusOff = DISABLE;

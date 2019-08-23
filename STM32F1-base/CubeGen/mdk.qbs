@@ -27,6 +27,8 @@ StaticLibrary
         [
             "Inc/",
             "Drivers/CMSIS/Device/ST/STM32F1xx/Include/",
+            "Drivers/",
+            "Drivers/CMSIS/",
             "Drivers/CMSIS/Include/",
             "Drivers/STM32F1xx_HAL_Driver/Inc/",
             path,

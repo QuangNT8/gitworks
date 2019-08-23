@@ -1,6 +1,6 @@
 #ifndef CAN_H
 #define CAN_H
-#include "stm32f042x6.h"
+#include "stm32f103xb.h"
 
 namespace can
 {
