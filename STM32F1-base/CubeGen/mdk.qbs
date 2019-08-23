@@ -37,7 +37,7 @@ StaticLibrary
 
     files:
     [
-        "Inc/*.h",
+        "Inc/stm32f1xx_hal_conf.h",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include/*.h",
         "Drivers/CMSIS/Include/*.h",
         "Drivers/STM32F1xx_HAL_Driver/Inc/*.h",

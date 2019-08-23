@@ -4,12 +4,11 @@
 #include  <errno.h>
 #include  <sys/unistd.h>
 #include "Usart.h"
-#include "stm32f0xx_hal_uart.h"
-#include "stm32f0xx_hal_uart_ex.h"
-#include "stm32f0xx_hal_gpio.h"
-#include "stm32f0xx_hal_gpio_ex.h"
-#include "stm32f0xx_hal_rcc.h"
-#include "stm32f0xx_hal_tim.h"
+#include "stm32f1xx_hal_uart.h"
+#include "stm32f1xx_hal_gpio.h"
+#include "stm32f1xx_hal_gpio_ex.h"
+#include "stm32f1xx_hal_rcc.h"
+#include "stm32f1xx_hal_tim.h"
 
 FILE __stdout;
 FILE __stdin;
@@ -66,7 +65,7 @@ void USART::Controller::init()
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF1_USART1;
+//    GPIO_InitStruct.Alternate = GPIO_AF1_USART1;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 
@@ -78,8 +77,8 @@ void USART::Controller::init()
     huart1.Init.Mode = UART_MODE_TX_RX;
     huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
     huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-    huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-    huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+//    huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+//    huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
 
     HAL_UART_Init(&huart1);
 

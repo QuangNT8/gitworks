@@ -1,8 +1,8 @@
 #ifndef USART_H
 #define USART_H
-#include "stm32f051x8.h"
-#include "stm32f0xx_hal_dma.h"
-#include "stm32f0xx_hal_tim.h"
+#include "stm32f103xb.h"
+#include "stm32f1xx_hal_dma.h"
+#include "stm32f1xx_hal_tim.h"
 
 
 

@@ -38,13 +38,14 @@ Module
     ]
 
     cpp.commonCompilerFlags:
-        [
+    [
         "-fdata-sections",
         "-ffunction-sections",
     ]
 
     cpp.linkerFlags:
-        [
+    [
+        "--start-group",
         "--gc-sections",
         "-T" + path + "../../../CubeGen/STM32F103C8Tx_FLASH.ld",
         "-lnosys",

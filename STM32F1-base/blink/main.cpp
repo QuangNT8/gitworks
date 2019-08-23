@@ -10,8 +10,11 @@
 #include "stm32f1xx_hal_uart.h"
 #include "stm32f1xx_hal_can.h"
 
+#include"Stm32_GPIO/gpio.h"
 #include "uart/controller.h"
 #include "command.h"
+
+#include "CAN/can.h"
 
 
 uint32_t checkvalue;
@@ -114,6 +117,48 @@ uint8_t CAN_Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data)
     return 1;
 }
 
+#define CAN_Prescaler   80
+#define CAN_MODE_NORMAL             (0x00000000U)                              /*!< Normal mode   */
+#define CAN_MODE_LOOPBACK           ((uint32_t)CAN_BTR_LBKM)                   /*!< Loopback mode */
+#define CAN_MODE_SILENT             ((uint32_t)CAN_BTR_SILM)                   /*!< Silent mode   */
+#define CAN_MODE_SILENT_LOOPBACK    ((uint32_t)(CAN_BTR_LBKM | CAN_BTR_SILM))  /*!< Loopback combined with silent mode */
+
+/** @defgroup CAN_time_quantum_in_bit_segment_1 CAN Time Quantum in Bit Segment 1
+  * @{
+  */
+#define CAN_BS1_1TQ                 (0x00000000U)                                                /*!< 1 time quantum  */
+#define CAN_BS1_2TQ                 ((uint32_t)CAN_BTR_TS1_0)                                    /*!< 2 time quantum  */
+#define CAN_BS1_3TQ                 ((uint32_t)CAN_BTR_TS1_1)                                    /*!< 3 time quantum  */
+#define CAN_BS1_4TQ                 ((uint32_t)(CAN_BTR_TS1_1 | CAN_BTR_TS1_0))                  /*!< 4 time quantum  */
+#define CAN_BS1_5TQ                 ((uint32_t)CAN_BTR_TS1_2)                                    /*!< 5 time quantum  */
+#define CAN_BS1_6TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_0))                  /*!< 6 time quantum  */
+#define CAN_BS1_7TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_1))                  /*!< 7 time quantum  */
+#define CAN_BS1_8TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_1 | CAN_BTR_TS1_0))  /*!< 8 time quantum  */
+#define CAN_BS1_9TQ                 ((uint32_t)CAN_BTR_TS1_3)                                    /*!< 9 time quantum  */
+#define CAN_BS1_10TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_0))                  /*!< 10 time quantum */
+#define CAN_BS1_11TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_1))                  /*!< 11 time quantum */
+#define CAN_BS1_12TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_1 | CAN_BTR_TS1_0))  /*!< 12 time quantum */
+#define CAN_BS1_13TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2))                  /*!< 13 time quantum */
+#define CAN_BS1_14TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2 | CAN_BTR_TS1_0))  /*!< 14 time quantum */
+#define CAN_BS1_15TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2 | CAN_BTR_TS1_1))  /*!< 15 time quantum */
+#define CAN_BS1_16TQ                ((uint32_t)CAN_BTR_TS1) /*!< 16 time quantum */
+/**
+  * @}
+  */
+
+/** @defgroup CAN_time_quantum_in_bit_segment_2 CAN Time Quantum in Bit Segment 2
+  * @{
+  */
+#define CAN_BS2_1TQ                 (0x00000000U)                                /*!< 1 time quantum */
+#define CAN_BS2_2TQ                 ((uint32_t)CAN_BTR_TS2_0)                    /*!< 2 time quantum */
+#define CAN_BS2_3TQ                 ((uint32_t)CAN_BTR_TS2_1)                    /*!< 3 time quantum */
+#define CAN_BS2_4TQ                 ((uint32_t)(CAN_BTR_TS2_1 | CAN_BTR_TS2_0))  /*!< 4 time quantum */
+#define CAN_BS2_5TQ                 ((uint32_t)CAN_BTR_TS2_2)                    /*!< 5 time quantum */
+#define CAN_BS2_6TQ                 ((uint32_t)(CAN_BTR_TS2_2 | CAN_BTR_TS2_0))  /*!< 6 time quantum */
+#define CAN_BS2_7TQ                 ((uint32_t)(CAN_BTR_TS2_2 | CAN_BTR_TS2_1))  /*!< 7 time quantum */
+#define CAN_BS2_8TQ                 ((uint32_t)CAN_BTR_TS2)                      /*!< 8 time quantum */
+
+
 static void MX_CAN_Init(void)
 {
     uint32_t timeout=0;
@@ -167,31 +212,36 @@ static void MX_CAN_Init(void)
     CLEAR_BIT(CAN1->MCR, CAN_MCR_TXFP); // TransmitFifoPriority = DISABLE;
 
 //    /* Set the bit timing register */
+    CAN1->BTR = CAN_MODE_LOOPBACK|CAN_BS1_7TQ|CAN_BS2_1TQ|CAN_Prescaler;
+
 //    WRITE_REG(CAN1->BTR, (uint32_t)(hcan->Init.Mode           |
 //                                              hcan->Init.SyncJumpWidth  |
 //                                              hcan->Init.TimeSeg1       |
 //                                              hcan->Init.TimeSeg2       |
 //                                              (hcan->Init.Prescaler - 1U)));
-    checkvalue = CAN1->BTR;
 
-    CAN_BTR_BRP
-    hcan.Instance = CAN1;
-    hcan.Init.Prescaler = 81;
-    hcan.Init.Mode = CAN_MODE_LOOPBACK;
-    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
-    hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
-    hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
-    hcan.Init.TimeTriggeredMode = DISABLE;
-    hcan.Init.AutoBusOff = DISABLE;
-    hcan.Init.AutoWakeUp = DISABLE;
-    hcan.Init.AutoRetransmission = DISABLE;
-    hcan.Init.ReceiveFifoLocked = DISABLE;
-    hcan.Init.TransmitFifoPriority = DISABLE;
-    if (HAL_CAN_Init(&hcan) != HAL_OK)
-    {
-      Error_Handler();
-    }
+//    CAN_BTR_BRP
+//    hcan.Instance = CAN1;
+//    hcan.Init.Prescaler = 81;
+//    hcan.Init.Mode = CAN_MODE_LOOPBACK;
+//    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+//    hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+//    hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
+//    hcan.Init.TimeTriggeredMode = DISABLE;
+//    hcan.Init.AutoBusOff = DISABLE;
+//    hcan.Init.AutoWakeUp = DISABLE;
+//    hcan.Init.AutoRetransmission = DISABLE;
+//    hcan.Init.ReceiveFifoLocked = DISABLE;
+//    hcan.Init.TransmitFifoPriority = DISABLE;
+
+//    if (HAL_CAN_Init(&hcan) != HAL_OK)
+//    {
+//      Error_Handler();
+//    }
 }
+
+
+
 
 void CAN_Config (void)
 {
@@ -295,7 +345,9 @@ int main()
     SystemClock_Config();
     MX_GPIO_Init();
     uart::CONTROLLER.init();
-    MX_CAN_Init();
+    can::CONTROLLER.init();
+//    MX_CAN_Init();
+    checkvalue = CAN1->BTR;
     CAN_Config();
     /* Initialize the UART state */
 //    MX_USART1_UART_Init(48000000,115200);
@@ -310,9 +362,10 @@ int main()
         {
             CAN_SendTxMessage(8,0x01,datatest);
             uart::CONTROLLER.printfMessage("hello123..%lx\r\n",checkvalue);
-            HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+//            HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
             counttest=0;
         }
+        GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
     }
 //    return 0;

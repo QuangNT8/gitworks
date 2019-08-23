@@ -10,7 +10,8 @@ Product
     Depends{name: "stm32f1"}
     Depends{name: "mdk"}
     Depends{name: "uart"}
-//    Depends{name: "CAN"}
+    Depends{name: "GPIO"}
+    Depends{name: "CAN"}
 
     cpp.includePaths: [project.sourceDirectory]
     cpp.defines:
