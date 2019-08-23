@@ -42,7 +42,7 @@ void can::Controller::init()
 
     /* Wait initialisation acknowledge */
     timeout=0;
-    while (((CAN1->MSR & CAN_MSR_INAK) == 0U)&&(timeout<10000))
+    while (((CAN1->MSR & CAN_MSR_INAK) == 0U)&&(timeout<flagcheck_timeout))
     {
         timeout++;
     }

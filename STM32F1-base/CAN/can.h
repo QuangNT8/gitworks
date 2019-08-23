@@ -3,6 +3,8 @@
 #include "stm32f103xb.h"
 
 
+#define flagcheck_timeout       10000
+
 #define CAN_MODE_NORMAL             (0x00000000U)                              /*!< Normal mode   */
 #define CAN_MODE_LOOPBACK           ((uint32_t)CAN_BTR_LBKM)                   /*!< Loopback mode */
 #define CAN_MODE_SILENT             ((uint32_t)CAN_BTR_SILM)                   /*!< Silent mode   */

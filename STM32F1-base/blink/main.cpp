@@ -367,6 +367,19 @@ int main()
         }
         GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
+        HAL_CAN_GetRxMessage (&hcan, CAN_RX_FIFO0, & RxHeader, RxData);
+        if (RxHeader.StdId == 0x01 && RxHeader.DLC == 8 && RxData [4] == 4)
+        {
+            uart::CONTROLLER.printfMessage("good msg: 0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x",RxData[0], \
+                                                                                               RxData[1], \
+                                                                                               RxData[2], \
+                                                                                               RxData[3], \
+                                                                                               RxData[4], \
+                                                                                               RxData[5], \
+                                                                                               RxData[6], \
+                                                                                               RxData[7]   );
+              // Data processing
+        }
     }
 //    return 0;
 }
