@@ -3,7 +3,7 @@
 #include "stm32f103xb.h"
 
 
-#define flagcheck_timeout       10000
+#define flagcheck_timeout       100000
 
 #define CAN_MODE_NORMAL             (0x00000000U)                              /*!< Normal mode   */
 #define CAN_MODE_LOOPBACK           ((uint32_t)CAN_BTR_LBKM)                   /*!< Loopback mode */
@@ -55,8 +55,10 @@ namespace can
         void CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData);
         void delay(uint16_t);
         void SystemClock_Config(void);
-    private:
+        bool CAN_GetRxMessage(uint32_t DeviceID, uint8_t* aData);
         void CAN_ConfigFilter();
+    private:
+
     };
 
 extern can::Controller CONTROLLER;

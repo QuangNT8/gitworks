@@ -9,8 +9,8 @@ Project
     property string openOCDExe: "D:/uki/OpenOCD-20180728/bin/openocd.exe"
     property string openOCDPath: "D:/uki/OpenOCD-20180728/share/openocd"
     references:[
-        "modules/stm32f1/mdk.qbs",
-//        "CubeGen/mdk.qbs",
+//        "modules/stm32f1/mdk.qbs",
+        "CubeGen/mdk.qbs",
         /* LIBRARIES */
         "uart/stm32.qbs",
 //        "Stm32_USART/Usart.qbs",

@@ -112,132 +112,52 @@ uint8_t CAN_Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data)
     {
         TxData[i] = tab_data[i];
     }
-//    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
+    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
     CAN_SendTxMessage(data_size, addr, tab_data);
     return 1;
 }
 
-#define CAN_Prescaler   80
-#define CAN_MODE_NORMAL             (0x00000000U)                              /*!< Normal mode   */
-#define CAN_MODE_LOOPBACK           ((uint32_t)CAN_BTR_LBKM)                   /*!< Loopback mode */
-#define CAN_MODE_SILENT             ((uint32_t)CAN_BTR_SILM)                   /*!< Silent mode   */
-#define CAN_MODE_SILENT_LOOPBACK    ((uint32_t)(CAN_BTR_LBKM | CAN_BTR_SILM))  /*!< Loopback combined with silent mode */
-
-/** @defgroup CAN_time_quantum_in_bit_segment_1 CAN Time Quantum in Bit Segment 1
-  * @{
-  */
-#define CAN_BS1_1TQ                 (0x00000000U)                                                /*!< 1 time quantum  */
-#define CAN_BS1_2TQ                 ((uint32_t)CAN_BTR_TS1_0)                                    /*!< 2 time quantum  */
-#define CAN_BS1_3TQ                 ((uint32_t)CAN_BTR_TS1_1)                                    /*!< 3 time quantum  */
-#define CAN_BS1_4TQ                 ((uint32_t)(CAN_BTR_TS1_1 | CAN_BTR_TS1_0))                  /*!< 4 time quantum  */
-#define CAN_BS1_5TQ                 ((uint32_t)CAN_BTR_TS1_2)                                    /*!< 5 time quantum  */
-#define CAN_BS1_6TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_0))                  /*!< 6 time quantum  */
-#define CAN_BS1_7TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_1))                  /*!< 7 time quantum  */
-#define CAN_BS1_8TQ                 ((uint32_t)(CAN_BTR_TS1_2 | CAN_BTR_TS1_1 | CAN_BTR_TS1_0))  /*!< 8 time quantum  */
-#define CAN_BS1_9TQ                 ((uint32_t)CAN_BTR_TS1_3)                                    /*!< 9 time quantum  */
-#define CAN_BS1_10TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_0))                  /*!< 10 time quantum */
-#define CAN_BS1_11TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_1))                  /*!< 11 time quantum */
-#define CAN_BS1_12TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_1 | CAN_BTR_TS1_0))  /*!< 12 time quantum */
-#define CAN_BS1_13TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2))                  /*!< 13 time quantum */
-#define CAN_BS1_14TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2 | CAN_BTR_TS1_0))  /*!< 14 time quantum */
-#define CAN_BS1_15TQ                ((uint32_t)(CAN_BTR_TS1_3 | CAN_BTR_TS1_2 | CAN_BTR_TS1_1))  /*!< 15 time quantum */
-#define CAN_BS1_16TQ                ((uint32_t)CAN_BTR_TS1) /*!< 16 time quantum */
-/**
-  * @}
-  */
-
-/** @defgroup CAN_time_quantum_in_bit_segment_2 CAN Time Quantum in Bit Segment 2
-  * @{
-  */
-#define CAN_BS2_1TQ                 (0x00000000U)                                /*!< 1 time quantum */
-#define CAN_BS2_2TQ                 ((uint32_t)CAN_BTR_TS2_0)                    /*!< 2 time quantum */
-#define CAN_BS2_3TQ                 ((uint32_t)CAN_BTR_TS2_1)                    /*!< 3 time quantum */
-#define CAN_BS2_4TQ                 ((uint32_t)(CAN_BTR_TS2_1 | CAN_BTR_TS2_0))  /*!< 4 time quantum */
-#define CAN_BS2_5TQ                 ((uint32_t)CAN_BTR_TS2_2)                    /*!< 5 time quantum */
-#define CAN_BS2_6TQ                 ((uint32_t)(CAN_BTR_TS2_2 | CAN_BTR_TS2_0))  /*!< 6 time quantum */
-#define CAN_BS2_7TQ                 ((uint32_t)(CAN_BTR_TS2_2 | CAN_BTR_TS2_1))  /*!< 7 time quantum */
-#define CAN_BS2_8TQ                 ((uint32_t)CAN_BTR_TS2)                      /*!< 8 time quantum */
-
 
 static void MX_CAN_Init(void)
 {
-    uint32_t timeout=0;
     GPIO_InitTypeDef GPIO_InitStruct = {0};
+    __HAL_RCC_CAN1_CLK_ENABLE();
 
-    /* Peripheral clock enable */
-    RCC->APB1ENR |= RCC_APB1ENR_CAN1EN;
-    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-    /**CAN GPIO Configuration
-    PB8     ------> CAN_RX
-    PB9     ------> CAN_TX
-    */
-    GPIOB->CRH &= ~GPIO_CRH_CNF9;
-    GPIOB->CRH &= ~GPIO_CRH_CNF8;
-    GPIOB->CRH &= ~GPIO_CRH_MODE8;
-    GPIOB->CRH |= GPIO_CRH_CNF9_1|GPIO_CRH_MODE9|GPIO_CRH_CNF8_0;
+       __HAL_RCC_GPIOB_CLK_ENABLE();
+       /**CAN GPIO Configuration
+       PB8     ------> CAN_RX
+       PB9     ------> CAN_TX
+       */
+       GPIO_InitStruct.Pin = GPIO_PIN_8;
+       GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+       GPIO_InitStruct.Pull = GPIO_NOPULL;
+       HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    //    __HAL_AFIO_REMAP_CAN1_2();
-    AFIO->MAPR |= AFIO_MAPR_CAN_REMAP_REMAP2;
+       GPIO_InitStruct.Pin = GPIO_PIN_9;
+       GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+       GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+       HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+       __HAL_AFIO_REMAP_CAN1_2();
 
-    /* Exit from sleep mode */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_SLEEP);
+    hcan.Instance = CAN1;
+    hcan.Init.Prescaler = 80;
+    hcan.Init.Mode = CAN_MODE_LOOPBACK;
+    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+    hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+    hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
+    hcan.Init.TimeTriggeredMode = DISABLE;
+    hcan.Init.AutoBusOff = DISABLE;
+    hcan.Init.AutoWakeUp = DISABLE;
+    hcan.Init.AutoRetransmission = DISABLE;
+    hcan.Init.ReceiveFifoLocked = DISABLE;
+    hcan.Init.TransmitFifoPriority = DISABLE;
 
-    /* Request initialisation */
-    SET_BIT(CAN1->MCR, CAN_MCR_INRQ);
-
-    /* Wait initialisation acknowledge */
-    timeout=0;
-    while (((CAN1->MSR & CAN_MSR_INAK) == 0U)&&(timeout<10000))
+    if (HAL_CAN_Init(&hcan) != HAL_OK);
     {
-        timeout++;
+        Error_Handler();
     }
 
-    /* Set the time triggered communication mode */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_TTCM); // TimeTriggeredMode = DISABLE;
-
-    /* Set the automatic bus-off management */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_ABOM); // AutoBusOff = DISABLE;
-
-    /* Set the automatic wake-up mode */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_AWUM); // AutoWakeUp = DISABLE;
-
-    /* Set the automatic retransmission */
-    SET_BIT(CAN1->MCR, CAN_MCR_NART);   // AutoRetransmission = DISABLE;
-
-    /* Set the receive FIFO locked mode */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_RFLM); // ReceiveFifoLocked = DISABLE;
-
-    /* Set the transmit FIFO priority */
-    CLEAR_BIT(CAN1->MCR, CAN_MCR_TXFP); // TransmitFifoPriority = DISABLE;
-
-//    /* Set the bit timing register */
-    CAN1->BTR = CAN_MODE_LOOPBACK|CAN_BS1_7TQ|CAN_BS2_1TQ|CAN_Prescaler;
-
-//    WRITE_REG(CAN1->BTR, (uint32_t)(hcan->Init.Mode           |
-//                                              hcan->Init.SyncJumpWidth  |
-//                                              hcan->Init.TimeSeg1       |
-//                                              hcan->Init.TimeSeg2       |
-//                                              (hcan->Init.Prescaler - 1U)));
-
-//    CAN_BTR_BRP
-//    hcan.Instance = CAN1;
-//    hcan.Init.Prescaler = 81;
-//    hcan.Init.Mode = CAN_MODE_LOOPBACK;
-//    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
-//    hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
-//    hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
-//    hcan.Init.TimeTriggeredMode = DISABLE;
-//    hcan.Init.AutoBusOff = DISABLE;
-//    hcan.Init.AutoWakeUp = DISABLE;
-//    hcan.Init.AutoRetransmission = DISABLE;
-//    hcan.Init.ReceiveFifoLocked = DISABLE;
-//    hcan.Init.TransmitFifoPriority = DISABLE;
-
-//    if (HAL_CAN_Init(&hcan) != HAL_OK)
-//    {
-//      Error_Handler();
-//    }
 }
 
 
@@ -245,31 +165,29 @@ static void MX_CAN_Init(void)
 
 void CAN_Config (void)
 {
-  CAN_FilterTypeDef sFilterConfig;
+    CAN_FilterTypeDef sFilterConfig;
+    sFilterConfig.FilterBank = 0;
+    sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+    sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+    sFilterConfig.FilterIdHigh = 0;
+    sFilterConfig.FilterIdLow = 0;
+    sFilterConfig.FilterMaskIdHigh = 0;
+    sFilterConfig.FilterMaskIdLow = 0;
+    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+    sFilterConfig.FilterActivation = ENABLE;
+    sFilterConfig.SlaveStartFilterBank = 14;
 
-  sFilterConfig.FilterBank = 0;
-  sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
-  sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-  sFilterConfig.FilterIdHigh = 0;
-  sFilterConfig.FilterIdLow = 0;
-  sFilterConfig.FilterMaskIdHigh = 0;
-  sFilterConfig.FilterMaskIdLow = 0;
-  sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-  sFilterConfig.FilterActivation = ENABLE;
-  sFilterConfig.SlaveStartFilterBank = 14;
+    HAL_CAN_ConfigFilter(&hcan, &sFilterConfig);
 
-  HAL_CAN_ConfigFilter(&hcan, &sFilterConfig);
+    HAL_CAN_Start (& hcan);
 
-  HAL_CAN_Start (& hcan);
+    //  HAL_CAN_ActivateNotification (& hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
 
-//  HAL_CAN_ActivateNotification (& hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
-
-  TxHeader.StdId = 0x320;
-  TxHeader.ExtId = 0x01;
-  TxHeader.RTR = CAN_RTR_DATA;
-  TxHeader.IDE = CAN_ID_STD;
-  TxHeader.DLC = 8;
-//  TxHeader.TransmitGlobalTime = DISABLE;
+    TxHeader.StdId = 0x320;
+    TxHeader.ExtId = 0x01;
+    TxHeader.RTR = CAN_RTR_DATA;
+    TxHeader.IDE = CAN_ID_STD;
+    TxHeader.DLC = 8;
 }
 
 
@@ -315,24 +233,59 @@ void SystemClock_Config(void)
 
 static void MX_GPIO_Init(void)
 {
-//    GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-//     /* GPIO Ports Clock Enable */
-//     __HAL_RCC_GPIOC_CLK_ENABLE();
-//     __HAL_RCC_GPIOA_CLK_ENABLE();
-//     __HAL_RCC_GPIOB_CLK_ENABLE();
     RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
     GPIOC->CRH |= GPIO_CRH_MODE13;
-//     /*Configure GPIO pin Output Level */
-//     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
-//     /*Configure GPIO pin : PC13 */
-//     GPIO_InitStruct.Pin = GPIO_PIN_13;
-//     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//     GPIO_InitStruct.Pull = GPIO_NOPULL;
-//     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-//     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+}
 
+bool CAN_GetRxMessage(uint32_t DeviceID, uint8_t aData[])
+{
+    bool result = true;
+    uint32_t IDE, StdId, RTR, DLC, FilterMatchIndex, Timestamp;
+
+    /* Check that the Rx FIFO 0 is not empty */
+    if ((CAN1->RF0R & CAN_RF0R_FMP0) == 0U)
+    {
+        /* Update error code */
+    }
+
+    /* Get the header */
+    IDE = CAN_RI0R_IDE & CAN1->sFIFOMailBox[0].RIR;
+    if (IDE == (uint32_t)0)
+    {
+        StdId = (CAN_RI0R_STID & CAN1->sFIFOMailBox[0].RIR) >> CAN_TI0R_STID_Pos;
+    }
+    else
+    {
+        StdId = ((CAN_RI0R_EXID | CAN_RI0R_STID) & CAN1->sFIFOMailBox[0].RIR) >> CAN_RI0R_EXID_Pos;
+    }
+    if( DeviceID == StdId )
+    {
+        RTR = (CAN_RI0R_RTR & CAN1->sFIFOMailBox[0].RIR);
+        DLC = (CAN_RDT0R_DLC & CAN1->sFIFOMailBox[0].RDTR) >> CAN_RDT0R_DLC_Pos;
+        FilterMatchIndex = (CAN_RDT0R_FMI & CAN1->sFIFOMailBox[0].RDTR) >> CAN_RDT0R_FMI_Pos;
+        Timestamp = (CAN_RDT0R_TIME & CAN1->sFIFOMailBox[0].RDTR) >> CAN_RDT0R_TIME_Pos;
+
+        /* Get the data */
+        aData[0] = (uint8_t)((CAN_RDL0R_DATA0 & CAN1->sFIFOMailBox[0].RDLR) >> CAN_RDL0R_DATA0_Pos);
+        aData[1] = (uint8_t)((CAN_RDL0R_DATA1 & CAN1->sFIFOMailBox[0].RDLR) >> CAN_RDL0R_DATA1_Pos);
+        aData[2] = (uint8_t)((CAN_RDL0R_DATA2 & CAN1->sFIFOMailBox[0].RDLR) >> CAN_RDL0R_DATA2_Pos);
+        aData[3] = (uint8_t)((CAN_RDL0R_DATA3 & CAN1->sFIFOMailBox[0].RDLR) >> CAN_RDL0R_DATA3_Pos);
+        aData[4] = (uint8_t)((CAN_RDH0R_DATA4 & CAN1->sFIFOMailBox[0].RDHR) >> CAN_RDH0R_DATA4_Pos);
+        aData[5] = (uint8_t)((CAN_RDH0R_DATA5 & CAN1->sFIFOMailBox[0].RDHR) >> CAN_RDH0R_DATA5_Pos);
+        aData[6] = (uint8_t)((CAN_RDH0R_DATA6 & CAN1->sFIFOMailBox[0].RDHR) >> CAN_RDH0R_DATA6_Pos);
+        aData[7] = (uint8_t)((CAN_RDH0R_DATA7 & CAN1->sFIFOMailBox[0].RDHR) >> CAN_RDH0R_DATA7_Pos);
+        result = true;
+    }
+    else
+    {
+        result = false;
+    }
+    /* Release RX FIFO 0 */
+    SET_BIT(CAN1->RF0R, CAN_RF0R_RFOM0);
+
+    return result;
 }
 
 
@@ -345,30 +298,33 @@ int main()
     SystemClock_Config();
     MX_GPIO_Init();
     uart::CONTROLLER.init();
-    can::CONTROLLER.init();
-//    MX_CAN_Init();
-    checkvalue = CAN1->BTR;
+//    can::CONTROLLER.init();
+    MX_CAN_Init();
+
     CAN_Config();
+//    can::CONTROLLER.CAN_ConfigFilter();
     /* Initialize the UART state */
 //    MX_USART1_UART_Init(48000000,115200);
+    checkvalue = CAN1->FM1R;
     while (true)
     {
         counttest++;
-        if(counttest<100000)
+        if(counttest<1000)
         {
             counttest++;
         }
         else
         {
-            CAN_SendTxMessage(8,0x01,datatest);
-            uart::CONTROLLER.printfMessage("hello123..%lx\r\n",checkvalue);
-//            HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+            CAN_SendTxMessage(8,40,datatest);
+//            uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
+            HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
             counttest=0;
         }
-        GPIO::CONTROLLER.loop();
+//        GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
+//        uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
         HAL_CAN_GetRxMessage (&hcan, CAN_RX_FIFO0, & RxHeader, RxData);
-        if (RxHeader.StdId == 0x01 && RxHeader.DLC == 8 && RxData [4] == 4)
+        if (RxHeader.StdId == 0x100 && RxHeader.DLC == 8 && RxData [4] == 4)
         {
             uart::CONTROLLER.printfMessage("good msg: 0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x",RxData[0], \
                                                                                                RxData[1], \
