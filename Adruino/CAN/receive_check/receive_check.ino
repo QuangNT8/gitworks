@@ -17,7 +17,7 @@ void setup()
 {
     Serial.begin(115200);
 
-    while (CAN_OK != CAN.begin(CAN_33KBPS,MCP_16MHz))              // init can bus : baudrate = 500k
+    while (CAN_OK != CAN.begin(CAN_33K3BPS,MCP_16MHz))              // init can bus : baudrate = 500k
     {
         Serial.println("CAN BUS Shield init fail");
         Serial.println(" Init CAN BUS Shield again");

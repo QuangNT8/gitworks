@@ -35,15 +35,22 @@ void setup()
 
 void loop()
 {
+  send_datatest();
 //	received();
-	Msg1();
-  Msg2();
+//	Msg1();
+//  Msg2();
 // delay(10);
 }
 
 void send()
 {
 	
+}
+
+unsigned char datatest[8]= {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
+void send_datatest()
+{
+  CAN0.sendMsgBuf(0x10,0, 8, datatest);
 }
 
 void received()

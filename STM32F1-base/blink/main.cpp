@@ -102,18 +102,15 @@ void Error_Handler(void)
 
 uint8_t CAN_Transmit(uint32_t addr, uint32_t data_size, uint8_t * tab_data)
 {
-//    if(data_size > 8 || sizeof(tab_data) / sizeof(tab_data[0]) <= data_size)
-//	return 0;
 
+    TxHeader.IDE = 0;
     TxHeader.StdId = addr;
     TxHeader.DLC = data_size;
+    TxHeader.RTR =0;
+    TxHeader.TransmitGlobalTime = DISABLE;
 
-    for(int i = 0; i < data_size; i++)
-    {
-        TxData[i] = tab_data[i];
-    }
-    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
-    CAN_SendTxMessage(data_size, addr, tab_data);
+    HAL_CAN_AddTxMessage(&hcan, &TxHeader, tab_data, &TxMailbox);
+
     return 1;
 }
 
@@ -153,11 +150,7 @@ static void MX_CAN_Init(void)
     hcan.Init.ReceiveFifoLocked = DISABLE;
     hcan.Init.TransmitFifoPriority = DISABLE;
 
-    if (HAL_CAN_Init(&hcan) != HAL_OK);
-    {
-        Error_Handler();
-    }
-
+    HAL_CAN_Init(&hcan);
 }
 
 
@@ -183,10 +176,10 @@ void CAN_Config (void)
 
     //  HAL_CAN_ActivateNotification (& hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
 
-    TxHeader.StdId = 0x320;
-    TxHeader.ExtId = 0x01;
+    TxHeader.StdId = 0x100;
+    TxHeader.ExtId = 0x10244060;
     TxHeader.RTR = CAN_RTR_DATA;
-    TxHeader.IDE = CAN_ID_STD;
+    TxHeader.IDE = CAN_ID_EXT;
     TxHeader.DLC = 8;
 }
 
@@ -291,7 +284,7 @@ bool CAN_GetRxMessage(uint32_t DeviceID, uint8_t aData[])
 
 int main()
 {
-    uint8_t datatest[20]= "hello hello hello";
+    uint8_t datatest[8]= {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
     uint32_t counttest=0,count=0;
     HAL_Init();
     HAL_MspInit();
@@ -309,13 +302,14 @@ int main()
     while (true)
     {
         counttest++;
-        if(counttest<1000)
+        if(counttest<1500)
         {
             counttest++;
         }
         else
         {
-            CAN_SendTxMessage(8,40,datatest);
+//            CAN_SendTxMessage(8,0x100,datatest);
+            CAN_Transmit(0x10,8,datatest);
 //            uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
             HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
             counttest=0;
@@ -323,6 +317,7 @@ int main()
 //        GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
 //        uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
+#if 0
         HAL_CAN_GetRxMessage (&hcan, CAN_RX_FIFO0, & RxHeader, RxData);
         if (RxHeader.StdId == 0x100 && RxHeader.DLC == 8 && RxData [4] == 4)
         {
@@ -336,6 +331,7 @@ int main()
                                                                                                RxData[7]   );
               // Data processing
         }
+#endif
     }
 //    return 0;
 }
