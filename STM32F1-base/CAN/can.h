@@ -45,18 +45,35 @@
 #define CAN_BS2_7TQ                 ((uint32_t)(CAN_BTR_TS2_2 | CAN_BTR_TS2_1))  /*!< 7 time quantum */
 #define CAN_BS2_8TQ                 ((uint32_t)CAN_BTR_TS2)                      /*!< 8 time quantum */
 
+
+#define HEADER_INDICATOR	0xFE
+#define FOOTER_INDICATOR	0xFD
+
+typedef struct
+{
+    uint8_t Header;
+    uint8_t Footer;
+    uint8_t type;
+    uint8_t lenght;
+    uint32_t data;
+} CAN_DatTypeDef;
+
 namespace can
 {
     class Controller
     {
     public:
+        uint8_t TxData[8];
+        uint8_t RxData[8];
+        uint8_t rxLength_;
+        uint8_t rxType_;
         void init();
-        void loop();
+        void loop(uint32_t DeviceID);
         void SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData);
         void delay(uint16_t);
-        void SystemClock_Config(void);
         bool GetRxMessage(uint32_t DeviceID, uint8_t* aData);
         void ConfigFilter();
+        void processCommand_();
     private:
 
     };
@@ -64,4 +81,11 @@ namespace can
 extern can::Controller CONTROLLER;
 
 }
-#endif // CONTROLLER_H
+
+#define CAN_COMMAND_BEGIN              void can::Controller::processCommand_(){switch (rxType_){
+#define COMMAND_REG(type, command)      case type: can_cmd_##command(rxLength_, RxData);break;
+#define CAN_COMMAND_END                default:break;}}
+#define CAN_COMMAND(command)              void can_cmd_##command(uint8_t length, uint8_t* data)
+
+
+#endif /* CAN_H_ */

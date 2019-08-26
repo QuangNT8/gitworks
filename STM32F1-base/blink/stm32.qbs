@@ -20,6 +20,6 @@ Product
        '___int16_t_defined',
         '___int8_t_defined',
     ]
-    files:["main.cpp","command.h","command.cpp"]
+    files:["main.cpp","command.h","command.cpp", "cancmd.cpp" ]
 }
 

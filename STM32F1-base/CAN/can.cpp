@@ -80,9 +80,28 @@ void can::Controller::init()
 }
 
 
-void can::Controller::loop()
+void can::Controller::loop(uint32_t DeviceID)
 {
-
+    CAN_DatTypeDef datatemp;
+    if(can::CONTROLLER.GetRxMessage(DeviceID,&datatemp.Header)==true)
+    {
+//        uart::CONTROLLER.printfMessage("good msg: 0x%x,0x%x,0x%x,0x%x,0x%x",datatemp.Header, \
+//                                                                                           datatemp.Footer, \
+//                                                                                           datatemp.type, \
+//                                                                                           datatemp.lenght, \
+//                                                                                           datatemp.data);
+        if((datatemp.Header==0)&&((datatemp.Footer==0x01)))
+        {
+            rxType_ =  datatemp.type;
+            rxLength_ = datatemp.lenght;
+            RxData[0] = (uint8_t)(datatemp.data>>24);
+            RxData[1] = (uint8_t)(datatemp.data>>16);
+            RxData[2] = (uint8_t)(datatemp.data>>8);
+            RxData[3] = (uint8_t)datatemp.data;
+//            uart::CONTROLLER.printfMessage("good msg:");
+            this->processCommand_();
+        }
+    }
 }
 
 void can::Controller::SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData)

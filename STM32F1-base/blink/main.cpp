@@ -13,7 +13,7 @@
 #include"Stm32_GPIO/gpio.h"
 #include "uart/controller.h"
 #include "command.h"
-
+#include "cancmd.h"
 #include "CAN/can.h"
 
 
@@ -162,7 +162,7 @@ void CAN_Config (void)
     sFilterConfig.FilterBank = 0;
     sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
     sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-    sFilterConfig.FilterIdHigh = 0x02 <<5;
+    sFilterConfig.FilterIdHigh = 0x01 <<5;
     sFilterConfig.FilterIdLow = 0;
     sFilterConfig.FilterMaskIdHigh = 0xFFF<<5;
     sFilterConfig.FilterMaskIdLow = 0;
@@ -318,24 +318,8 @@ int main()
         }
 //        GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
+        can::CONTROLLER.loop(0x01);
 //        uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
-#if 1
-//        if (HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0)> 0)
-
-    //        uart::CONTROLLER.printfMessage("RxHeader.IDE 0x%x",RxHeader.IDE);
-    //        uart::CONTROLLER.printfMessage("RxHeader.StdId 0x%x",RxHeader.StdId);
-        if(can::CONTROLLER.GetRxMessage(0x01,RxData)==true)
-        {
-            uart::CONTROLLER.printfMessage("good msg: 0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x",RxData[0], \
-                                                                                               RxData[1], \
-                                                                                               RxData[2], \
-                                                                                               RxData[3], \
-                                                                                               RxData[4], \
-                                                                                               RxData[5], \
-                                                                                               RxData[6], \
-                                                                                               RxData[7]   );
-        }
-#endif
     }
 //    return 0;
 }
