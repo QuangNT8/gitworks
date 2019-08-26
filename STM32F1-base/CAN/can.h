@@ -52,11 +52,11 @@ namespace can
     public:
         void init();
         void loop();
-        void CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData);
+        void SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData);
         void delay(uint16_t);
         void SystemClock_Config(void);
-        bool CAN_GetRxMessage(uint32_t DeviceID, uint8_t* aData);
-        void CAN_ConfigFilter();
+        bool GetRxMessage(uint32_t DeviceID, uint8_t* aData);
+        void ConfigFilter();
     private:
 
     };

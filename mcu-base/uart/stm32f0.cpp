@@ -6,7 +6,7 @@ void uart::Controller::initUART_()
     // GPIOB Periph clock enable
     RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
 
-    // PB6 and PB7 Alternate function mode
+    // PA2 and PA3 Alternate function mode
     GPIOA->MODER |= (GPIO_MODER_MODER2_1 | GPIO_MODER_MODER3_1);
 
     // Set alternate functions AF1 for PA2 and PA3

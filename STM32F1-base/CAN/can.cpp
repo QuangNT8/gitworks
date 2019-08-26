@@ -21,6 +21,7 @@ void can::Controller::init()
     /* Peripheral clock enable */
     RCC->APB1ENR |= RCC_APB1ENR_CAN1EN;
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+
     /**CAN GPIO Configuration
     PB8     ------> CAN_RX
     PB9     ------> CAN_TX
@@ -33,7 +34,7 @@ void can::Controller::init()
     //    __HAL_AFIO_REMAP_CAN1_2();
     AFIO->MAPR |= AFIO_MAPR_CAN_REMAP_REMAP2;
 
-
+#if 1
     /* Exit from sleep mode */
     CLEAR_BIT(CAN1->MCR, CAN_MCR_SLEEP);
 
@@ -72,9 +73,10 @@ void can::Controller::init()
     CLEAR_BIT(CAN1->MCR, CAN_MCR_TXFP); // TransmitFifoPriority = DISABLE;
 
     //    /* Set the bit timing register */
-    CAN1->BTR = CAN_MODE_LOOPBACK|CAN_BS1_7TQ|CAN_BS2_1TQ|CAN_Prescaler;
+    CAN1->BTR = CAN_MODE_NORMAL|CAN_BS1_7TQ|CAN_BS2_1TQ|(CAN_Prescaler-1U);
+#endif
 
-//    can::CONTROLLER.CAN_ConfigFilter();
+    can::CONTROLLER.ConfigFilter();
 }
 
 
@@ -83,7 +85,7 @@ void can::Controller::loop()
 
 }
 
-void can::Controller::CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData)
+void can::Controller::SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *aData)
 {
     uint32_t transmitmailbox;
     uint32_t tsr = READ_REG(CAN1->TSR);
@@ -120,7 +122,7 @@ void can::Controller::CAN_SendTxMessage(uint32_t DTLC, uint32_t addr, uint8_t *a
     }
 }
 
-bool can::Controller::CAN_GetRxMessage(uint32_t DeviceID, uint8_t* aData)
+bool can::Controller::GetRxMessage(uint32_t DeviceID, uint8_t* aData)
 {
     bool result = true;
     uint32_t IDE, StdId, RTR, DLC, FilterMatchIndex, Timestamp;
@@ -128,7 +130,7 @@ bool can::Controller::CAN_GetRxMessage(uint32_t DeviceID, uint8_t* aData)
     /* Check that the Rx FIFO 0 is not empty */
     if ((CAN1->RF0R & CAN_RF0R_FMP0) == 0U)
     {
-        /* Update error code */
+        return false;
     }
 
     /* Get the header */
@@ -170,7 +172,7 @@ bool can::Controller::CAN_GetRxMessage(uint32_t DeviceID, uint8_t* aData)
 }
 
 
-void can::Controller::CAN_ConfigFilter()
+void can::Controller::ConfigFilter()
 {
     uint32_t filternbrbitpos;
     /* Initialisation mode for the filter */

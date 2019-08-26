@@ -139,7 +139,7 @@ static void MX_CAN_Init(void)
 
     hcan.Instance = CAN1;
     hcan.Init.Prescaler = 80;
-    hcan.Init.Mode = CAN_MODE_LOOPBACK;
+    hcan.Init.Mode = CAN_MODE_NORMAL;
     hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
     hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
     hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
@@ -162,9 +162,9 @@ void CAN_Config (void)
     sFilterConfig.FilterBank = 0;
     sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
     sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-    sFilterConfig.FilterIdHigh = 0;
+    sFilterConfig.FilterIdHigh = 0x02 <<5;
     sFilterConfig.FilterIdLow = 0;
-    sFilterConfig.FilterMaskIdHigh = 0;
+    sFilterConfig.FilterMaskIdHigh = 0xFFF<<5;
     sFilterConfig.FilterMaskIdLow = 0;
     sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
     sFilterConfig.FilterActivation = ENABLE;
@@ -290,26 +290,28 @@ int main()
     HAL_MspInit();
     SystemClock_Config();
     MX_GPIO_Init();
+
     uart::CONTROLLER.init();
+
 //    can::CONTROLLER.init();
     MX_CAN_Init();
-
     CAN_Config();
-//    can::CONTROLLER.CAN_ConfigFilter();
+//    can::CONTROLLER.ConfigFilter();
     /* Initialize the UART state */
 //    MX_USART1_UART_Init(48000000,115200);
     checkvalue = CAN1->FM1R;
+
     while (true)
     {
         counttest++;
-        if(counttest<1500)
+        if(counttest<150000)
         {
             counttest++;
         }
         else
         {
-//            CAN_SendTxMessage(8,0x100,datatest);
-            CAN_Transmit(0x10,8,datatest);
+            CAN_SendTxMessage(8,0x01,datatest);
+//            CAN_Transmit(0x01,8,datatest);
 //            uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
             HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
             counttest=0;
@@ -317,9 +319,12 @@ int main()
 //        GPIO::CONTROLLER.loop();
         uart::CONTROLLER.loop();
 //        uart::CONTROLLER.printfMessage("hello123..%lx\r\n",RxHeader.StdId);
-#if 0
-        HAL_CAN_GetRxMessage (&hcan, CAN_RX_FIFO0, & RxHeader, RxData);
-        if (RxHeader.StdId == 0x100 && RxHeader.DLC == 8 && RxData [4] == 4)
+#if 1
+//        if (HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0)> 0)
+
+    //        uart::CONTROLLER.printfMessage("RxHeader.IDE 0x%x",RxHeader.IDE);
+    //        uart::CONTROLLER.printfMessage("RxHeader.StdId 0x%x",RxHeader.StdId);
+        if(can::CONTROLLER.GetRxMessage(0x01,RxData)==true)
         {
             uart::CONTROLLER.printfMessage("good msg: 0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x",RxData[0], \
                                                                                                RxData[1], \
@@ -329,7 +334,6 @@ int main()
                                                                                                RxData[5], \
                                                                                                RxData[6], \
                                                                                                RxData[7]   );
-              // Data processing
         }
 #endif
     }

@@ -3,8 +3,8 @@ import qbs
 Product
 {
     name: "blink"
-//    type: ["application", "hex", "flash"]
-    type: ["application", "hex"]
+    type: ["application", "hex", "flash"]
+//    type: ["application", "hex"]
 
     Depends{name: "cpp"}
     Depends{name: "stm32f0"}
