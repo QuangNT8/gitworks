@@ -1,0 +1,6 @@
+ÀÄmain
+   ÃÄMAIN  0/116  Ram=1
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ÃÄtimer1  0/10  Ram=0
+   ÀÄtimer0  0/16  Ram=0

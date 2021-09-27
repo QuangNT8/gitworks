@@ -1,9 +1,11 @@
 [PROJECT]
-Target=D:\laserprj\firmware\main.hex
+Target=main.hex
 Development_Mode=
 Processor_Text=PIC18F26J11
 ToolSuite=CCS
 Processor=0xD611
+CCSVersion=5.025
+Compiler=PCH
 [D:\laserprj\firmware\main]
 Type=4
 Path=
@@ -12,7 +14,7 @@ BuildTool=
 OptionString=
 AdditionalOptionString=
 [mru-list]
-1=D:\laserprj\firmware\main.c
+1=main.c
 [Windows]
 0=0000 %S 0 0 796 451 3 0
 [Opened Files]
@@ -35,7 +37,18 @@ AdditionalOptionString=
 17=
 [Target Data]
 OptionString=-p +FH
-FileList=F:\modulgsm\withpic18F24J11\main.c
+FileList=main.c
+
+[ProjectLog]
+Days=1
+D1=24-09-2021
+D1_L=4
+D1_L1=[47543]Project Opened.
+D1_L2=[47566]Project Closed.
+D1_L3=[47978]Project Opened.
+D1_L4=[48158]Project Closed.
+[main.c]
+Type=4
 [Units]
 Count=1
 1=main (main)

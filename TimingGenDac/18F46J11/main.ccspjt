@@ -1,0 +1,82 @@
+[PROJECT]
+Target=main.hex
+Development_Mode=
+Processor_Text=PIC18F26J11
+ToolSuite=CCS
+Processor=0xD611
+CCSVersion=5.025
+Compiler=PCH
+[D:\laserprj\firmware\main]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=main.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Opened Files]
+1=main.c
+2=main.h
+3=KBD.C
+4=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F26j11.h
+5=main.lst
+6=
+7=mcr.c
+8=
+9=24512.C
+10=eeprom.c
+11=ds1307.C
+12=uart_tool.c
+13=GSM.c
+14=mcr.c
+15=mode.c
+16=
+17=
+[Target Data]
+OptionString=-p +FH
+FileList=main.c
+
+[ProjectLog]
+Days=1
+D1=24-09-2021
+D1_L=28
+D1_L1=[47543]Project Opened.
+D1_L2=[47566]Project Closed.
+D1_L3=[47978]Project Opened.
+D1_L4=[48158]Project Closed.
+D1_L5=[48258]Project Opened.
+D1_L6=[48826]Started Editing.
+D1_L7=[48892]Stopped Editing.
+TotalEdit=106
+TotalDebug=0
+D1_E=106
+D1_D=0
+D1_L8=[48938]Started Editing.
+D1_L9=[49990]Stopped Editing.
+D1_L10=[52663]Started Editing.
+D1_L11=[54187]Stopped Editing.
+D1_L12=[56043]Started Editing.
+D1_L13=[56520]Stopped Editing.
+D1_L14=[57957]Started Editing.
+D1_L15=[58317]Stopped Editing.
+D1_L16=[58380]Started Editing.
+D1_L17=[58680]Stopped Editing.
+D1_L18=[58955]Started Editing.
+D1_L19=[60073]Stopped Editing.
+D1_L20=[60106]Started Editing.
+D1_L21=[60609]Stopped Editing.
+D1_L22=[60745]Started Editing.
+D1_L23=[63579]Stopped Editing.
+D1_L24=[63923]Started Editing.
+D1_L25=[64614]Stopped Editing.
+D1_L26=[64727]Started Editing.
+D1_L27=[65079]Stopped Editing.
+D1_L28=[71872]Project Closed.
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

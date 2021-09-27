@@ -1,50 +1,53 @@
->>> Warning 203 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 410(1,1): Condition always TRUE
->>> Warning 201 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\uart_tool.c" Line 81(1,1): Assignment inside relational expression
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 214 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
->>> Warning 203 "main.c" Line 334(1,1): Condition always TRUE
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (read_DS1307)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_2_)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_81)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_81)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_81)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LU_81)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
->>> Warning 216 "main.c" Line 1182(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_us1)
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 56(6,14): Variable never used:   delaykey
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 59(6,21): Variable never used:   count_strobe_kb
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 320(6,14): Variable never used:   KB_count
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 323(16,30): Variable never used:   kbd_call_count
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 324(16,24): Variable never used:   kbd_down
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 325(16,24): Variable never used:   last_key
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 403(9,12): Variable never used:   col
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 51(6,23): Variable never used:   count_checking_nw
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 52(6,17): Variable never used:   firstime_pw
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 538(9,13): Variable never used:   temp
->>> Warning 202 "D:\magnertic_card_prj\for chris\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 426(10,11): Variable never used:   i
+*** Error 24 "C:\Program Files (x86)\PICC\Devices\18F26j11.h" Line 11(9,20): Unknown device type    -- Try PCH
+      1 Errors,  0 Warnings.
+Build Failed.
+>>> Warning 203 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 409(1,1): Condition always TRUE
+>>> Warning 201 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\uart_tool.c" Line 80(1,1): Assignment inside relational expression
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 67(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 73(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 84(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 90(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 203 "main.c" Line 333(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (read_ext_eeprom)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (write_ext_eeprom)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (read_DS1307)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (del_buf)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_2_)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@DIV88)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN_662)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_D_662)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_662)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (save_ptrcard)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (save_coutcard)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (get_countcard)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_LU_662)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
+>>> Warning 216 "main.c" Line 1180(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_us1)
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 56(6,14): Variable never used:   delaykey
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 59(6,21): Variable never used:   count_strobe_kb
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 320(6,14): Variable never used:   KB_count
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 323(16,30): Variable never used:   kbd_call_count
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 324(16,24): Variable never used:   kbd_down
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 325(16,24): Variable never used:   last_key
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\scan_key.c" Line 403(9,12): Variable never used:   col
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 51(6,23): Variable never used:   count_checking_nw
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 52(6,17): Variable never used:   firstime_pw
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\GSM.c" Line 538(9,13): Variable never used:   temp
+>>> Warning 202 "C:\Users\quangnt\Desktop\gitworks\PIC18F26J11\firmware\(..)(..)(..)(..)(..)(..)(..)(..)fixbug2017\firmware\newGSM -newkeypad -18F46J11\mcr.c" Line 426(10,11): Variable never used:   i
       Memory usage:   ROM=60%      RAM=72% - 74%
       0 Errors,  47 Warnings.
 Build Successful.
